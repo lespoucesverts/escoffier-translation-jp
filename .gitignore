@@ -2,4 +2,6 @@
 
 
 *.pandoc
+package/**/*.pandoc
 *.ltjruby
+package/**/*.ltjruby
