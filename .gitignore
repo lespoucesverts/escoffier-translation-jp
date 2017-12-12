@@ -5,3 +5,8 @@
 package/**/*.pandoc
 *.ltjruby
 package/**/*.ltjruby
+
+!*.md
+!*.pdf
+
+*.*
