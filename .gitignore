@@ -8,5 +8,6 @@ package/**/*.ltjruby
 
 !*.md
 !*.pdf
+!*.tex
 
 *.*
