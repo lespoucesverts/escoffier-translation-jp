@@ -1,0 +1,391 @@
+\usepackage{okumacro}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage[expert,deluxe]{otf}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{palatino}
+\usepackage{xfrac}
+\usepackage[shortlabels]{enumitem}
+\usepackage{makeidx}
+\usepackage{setspace}
+\usepackage{layout}
+\usepackage[stable]{footmisc}
+\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,colorlinks=true,linkcolor=red,setpagesize=false,pdftitle={オギュスト・エスコフィエ「ソース」『ル・ギード・キュリネール』第１章},pdfauthor={五島 学 訳},pdfsubject={フランス料理古典叢書},pdfkeywords={エスコフィエ;ル・ギード・キュリネール}]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{graphicx}
+\usepackage{remreset}
+\usepackage{tabularx}
+\makeindex
+
+%%%%%%%%%%%%%%%%%%%
+%\hyperrefマクロを無効化
+%
+%\renewcommand{\hyperref}[2][]{#2}%パッケージが有効の場合
+%
+%\newcommand{\hyperref}[2][]{#2}%上でhyperrefパッケージを無効化している場合
+%
+%%%%%%%%%%%%%%%%%%%
+
+%デフォルトフォントをゴチにする
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+%行取りマクロ\linespace{行数}{内容}
+\makeatletter
+\ifx\Cht\undefined
+ \newdimen\Cht\newdimen\Cdp
+ \setbox0\hbox{\char\jis"2121}\Cht=\ht0\Cdp=\dp0\fi
+\catcode`@=11
+\long\def\linespace#1#2{\par\noindent
+  \dimen@=\baselineskip\multiply\dimen@ #1\advance\dimen@-\baselineskip
+  \advance\dimen@-\Cht\advance\dimen@\Cdp
+  \setbox0\vbox{\noindent #2}\advance\dimen@\ht0\advance\dimen@-\dp0%
+  \vtop to\z@{\hbox{\vrule width\z@ height\Cht depth\z@
+   \raise-.5\dimen@\hbox{\box0}}\vss}%
+  \dimen@=\baselineskip\multiply\dimen@ #1\advance\dimen@-2\baselineskip
+  \par\nobreak\vskip\dimen@\hbox{\vrule width\z@ height\Cht depth\z@}\vskip\z@}
+\catcode`@=12
+\makeatother
+
+%\setlength{\fullwidth}{41zw}
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+%\makeatletter
+%\def\@evenhead{%
+%  \if@mparswitch \hss \fi
+%  \underline{\hbox to \z@{\textit{\thepage}\hss}%
+%    \hbox to \fullwidth{\hss\autoxspacing\leftmark\hss}}%
+%  \if@mparswitch\else \hss \fi}%
+%\def\@oddhead{\underline{\hbox to \fullwidth{\hss
+%      {\autoxspacing\if@twoside\rightmark\else\leftmark\fi}\hss}%
+%    \hbox to \z@{\hss\textit{\thepage}}}\hss}%
+%\makeatother    
+%\setlength{\textwidth}{38zw}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{-35pt}
+%\setlength{\topmargin}{-6zw}
+%\setlength{\textheight}{58zw}
+\setlength{\marginparwidth}{0cm}
+\setlength{\marginparsep}{0cm}
+%\hoffset=-2zw% 左へ 0.5インチ版面全体を移動
+%\voffset=-3zw
+%\renewcommand{\prechaptername}{}
+%\renewcommand{\thechapter}{}
+%\renewcommand{\postchaptername}{}
+%\setlength{\footskip}{20zw}
+%\setlength{\columnsep}{2zw}
+\setlength{\columnseprule}{0pt}
+%\setlength{\parskip}{0pt}
+
+\setlength{\parskip}{0pt}
+%\setlength{\topskip}{\Cht}
+%\setlength{\textheight}{39\baselineskip}
+%\addtolength{\textheight}{1zh}
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+%\setlength{\itemindent}{-14pt}
+%\setlength{\leftmargin}{0zw}
+
+%リスト環境
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = 1zw
+  \def\@listi{%
+     \leftmargin = 1zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     \topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = 0pt \listparindent = 1zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 2zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+\makeatletter%% プリアンブルで定義する場合は必須
+
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%変更点
+    \else
+      \ifdim\textwidth<\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \else
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \fi
+    \fi
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+
+\def\@makechapterhead#1{\hbox{}%
+  \vskip2\Cvs
+  {\parindent\z@
+%  \raggedright% オリジナルの定義(左揃え)
+   \centering% 中央揃え
+%  \raggedleft% 右揃え
+   \reset@font\huge\sffamily
+   \ifnum \c@secnumdepth >\m@ne
+     \setlength\@tempdima{\linewidth}%
+     \vtop{\hsize\@tempdima%
+       \if@mainmatter% ← report クラスの場合この行不要
+          \@chapapp\thechapter\@chappos\\%
+       \fi% ← report クラスの場合この行不要
+     #1}%
+   \else
+     #1\relax
+   \fi}\nobreak\vskip3\Cvs}
+
+%\def\@makeschapterhead#1{\hbox{}%
+%  \vskip2\Cvs
+%  {\parindent\z@
+%%  \raggedright% オリジナルの定義(左揃え)
+% % \centering% 中央揃え
+%   \raggedleft% 右揃え
+%   \reset@font\huge\sffamily
+%   \setlength\@tempdima{\linewidth}%
+%   \vtop{\hsize\@tempdima#1}}\vskip3\Cvs}
+
+% \def\sectionmark##1{\markright{%
+ %   \ifnum \c@secnumdepth >\z@ \thesection \hskip1zw\fi
+ %   ##1}}%
+
+\renewcommand{\sectionmark}[1]{\markright{#1}{}} 
+%\renewcommand{\subsectionmark}[1]{\markright{#1}{}}
+
+%\renewcommand{\section}{%
+%    \@startsection{section}{1}{\z@}%
+%    {0.6\Cvs}{0.4\Cvs}%
+%    {\normalfont\LARGE\headfont\centering}}
+
+\renewcommand{\thesection}{}
+
+
+%subsectionに連番をつける
+\@removefromreset{subsection}{section}
+\def\thesubsection{\arabic{subsection}.}
+%\@removefromreset{footnote}{chapter}
+
+\newcounter{rnumber}
+\renewcommand{\thernumber}{\refstepcounter{rnumber} }
+%\newcommand{\rnumber}{\refstepcounter{rnumber}\thernumber. }
+%\renewcommand{\thesubsection}{\thernumber. }
+%\newcommand{\rnumber}{}
+%\newcounter{recetteno}
+%\renewcommand{\therecetteno}{\arabic{recetteno}}
+%\renewcommand{\thesubsection}{\refstepcounter{recetteno}\therecetteno. }
+%\@addtoreset{subsection}{chapter}
+
+\renewcommand{\section}{%
+  \@startsection{section}% #1 見出し
+   {2}% #2 見出しのレベル
+   {-1\Cvs}% #3 横組みの場合，見出し左の空き(インデント量)
+   {1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}% #4 見出し上の空き
+   {1.5\Cvs \@plus.5\Cdp}% #5 見出し下の空き (負の値なら見出し後の空き)
+      %{.5\Cvs \@plus.3\Cdp}% #5 見出し下の空き (負の値なら見出し後の空き)
+%  {\reset@font\Large\bfseries}% #6 見出しの属性
+  % {\raggedright\reset@font\LARGE\sffamily}%
+   {\centering\reset@font\LARGE\sffamily}% 中央揃え
+%  {\raggedleft\reset@font\Large\bfseries}% 右揃え
+}%
+
+\renewcommand{\subsection}{%
+  \@startsection{subsection}% #1 見出し
+   {2}% #2 見出しのレベル
+   {0\Cvs}% #3 横組みの場合，見出し左の空き(インデント量)
+   {0\Cvs \@plus0\Cdp \@minus0\Cdp}% #4 見出し上の空き
+   {0\Cvs}%{0\Cvs \@plus0\Cdp \@minus0\Cdp}% #5 見出し下の空き (負の値なら見出し後の空き) 
+   {\reset@font\fontsize{9.2482pt}{12.0226pt}\sffamily\bfseries}% #6 見出しの属性
+%   {\centering\reset@font\large\sffamily}% 中央揃え
+%   {\raggedright\reset@font\normalsize\bfseries}% 右揃え
+}%
+
+\renewcommand{\subsubsection}{%
+  \@startsection{subsubsection}% #1 見出し
+   {4}% #2 見出しのレベル
+   {0\Cvs}% #3 横組みの場合，見出し左の空き(インデント量)
+   {0\Cvs}%{0\Cvs \@plus0\Cdp \@minus0\Cdp}%{0\Cvs \@plus0\Cdp \@minus5\Cdp}% #4 見出し上の空き
+   {0\Cvs \@plus0\Cdp}% #5 見出し下の空き (負の値なら見出し後の空き) 
+   {\reset@font\small\itshape}% #6 見出しの属性
+%   {\centering\reset@font\large\bfseries}% 中央揃え
+%   {\raggedright\reset@font\small\itshape}% 右揃え
+}%
+
+%\renewcommand{\subsubsection}{%
+%  \@startsection{subsubsection}% #1 見出し
+%   {4}% #2 見出しのレベル
+%   {\z@}% #3 横組みの場合，見出し左の空き(インデント量)
+% %  {1zw}
+%   %{\z@}{\z@}
+%%{\z@}{\z@}%
+%  {-1\Cvs \@plus0\Cdp \@minus0\Cdp}% #4 見出し上の空き
+%  % {0.5\Cvs \@plus0\Cdp}% #5 見出し下の空き (負の値なら見出し後の空き) 
+%   {\z@}%{\z@}
+%  {\reset@font\normalsize\itshape}% #6 見出しの属性
+%%   {\centering\reset@font\large\bfseries}% 中央揃え
+%%   {\raggedright\reset@font\small\itshape}% 右揃え
+%}%
+
+
+%\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+%    {\z@}{\@z}%
+%    {\normalfont\normalsize\headfont}}
+
+\@addtoreset{footnote}{page}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+ {\z@}{\z@}%
+ {\normalfont\small\headfont■}}
+ 
+\newcommand{\subsubsubsection}{\@startsection{subsubsubsection}{4}{\z@}%
+   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   %{\z@}%
+   {-1\Cvs\@plus0\Cvs\@minus.2\Cvs}%
+   {\reset@font\normalsize\bfseries}}
+
+
+\makeatother%% プリアンブルで定義する場合は必須
+
+%\renewcommand{\large}{\fontsize{11.5pt}{11.5pt}\selectfont}
+
+\newcommand{\ab}{\allowbreak}
+\newcommand{\fr}[1]{\noindent\small\it{#1}\normalfont}
+
+%\renewcommand{\normalsize}{\fontsize{8.5368pt}{8.5368pt}\selectfont}
+
+\newenvironment{maintext}{\begin{normalsize}\begin{spacing}{1}}{\end{spacing}\end{normalsize}}
+%\newenvironment{maintext}{\begin{spacing}{1.6}\fontsize{11.3824pt}{11.3824pt}\selectfont}{\end{spacing}}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+
+\newenvironment{nota}{\vspace{1zw}\begin{footnotesize}\bfseries\selectfont\begin{spacing}{1}}{\end{spacing}\end{footnotesize}}
+
+
+\makeatletter
+\renewcommand\@makefntext[1]{%
+\advance\leftskip 2zw
+\parindent 1zw
+\noindent
+\llap{\@makefnmark\hskip0.3zw}#1}
+\makeatother
+
+\makeatletter
+%
+\def\@left@warichu@delim{［}
+\def\@right@warichu@delim{］}
+\def\leftwaridelim#1{\gdef\@left@warichu@delim{#1}}
+\def\rightwaridelim#1{\gdef\@right@warichu@delim{#1}}
+%
+\def\warichu#1{%
+   \@tempcnta \z@
+   \@tfor\member:=#1\do{\advance\@tempcnta\@ne}%
+   \ifodd\@tempcnta\relax \advance\@tempcnta\@ne \fi
+   \divide\@tempcnta\tw@
+   \let\@first@line\@empty
+   \let\@second@line\@empty
+   \@tempcntb \z@
+   \@tfor\member:=#1\do{%
+      \ifnum \@tempcntb<\@tempcnta
+         \edef\@first@line{\@first@line\member}%
+      \else
+         \edef\@second@line{\@second@line\member}%
+      \fi
+      \advance \@tempcntb \@ne
+   }%
+   \ifvmode\leavevmode\fi
+   \@left@warichu@delim
+   \iftdir \lower \Cdp \fi
+   \hbox{%
+      \bgroup
+         \offinterlineskip
+         \vbox{%
+            \hbox{\tiny\@first@line}%
+            \hbox{\tiny\@second@line}%
+         }%
+      \egroup
+   }%
+   \@right@warichu@delim
+}%
+\makeatother
+
+%%%サブタイトル
+\makeatletter
+%%% この例では，titlepage オプション不使用時の \@maketitle の定義を改変
+\def\@maketitle{%
+   \newpage\null
+   \vskip 2em%
+   \begin{center}%
+     \let\footnote\thanks
+     {\large \@title \par}%
+     \vskip 1.5em%
+     \ifx\@subtitle\@empty\else%%% 副題が与えられている場合
+        %{\large \ddash \@subtitle \ddash\par}%
+        {\@subtitle \par}%
+
+        \vskip 1.5em
+     \fi
+     {\large
+      \lineskip .5em%
+      %\begin{tabular}[t]{r}%
+      %  \@author
+      %\end{tabular}\par}%
+      \begin{flushright}
+        \@author
+      \end{flushright}\par}
+      
+      \vskip 1em%
+     {\large \@date}%
+   \end{center}%
+   \par\vskip 1.5em}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\let\@subtitle\@empty
+%
+%% 次のマクロは“副題”部分の装飾に用いただけで，本質的なものではありません．
+\def\ddash{\leavevmode \hbox to2zw{―\hss ―\hss ―}}
+\makeatother
+
+%%分数の表記
+
+\newcommand{\undemi}{$\sfrac{1}{2}$}
+\newcommand{\untiers}{$\sfrac{1}{3}$}
+\newcommand{\deuxtiers}{$\sfrac{2}{3}$}
+\newcommand{\unquart}{$\sfrac{1}{4}$}
+\newcommand{\troisquarts}{$\sfrac{3}{4}$}
+\newcommand{\uncinquieme}{$\sfrac{1}{5}$}
+\newcommand{\deuxcinquiemes}{$\sfrac{2}{5}$}
+\newcommand{\troiscinquiemes}{$\sfrac{3}{5}$}
+\newcommand{\quatrecinquiemes}{$\sfrac{4}{5}$}
+\newcommand{\unsixieme}{$\sfrac{1}{6}$}
+\newcommand{\cinqsixiemes}{$\sfrac{5}{6}$}

@@ -1,0 +1,322 @@
+\documentclass[twoside,12Q,b5paper]{escoffierltjsbook}
+\usepackage{amsmath}%数式
+\usepackage{amssymb}
+\usepackage[no-math]{fontspec}
+%\usepackage{xunicode}
+
+
+\usepackage[unicode=true]{hyperref}
+\hypersetup{breaklinks=true,
+             bookmarks=true,
+             pdfauthor={},
+             pdftitle={},
+             colorlinks=true,
+             citecolor=blue,
+             urlcolor=blue,
+             linkcolor=magenta,
+             pdfborder={0 0 0}}
+\urlstyle{same}
+
+%%欧文フォント設定
+\setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+
+%%Garamond
+%\usepackage{ebgaramond-maths}
+%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+
+
+%\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
+%\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
+\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
+\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+
+\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+%%%%和文仮名プロポーショナル
+%\usepackage[hiragino-pron,expert,deluxe]{luatexja-preset}
+\usepackage[ipaex,expert,deluxe]{luatexja-preset}
+%\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%\setmainjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuMincho-DemiBold},
+%    ItalicFont={YuMincho-Medium},
+%    BoldItalicFont={YuMincho-DemiBold}
+%]{YuMincho-Medium}
+%\setsansjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuGothic-Bold},
+%    ItalicFont={YuGothic-Medium},
+%    BoldItalicFont={YuGothic-Bold}
+%]{YuGothic-Medium}
+%%%%和文仮名プロプーショナルここまで
+
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+\defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
+\defaultjfontfeatures{Scale=0.92487}%和文フォントのサイズ調整。デフォルトは 0.962212 倍%ltjsclassesでは不要?
+%\defaultjfontfeatures{Scale=0.962212}
+%\usepackage{libertineotf}%linux libertine font %ギリシア語含む
+%\usepackage[T1]{fontenc}
+%\usepackage[full]{textcomp}
+%\usepackage[osfI,scaled=1.0]{garamondx}
+%\usepackage{tgheros,tgcursor}
+%\usepackage[garamondx]{newtxmath}
+\usepackage{xfrac}
+
+%レイアウト調整
+\usepackage{layout}
+%\setlength{\hoffset}{-1truein}
+\setlength{\hoffset}{5mm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{-1cm}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\fullwidth}{13cm}
+\setlength{\textwidth}{13cm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
+
+  
+%\usepackage{fancyhdr}
+
+
+%レシピ本文
+\usepackage{multicol}
+\usepackage{setspace}
+
+%レシピ連番
+\usepackage{remreset}
+%\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsubsection}{}
+\makeatletter
+%subsectionに連番をつける
+\@removefromreset{subsection}{section}
+\def\thesubsection{\arabic{subsection}.}
+\newcounter{rnumber}
+\renewcommand{\thernumber}{\refstepcounter{rnumber} }
+
+
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+\makeatother
+
+% PDF/X-1a
+% \usepackage[x-1a]{pdfx}
+% \Keywords{pdfTeX\sep PDF/X-1a\sep PDF/A-b}
+% \Title{Sample LaTeX input file}
+% \Author{LaTeX project team}
+% \Org{TeX Users Group}
+% \pdfcompresslevel=0
+%\usepackage[cmyk]{xcolor}
+
+%biblatex
+%\usepackage[notes,strict,backend=biber,autolang=other,%
+%                   bibencoding=inputenc,autocite=footnote]{biblatex-chicago}
+%\addbibresource{hist-agri.bib}
+\let\cite=\autocite
+
+% % % % 
+\date{}
+
+%%%脚注番号のページ毎のリセット
+%\makeatletter
+%  \@addtoreset{footnote}{page}
+%\makeatother
+\usepackage[perpage,marginal,stable]{footmisc}
+\makeatletter
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 1.5\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+\makeatother  
+
+\begin{document}
+%%%%%\layout
+
+%fancyhdr
+%\pagestyle{fancy}
+%\lhead[\thepage]{\thesection}
+%\chead{}
+%\rhead[\thechapter]{\thepage}
+%\fancyhead{\gdef\headrulewidth{0pt}}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+
+
+\section{基本ソース}\label{ux57faux672cux30bdux30fcux30b9}
+
+\begin{recette}
+
+\subsection[ソース・エスパニョル SAUCE
+ESPAGNOLE]{\texorpdfstring{ソース・エスパニョル\footnote{「スペイン（風）の」意だが、スペイン料理起源というわけでは
+  ない。スペインを想起させるトマトを使うから、あるいは、ソースが茶褐
+  色であることからムーア系スペイン人を想起させるから、など諸説ある。\\
+  カレーム『19世紀フランス料理』第3巻に収められたソース・エスパニョルの作
+  り方は、フォンをとるところから始まり4ページにわたって詳細なものとなっている（pp.8-11）。\\
+  その中で、肉を入れた鍋に少量のブイヨンを注いで煮詰めることを繰り返
+  す。ここまでは18世紀の料理書で一般的な手法であるが、その後に大量の
+  ブイヨンを注いだ後、いきなり強火にかけるのではなく、弱火で加熱して
+  いくやり方を「スペイン式の方法」と述べている。カレームにおいては、
+  これがソースの名称の根拠のひとつになっていると考えていいだろう。も
+  ちろん、ソース・エスパニョルという名称のソースはカレーム以前からあ
+  り、1806年刊のヴィアール『帝国料理の本』にもカレームのレシピより簡
+  単ではあるがほぼ同様のものが基本ソースとして採り上げられている。\\
+  また、それ以前にもソース・エスパニョルに類する名称のソースはあった
+  が、たとえば1739年刊ムノン『新料理研究』第2巻にある「スペイン風ソー
+  ス」はかなり趣きが異なる（コリアンダーひと把みを加えるのが特徴的）。
+  同じ料理名でも時代や料理書の著者によってまったく違う料理になってい
+  ることは、食文化史において珍しいことではない。エスコフィエにおける
+  ソース・エスパニョルの源流は19世紀初頭のヴィアールあたりからと捉え
+  ていいだろう。} SAUCE
+ESPAGNOLE}{ソース・エスパニョル SAUCE ESPAGNOLE}}\label{ux30bdux30fcux30b9ux30a8ux30b9ux30d1ux30cbux30e7ux30eb102008-sauce-espagnole}
+
+（仕上がり５L分）
+
+\textbf{とろみ付けのためのルー}\ldots{}\ldots{}625g。
+
+\textbf{茶色いフォン（ソースを仕上げるのに必要な全量）}\ldots{}\ldots{}12L。
+
+\textbf{ミルポワ\footnote{mirepoix
+  ミルポワ。ソースやフォンにコクを与えるための、細
+  かいさいの目に切った香味野菜や塩漬け豚ばら肉を合わせたもの。18世紀
+  にミルポワ公爵の料理人が考案したという説が有力。同様のものにマティ
+  ニョンmatignonがあるが、ミルポワより大きめのさいの目に切るのが一般
+  的とされるが、調理現場によってはあまり区別せずミルポワとのみ呼称す
+  るケースも多いようだ。}（香味素材）}\ldots{}\ldots{}小さなさいの目に切った塩漬け豚ばら肉
+150g、2mm程度のさいの目\footnote{brunoise
+  ブリュノワーズ。１〜２mmのさいの目に切ること。}に切ったにんじん250gと玉ねぎ150g、タ
+イム２枝、ローリエの葉２枚。
+
+\textbf{作業手順}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  フォン８Lを鍋で沸かす。あらかじめ柔らかくしておいたルーを加え、木杓
+  子か泡立て器で混ぜながら沸騰させる。\\
+  弱火にして\footnote{原文から直訳すると「鍋を火の脇に置く」だが、現代の調理環境
+    では単純に「弱火にする」と解釈していい。}微沸騰の状態を保つ。
+\item
+  以下のようにしてあらかじめ用意しておいたミルポワを投入する。ソテー
+  鍋に塩漬け豚ばら肉を入れて火にかけて脂を溶かす。そこに、細かく刻ん
+  だにんじんと玉ねぎ、タイム、ローリエの葉を加える。野菜が軽く色づく
+  まで強火で炒める。丁寧に、余分な脂を捨てる。これをソースに加える。
+  野菜を炒めたソテー鍋に白ワイン約100mlを加えてデグラセし、それを半量
+  まで煮詰める。これも同様にソースの鍋に加える。こまめに浮いてくる夾
+  雑物を徹底的に取り除き\footnote{原文は dépouiller
+    デプイエ。もともとは動物などの皮を剥ぐ、
+    剥くことの意で、野うさぎの皮を剥ぐ、うなぎの皮を剥く、という意味で
+    用いる。ソースの場合は表面に凝固した蛋白質や油脂の膜が出来、それを
+    「剥ぐように」取り除くことから、あるいは表面に浮いてくる不純物を徹
+    底的に取り除いてきれいなソースに仕上げることを、動物の皮を剥いてき
+    れいな身だけにすることになぞらえて、この用語が用いられるようになっ
+    たようだ。現代の調理現場では écumer エキュメ、すなわち浮いてくる泡、
+    アクを取る、という用語だけで済ませていることも多いらしい。なお、本
+    書においてécumerが単に浮いてくる泡やアクを取る、という作業であるの
+    に対して、dépouillerは「徹底的に不純物を取り除いて美しく仕上げる」
+    という意味合いが込められている。}ながら弱火で約１時間煮込む。
+\item
+  ソースをシノワ\footnote{小さな穴が多く空けられた円錐形で、取っ手の付いた漉し器の一
+    種。金属製のものが主流。}で、ミルポワ野菜を軽く押しながら漉し、別の
+  片手鍋に移す。フォン２Lを注ぎ足す。さらに二時間、微沸騰の状態を保ち
+  ならが煮込む。その後、陶製の鍋に移し、ゆっくり混ぜながら冷ます。
+\item
+  翌日、再び厚手の片手鍋に移してから、フォン２Lとトマトピュレ１Lまた
+  は同等の生のトマトつまり２kgを加える。\\
+  トマトピュレを用いる場合は、あらかじめオーブンでほとんど茶色になる
+  まで焼いておくといい。そうするとトマトピュレの酸味を抜くことが出来
+  る。\\
+  そうすればソースを澄ませる作業が楽になるし、ソースの色合いも温かそ
+  うで美しいものになる。\\
+  ソースを木杓子か泡立て器で混ぜながら強火で沸騰させる。弱火にして１
+  時間微沸騰の状態を保つ。最後に、表面に浮いている夾雑物を、細心の注
+  意を払いながら徹底的に取り除く。布で漉し、完全に冷めるまで、ゆっく
+  り混ぜ続けること。
+\end{enumerate}
+
+【原注】ソース・エスパニョルで仕上げに夾雑物を取り除くのにかかる時間は
+いちがいには言えない。これは、ソースに用いるフォンの質次第で変わるから
+だ。
+
+ソースにするフォンが上質なものであればある程、仕上げに夾雑物を取り除く
+作業は早く済む。そういう場合には、ソース・エスパニョルを５時間で作るこ
+とも無理ではない。
+
+\subsection[魚料理用ソース・エスパニョル]{\texorpdfstring{魚料理用\footnote{フランス語のソース名にあるmaigreはこの場合、一般的には「魚
+  用、魚料理用」と訳すが、厳密には「小斉の際の料理用」となろう。小斉
+  とは、カトリックで古くから特定の期間、曜日に肉類を断つ食事をする宗
+  教的食習慣。日本の「お精進」とニュアンスは近いが、小斉においては忌
+  避されるのは鳥獣肉のみであり、魚介や乳製品はいいとされた。こじつけ
+  のように、水鳥は水のものだから魚介扱いであり、またイルカも魚類とし
+  て扱われていた。小斉が行なわれるのは復活祭の前46日間（四旬節、逆に
+  言えばカーニバルの最終日マルディグラの翌日から46日）と、週に一度
+  （多くの場合は金曜）であった。合計すると小斉が行なわれるのは年間
+  100日近くもあり、中世から18世紀の料理人たちは小斉の宴席に供する料
+  理に工夫を凝らしていた。この習慣は19世紀になるとだんだん廃れていき、
+  エスコフィエの時代には、料理人に対して小斉のための料理を要求するこ
+  とは少なくなっていった。}ソース・エスパニョル}{魚料理用ソース・エスパニョル}}\label{ux9b5aux6599ux7406ux75280102006ux30bdux30fcux30b9ux30a8ux30b9ux30d1ux30cbux30e7ux30eb}
+
+（仕上がり５L分）
+
+\textbf{バターを用いて\footnote{初版〜第三版にかけては、茶色いルーを作るのに「バターまたは、
+  きれいなグレスドマルミット（コンソメを作る際に表面に浮いてくる脂を
+  すくい取って、不純物を漉し取ったものであり、基本的に獣脂）」を用い
+  る、とある。上述のように、カトリックにおける「小斉」の場合、獣脂は
+  忌避されたがバターなどの乳製品は許容された。そのため特に「バターを
+  用いて作ったルー」という指定がなされ、第四版では茶色いルーに澄まし
+  バターのみを使う旨が強調されたが、ここでは初版以来の記述がそのまま
+  残っているために、やや冗長に思われる表現となっている。}作ったルー}\ldots{}\ldots{}500g。
+
+\textbf{魚のフュメ（フュメドポワソン）（ソースを仕上げるために必要な全量）
+}\ldots{}\ldots{}10L。
+
+\textbf{ミルポワ}\ldots{}\ldots{}標準的なソース・エスパニョルと同じミルポワ野菜を同量と、
+塩漬け豚ばら肉の代わりにバターを用い、マッシュルームまたはマッシュルー
+ムの切りくず250gを加える。
+
+\textbf{作業手順}\ldots{}\ldots{}標準的なソース・エスパニョルとまったく同様に作る。
+
+\textbf{加熱時間と夾雑物を取り除くのに必要な時間}\ldots{}\ldots{}５時間。
+
+仕上げに漉してから、標準的なソース・エスパニョルとまったく同様に、完全
+に冷めるまでゆっくり混ぜ続けること。
+
+\subsubsection{魚料理用ソース・エスパニョルについての注意}\label{ux9b5aux6599ux7406ux7528ux30bdux30fcux30b9ux30a8ux30b9ux30d1ux30cbux30e7ux30ebux306bux3064ux3044ux3066ux306eux6ce8ux610f}
+
+このソースを日常的な料理のベースとなる仕込みに含めるかどうかについては
+意見が分れるところだ。
+
+普通のソース・エスパニョルは、つまるところ風味の点ではほとんどニュート
+ラルなものだから、それに魚のフュメを加えれば、魚料理用ソース・エスパニョ
+ルとして充分に通用するだろう。どうしても上で挙げた魚料理用ソース・エス
+パニョルが必要になるのは、宗教的に厳格に小斉の決まりを守って料理を作る
+場合のみで、さすがにその場合は代用品などない。
+
+
+
+
+
+\end{recette}%%2段組おわり
+
+\end{document}

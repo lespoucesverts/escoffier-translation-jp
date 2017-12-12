@@ -1,0 +1,236 @@
+\documentclass[twoside,12Q,b5paper]{escoffierltjsbook}
+\usepackage{amsmath}%数式
+\usepackage{amssymb}
+\usepackage[no-math]{fontspec}
+%\usepackage{xunicode}
+
+
+\usepackage[unicode=true]{hyperref}
+\hypersetup{breaklinks=true,
+             bookmarks=true,
+             pdfauthor={},
+             pdftitle={},
+             colorlinks=true,
+             citecolor=blue,
+             urlcolor=blue,
+             linkcolor=magenta,
+             pdfborder={0 0 0}}
+\urlstyle{same}
+
+%%欧文フォント設定
+\setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+
+%%Garamond
+%\usepackage{ebgaramond-maths}
+%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+
+
+%\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
+%\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
+\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
+\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+
+\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+%%%%和文仮名プロポーショナル
+\usepackage[hiragino-pron,expert,deluxe]{luatexja-preset}
+%\usepackage[ipaex,expert,deluxe]{luatexja-preset}
+%\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%\setmainjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuMincho-DemiBold},
+%    ItalicFont={YuMincho-Medium},
+%    BoldItalicFont={YuMincho-DemiBold}
+%]{YuMincho-Medium}
+%\setsansjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuGothic-Bold},
+%    ItalicFont={YuGothic-Medium},
+%    BoldItalicFont={YuGothic-Bold}
+%]{YuGothic-Medium}
+%%%%和文仮名プロプーショナルここまで
+
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+\defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
+\defaultjfontfeatures{Scale=0.92487}%和文フォントのサイズ調整。デフォルトは 0.962212 倍%ltjsclassesでは不要?
+%\defaultjfontfeatures{Scale=0.962212}
+%\usepackage{libertineotf}%linux libertine font %ギリシア語含む
+%\usepackage[T1]{fontenc}
+%\usepackage[full]{textcomp}
+%\usepackage[osfI,scaled=1.0]{garamondx}
+%\usepackage{tgheros,tgcursor}
+%\usepackage[garamondx]{newtxmath}
+\usepackage{xfrac}
+
+%レイアウト調整
+\usepackage{layout}
+%\setlength{\hoffset}{-1truein}
+\setlength{\hoffset}{5mm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{-1cm}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\fullwidth}{13cm}
+\setlength{\textwidth}{13cm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
+
+  
+%\usepackage{fancyhdr}
+
+%%%脚注番号のページ毎のリセット
+%\makeatletter
+%  \@addtoreset{footnote}{page}
+%\makeatother
+\usepackage[perpage,marginal,stable]{footmisc}
+
+%レシピ本文
+\usepackage{multicol}
+\usepackage{setspace}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
+
+% PDF/X-1a
+% \usepackage[x-1a]{pdfx}
+% \Keywords{pdfTeX\sep PDF/X-1a\sep PDF/A-b}
+% \Title{Sample LaTeX input file}
+% \Author{LaTeX project team}
+% \Org{TeX Users Group}
+
+% \pdfcompresslevel=0
+%\usepackage[cmyk]{xcolor}
+
+%biblatex
+%\usepackage[notes,strict,backend=biber,autolang=other,%
+%                   bibencoding=inputenc,autocite=footnote]{biblatex-chicago}
+%\addbibresource{hist-agri.bib}
+\let\cite=\autocite
+
+% % % % 
+\date{}
+
+\begin{document}
+%%%%%\layout
+
+%fancyhdr
+%\pagestyle{fancy}
+%\lhead[\thepage]{\thesection}
+%\chead{}
+%\rhead[\thechapter]{\thepage}
+%\fancyhead{\gdef\headrulewidth{0pt}}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+
+\begin{center}
+\subsection*{茶色い派生ソース PETITES SAUCES BRUNES
+\index{COMPOSEES}COMPOSEES}\label{ux8336ux8272ux3044ux6d3eux751fux30bdux30fcux30b9-petites-sauces-brunes-composees}
+\addcontentsline{toc}{subsection}{茶色い派生ソース PETITES SAUCES BRUNES
+COMPOSEES}
+\end{center}
+
+\begin{recette}%二段組はじまり
+  
+\subsubsection*{\texorpdfstring{ソース・ビガラード\footnote{ビガラードは本来、南フランスで栽培されるビターオレンジの一種。}
+Sauce
+Bigarade}{ソース・ビガラード Sauce Bigarade}}\label{ux30bdux30fcux30b9ux30d3ux30acux30e9ux30fcux30c92-1-sauce-bigarade}
+\addcontentsline{toc}{subsubsection}{ソース・ビガラード Sauce Bigarade}
+
+\paragraph{仔鴨のブレゼ用}\label{ux4ed4ux9d28ux306eux30d6ux30ecux30bcux7528}
+\addcontentsline{toc}{paragraph}{仔鴨のブレゼ用}
+
+仔鴨をブレゼした際の煮汁を漉して浮き脂を取り除き、煮詰める。煮詰まった
+らさらに目の細かい布で漉し、ソース1Lあたりオレンジ4個とレモン1個の搾り
+汁でのばす。
+
+\paragraph{\texorpdfstring{仔鴨のポワレ用\footnote{「肉料理」参照。}}{仔鴨のポワレ用}}\label{ux4ed4ux9d28ux306eux30ddux30efux30ecux75282-2}
+\addcontentsline{toc}{paragraph}{仔鴨のポワレ用}
+
+仔鴨をポワレのフォン\footnote{ここでのポワレは蒸し焼きの一種であるから、煮汁それ自体は野菜に
+  含まれていた水分くらいしかない。実際には、火入れの終わった肉を取り
+  出してから、鍋に適量のフォンを注いで火にかけ、残った香味野菜から風
+  味を引き出したものを使う。}から浮き脂を取り除き、でんぷんで軽くとろみ付
+けする。砂糖20gに大さじ1/2杯のヴィネガーを加えて火にかけカラメル状にし
+たものを加える。ブレゼ用と同様に、オレンジとレモンの搾り汁でのばす。
+
+仔鴨のブレゼ用、ポワレ用いずれの場合も、細かい千切りにしてよく下茹でし
+ておいたオレンジの皮大さじ2とレモンの皮大さじ1を加えて仕上げる。
+
+\subsubsection*{ボルドー風ソース Sauce
+Bordelaise}\label{ux30dcux30ebux30c9ux30fcux98a8ux30bdux30fcux30b9-sauce-bordelaise}
+\addcontentsline{toc}{subsubsection}{ボルドー風ソース Sauce Bordelaise}
+
+赤ワイン３dlにエシャロットのみじん切り大さじ２、粗く砕いたこしょう、タ
+イム、ローリエの葉1/2枚を加えて火にかけ、1/4量になるまで煮詰める。ソー
+ス・エスパニョル１dlを加えて火にかけ、浮いてくる夾雑物を丁寧に取り除き
+ながら弱火で15分間煮る。目の細かい布で漉す。
+
+溶かしたグラスドヴィアンド大さじ１杯とレモン汁1/4個分、細かいさいの目
+か輪切りにしてポシェしておいた牛骨髄を加えて仕上げる。
+
+\ldots{}\ldots{}牛、羊の赤身肉のグリル用
+
+【原注】こんにちではボルドー風ソースをこのように赤ワインを用いて作るが、
+本来的には誤りである。もともとは白ワインが用いられていた。白ワインを用
+いるものについては「ボルドー風ソース　ボヌフォワ」として後述。
+
+\subsubsection*{ブルゴーニュ風ソース Sauce
+Bourgui-gnonne}\label{ux30d6ux30ebux30b4ux30fcux30cbux30e5ux98a8ux30bdux30fcux30b9-sauce-bourgui-gnonne}
+\addcontentsline{toc}{subsubsection}{ブルゴーニュ風ソース Sauce
+Bourgui-gnonne}
+
+上質の赤ワイン１1/2Lに、エシャロット５個の薄切りとパセリの枝、タイム、
+ローリエの葉1/2枚、マッシュルームの切りくず\footnote{料理に使うマッシュルームは通常、トゥルネ（包丁を持った側の手は動
+  かさずに材料を回して切ることからついた用語）すなわち螺旋状に切って
+  供するが、その際に少なくない量の切りくずが出るのでこれを使う。}25gを加えて、半量になる
+まで煮詰める。布で漉し、ブールマニエ80g（バター45gと小麦粉35g）を加え
+てとろみを付ける。提供直前にバター150gを溶かし込み、カイエンヌ\footnote{赤唐辛子の粉末だが、カイエンヌは本来、品種名。日本でよく用いられ
+  ているタカノツメなどと比べるとややスコビル値（辛さの指数）は低く、
+  風味も異なる。}ごく 少量で加えて風味よく仕上げる。
+
+\ldots{}\ldots{}いろいろな卵料理や、家庭料理に好適なソース。
+
+\subsubsection*{ブルターニュ風ソース Sauce
+Bretonne}\label{ux30d6ux30ebux30bfux30fcux30cbux30e5ux98a8ux30bdux30fcux30b9-sauce-bretonne}
+\addcontentsline{toc}{subsubsection}{ブルターニュ風ソース Sauce
+Bretonne}
+
+中位の玉ねぎ2個をみじん切りにして、バターできつね色になるまで炒める。
+白ワイン２1/2dlを注ぎ、半量になるまで煮詰める。ここにソース・エスパニョ
+ル３1/2およびトマトソース同量を加える。７〜８分間煮立ててから、刻んだ
+パセリを加えて仕上げる。
+
+【原注】このソースは「白いんげん豆のブルターニュ風」以外にはほとんど使
+われない。
+
+\subsubsection*{\texorpdfstring{ソース・スリーズ\footnote{スリーズ
+  cerises はさくらんぼのこと。このレシピでグロゼイユ（す
+  ぐり）のジュレを用いるが、古くはさくらんぼを用いていたことからこの
+  名称となった。} Sauce aux
+cerises}{ソース・スリーズ Sauce aux cerises}}\label{ux30bdux30fcux30b9ux30b9ux30eaux30fcux30ba6-sauce-aux-cerises}
+\addcontentsline{toc}{subsubsection}{ソース・スリーズ Sauce aux cerises}
+
+ポルト酒２dlにイギリス風ミックススパイスひとつまみと、すりおろしたオレ
+ンジの皮を大さじ1/2杯加えて2/3量になるまで煮詰める。グロゼイユのジュレ
+２1/2を加え、仕上げにオレンジ果汁を加える。
+
+\ldots{}\ldots{}大型猟獣肉の料理用だが、鴨のポワレやブレゼにも用いられる。
+
+
+
+
+\end{recette}%%2段組おわり
+
+\end{document}
