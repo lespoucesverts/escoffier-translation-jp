@@ -1,6 +1,5 @@
 ## 基本ソース
 
-%\begin{recette}
 
 
 ### ソース・エスパニョル[^102008] SAUCE ESPAGNOLE
@@ -216,7 +215,7 @@
 
 ### ベシャメルソース SAUCE BECHAMEL
 
-
+**白いルー**……650g。
 
 
 
