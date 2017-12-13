@@ -12,9 +12,9 @@ Markdownファイル（.md）が作業ファイル=原稿です。
 
 節番号（やや恣意的です）-節名称-ppページ範囲.md
 
-* 00-avant-propos.md
-* 01-fonds-de-cuisine-pp1-12.md
-* 02-grandes-sauces-de-base-pp13-17.md
+* 00-avant-propos/00-avant-propos.md
+* 01-sauces/01-fonds-de-cuisine-pp1-12.md
+* 01-sauces/02-grandes-sauces-de-base-pp13-17.md
 
 **これらのファイルに対してだけ変更をコミットしてください。**
 
