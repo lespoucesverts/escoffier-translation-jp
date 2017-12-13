@@ -5,10 +5,10 @@
 package/**/*.pandoc
 *.ltjruby
 package/**/*.ltjruby
+*.*
 
 !*.md
 !*.pdf
 !*.tex
 !*.cls
 
-*.*
