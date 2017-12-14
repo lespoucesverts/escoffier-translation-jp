@@ -1,15 +1,19 @@
-## 茶色い派生ソース PETITES SAUCES BRUNES COMPOSEES {#petites-sauces-brunes-composees}
+## 茶色い派生ソース 
+
+### Petites Sauces Brunes Composées {#petites-sauces-brunes-composees}
 
 
 
-### ソース・ビガラード[^1] Sauce Bigarade {#sauce-bigarade}
+#### ソース・ビガラード[^1] 
+
+##### Sauce Bigarade {#sauce-bigarade}
 
 
 [^1]: ビガラードは本来、南フランスで栽培されるビターオレンジの一種。
 
 
 
-#### 仔鴨のブレゼ[^2] 用 {#sauce-bigarade-pour-canetons-braises}
+###### 仔鴨のブレゼ[^2] 用 {#sauce-bigarade-pour-canetons-braises}
 
 
 仔鴨をブレゼした際の煮汁を漉して浮き脂を取り除き、煮詰める。煮詰まった
@@ -18,7 +22,7 @@
 
 
 
-#### 仔鴨のポワレ用{#sauce-bigarade-pour-canetons-poeles}
+###### 仔鴨のポワレ用 {#sauce-bigarade-pour-canetons-poeles}
 
 
 仔鴨をポワレのフォン[^3]から浮き脂を取り除き、でんぷんで軽くとろみ付
@@ -41,7 +45,9 @@
 
 
 
-### ボルドー風ソース Sauce Bordelaise {#sauce-bordelaise}
+#### ボルドー風ソース 
+
+##### Sauce Bordelaise {#sauce-bordelaise}
 
 
 赤ワイン３dlにエシャロットのみじん切り大さじ２、粗く砕いたこしょう、タ
@@ -64,7 +70,9 @@
 
 
 
-### ブルゴーニュ風ソース Sauce Bourguignonne {#sauce-bourgignonne}
+#### ブルゴーニュ風ソース 
+
+##### Sauce Bourguignonne {#sauce-bourgignonne}
 
 
 上質の赤ワイン１1/2Lに、エシャロット５個の薄切りとパセリの枝、タイム、
@@ -87,7 +95,9 @@
 
 
 
-### ブルターニュ風ソース Sauce Bretonne {#sauce-bretonne}
+#### ブルターニュ風ソース 
+
+##### Sauce Bretonne {#sauce-bretonne}
 
 
 中位の玉ねぎ2個をみじん切りにして、バターできつね色になるまで炒める。
@@ -102,7 +112,9 @@
 
 
 
-### ソース・スリーズ[^6] Sauce aux cerises {#sauce-aux-cerises}
+#### ソース・スリーズ[^6] 
+
+##### Sauce aux cerises {#sauce-aux-cerises}
 
 
 ポルト酒２dlにイギリス風ミックススパイスひとつまみと、すりおろしたオレ
@@ -120,7 +132,9 @@
 
 
 
-### ソース・シャンピニョン[^7] Sauce aux Champignons {#sauce-aux-champignons}
+#### ソース・シャンピニョン[^7] 
+
+##### Sauce aux Champignons {#sauce-aux-champignons}
 
 
 マッシュルームの煮汁２1/2dlを半量になるまで煮詰める。[ソース・ドゥミグ
@@ -134,11 +148,83 @@
 	
 
 
-### ソース・シャルキュティエール[^8] Sauce Charcutière {#sauce-charcutiere}
+#### ソース・シャルキュティエール[^8] 
+
+
+##### Sauce Charcutière {#sauce-charcutiere}
+
 
 [^8]: シャルキュトリ（豚肉加工業）風、の意。Charcutrieの語源はchar（肉）
-    +cuite（調理された）+rie（業）。その仕事に従事する者をcharcutierシャ
-    ルキュティエ、charcutièreシャルキュティエールと呼ぶ。
+    +cuite（調理された）+rie（業）。ハムやソーセージなどと定番の組合せ
+    であるマスタードをベースとしているソース・ロベールと、おなじく定番
+    のつけ合わせであるコルニション（小さいうちに収穫してヴィネガー漬け
+    にしたきゅうり。専用品種がある）を使うことから、シャルキュトリ風と
+    呼ばれる。
 
+
+[ソース・ロベール](#sauce-robert)１Lに、提供直前に、2mm程度で短かめの
+千切り[^9]にしたものを加える（[ソース・ロベール](#sauce-robert)参照）。
+
+
+[^9]: １〜２mm程度の細さの千切りにした野菜などをジュリエンヌjulienneと呼ぶ。
+
+
+
+
+
+#### ソース・シャスール[^10]
+
+
+##### Sauce Chasseur
+
+
+生のマッシュルームを薄切りにしたもの150gをバターで炒める。エシャロット
+のみじん切り大さじ２1/2杯を加えてさらに軽く炒め、白ワイン３dlを注ぎ、
+半量になるまで煮詰める。[ソマトソース](#sauce-tomate)３dlと[ソース・ドゥ
+ミグラス](#sauce-demi-glace)２dlを加える。数分間沸騰させたら、バター
+150gと、セルフイユ[^11]とエストラゴン[^12]をみじん切りにしたもの大さじ
+１1/2杯を加えて仕上げる。
+
+
+[^10]: 狩人風、の意。古くは猟獣肉をすり潰したものを使った料理を指した
+    という説もある。マッシュルームとエシャロット、白ワインを使うのが特
+    徴であり、このソースを使った料理にも「シャスール」の名が付けられる。
+		
+	
+[^11]: cerfeuil 日本ではチャービルとも呼ばれるセリ科のハーブ。
+
+
+[^12]: estragon 日本ではタラゴンとも呼ばれるヨモギ科のハーブ。フレンチ
+    タラゴンとロシアンタラゴンの２種がある。料理に用いるのはフレンチタ
+    ラゴン。
+
+
+
+
+#### ソース・シャスール（エスコフィエ流）
+
+
+##### Sauce Chasseur (Procédé Escoffier)
+
+
+生のマッシュルームを薄切りにしたもの150gを、バターと植物油で軽く色付く
+まで炒める。みじん切りにしたエシャロット大さじ１杯を加え、なるべくすぐ
+に余分な油をきる。白ワイン２dlとコニャック50ml[^13]を注ぎ、半量になる
+まで煮詰める。[ソース・ドゥミグラス](#sauce-demi-glace)４dlと[トマトソー
+ス](#sauce-tomate)２dl、[グラスドヴィアンド](#glace-de-viande)大さじ
+1/2杯を加える。
+
+
+５分間沸騰させたら、仕上げにパセリのみじん切り少々を加える。
+
+
+[^13]: 原文のun verre à Madère de 〜 は約50mlのこと。
+
+
+
+#### 茶色いソース・ショーフロワ
+
+
+##### Sauce Chaud-froid brune
 
 
