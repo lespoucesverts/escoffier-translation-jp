@@ -1,7 +1,9 @@
-# I. ソース SAUCES {#sauce}
+# I.　ソース SAUCES {#sauce}
 
 
-## 料理のベースとして仕込んでおくストック LES FONDS DE CUISINE {#les-fonds-de-cuisine}
+## 料理のベースとして仕込んでおくストック 
+
+### Les Fonds de Cuisine {#les-fonds-de-cuisine}
 
 
 本書は実際に厨房で働く料理人を対象としたものだが、まず最初に料理のベー
@@ -76,7 +78,9 @@
 \newpage
 
 
-## 代表的な、料理のベースとして仕込んでおくもの {#principaux-fonds-de-cuisine}
+## 料理のベースとして仕込んでおくもの {#principaux-fonds-de-cuisine}
+
+### Principaux Fonds de Cuisine
 
 
 料理のベースとして仕込んでおくべきものは主として……
@@ -124,7 +128,9 @@
 
 
 
-## 基本ソース GRANDES SAUCES DE BASE {#grandes-sauces-de-base}
+## 基本ソース 
+
+### Grandes Sauces de Base {#grandes-sauces-de-base}
 
 およびそこから派生させて組み合せたり煮詰めて作る派生ソース
 
@@ -134,7 +140,7 @@
 
 
 
-## 概説 {grandes-sauces-de-base-principe-generaux}
+## 概説
 
 ソースは料理においてもっとも主要な位置にある。フランス料理が世界に冠た
 るものであるのもひとえにソースの存在によるのだ。だから、ソースは出来る
@@ -247,12 +253,15 @@
 
 \newpage
 
-## ソース作りのベースとなるもの {#traitement-des-elements-de-base-dans-le-travail-des-sauces}
+## ソース作りのベースとなるもの
+
+### Traitement des Éléments de Base dans le Travail des Sauces {#traitement-des-elements-de-base-dans-le-travail-des-sauces}
 
 
-%\begin{recette}
 
-### 茶色いフォン（エストゥファード） FONDS BRUN OU ESTOUFFADE {#fonds-brun-ou-estouffade}
+#### 茶色いフォン（エストゥファード）
+
+##### FONDS BRUN OU ESTOUFFADE {#fonds-brun-ou-estouffade}
 
 
 (仕上がり10L分）
@@ -310,7 +319,9 @@
 
 
 
-### 白いフォン FONDS BLANC ORDINAIRE {#fonds-blanc-ordinaire}
+#### 白いフォン
+
+##### FONDS BLANC ORDINAIRE {#fonds-blanc-ordinaire}
 
 
 （仕上がり10L分）
@@ -350,7 +361,9 @@
 
 
 
-### 鶏のフォン（フォンドヴォライユ） FONDS DE VOLAILLE {#fonds-de-volaille}
+#### 鶏のフォン（フォンドヴォライユ） 
+
+##### FONDS DE VOLAILLE {#fonds-de-volaille}
 
 
 白いフォンと同じ主素材、香味素材、水の量で、さらに鶏のとさかや手羽、ガ
@@ -359,7 +372,10 @@
 
 
 
-### 仔牛の茶色いフォン（仔牛の茶色いジュ） FONDS, OU JUS DE VEAU BRUN {#fonds-ou-jus-de-veau-brun}
+#### 仔牛の茶色いフォン（仔牛の茶色いジュ）
+
+
+##### FONDS, OU JUS DE VEAU BRUN {#fonds-ou-jus-de-veau-brun}
 
 
 （仕上がり10L分）
@@ -396,7 +412,10 @@
 
 
 
-### ジビエのフォン FONDS DE GIBIER {#fonds-de-gibier}
+#### ジビエのフォン
+
+
+##### FONDS DE GIBIER {#fonds-de-gibier}
 
 
 （仕上がり5L分）
@@ -435,7 +454,10 @@
 
 
 
-### 魚のフォン（フュメドポワソン[^1010013]）FONDS, OU FUMET DE POISSON {#fonds-ou-fumet-de-poisson}
+#### 魚のフォン（フュメドポワソン[^1010013]）
+
+
+##### FONDS, OU FUMET DE POISSON {#fonds-ou-fumet-de-poisson}
 
 
 （仕上がり10L分）
@@ -491,7 +513,10 @@
 
 
 
-### 赤ワインを用いた魚のフォン FONDS DE POISSON AU VIN ROUGE {#fonds-de-poisson-au-vin-rouge}
+#### 赤ワインを用いた魚のフォン
+
+
+##### FONDS DE POISSON AU VIN ROUGE {#fonds-de-poisson-au-vin-rouge}
 
 
 このフォンそれ自体を用意することは滅多にない。というのも、例えばマトロッ
@@ -540,7 +565,10 @@
 
 
 
-### 魚のエッセンス ESSENCE DE POISSON {#essence-de-poisson}
+#### 魚のエッセンス
+
+
+##### ESSENCE DE POISSON {#essence-de-poisson}
 
 
 **主素材**……メルラン[^1010018]および舌びらめの頭、アラ２kg。
@@ -592,7 +620,10 @@
 
 
 
-### エッセンスについて ESSENCES DIVERSES {#essences-diverses}
+#### エッセンスについて 
+
+
+##### ESSENCES DIVERSES {#essences-diverses}
 
 
 その名のとおり、エッセンスとはごく少量になるまで煮詰めて非常に強い風味
@@ -630,7 +661,10 @@
 
 
 
-### グラスについて GLACES DIVERSES {#glaces-diverses}
+#### グラスについて
+
+
+##### GLACES DIVERSES {#glaces-diverses}
 
 
 グラスドヴィアンド、鶏のグラス（グラスドヴォライユ）、ジビエのジビエ、
@@ -668,7 +702,9 @@
 
 
 
-### グラストヴィアンド GLACE DE VIANDE {#glace-de-viande}
+#### グラストヴィアンド 
+
+##### GLACE DE VIANDE {#glace-de-viande}
 
 
 茶色いフォン（エストゥファード）を煮詰めて作る。
@@ -695,7 +731,10 @@
 
 
 
-### 鶏のグラス（グラスドヴォライユ）GLACE DE VOLAILLE {#glace-de-volaille}
+#### 鶏のグラス（グラスドヴォライユ）
+
+
+##### GLACE DE VOLAILLE {#glace-de-volaille}
 
 
 鶏のフォン（フォンドヴォライユ）を用いて、グラスドヴィアンドと同様にし
@@ -704,7 +743,10 @@
 
 
 
-### ジビエのグラス GLACE DE GIBIER {#glace-de-gibier}
+#### ジビエのグラス 
+
+
+##### GLACE DE GIBIER {#glace-de-gibier}
 
 
 ジビエのフォンを煮詰めて作る。ある特定のジビエの風味を生かしたグラスを
@@ -713,7 +755,9 @@
 
 
 
-### 魚のグラス GLACE DE POISSON {#glace-de-poisson}
+#### 魚のグラス 
+
+##### GLACE DE POISSON {#glace-de-poisson}
 
 
 このグラスを用いることはあまり多くない。日常的な業務においては「魚のエッ
@@ -723,10 +767,11 @@
 
 
 
-%\end{recette}
 
 
-## ルー {#roux}
+## ルー
+
+### Roux
 
 
 ルーはいろいろな派生ソースのベースとなる基本ソースにとろみを付ける役目
@@ -738,9 +783,11 @@
 でおく。きつね色のルーと白いルーはその都度用意すればいい。
 
 
-%\begin{recette}
 
-### 茶色いルー {#roux-brun}
+
+#### 茶色いルー
+
+##### ROUX BRUN {#roux-brun}
 
 （仕上がり1kg分）
 
@@ -751,7 +798,7 @@
 
 
 
-#### ルーの火入れについて {#cuisson-du-roux}
+##### ルーの火入れについて {#cuisson-du-roux}
 
 
 加熱時間は使用する熱源の強さで変わってくる。だから数字で何分とは言えな
@@ -792,7 +839,9 @@
 
 
 
-###	きつね色のルー ROUX BLOND {#roux-blond}
+#### きつね色のルー 
+
+##### ROUX BLOND {#roux-blond}
 
 
 （仕上がり1kg分）
@@ -807,13 +856,17 @@
 
 
 
-### 白いルー ROUX BLANC {#roux-blanc}
+#### 白いルー 
+
+
+##### ROUX BLANC {#roux-blanc}
 
 
 500gのバターと、ふるった小麦粉600g。
 
 
 このルーの火入れは数分、つまり粉っぽさがなくなるまでの時間でいい。
+
 
 
 [^1010024]: 現代の科学的見地からすると必ずしも正確な記述ではないので注意。
@@ -830,4 +883,3 @@
     てくる夾雑物を徹底的に取り除くこと。
 
 
-%\end{recette}
