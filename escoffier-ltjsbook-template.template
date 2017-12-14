@@ -89,6 +89,31 @@
 
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
 
+%リスト環境
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = 1\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     \topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = 0pt \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+
   
 %\usepackage{fancyhdr}
 
