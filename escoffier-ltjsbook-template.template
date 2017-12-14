@@ -3,7 +3,7 @@
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 %\usepackage{xunicode}
-
+\usepackage{geometry}
 
 \usepackage[unicode=true]{hyperref}
 \hypersetup{breaklinks=true,
@@ -81,6 +81,11 @@
 \setlength{\textwidth}{13cm}
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\textheight}{18cm}
+%%%ベースライン調整
+\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.25pt}
+
 
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
 
@@ -91,22 +96,23 @@
 %レシピ本文
 \usepackage{multicol}
 \usepackage{setspace}
-
-%レシピ連番
-\usepackage{remreset}
 %\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 \newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
 
+
+%subsubsectionに連番をつける
+\usepackage{remreset}
 \renewcommand{\thechapter}{}
 \renewcommand{\thesection}{}
-\renewcommand{\thesubsubsection}{}
+\renewcommand{\thesubsection}{}
+%\renewcommand{\thesubsubsection}{}
+
+
 \makeatletter
-%subsectionに連番をつける
-\@removefromreset{subsection}{section}
-\def\thesubsection{\arabic{subsection}.}
+\@removefromreset{subsubsection}{subsection}
+\def\thesubsubsection{\arabic{subsubsection}.}
 \newcounter{rnumber}
 \renewcommand{\thernumber}{\refstepcounter{rnumber} }
-
 
 \renewcommand{\prepartname}{\if@english Part~\else {}\fi}
 \renewcommand{\postpartname}{\if@english\else {}\fi}
@@ -170,8 +176,12 @@ $endfor$
   \llap{\@thefnmark\hskip0.5\zw}#1}
 \makeatother  
 
+
+
 \begin{document}
-%%%%%\layout
+
+\layout
+
 
 %fancyhdr
 %\pagestyle{fancy}
@@ -193,7 +203,7 @@ $abstract$
 \end{abstract}
 $endif$
 
-%\begin{recette}%2段組はじまり
+
 
 $for(include-before)$
 $include-before$
@@ -221,6 +231,6 @@ $include-after$
 
 $endfor$
 
-%\end{recette}%%2段組おわり
+
 
 \end{document}
