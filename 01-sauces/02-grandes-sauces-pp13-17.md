@@ -1,8 +1,12 @@
 ## 基本ソース
 
 
+### Grandes Sauces de Base
 
-### ソース・エスパニョル[^102008] SAUCE ESPAGNOLE {#sauce-espagnole}
+
+#### ソース・エスパニョル[^102008] 
+
+##### SAUCE ESPAGNOLE {#sauce-espagnole}
 
 
 （仕上がり５L分）
@@ -66,7 +70,10 @@
 
 
 
-### 魚料理用[^0102006]ソース・エスパニョル {#sauce-espagnole-maigre}
+#### 魚料理用[^0102006]ソース・エスパニョル
+
+
+##### SAUCE ESPAGNOLE MAIGRE {#sauce-espagnole-maigre}
 
 
 （仕上がり５L分）
@@ -95,7 +102,9 @@
 
 
 
-#### 魚料理用ソース・エスパニョルについての注意 {#observation-sur-la-sauce-espagnole-maigre}
+#### 魚料理用ソース・エスパニョルについての注意 
+
+##### Observation sur la sauce espagnole maigre {#observation-sur-la-sauce-espagnole-maigre}
 
 
 
@@ -113,7 +122,9 @@
 
 
 
-### ソース・ドゥミグラス[^102009] SAUCE DEMI-GLACE {#sauce-demi-glace}
+#### ソース・ドゥミグラス[^102009] 
+
+##### SAUCE DEMI-GLACE {#sauce-demi-glace}
 
 
 一般に「ドゥミグラス」と呼ばれているものは、いったん仕上がったソース・
@@ -134,7 +145,10 @@
 
 
 
-### とろみを付けた仔牛のジュ JUS DE VEAU LIE {#jus-de-veau-lie}
+#### とろみを付けた仔牛のジュ
+
+
+##### JUS DE VEAU LIE {#jus-de-veau-lie}
 
 
 （仕上り１L分）
@@ -161,7 +175,10 @@
 
 
 
-### ヴルテ[^102013]（標準的な白いソース） VELOUTE OU SAUCE BLANCHE GRASSE {#veloute-ou-sauce-blanche-grasse}
+#### ヴルテ[^102013]（標準的な白いソース）
+
+
+##### VELOUTE OU SAUCE BLANCHE GRASSE {#veloute-ou-sauce-blanche-grasse}
 
 
 （仕上がり５L分）
@@ -190,7 +207,10 @@
 
 
 
-### 鶏のヴルテ VELOUTE DE VOLAILLE {#veloute-de-volaille}
+#### 鶏のヴルテ
+
+
+##### VELOUTE DE VOLAILLE {#veloute-de-volaille}
 
 このヴルテの作り方は、上で書いた標準的なヴルテと材料比率と作業はまっ
 たく同じ。使用する液体として鶏の白いフォン（フォンドヴォライユ）を使う。
@@ -198,7 +218,10 @@
 
 
 
-### 魚料理用ヴルテ VELOUTE DE POISSON {#veloute-de-poisson}
+#### 魚料理用ヴルテ
+
+
+##### VELOUTE DE POISSON {#veloute-de-poisson}
 
 
 ルーと液体の分量は標準的なヴルテとまったく同じだが、仔牛のフォンでは
@@ -212,7 +235,10 @@
 
 
 
-### パリ風ソース（旧名ソース・アルマンド）SAUCE PARISIENNE (ex-Allemande) {#sauce-parisienne}
+#### パリ風ソース（旧名ソース・アルマンド）
+
+
+##### SAUCE PARISIENNE (ex-Allemande) {#sauce-parisienne}
 
 
 （仕上がり１L分）
@@ -260,7 +286,10 @@
 
 
 
-### ソース・シュプレーム SAUCE SUPREME {#sauce-supreme}
+#### ソース・シュプレーム
+
+
+##### SAUCE SUPREME {#sauce-supreme}
 
 
 鶏のヴルテに生クリーム[^102017]を加えてなめらかに仕上げ[^102018]たもの。
@@ -289,7 +318,10 @@
 
 
 
-### ベシャメルソース SAUCE BECHAMEL[^102020] {#sauce-bechamel}
+#### ベシャメルソース[^102020]
+
+
+##### SAUCE BECHAMEL {#sauce-bechamel}
 
 
 （仕上がり５L分）
@@ -320,7 +352,10 @@
 
 
 
-### トマトソース SAUCE TOMATE {#sauce-tomate}
+#### トマトソース 
+
+
+##### SAUCE TOMATE {#sauce-tomate}
 
 
 （仕上がり５L分）

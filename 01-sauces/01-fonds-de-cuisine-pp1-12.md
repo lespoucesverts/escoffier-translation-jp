@@ -1,4 +1,4 @@
-# I.　ソース SAUCES {#sauce}
+# I. ソース　SAUCES {#sauce}
 
 
 ## 料理のベースとして仕込んでおくストック 
@@ -140,7 +140,7 @@
 
 
 
-## 概説
+### 概説
 
 ソースは料理においてもっとも主要な位置にある。フランス料理が世界に冠た
 るものであるのもひとえにソースの存在によるのだ。だから、ソースは出来る
@@ -253,7 +253,8 @@
 
 \newpage
 
-## ソース作りのベースとなるもの
+## ソース作りのベースとなるストック
+
 
 ### Traitement des Éléments de Base dans le Travail des Sauces {#traitement-des-elements-de-base-dans-le-travail-des-sauces}
 
