@@ -82,7 +82,7 @@
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\footskip}{0pt}
-\setlength{\textheight}{18cm}
+\setlength{\textheight}{20cm}
 %%%ベースライン調整
 \ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.25pt}
 
@@ -180,7 +180,7 @@ $endfor$
 
 \begin{document}
 
-\layout
+%\layout
 
 
 %fancyhdr
