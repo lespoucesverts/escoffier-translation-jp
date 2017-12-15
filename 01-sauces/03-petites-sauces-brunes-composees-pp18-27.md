@@ -8,6 +8,9 @@
 
 ##### Sauce Bigarade {#sauce-bigarade}
 
+\index{そーす@ソース!びがらーど@---・ビガラード}
+\index{sauce@sauce!bigarade@--- Bigarade}
+\index{bigarade@bigarade!sauce@Sauce ---}
 
 [^1]: ビガラードは本来、南フランスで栽培されるビターオレンジの一種。
 
@@ -28,7 +31,7 @@
 
 
 仔鴨をポワレのフォン[^3]から浮き脂を取り除き、でんぷんで軽くとろみ付
-けする。砂糖20gに大さじ1/2杯のヴィネガーを加えて火にかけカラメル状にし
+けする。砂糖20gに大さじ$\sfrac{1}{2}$杯のヴィネガーを加えて火にかけカラメル状にし
 たものを加える。ブレゼ用と同様に、オレンジとレモンの搾り汁でのばす。
 
 
@@ -50,6 +53,12 @@
 #### ボルドー風ソース 
 
 ##### Sauce Bordelaise {#sauce-bordelaise}
+
+
+\index{そーす@ソース!ぼるどーふう@ボルドー風}
+\index{ぼるどーふう@ボルドー風!そーす@---ソース}
+\index{sauce@sauce!bordelaise@--- Bordelaise}
+\index{bordelais@bordelais!sauce@Sauce Bordelaise}
 
 
 赤ワイン３dlにエシャロットのみじん切り大さじ２、粗く砕いたこしょう、タ
@@ -77,6 +86,13 @@
 ##### Sauce Bourguignonne {#sauce-bourgignonne}
 
 
+\index{そーす@ソース!ぶるごーにゅふう@ブルゴーニュ風}
+\index{ぶるごーにゅふう@ブルゴーニュ風!そーす@ソース}
+\index{sauce@sauce!bourguignonne@--- Bourguignonne}
+\index{bourguignon@bourguignon!sauce@Sauce Bourguignonne}
+
+
+
 上質の赤ワイン１1/2Lに、エシャロット５個の薄切りとパセリの枝、タイム、
 ローリエの葉1/2枚、マッシュルームの切りくず[^4]25gを加えて、半量になる
 まで煮詰める。布で漉し、ブールマニエ80g（バター45gと小麦粉35g）を加え
@@ -102,6 +118,12 @@
 ##### Sauce Bretonne {#sauce-bretonne}
 
 
+\index{そーす@ソース!ぶるたーにゅふうちゃいろ@ブルターニュ風--- (茶色)}
+\index{ぶるたーにゅふう@ブルターニュ風!そーすちゃいろ@---ソース (茶色)}
+\index{sauce@sauce!bretonne brune@--- Bretonne (brune)}
+\index{breton@breton!sauce brune@Sauce Bretonne (brune)}
+
+
 中位の玉ねぎ2個をみじん切りにして、バターできつね色になるまで炒める。
 白ワイン２1/2dlを注ぎ、半量になるまで煮詰める。ここにソース・エスパニョ
 ル３1/2およびトマトソース同量を加える。７〜８分間煮立ててから、刻んだ
@@ -117,6 +139,10 @@
 #### ソース・スリーズ[^6] 
 
 ##### Sauce aux cerises {#sauce-aux-cerises}
+
+
+\index{そーす@ソース!すりーず@---・スリーズ}
+\index{sauce@sauce!cerise@--- aux Cerises}
 
 
 ポルト酒２dlにイギリス風ミックススパイスひとつまみと、すりおろしたオレ
@@ -139,6 +165,12 @@
 ##### Sauce aux Champignons {#sauce-aux-champignons}
 
 
+\index{そーす@ソース!まっしゅるーむちゃいろ@マッシュルーム--- (茶色)}
+\index{まっしゅるーむ@マッシュルーム!そーすちゃいろ@---ソース (茶色)}
+\index{sauce@sauce!champignons brune@--- aux Champignons (brune)}
+\index{champignon@champignon!sauce brune@Sauce aux Champignons (brune)}
+
+
 マッシュルームの煮汁２1/2dlを半量になるまで煮詰める。[ソース・ドゥミグ
 ラス](#sauce-demi-glace)８ldを加えて数分間煮立てる。布で漉し、バター
 50gを投入して味を調え、あらかじめ下茹でしておいた小さめのマッシュルー
@@ -154,6 +186,12 @@
 
 
 ##### Sauce Charcutière {#sauce-charcutiere}
+
+
+\index{そーす@ソース!しゃるきゅとりふう@シャルキュトリ風}
+\index{しゃるきゅとりふう@シャルキュトリ風!そーす@---ソース}
+\index{sauce@sauce!charcuti\`ere@---Charcuti\`ere}
+\index{charcutier@charcutier!sauce@Sauce Charcuti\`ere}
 
 
 [^8]: シャルキュトリ（豚肉加工業）風、の意。Charcutrieの語源はchar（肉）
@@ -178,6 +216,12 @@
 
 
 ##### Sauce Chasseur {#sauce-chasseur}
+
+
+\index{そーす@ソース!しゃすーる@シャスール}
+\index{しゃすーる@シャスール(狩人風)!そーす@ソース・---}
+\index{sauce@sauce!chasseur@--- Chasseur}
+\index{chasseur@chasseur!sauce@Sauce ---}
 
 
 生のマッシュルームを薄切りにしたもの150gをバターで炒める。エシャロット[^14]
@@ -210,6 +254,12 @@
 ##### Sauce Chasseur (Procédé Escoffier) {#sauce-chasseur-procede-escoffier}
 
 
+\index{そーす@ソース!しゃすーるえすこふぃえ@---・シャスール(エスコフィエ)}
+\index{しゃすーる@シャスール!そーすしゃすーるえすこふぃえ@ソース・--- (エスコフィエ)}
+\index{sauce@sauce!chasseur escoffier@--- Chasseur (Proc\'ed\'e Escoffier)}
+\index{chasseur@chasseur!sauce escoffier@Sauce --- (Escoffier)}
+
+
 生のマッシュルームを薄切りにしたもの150gを、バターと植物油で軽く色付く
 まで炒める。みじん切りにしたエシャロット大さじ１杯を加え、なるべくすぐ
 に余分な油をきる。白ワイン２dlとコニャック50mlを注ぎ、半量になるまで煮
@@ -229,6 +279,12 @@
 
 
 ##### Sauce Chaud-froid brune {#sauce-chaud-froid-brune}
+
+
+\index{そーす@ソース!しょふろわちゃいろ@---・ショフロワ(茶色)}
+\index{しょふろわ@ショフロワ!そーす(ちゃいろ)@ソース・--- (茶色)}
+\index{sauce@sauce!chaud-froid brune@--- Chaud-froid brune}
+\index{chaud-froid@chaud-froid!sauce brune@Sauce --- brune}
 
 
 （仕上がり１L分）
@@ -252,7 +308,7 @@
 す。
 
 
-[^15]: chaud ショ「熱い、温かい」とfroidフロワ「冷たい」の合成語で、
+[^15]: chaudショ「熱い、温かい」とfroidフロワ「冷たい」の合成語で、
     火を通した肉や魚を冷まし、表面にこのソース・ショフロワを覆うように
     塗り付け、さらにジュレを覆いかけた料理。料理の発祥については諸説あ
     り、なかでもルイ15世に仕えていた料理長ショフロワChaufroixが考案し
@@ -271,12 +327,10 @@
 
 ##### Sauce Chaud-froid brune pour Canards {#sauce-chaud-froid-brune-pour-canards}
 
-
-\index{そーす@ソース!しょふろわちゃいろ@---・ショーフロワ(茶色)}
-\index{しょふろわ@ショーフロワ!そーす(ちゃいろ)@ソース・--- (茶色)}
-\index{sauce@sauce!chaud-froid brune @--- Chaud-froid brune}
-\index{chaud-froid@chaud-froid!sauce brune@Sauce --- brune}
-
+\index{そーす@ソース!しょふろわちゃいろかもよう@---・ショーフロワ(茶色, 鴨用)}
+\index{しょふろわ@ショーフロワ!そーす(ちゃいろかもよう)@ソース・--- (茶色, 鴨用)}
+\index{sauce@sauce!chaud-froid brune pour canards@--- Chaud-froid brune pour Canards}
+\index{chaud-froid@chaud-froid!sauce brune pour Canards@Sauce --- brune pour Canards}
 
 作り方は上記、茶色いソース・ショフロワと同様だが、トリュフエッセンスではなく、鴨のガラでとったフュメ１1/2dlを用いること。また、上記のレシピよりややしっかり煮詰めること。
 
