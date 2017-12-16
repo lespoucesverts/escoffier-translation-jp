@@ -5,6 +5,9 @@
 
 ### Les Fonds de Cuisine {#les-fonds-de-cuisine}
 
+\index{fonds@fonds}
+\index{ふぉん@フォン}
+
 
 本書は実際に厨房で働く料理人を対象としたものだが、まず最初に料理のベー
 スをして仕込んでストックしておくもの[^101001]について少々述べておきた
@@ -131,7 +134,12 @@
 
 ## 基本ソース 
 
+
 ### Grandes Sauces de Base {#grandes-sauces-de-base}
+
+\index{そーす@ソース!0きほんそーす@基本---}
+\index{sauce@sauce!grandes sances de base@Grandes ---s de base}
+
 
 およびそこから派生させて組み合せたり煮詰めて作る派生ソース
 
@@ -142,6 +150,7 @@
 
 
 ### 概説
+
 
 ソースは料理においてもっとも主要な位置にある。フランス料理が世界に冠た
 るものであるのもひとえにソースの存在によるのだ。だから、ソースは出来る
@@ -254,16 +263,25 @@
 
 
 
-## ソース作りのベースとなるストック
+## ソース作りのベース
 
 
 ### Traitement des Éléments de Base dans le Travail des Sauces {#traitement-des-elements-de-base-dans-le-travail-des-sauces}
+
+\index{そーす@ソース!そーすつくりのべーす@---作りのベース}
+\index{sauce@sauce!Traitement des elements de base dans le travail des sauces@Traitement des Éléments de Base dans le Travail des ---s}
 
 
 \vspace*{1.7\zw}
 #### 茶色いフォン（エストゥファード）
 
 ##### FONDS BRUN OU ESTOUFFADE {#fonds-brun-ou-estouffade}
+
+\index{ふぉん@フォン!ちゃいろいふぉん@茶色い---}
+\index{えすとぅふぁーど@エストゥファード}
+\index{fonds@fonds!fonds brun@--- brun}
+\index{fonds!estouffade@estouffade (fonds brun)}
+\index{estouffade@estouffade!fonds brun@ (fonds brun)}
 
 
 (仕上がり10 L 分）
@@ -327,6 +345,9 @@
 
 ##### FONDS BLANC ORDINAIRE {#fonds-blanc-ordinaire}
 
+\index{ふぉん@フォン!しろいふぉん@白い---}
+\index{fonds@fonds!fonds blanc ordinaire@--- blanc ordinaire}
+
 
 （仕上がり10 L 分）
 
@@ -372,6 +393,10 @@
 ##### FONDS DE VOLAILLE {#fonds-de-volaille}
 
 
+\index{ふぉん@フォン!とりのふぉん@鶏の---}
+\index{fonds@fonds!fonds de volaille@--- de volaille}
+
+
 白いフォンと同じ主素材、香味素材、水の量で、さらに鶏のとさかや手羽、ガ
 ラを適宜増量し、廃鶏3羽を加えて作る。
 
@@ -382,6 +407,13 @@
 
 
 ##### FONDS, OU JUS DE VEAU BRUN {#fonds-ou-jus-de-veau-brun}
+
+\index{ふぉん@フォン!こうしのちゃいろいふぉん@仔牛の茶色い---}
+\index{じゅ@ジュ!こうしのちゃいろいじゅ@仔牛の茶色い---}
+\index{fonds@fonds!fonds de veau brun@--- de veau brun}
+\index{jus@jus!jus de veau brun@--- de veau brun}
+\index{こうし@仔牛!こうしのちゃいろいふぉん@---の茶色いフォン(ジュ)}
+\index{veau@veau!fonds ou de veau brun@fonds ou jus de --- brun}
 
 
 （仕上がり10 L 分）
@@ -424,6 +456,12 @@
 ##### FONDS DE GIBIER {#fonds-de-gibier}
 
 
+\index{ふぉん@フォン!じびえのふぉん@ジビエの---}
+\index{fonds@fonds!fonds de gibier@--- de gibier}
+\index{じびえ@ジビエ!じびえのふぉん@---のフォン}
+\index{gibier@gibier!fonds de gibier@fonds de ---}
+
+
 （仕上がり5 L 分）
 
 
@@ -464,6 +502,12 @@
 
 
 ##### FONDS, OU FUMET DE POISSON {#fonds-ou-fumet-de-poisson}
+
+\index{ふぉん@フォン!さかなのふぉん@魚の---}
+\index{ふゅめ@フュメ!さかなのふゅめ@魚の---}
+\index{ふゅめ@フュメ!ふゅめどぽわそん@フュメドポワソン}
+\index{fumet@fumet!fumet de poisson@--- de poisson}
+\index{fonds@fonds!fumet de poisson@fumet de poisson}
 
 
 （仕上がり10 L 分）
@@ -526,6 +570,10 @@
 
 ##### FONDS DE POISSON AU VIN ROUGE {#fonds-de-poisson-au-vin-rouge}
 
+\index{ふぉん@フォン!あかわいんをもちいたさかなのふぉん@赤ワインを用いた魚の---}
+\index{fonds@fonds!fonds de poisson au vin rouge@--- de poisson au vin rouge}
+
+
 
 このフォンそれ自体を用意することは滅多にない。というのも、例えばマトロッ
 トのような料理の魚の煮汁そのものだからだ。
@@ -579,6 +627,9 @@
 
 
 ##### ESSENCE DE POISSON {#essence-de-poisson}
+
+\index{えっせんす@エッセンス!さかなのえっせんす@魚の---}
+\index{essence@essence!essence de poisson@--- de poisson}
 
 
 **主素材**……メルラン[^1010018]および舌びらめの頭、アラ2 kg 。
@@ -638,6 +689,11 @@
 ##### ESSENCES DIVERSES {#essences-diverses}
 
 
+\index{えっせんす@エッセンス!えっせんす@---について（フォン）}
+\index{essence@essence!essences diverses@essences diverses (fonds)}
+
+
+
 その名のとおり、エッセンスとはごく少量になるまで煮詰めて非常に強い風味
 を持たせたフォンのこと。
 
@@ -677,6 +733,9 @@
 
 
 ##### GLACES DIVERSES {#glaces-diverses}
+
+\index{ぐらす@グラス!ぐらすについて@---について}
+\index{glace@glace!glaces diverses@---s diverses}
 
 
 グラスドヴィアンド、鶏のグラス（グラスドヴォライユ）、ジビエのジビエ、
@@ -718,6 +777,9 @@
 
 ##### GLACE DE VIANDE {#glace-de-viande}
 
+\index{ぐらす@グラス!ぐらすどういあんど@---ドヴィアンド}
+\index{glace@glace!glace de viande@--- de viande}
+
 
 茶色いフォン（エストゥファード）を煮詰めて作る。
 
@@ -750,6 +812,9 @@
 
 ##### GLACE DE VOLAILLE {#glace-de-volaille}
 
+\index{ぐらす@グラス!とりのぐらす@鶏の---（グラスドヴォライユ）}
+\index{glace@glace!glace de volaille@--- de volaille}
+
 
 鶏のフォン（フォンドヴォライユ）を用いて、グラスドヴィアンドと同様にし
 て作る。
@@ -762,6 +827,11 @@
 
 ##### GLACE DE GIBIER {#glace-de-gibier}
 
+\index{ぐらす@グラス!じびえのぐらす@ジビエの---}
+\index{glace@glace!glace de gibier@--- de gibier}
+\index{じびえ@ジビエ!じびえのぐらす@---のグラス}
+\index{gibier@gibier!glace de gibier@glace de ---}
+
 
 ジビエのフォンを煮詰めて作る。ある特定のジビエの風味を生かしたグラスを
 作るには、そのジビエだけでとったフォンを用いること。
@@ -772,6 +842,11 @@
 #### 魚のグラス 
 
 ##### GLACE DE POISSON {#glace-de-poisson}
+
+
+\index{ぐらす@グラス!さかなのぐらす@魚の---}
+\index{glace@glace!glace de poisson@--- de poisson}
+
 
 
 このグラスを用いることはあまり多くない。日常的な業務においては「魚のエッ
@@ -786,6 +861,9 @@
 ## ルー
 
 ### Roux
+
+\index{るー@ルー}
+\index{roux@roux}
 
 
 ルーはいろいろな派生ソースのベースとなる基本ソースにとろみを付ける役目
@@ -803,6 +881,11 @@
 
 ##### ROUX BRUN {#roux-brun}
 
+\index{るー@ルー!ちゃいろいるー@茶色い---}
+\index{roux@roux!roux brun@--- brun}
+
+
+
 （仕上がり1 kg 分）
 
 
@@ -814,8 +897,11 @@
 \vspace*{1.7\zw}
 ###### ルーの火入れについて {#cuisson-du-roux}
 
+\index{るー@ルー!るーのひいれについて!---の火入れについて}
+\index{roux@roux!cuisson du roux@cuisson du ---}
 
-……加熱時間は使用する熱源の強さで変わってくる。だから数字で何分とは言えな
+
+加熱時間は使用する熱源の強さで変わってくる。だから数字で何分とは言えな
 い。ただし、火力が強過ぎるよりは弱いくらいの方がいいでしょう。というの
 も、温度が高すぎると小麦粉の細胞が硬化して中身を閉じ込めてしまい、そう
 なると後でフォンなどの液体を加えた際に上手く混ざらず、滑らかなとろみの
@@ -860,6 +946,8 @@
 
 ##### ROUX BLOND {#roux-blond}
 
+\index{るー@ルー!きつねいろのるー@きつね色の---}
+\index{roux@roux!roux blond@--- blond}
 
 （仕上がり1 kg 分）
 
@@ -877,6 +965,10 @@
 
 
 ##### ROUX BLANC {#roux-blanc}
+
+
+\index{るー@ルー!しろいるー@白い---}
+\index{roux@roux!roux blanc@--- blanc}
 
 
 500 g のバターと、ふるった小麦粉600 g 。

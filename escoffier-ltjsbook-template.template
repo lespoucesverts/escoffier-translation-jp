@@ -1,4 +1,4 @@
-\documentclass[twoside,12Q,b5paper]{escoffierltjsbook}
+\documentclass[twoside,12Q,b5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
@@ -6,6 +6,9 @@
 \usepackage{geometry}
 \usepackage{unicode-math}
 \usepackage{xfrac}
+\usepackage{luaotfload}
+\usepackage{makeidx}
+
 
 \usepackage[unicode=true]{hyperref}
 \hypersetup{breaklinks=true,
@@ -44,8 +47,9 @@
 \usepackage{luatexja-ruby}
 
 %%%%和文仮名プロポーショナル
-\usepackage[hiragino-pron,expert,deluxe]{luatexja-preset}
-%\usepackage[ipaex,expert,deluxe]{luatexja-preset}
+%\usepackage[yu-osx]{luatexja-preset}
+\usepackage[hiragino-pron,90jis,expert,deluxe]{luatexja-preset}
+%\usepackage[ipaex]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
 %    JFM=prop,PKana=On,Kerning=On,
@@ -131,18 +135,19 @@
 
 
 %subsubsectionに連番をつける
-\usepackage{remreset}
+%\usepackage{remreset}
+
 \renewcommand{\thechapter}{}
 \renewcommand{\thesection}{}
 \renewcommand{\thesubsection}{}
-%\renewcommand{\thesubsubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
 
-
-\makeatletter
-\@removefromreset{subsubsection}{subsection}
-\def\thesubsubsection{\arabic{subsubsection}.}
-\newcounter{rnumber}
-\renewcommand{\thernumber}{\refstepcounter{rnumber} }
+%\makeatletter
+%\@removefromreset{subsubsection}{subsection}
+%\def\thesubsubsection{\arabic{subsubsection}.}
+%\newcounter{rnumber}
+%\renewcommand{\thernumber}{\refstepcounter{rnumber} }
 
 \renewcommand{\prepartname}{\if@english Part~\else {}\fi}
 \renewcommand{\postpartname}{\if@english\else {}\fi}
@@ -206,9 +211,49 @@ $endfor$
   \parindent 1\zw
   \noindent
   \llap{\@thefnmark\hskip0.5\zw}#1}
-\makeatother  
 
 
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%変更点
+    \else
+      \ifdim\textwidth<\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \else
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \fi
+    \fi
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+\makeatother
+
+
+\makeindex
 
 \begin{document}
 
@@ -257,7 +302,7 @@ $endif$
 $body$
 
 
-
+{\printindex}
 $for(include-after)$
 $include-after$
 
