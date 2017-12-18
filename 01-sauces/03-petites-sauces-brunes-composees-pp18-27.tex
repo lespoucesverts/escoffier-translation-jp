@@ -1,0 +1,597 @@
+\documentclass[twoside,12Q,b5j]{escoffierltjsbook}
+%\documentclass[twoside,8pt,a5j]{escoffierltjsbook}
+\usepackage{amsmath}%数式
+\usepackage{amssymb}
+\usepackage[no-math]{fontspec}
+%\usepackage{xunicode}
+\usepackage{geometry}
+\usepackage{unicode-math}
+\usepackage{xfrac}
+\usepackage{luaotfload}
+\usepackage{makeidx}
+
+
+\usepackage[unicode=true]{hyperref}
+\hypersetup{breaklinks=true,
+             bookmarks=true,
+             pdfauthor={},
+             pdftitle={},
+             colorlinks=true,
+             citecolor=blue,
+             urlcolor=blue,
+             linkcolor=magenta,
+             pdfborder={0 0 0}}
+\urlstyle{same}
+
+%%欧文フォント設定
+\setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+
+%%Garamond
+%\usepackage{ebgaramond-maths}
+%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+
+
+%\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
+%\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
+\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
+\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+\unimathsetup{math-style=ISO,bold-style=ISO}
+\setmathfont{xits-math.otf}
+\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
+
+\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+%%%%和文仮名プロポーショナル
+%\usepackage[yu-osx]{luatexja-preset}
+\usepackage[hiragino-pron,90jis,expert,deluxe]{luatexja-preset}
+%\usepackage[ipaex]{luatexja-preset}
+%\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%\setmainjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuMincho-DemiBold},
+%    ItalicFont={YuMincho-Medium},
+%    BoldItalicFont={YuMincho-DemiBold}
+%]{YuMincho-Medium}
+%\setsansjfont[
+%    JFM=prop,PKana=On,Kerning=On,
+%    BoldFont={YuGothic-Bold},
+%    ItalicFont={YuGothic-Medium},
+%    BoldItalicFont={YuGothic-Bold}
+%]{YuGothic-Medium}
+%%%%和文仮名プロプーショナルここまで
+
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+\defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
+\defaultjfontfeatures{Scale=0.92487}%和文フォントのサイズ調整。デフォルトは 0.962212 倍%ltjsclassesでは不要?
+%\defaultjfontfeatures{Scale=0.962212}
+%\usepackage{libertineotf}%linux libertine font %ギリシア語含む
+%\usepackage[T1]{fontenc}
+%\usepackage[full]{textcomp}
+%\usepackage[osfI,scaled=1.0]{garamondx}
+%\usepackage{tgheros,tgcursor}
+%\usepackage[garamondx]{newtxmath}
+\usepackage{xfrac}
+
+\usepackage{layout}
+
+%レイアウト調整(B5,12Q,escoffierltjsbook.cls)
+%
+\setlength{\hoffset}{-1truein}
+\setlength{\hoffset}{-0.5mm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{-1cm}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\fullwidth}{14cm}
+\setlength{\textwidth}{14cm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\textheight}{20.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+
+%レイアウト調整(8pt,a5j,escoffierltjsbook)
+%\setlength{\voffset}{-.5cm}
+%\setlength{\hoffset}{-.6cm}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{\oddsidemargin}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{40\zw}
+%\setlength{\textwidth}{40\zw}
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{0pt}
+%\setlength{\footskip}{0pt}
+%\setlength{\textheight}{17.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+%\setlength{\baselineskip}{15pt}
+
+
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
+
+%リスト環境
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = 1\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     \topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = 0pt \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+
+  
+%\usepackage{fancyhdr}
+
+\usepackage{setspace}
+\setstretch{1.1}
+
+
+%レシピ本文
+\usepackage{multicol}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+
+%subsubsectionに連番をつける
+%\usepackage{remreset}
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+%\makeatletter
+%\@removefromreset{subsubsection}{subsection}
+%\def\thesubsubsection{\arabic{subsubsection}.}
+%\newcounter{rnumber}
+%\renewcommand{\thernumber}{\refstepcounter{rnumber} }
+
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+\makeatother
+
+
+
+% PDF/X-1a
+% \usepackage[x-1a]{pdfx}
+% \Keywords{pdfTeX\sep PDF/X-1a\sep PDF/A-b}
+% \Title{Sample LaTeX input file}
+% \Author{LaTeX project team}
+% \Org{TeX Users Group}
+% \pdfcompresslevel=0
+%\usepackage[cmyk]{xcolor}
+
+%biblatex
+%\usepackage[notes,strict,backend=biber,autolang=other,%
+%                   bibencoding=inputenc,autocite=footnote]{biblatex-chicago}
+%\addbibresource{hist-agri.bib}
+\let\cite=\autocite
+
+% % % % 
+\date{}
+
+%%%脚注番号のページ毎のリセット
+%\makeatletter
+%  \@addtoreset{footnote}{page}
+%\makeatother
+\usepackage[perpage,marginal,stable]{footmisc}
+\makeatletter
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 1.5\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%変更点
+    \else
+      \ifdim\textwidth<\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \else
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \fi
+    \fi
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+\makeatother
+
+
+\makeindex
+
+\begin{document}
+
+%\layout
+
+
+%fancyhdr
+%\pagestyle{fancy}
+%\lhead[\thepage]{\thesection}
+%\chead{}
+%\rhead[\thechapter]{\thepage}
+%\fancyhead{\gdef\headrulewidth{0pt}}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+
+
+
+\section{茶色い派生ソース}\label{ux8336ux8272ux3044ux6d3eux751fux30bdux30fcux30b9}
+
+\subsection{Petites Sauces Brunes
+Composées}\label{petites-sauces-brunes-composees}
+
+\begin{recette}
+\subsubsection[ソース・ビガラード]{\texorpdfstring{ソース・ビガラード\footnote{ビガラードは本来、南フランスで栽培されるビターオレンジの一種。}}{ソース・ビガラード}}\label{ux30bdux30fcux30b9ux30d3ux30acux30e9ux30fcux30c91}
+
+\paragraph{Sauce Bigarade}\label{sauce-bigarade}
+
+\index{そーす@ソース!びがらーど@---・ビガラード}
+\index{びがらーど@ビガラード!そーす@ソース・---}
+\index{sauce@sauce!bigarade@--- Bigarade}
+\index{bigarade@bigarade!sauce@Sauce ---}
+
+\subparagraph[仔鴨のブレゼ 用]{\texorpdfstring{仔鴨のブレゼ\footnote{ブレゼおよびポワレについては第7章「肉料理」参照。}
+用}{仔鴨のブレゼ 用}}\label{sauce-bigarade-pour-canetons-braises}
+
+仔鴨をブレゼした際の煮汁を漉してから浮き脂を取り除き\footnote{dégraisser
+  デグレセ。}、煮詰める。煮詰まった
+らさらに目の細かい布で漉し、ソース1Lあたりオレンジ4個とレモン1個の搾り
+汁でのばす。
+
+\subparagraph{仔鴨のポワレ用}\label{sauce-bigarade-pour-canetons-poeles}
+
+仔鴨をポワレのフォン\footnote{ここでのポワレは蒸し焼きの一種であるから、煮汁それ自体は野菜に
+  含まれていた水分くらいしかない。実際には、火入れの終わった肉を取り
+  出してから、鍋に適量のフォンを注いで火にかけ、残った香味野菜から風
+  味を引き出したものを使う。}から浮き脂を取り除き、でんぷんで軽くとろみ付
+けする。砂糖20gに大さじ\(\sfrac{1}{2}\)杯のヴィネガーを加えて火にかけカラメル状にし
+たものを加える。ブレゼ用と同様に、オレンジとレモンの搾り汁でのばす。
+
+仔鴨のブレゼ用、ポワレ用いずれの場合も、細かい千切りにしてよく下茹でし
+ておいたオレンジの皮大さじ2とレモンの皮大さじ1を加えて仕上げる。
+
+\vspace*{1.7\zw}
+
+\subsubsection{ボルドー風ソース}\label{ux30dcux30ebux30c9ux30fcux98a8ux30bdux30fcux30b9}
+
+\paragraph{Sauce Bordelaise}\label{sauce-bordelaise}
+
+\index{そーす@ソース!ぼるどーふう@ボルドー風---}
+\index{ぼるどーふう@ボルドー風!そーす@---ソース}
+\index{sauce@sauce!bordelaise@--- Bordelaise}
+\index{bordelais@bordelais!sauce@Sauce Bordelaise}
+
+赤ワイン3 dl にエシャロットのみじん切り大さじ2、粗く砕いたこしょう、タ
+イム、ローリエの葉\(\sfrac{1}{2}\)枚を加えて火にかけ、\(\sfrac{1}{4}\)量になるまで煮詰める。ソー
+ス・エスパニョル1dlを加えて火にかけ、浮いてくる夾雑物を丁寧に取り除き
+ながら弱火で15分間煮る。目の細かい布で漉す。
+
+溶かしたグラスドヴィアンド大さじ1杯とレモン汁\(\sfrac{1}{4}\)個分、細かいさいの目
+か輪切りにしてポシェしておいた牛骨髄を加えて仕上げる。
+
+\ldots{}\ldots{}牛、羊の赤身肉のグリル用
+
+【原注】こんにちではボルドー風ソースをこのように赤ワインを用いて作るが、
+本来的には誤りである。もともとは白ワインが用いられていた。白ワインを用
+いるものについては「ボルドー風ソース　ボヌフォワ」として後述。
+
+\vspace*{1.7\zw}
+
+\subsubsection{ブルゴーニュ風ソース}\label{ux30d6ux30ebux30b4ux30fcux30cbux30e5ux98a8ux30bdux30fcux30b9}
+
+\paragraph{Sauce Bourguignonne}\label{sauce-bourgignonne}
+
+\index{そーす@ソース!ぶるごーにゅふう@ブルゴーニュ風---}
+\index{ぶるごーにゅふう@ブルゴーニュ風!そーす@---ソース}
+\index{sauce@sauce!bourguignonne@--- Bourguignonne}
+\index{bourguignon@bourguignon!sauce@Sauce Bourguignonne}
+
+上質の赤ワイン1\(\sfrac{1}{2}\) L
+に、エシャロット5個の薄切りとパセリの枝、タイム、
+ローリエの葉\(\sfrac{1}{2}\)枚、マッシュルームの切りくず\footnote{料理に使うマッシュルームは通常、トゥルネ（包丁を持った側の手は動
+  かさずに材料を回して切ることからついた用語）すなわち螺旋状に切って
+  供するが、その際に少なくない量の切りくずが出るのでこれを使う。}25gを加えて、半量になる
+まで煮詰める。布で漉し、ブールマニエ80g（バター45gと小麦粉35g）を加え
+てとろみを付ける。提供直前にバター150gを溶かし込み、カイエンヌ\footnote{赤唐辛子の粉末だが、カイエンヌは本来、品種名。日本でよく用いられ
+  ているタカノツメなどと比べると辛さもややマイルドで、風味も異なる。}ごく
+少量で加えて風味よく仕上げる。
+
+\ldots{}\ldots{}いろいろな卵料理や、家庭料理に好適なソース。
+
+\vspace*{1.7\zw}
+
+\subsubsection{ブルターニュ風ソース}\label{ux30d6ux30ebux30bfux30fcux30cbux30e5ux98a8ux30bdux30fcux30b9}
+
+\paragraph{Sauce Bretonne}\label{sauce-bretonne}
+
+\index{そーす@ソース!ぶるたーにゅふうちゃいろ@ブルターニュ風--- (茶色)}
+\index{ぶるたーにゅふう@ブルターニュ風!そーすちゃいろ@---ソース (茶色)}
+\index{sauce@sauce!bretonne brune@--- Bretonne (brune)}
+\index{breton@breton!sauce brune@Sauce Bretonne (brune)}
+
+中位の玉ねぎ2個をみじん切りにして、バターできつね色になるまで炒める。
+白ワイン2\(\sfrac{1}{2}\)dlを注ぎ、半量になるまで煮詰める。ここにソース・
+エスパニョル3\(\sfrac{1}{2}\)およびトマトソース同量を加える。7〜8分間煮
+立ててから、刻んだパセリを加えて仕上げる。
+
+【原注】このソースは「\protect\hyperlink{haricots-blancs-a-la-bretonne}{白いんげん豆のブルターニュ
+風}」以外にはほとんど使われない。
+
+\vspace*{1.7\zw}
+
+\subsubsection[ソース・スリーズ]{\texorpdfstring{ソース・スリーズ\footnote{スリーズ
+  cerises はさくらんぼのこと。このレシピでグロゼイユ（す
+  ぐり）のジュレを用いるが、古くはさくらんぼを用いていたことからこの
+  名称となった。}}{ソース・スリーズ}}\label{ux30bdux30fcux30b9ux30b9ux30eaux30fcux30ba6}
+
+\paragraph{Sauce aux cerises}\label{sauce-aux-cerises}
+
+\index{そーす@ソース!すりーず@---・スリーズ}
+\index{sauce@sauce!cerise@--- aux Cerises}
+
+ポルト酒2dlにイギリス風ミックススパイスひとつまみと、すりおろしたオレ
+ンジの皮を大さじ\(\sfrac{1}{2}\)杯加えて\(\sfrac{2}{3}\)量になるまで煮詰める。グロゼイユのジュレ
+2\(\sfrac{1}{2}\)を加え、仕上げにオレンジ果汁を加える。
+
+\ldots{}\ldots{}大型猟獣肉の料理用だが、鴨のポワレやブレゼにも用いられる。
+
+\vspace*{1.7\zw}
+
+\subsubsection[ソース・シャンピニョン]{\texorpdfstring{ソース・シャンピニョン\footnote{champignons
+  キノコ全般を意味する語だが、単独で用いられる場合はい
+  わゆるマッシュルームを指す。}}{ソース・シャンピニョン}}\label{ux30bdux30fcux30b9ux30b7ux30e3ux30f3ux30d4ux30cbux30e7ux30f37}
+
+\paragraph{Sauce aux Champignons}\label{sauce-aux-champignons}
+
+\index{そーす@ソース!まっしゅるーむちゃいろ@マッシュルーム--- (茶色)}
+\index{まっしゅるーむ@マッシュルーム!そーすちゃいろ@---ソース (茶色)}
+\index{sauce@sauce!champignons brune@--- aux Champignons (brune)}
+\index{champignon@champignon!sauce brune@Sauce aux Champignons (brune)}
+
+マッシュルームの煮汁2\(\sfrac{1}{2}\) dl
+を半量になるまで煮詰める。\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグ
+ラス}8 dl を加えて数分間煮立てる。布で漉し、バター
+50gを投入して味を調え、あらかじめ下茹でしておいた小さめのマッシュルー
+ムの笠100gを加えて仕上げる。
+
+\vspace*{1.7\zw}
+
+\subsubsection[ソース・シャルキュティエール]{\texorpdfstring{ソース・シャルキュティエール\footnote{シャルキュトリ（豚肉加工業）風、の意。Charcutrieの語源はchar（肉）
+  +cuite（調理された）+rie（業）。ハムやソーセージなどと定番の組合せ
+  であるマスタードをベースとしているソース・ロベールと、おなじく定番
+  のつけ合わせであるコルニション（小さいうちに収穫してヴィネガー漬け
+  にしたきゅうり。専用品種がある）を使うことから、シャルキュトリ風と
+  呼ばれる。}}{ソース・シャルキュティエール}}\label{ux30bdux30fcux30b9ux30b7ux30e3ux30ebux30adux30e5ux30c6ux30a3ux30a8ux30fcux30eb8}
+
+\paragraph{Sauce Charcutière}\label{sauce-charcutiere}
+
+\index{そーす@ソース!しゃるきゅとりふう@シャルキュトリ風}
+\index{しゃるきゅとりふう@シャルキュトリ風!そーす@---ソース}
+\index{sauce@sauce!charcutière@--- Charcutière}
+\index{charcutier@charcutier!sauce@Sauce Charcutière}
+
+提供直前に、\protect\hyperlink{sauce-robert}{ソース・ロベール}1 L
+に細さ2mm程度で短かめの 千切り\footnote{1〜2mm程度の細さの千切りにした野菜などをジュリエンヌjulienneと呼ぶ。}にしたものを加える（\protect\hyperlink{sauce-robert}{ソース・ロベール}参照）。
+
+\vspace*{1.7\zw}
+
+\subsubsection[ソース・シャスール]{\texorpdfstring{ソース・シャスール\footnote{狩人風、の意。古くは猟獣肉をすり潰したものを使った料理を指した
+  という説もある。マッシュルームとエシャロット、白ワインを使うのが特
+  徴であり、このソースを使った料理にも「シャスール」の名が付けられる。}}{ソース・シャスール}}\label{ux30bdux30fcux30b9ux30b7ux30e3ux30b9ux30fcux30eb10}
+
+\paragraph{Sauce Chasseur}\label{sauce-chasseur}
+
+\index{そーす@ソース!しゃすーる@---・シャスール}
+\index{しゃすーる@シャスール!そーす@ソース・---}
+\index{sauce@sauce!chasseur@--- Chasseur}
+\index{chasseur@chasseur!sauce@Sauce ---}
+
+生のマッシュルームを薄切りにしたもの150gをバターで炒める。エシャロット\footnote{échalote
+  玉ねぎによく似ているが、小ぶりで水分が少なく、香味野菜としてよく用いられる。伝統的な品種は種子ではなく種球を植えて栽培する。なお、日本でしばしば「エシャレット」の名称で流通しているものはラッキョウの若どりであり、フランス料理で用いるエシャロットとはまったく異なる。}
+のみじん切り大さじ2\(\sfrac{1}{2}\)杯を加えてさらに軽く炒め、白ワイン3
+dl を注ぎ、
+半量になるまで煮詰める。\protect\hyperlink{sauce-tomate}{ソマトソース}3
+dl と\protect\hyperlink{sauce-demi-glace}{ソース・ドゥ
+ミグラス}2dlを加える。数分間沸騰させたら、バター
+150gと、セルフイユ\footnote{cerfeuil
+  日本ではチャービルとも呼ばれるセリ科のハーブ。}とエストラゴン\footnote{estragon
+  日本ではタラゴンとも呼ばれるヨモギ科のハーブ。フレンチ
+  タラゴンとロシアンタラゴンの2種がある。料理に用いるのはフレンチタ
+  ラゴン。}をみじん切りにしたもの大さじ
+1\(\sfrac{1}{2}\)杯を加えて仕上げる。
+
+\vspace*{1.7\zw}
+
+\subsubsection{ソース・シャスール（エスコフィエ流）}\label{ux30bdux30fcux30b9ux30b7ux30e3ux30b9ux30fcux30ebux30a8ux30b9ux30b3ux30d5ux30a3ux30a8ux6d41}
+
+\paragraph{Sauce Chasseur (Procédé
+Escoffier)}\label{sauce-chasseur-procede-escoffier}
+
+\index{そーす@ソース!しゃすーるえすこふぃえ@---・シャスール(エスコフィエ流)}
+\index{しゃすーる@シャスール!そーすしゃすーるえすこふぃえ@ソース・--- (エスコフィエ流)}
+\index{sauce@sauce!chasseur escoffier@--- Chasseur (Proc\'ed\'e Escoffier)}
+\index{chasseur@chasseur!sauce escoffier@Sauce --- (Escoffier)}
+
+生のマッシュルームを薄切りにしたもの150gを、バターと植物油で軽く色付く
+まで炒める。みじん切りにしたエシャロット大さじ1杯を加え、なるべくすぐ
+に余分な油をきる。白ワイン2dl とコニャック約50ml を注ぎ、半量になるま
+で煮詰める。\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグラス}4dlと\protect\hyperlink{sauce-tomate}{トマトソー
+ス}2dl、\protect\hyperlink{glace-de-viande}{グラスドヴィアンド}大さじ
+\(\sfrac{1}{2}\)杯を加える。
+
+5分間沸騰させたら、仕上げにパセリのみじん切り少々を加える。
+
+\vspace*{1.7\zw}
+
+\subsubsection[茶色いソース・ショフロワ]{\texorpdfstring{茶色いソース・ショフロワ\footnote{chaudショ「熱い、温かい」とfroidフロワ「冷たい」の合成語で、
+  火を通した肉や魚を冷まし、表面にこのソース・ショフロワを覆うように
+  塗り付け、さらにジュレを覆いかけた料理。料理の発祥については諸説あ
+  り、なかでもルイ15世に仕えていた料理長ショフロワChaufroixが考案し
+  たという説を支持してなのか、英語ではこの料理をChaufroixと綴ること
+  も多い。Chaud-froidの表記は19世紀後半には文献に見られる。なお、複
+  数形はchauds-froidsと綴る。トリュフの薄切りやエストラゴンなどのハー
+  ブその他で表面に華麗な装飾を施すことが19世紀には盛んに行なわれてい
+  た。現代でも装飾に凝った仕立てにするケースは多い。}}{茶色いソース・ショフロワ}}\label{ux8336ux8272ux3044ux30bdux30fcux30b9ux30b7ux30e7ux30d5ux30edux30ef15}
+
+\hypertarget{sauce-chaud-froid-brune}{\paragraph{Sauce Chaud-froid
+brune}\label{sauce-chaud-froid-brune}}
+
+\index{そーす@ソース!しょふろわちゃいろ@---・ショフロワ(茶色)}
+\index{しょふろわ@ショフロワ!そーす(ちゃいろ)@ソース・--- (茶色)}
+\index{sauce@sauce!chaud-froid brune@--- Chaud-froid brune}
+\index{chaud-froid@chaud-froid!sauce brune@Sauce --- brune}
+
+（仕上がり1L 分）
+
+\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグラス}\(\sfrac{3}{4}\)Lとトリュフエッ
+センス1dl 、ジュレ6〜7dlを用意する。
+
+ソース・ドゥミグラスにトリュフエッセンスを加えて、強火で煮詰めるが、こ
+の時に鍋から離れないこと。煮詰めながらジュレを少量ずつ加えていく。最終
+的に\(\sfrac{2}{3}\)量程度まで煮詰める。
+
+味見をして、ソースがショフロワに使うのに丁度いい濃さになっているか確
+認すること。
+
+マデラ酒またはポルト酒\(\sfrac{1}{2}\)dlを加える。布で漉し、ショフロワの主素材の表
+面に塗り付けるのに丁度いい固さになるまで、丁寧にゆっくり混ぜながら冷ます。
+
+\vspace*{1.7\zw}
+
+\subsubsection{茶色いソース・ショフロワ（鴨用）}\label{ux8336ux8272ux3044ux30bdux30fcux30b9ux30b7ux30e7ux30d5ux30edux30efux9d28ux7528}
+
+\paragraph{Sauce Chaud-froid brune pour
+Canards}\label{sauce-chaud-froid-brune-pour-canards}
+
+\index{そーす@ソース!しょふろわちゃいろかもよう@茶色い---・ショフロワ（鴨用）}
+\index{しょふろわ@ショフロワ!ちゃいろいそーすしょふろわかもよう@茶色いソース・---（鴨用）}
+\index{sauce@sauce!chaud-froid brune pour canards@--- Chaud-froid brune pour Canards}
+\index{chaud-froid@chaud-froid!sauce brune pour Canards@Sauce --- brune pour Canards}
+
+作り方は上記、\protect\hyperlink{sauce-chaud-froid-brune}{茶色いソース・ショフロワ}と同様だが、トリュフエッセンスではなく、鴨のガラでとったフュメ1\(\sfrac{1}{2}\)
+dl を用いること。また、上記のレシピよりややしっかり煮詰めること。
+
+ソースを布で漉したら、オレンジ3個分の搾り汁、とオレンジの皮をごく薄く剥いて細かい千切りにしたもの\footnote{zeste
+  ゼスト。オレンジやレモンの皮の表面を器具を用いてすりおろすか、ナイフでごく薄く表皮を向き、細かい千切りにしたもの。ここでは後者を使う指定になっている。}大さじ2杯を加える。オレンジの皮の千切りはしっかりと下茹でしてよく水気をきっておくころ。
+
+\vspace*{1.7\zw}
+
+\subsubsection{茶色いソース・ショフロワ（ジビエ用）}\label{ux8336ux8272ux3044ux30bdux30fcux30b9ux30b7ux30e7ux30d5ux30edux30efux30b8ux30d3ux30a8ux7528}
+
+\paragraph{Sauce Chaud-froid brune pour
+Gibier}\label{sauce-chaud-froid-brune-pour-gibier}
+
+\index{そーす@ソース!しょふろわちゃいろじびえよう@茶色い---・ショフロワ（ジビエ用）}
+\index{しょふろわ@ショフロワ!そーすしょふろわじびえよう@茶色いソース・---（ジビエ用）}
+\index{sauce@sauce!chaud-froid brune pour Gibier@--- Chaud-froid brune pour Gibier}
+\index{chaud-froid@chaud-froid!sauce brune pour Gibier@Sauce --- brune pour Gibier}
+
+作り方は上記\protect\hyperlink{sauce-chaud-froid-brune}{標準的なソース・ショフロワ}と同じだが、トリュフエッセンスではなく、ショフロワとして供するジビエのガラでとったフュメ\footnote{XX頁、\protect\hyperlink{fonds-de-gibier}{ジビエのフォン}参照。}2dlを用いること。
+
+\vspace*{1.7\zw}
+
+\subsubsection{トマト入りソース・ショフロワ}\label{ux30c8ux30deux30c8ux5165ux308aux30bdux30fcux30b9ux30b7ux30e7ux30d5ux30edux30ef}
+
+\paragraph{Sauce Chaud-froid tomatée}\label{sauce-chaud-froid-tomatee}
+
+\index{そーす@ソース!しょふろわとまといり@トマト入り---・ショフロワ}
+\index{しょふろわ@ショフロワ!そーす(とまといり)@トマト入りソース・---}
+\index{sauce@sauce!chaud-froid tomatée@--- Chaud-froid tomatée}
+\index{chaud-froid@chaud-froid!sauce tomatée@Sauce --- tomatée}
+
+良質で、既によく煮詰めてあるトマトピュレ1Lを、さらに煮詰めながら7〜8dlのジュレを少しずつ加えていく。全体量が1L以下になるまで煮詰めること。
+
+布で漉し、使いやすい固さになるまで、ゆっくり混ぜながら冷ます。
+
+\vspace*{1.7\zw}
+
+\subsubsection[ソース・シュヴルイユ]{\texorpdfstring{ソース・シュヴルイユ\footnote{ノロ鹿のことだが、本文にあるようにノロ鹿の料理だけでなく、牛・羊肉を用いた料理にもこのソースを使う。}}{ソース・シュヴルイユ}}\label{ux30bdux30fcux30b9ux30b7ux30e5ux30f4ux30ebux30a4ux30e618}
+
+\paragraph{Sauce Chevreuil}\label{sauce-chevreuil}
+
+\index{しゅうるいゆ@シュヴルイユ!そーす@ソース・---}
+\index{そーす@ソース!しゅうるいゆ!---・シュヴルイユ}
+\index{のろしか@ノロ鹿!そーすしゅうるいゆ@ソース・シュヴルイユ}
+\index{sauce@sauce!chevreuil@--- Chevreuil}
+\index{chevreuil@chevreuil!sauce@Sauce ---}
+
+標準的な\protect\hyperlink{sauce-poivrade}{ソース・ポワヴラード}と同様に作るが、
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  マリネした牛・羊肉の料理の場合に添える場合は、ハム入りの\protect\hyperlink{mirepoix}{ミルポワ}\footnote{XX参照。}を加える。
+\item
+  ジビエ料理に添える場合は、そのジビエの端肉を加える。
+\end{enumerate}
+
+強く押し付けるようにして漉す。良質の赤ワイン1\(\sfrac{1}{2}\)dlをスプーン1杯ずつ加えながら煮て、浮き上がってくる不純物を取り除いていく\footnote{dépouiller
+  デプイエ。不純物を徹底的に取り除いて澄んだ仕上りにするための作業。現代ではécumerエキュメつまりアクや浮いてきた泡を取り除く、の用語を用いている調理現場も多い。}。
+
+最後に、カイエンヌごく少量、砂糖1つまみを加えて味を調え、布で漉す。
+
+\end{recette}
+{\printindex}
+
+
+
+\end{document}

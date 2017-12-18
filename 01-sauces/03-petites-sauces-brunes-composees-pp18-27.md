@@ -10,6 +10,7 @@
 ##### Sauce Bigarade {#sauce-bigarade}
 
 \index{そーす@ソース!びがらーど@---・ビガラード}
+\index{びがらーど@ビガラード!そーす@ソース・---}
 \index{sauce@sauce!bigarade@--- Bigarade}
 \index{bigarade@bigarade!sauce@Sauce ---}
 
@@ -56,7 +57,7 @@
 ##### Sauce Bordelaise {#sauce-bordelaise}
 
 
-\index{そーす@ソース!ぼるどーふう@ボルドー風}
+\index{そーす@ソース!ぼるどーふう@ボルドー風---}
 \index{ぼるどーふう@ボルドー風!そーす@---ソース}
 \index{sauce@sauce!bordelaise@--- Bordelaise}
 \index{bordelais@bordelais!sauce@Sauce Bordelaise}
@@ -87,8 +88,8 @@
 ##### Sauce Bourguignonne {#sauce-bourgignonne}
 
 
-\index{そーす@ソース!ぶるごーにゅふう@ブルゴーニュ風}
-\index{ぶるごーにゅふう@ブルゴーニュ風!そーす@ソース}
+\index{そーす@ソース!ぶるごーにゅふう@ブルゴーニュ風---}
+\index{ぶるごーにゅふう@ブルゴーニュ風!そーす@---ソース}
 \index{sauce@sauce!bourguignonne@--- Bourguignonne}
 \index{bourguignon@bourguignon!sauce@Sauce Bourguignonne}
 
@@ -191,8 +192,8 @@
 
 \index{そーす@ソース!しゃるきゅとりふう@シャルキュトリ風}
 \index{しゃるきゅとりふう@シャルキュトリ風!そーす@---ソース}
-\index{sauce@sauce!charcuti\`ere@---Charcuti\`ere}
-\index{charcutier@charcutier!sauce@Sauce Charcuti\`ere}
+\index{sauce@sauce!charcutière@--- Charcutière}
+\index{charcutier@charcutier!sauce@Sauce Charcutière}
 
 
 [^8]: シャルキュトリ（豚肉加工業）風、の意。Charcutrieの語源はchar（肉）
@@ -219,8 +220,8 @@
 ##### Sauce Chasseur {#sauce-chasseur}
 
 
-\index{そーす@ソース!しゃすーる@シャスール}
-\index{しゃすーる@シャスール(狩人風)!そーす@ソース・---}
+\index{そーす@ソース!しゃすーる@---・シャスール}
+\index{しゃすーる@シャスール!そーす@ソース・---}
 \index{sauce@sauce!chasseur@--- Chasseur}
 \index{chasseur@chasseur!sauce@Sauce ---}
 
@@ -257,8 +258,8 @@
 ##### Sauce Chasseur (Procédé Escoffier) {#sauce-chasseur-procede-escoffier}
 
 
-\index{そーす@ソース!しゃすーるえすこふぃえ@---・シャスール(エスコフィエ)}
-\index{しゃすーる@シャスール!そーすしゃすーるえすこふぃえ@ソース・--- (エスコフィエ)}
+\index{そーす@ソース!しゃすーるえすこふぃえ@---・シャスール(エスコフィエ流)}
+\index{しゃすーる@シャスール!そーすしゃすーるえすこふぃえ@ソース・--- (エスコフィエ流)}
 \index{sauce@sauce!chasseur escoffier@--- Chasseur (Proc\'ed\'e Escoffier)}
 \index{chasseur@chasseur!sauce escoffier@Sauce --- (Escoffier)}
 
@@ -294,7 +295,7 @@ $\sfrac{1}{2}$杯を加える。
 
 
 [ソース・ドゥミグラス](#sauce-demi-glace)$\sfrac{3}{4}$Lとトリュフエッ
-センス1dl 、ジュレ6〜7dlを用意する。
+センス1dl、ジュレ6〜7dlを用意する。
 
 
 ソース・ドゥミグラスにトリュフエッセンスを加えて、強火で煮詰めるが、こ
@@ -334,7 +335,7 @@ $\sfrac{1}{2}$杯を加える。
 \index{sauce@sauce!chaud-froid brune pour canards@--- Chaud-froid brune pour Canards}
 \index{chaud-froid@chaud-froid!sauce brune pour Canards@Sauce --- brune pour Canards}
 
-作り方は上記、[茶色いソース・ショフロワ](#sauce-chaud-froid-brune)と同様だが、トリュフエッセンスではなく、鴨のガラでとったフュメ1$\sfrac{1}{2}$ dl を用いること。また、上記のレシピよりややしっかり煮詰めること。
+作り方は上記、[茶色いソース・ショフロワ](#sauce-chaud-froid-brune)と同様だが、トリュフエッセンスではなく、鴨のガラでとったフュメ1$\sfrac{1}{2}$dlを用いること。また、上記のレシピよりややしっかり煮詰めること。
 
 
 ソースを布で漉したら、オレンジ3個分の搾り汁、とオレンジの皮をごく薄く剥いて細かい千切りにしたもの[^16]大さじ2杯を加える。オレンジの皮の千切りはしっかりと下茹でしてよく水気をきっておくころ。
@@ -363,3 +364,59 @@ $\sfrac{1}{2}$杯を加える。
 [^17]: XX頁、[ジビエのフォン](#fonds-de-gibier)参照。
 
 
+
+
+\vspace*{1.7\zw}
+#### トマト入りソース・ショフロワ
+
+
+##### Sauce Chaud-froid tomatée {#sauce-chaud-froid-tomatee}
+
+\index{そーす@ソース!しょふろわとまといり@トマト入り---・ショフロワ}
+\index{しょふろわ@ショフロワ!そーす(とまといり)@トマト入りソース・---}
+\index{sauce@sauce!chaud-froid tomatée@--- Chaud-froid tomatée}
+\index{chaud-froid@chaud-froid!sauce tomatée@Sauce --- tomatée}
+
+
+良質で、既によく煮詰めてあるトマトピュレ1Lを、さらに煮詰めながら7〜8dlのジュレを少しずつ加えていく。全体量が1L以下になるまで煮詰めること。
+
+布で漉し、使いやすい固さになるまで、ゆっくり混ぜながら冷ます。
+
+
+
+\vspace*{1.7\zw}
+#### ソース・シュヴルイユ[^18]
+
+
+##### Sauce Chevreuil
+
+\index{しゅうるいゆ@シュヴルイユ!そーす@ソース・---}
+\index{そーす@ソース!しゅうるいゆ!---・シュヴルイユ}
+\index{のろしか@ノロ鹿!そーすしゅうるいゆ@ソース・シュヴルイユ}
+\index{sauce@sauce!chevreuil@--- Chevreuil}
+\index{chevreuil@chevreuil!sauce@Sauce ---}
+
+
+
+標準的な[ソース・ポワヴラード](#sauce-poivrade)と同様に作るが、
+
+1. マリネした牛・羊肉の料理の場合に添える場合は、ハム入りの[ミルポワ](#mirepoix)[^19]を加える。
+
+2. ジビエ料理に添える場合は、そのジビエの端肉を加える。
+
+素材をヘラなどで強く押し付けるようにして漉す[^22]。良質の赤ワイン1$\sfrac{1}{2}$dlをスプーン1杯ずつ加えながら煮て、浮き上がってくる不純物を丁寧に取り除いていく[^20]。
+
+最後に、カイエンヌ[^21]ごく少量と砂糖1つまみを加えて味を\ruby{調}{ととの}え、布で漉す。
+
+
+
+
+[^18]: ノロ鹿のことだが、本文にあるようにノロ鹿の料理だけでなく、牛・羊肉を用いた料理にもこのソースを使う。
+
+[^19]: XX参照。
+
+[^20]: dépouiller デプイエ。XX訳注XX参照。
+
+[^21]: XX訳注XX参照。
+
+[^22]: シノワ(XX訳注参照)などを用いる。
