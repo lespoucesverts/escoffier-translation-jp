@@ -272,7 +272,7 @@
 \index{sauce@sauce!Traitement des elements de base dans le travail des sauces@Traitement des Éléments de Base dans le Travail des ---s}
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 茶色いフォン（エストゥファード）
 
 ##### FONDS BRUN OU ESTOUFFADE {#fonds-brun-ou-estouffade}
@@ -340,7 +340,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 白いフォン
 
 ##### FONDS BLANC ORDINAIRE {#fonds-blanc-ordinaire}
@@ -387,7 +387,7 @@
 り、全体量を12Lにしてから肉を煮ること。
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 鶏のフォン（フォンドヴォライユ） 
 
 ##### FONDS DE VOLAILLE {#fonds-de-volaille}
@@ -402,7 +402,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 仔牛の茶色いフォン（仔牛の茶色いジュ）
 
 
@@ -449,7 +449,7 @@
     蒸し焼き状態にし、素材の味を引き出すこと。
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### ジビエのフォン
 
 
@@ -497,7 +497,7 @@
     で注意。
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 魚のフォン（フュメドポワソン[^1010013]）
 
 
@@ -564,7 +564,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 赤ワインを用いた魚のフォン
 
 
@@ -622,7 +622,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 魚のエッセンス
 
 
@@ -682,7 +682,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### エッセンスについて 
 
 
@@ -728,7 +728,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### グラスについて
 
 
@@ -772,7 +772,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### グラストヴィアンド 
 
 ##### GLACE DE VIANDE {#glace-de-viande}
@@ -806,7 +806,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 鶏のグラス（グラスドヴォライユ）
 
 
@@ -821,7 +821,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### ジビエのグラス 
 
 
@@ -838,7 +838,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 魚のグラス 
 
 ##### GLACE DE POISSON {#glace-de-poisson}
@@ -876,7 +876,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 茶色いルー
 
 ##### ROUX BRUN {#roux-brun}
@@ -894,7 +894,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 ###### ルーの火入れについて {#cuisson-du-roux}
 
 \index{るー@ルー!るーのひいれについて@---の火入れについて}
@@ -941,7 +941,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### きつね色のルー 
 
 ##### ROUX BLOND {#roux-blond}
@@ -960,7 +960,7 @@
 
 
 
-\vspace*{1.7\zw}
+\vspace*{1.5\zw}
 #### 白いルー 
 
 

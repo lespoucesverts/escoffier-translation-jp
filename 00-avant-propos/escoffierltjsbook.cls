@@ -1007,19 +1007,24 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \@afterheading
   \fi}
 \def\@makechapterhead#1{%
-  \vspace*{2\Cvs}% 欧文は50pt
+%  \vspace*{2\Cvs}% 欧文は50pt
+   \vspace*{.1\Cvs}% 変更
 %  {\parindent \z@ \raggedright \normalfont
    {\parindent \z@ \centering \normalfont                                
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-        \huge\headfont \@chapapp\thechapter\@chappos
+%        \huge\headfont \@chapapp\thechapter\@chappos
+         \Large\headfont \@chapapp\thechapter\@chappos%変更
         \par\nobreak
-        \vskip \Cvs % 欧文は20pt
+%        \vskip \Cvs % 欧文は20pt
+         \vskip .5\Cvs %変更
       \fi
     \fi
     \interlinepenalty\@M
-    \Huge \headfont #1\par\nobreak
-    \vskip 3\Cvs}} % 欧文は40pt
+%    \Huge \headfont #1\par\nobreak
+     \LARGE \headfont #1\par\nobreak%変更
+%    \vskip 3\Cvs}} % 欧文は40pt
+     \vskip 1\Cvs}} %変更
 \def\@schapter#1{%
   \chaptermark{#1}%
   \if@twocolumn
@@ -1033,7 +1038,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   {\parindent \z@ \centering
     \normalfont
     \interlinepenalty\@M
-    \Huge \headfont #1\par\nobreak
+%    \Huge \headfont #1\par\nobreak
+     \LARGE \headfont #1\par\nobreak%変更
     \vskip 3\Cvs}} % 欧文は40pt
 \if@twocolumn
   \newcommand{\section}{%
@@ -1044,11 +1050,11 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\section}{%
     \if@slide\clearpage\fi
     \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
 %    {\z@}
-    {.5\Cvs \@plus.3\Cdp}% 後アキ
-%    {0\Cvs \@plus.0\Cdp}% 後アキ
-    {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
+%    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {0\Cvs \@plus.0\Cdp}% 後アキ
+    {\normalfont\large\headfont\scshape\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
 \fi
 \if@twocolumn
@@ -1059,23 +1065,23 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
 %     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
      {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
-     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
-%     {0\Cvs \@plus.0\Cdp}%
-    {\normalfont\Large\headfont\scshape\centering}}%largeから変更
+%     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
+     {1\Cvs \@plus.5\Cdp}%
+    {\normalfont\large\headfont\scshape\centering}}%largeから変更
 \fi
 \if@twocolumn
-  \newcommand{\subsubsection}{\@startsection{subsubsection}{2}{\z@}%
+  \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
     {\z@}{\if@slide .4\Cvs \else \z@ \fi}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
-  \newcommand{\subsubsection}{\@startsection{subsubsection}{2}{\z@}%
+  \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
 %    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
     {0\zw}%前アキ
     {0\zw}%後アキ
    %{0\Cvs \@plus.0\Cdp}%
-   {\normalfont\large\headfont\raggedright\hskip -1\zw} }
+   {\normalfont\normalsize\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
@@ -1088,7 +1094,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {0.5\zw}%後アキ
 %     {.5\Cvs \@plus.5\Cdp}%後アキ
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-     {\normalfont\normalsize\headfont}}
+     {\normalfont\small\headfont}}
 \else
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
 %    {0\Cvs \@plus.0\Cdp \@minus.2\Cdp}%
@@ -1106,9 +1112,9 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\small\headfont}}%normalsizeから変更
 \else
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-%    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}%
     {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}%
-    {\normalfont\normalsize\headfont}}
+%    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else 0\zw\fi}%
+    {\normalfont\small\headfont}}
 %    {\normalfont\normalsize\itshape\hskip 2\zw}}
 \fi
 \if@slide
@@ -1117,7 +1123,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \if@twocolumn
     \setlength\leftmargini{2\zw}
   \else
-    \setlength\leftmargini{3\zw}
+%    \setlength\leftmargini{3\zw}
+     \setlength\leftmargini{0\zw}%変更
   \fi
 \fi
 \if@slide
@@ -1127,7 +1134,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \setlength\leftmarginv  {1\zw}
   \setlength\leftmarginvi {1\zw}
 \else
-  \setlength\leftmarginii {2\zw}
+%  \setlength\leftmarginii {2\zw}
+   \setlength\leftmarginii {1\zw}%変更
   \setlength\leftmarginiii{2\zw}
   \setlength\leftmarginiv {2\zw}
   \setlength\leftmarginv  {1\zw}
