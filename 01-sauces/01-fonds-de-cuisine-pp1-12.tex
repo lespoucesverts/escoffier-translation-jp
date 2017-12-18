@@ -1,4 +1,5 @@
 \documentclass[twoside,12Q,b5j]{escoffierltjsbook}
+%\documentclass[twoside,8pt,a5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
@@ -79,13 +80,15 @@
 %\usepackage[garamondx]{newtxmath}
 \usepackage{xfrac}
 
-%レイアウト調整
 \usepackage{layout}
-%\setlength{\hoffset}{-1truein}
+
+	%レイアウト調整(B5,12Q,escoffierltjsbook.cls)
+%
+\setlength{\hoffset}{-1truein}
 \setlength{\hoffset}{5mm}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{-1cm}
-%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
 \setlength{\fullwidth}{13cm}
 \setlength{\textwidth}{13cm}
 \setlength{\marginparsep}{0pt}
@@ -94,6 +97,22 @@
 \setlength{\textheight}{20.5cm}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+
+%レイアウト調整(8pt,a5j,escoffierltjsbook)
+%\setlength{\voffset}{-.5cm}
+%\setlength{\hoffset}{-.6cm}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{\oddsidemargin}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{40\zw}
+%\setlength{\textwidth}{40\zw}
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{0pt}
+%\setlength{\footskip}{0pt}
+%\setlength{\textheight}{17.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+%\setlength{\baselineskip}{15pt}
 
 
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
@@ -126,12 +145,15 @@
   
 %\usepackage{fancyhdr}
 
+\usepackage{setspace}
+\setstretch{1.15}
+
 
 %レシピ本文
 \usepackage{multicol}
-\usepackage{setspace}
-%\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
 
 
 %subsubsectionに連番をつける
@@ -261,7 +283,7 @@
 \index{fonds@fonds} \index{ふぉん@フォン}
 
 本書は実際に厨房で働く料理人を対象としたものだが、まず最初に料理のベー
-スをして仕込んでストックしておくもの\footnote{本書での fonds の語は fond
+スとして仕込んでストックしておくもの\footnote{本書での fonds の語は fond
   （基礎、土台）、fonds （資産、資
   本）、そして料理用語として一般に用いられているフォン、のトリプルミー
   ニングになっている。そのまま「フォン」と訳したいところだが、日本語
@@ -275,7 +297,7 @@
 
 ここで述べる料理のベースとして仕込んでストックしておくものは、実際、料
 理の土台そのものであり、それなしでは美味しい料理を作ることの出来ない、
-まず最初に必要なものだ。だからこそは料理のベースとして仕込んでおくストッ
+まず最初に必要なものだ。だからこそ、料理のベースとして仕込んでおくストッ
 クはとても重要であり、いい仕事をしたいと努めている料理人ほどこれらを重
 視している。
 
@@ -317,7 +339,7 @@
 局のところ、料理のベースとなる仕込み類にどれだけ手間隙をかけるかという
 なのだ。
 
-\section{主要なフォン、その他のストック}\label{principaux-fonds-de-cuisine}
+\section{主要なフォンとストック}\label{ux4e3bux8981ux306aux30d5ux30a9ux30f3ux3068ux30b9ux30c8ux30c3ux30af}
 
 \subsection{Principaux Fonds de
 Cuisine}\label{principaux-fonds-de-cuisine}
@@ -422,8 +444,7 @@ Cuisine}\label{principaux-fonds-de-cuisine}
 なめ}だったし、材料コストが重視されるこんにちの我々と比べたら想像も出
 来ないくらい贅沢に材料を使ってフォンをとっていたのだ。実際、アンヌ・ドー
 トリッシュ\footnote{17世紀に絶対王政を確立したルイ14世の母。}がスペインからルイ13世に嫁いだ際に随行してきたスペインの
-料理人たちによってフランス料理にルーを用いる方法が伝えられたが\footnote{このことについて典拠が示されていない。また逸話の域を出ない
-  ため、著者の思い込みという可能性も考えられる。}、当時は
+料理人たちによってフランス料理にルーを用いる方法が伝えられたが\footnote{ルーがスペインからもたらされたというのは逸話、伝承の域を出ない。}、当時は
 ほとんど看過された。ジュそれ自体で充分だったからだ。ところが時代が下り、
 料理におけるコストの問題が重視されるようになった。ジュはその結果、貧相な
 ものになってしまった。その美味しさを補うものとして、ルーを用いて作るソー
@@ -482,18 +503,17 @@ Cuisine}\label{principaux-fonds-de-cuisine}
 料理人なら問題点を熟考して、完璧とは言わぬまでも満足のいく結果を得るこ
 とが出来るだろう。
 
-\section{ソース作りのベース}\label{ux30bdux30fcux30b9ux4f5cux308aux306eux30d9ux30fcux30b9}
+\section{ソースのベース作り}\label{ux30bdux30fcux30b9ux306eux30d9ux30fcux30b9ux4f5cux308a}
 
 \subsection{Traitement des Éléments de Base dans le Travail des
 Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 
-\index{そーす@ソース!そーすつくりのべーす@---作りのベース}
+\index{そーす@ソース!そーすつくりのべーす@---ベース作り}
 \index{sauce@sauce!Traitement des elements de base dans le travail des sauces@Traitement des Éléments de Base dans le Travail des ---s}
 
-%\vspace*{2\zw}
-\begin{recette}
+*\vspace*{1.7\zw}
 
-  
+\begin{recette}
 \subsubsection{茶色いフォン（エストゥファード）}\label{ux8336ux8272ux3044ux30d5ux30a9ux30f3ux30a8ux30b9ux30c8ux30a5ux30d5ux30a1ux30fcux30c9}
 
 \paragraph{FONDS BRUN OU ESTOUFFADE}\label{fonds-brun-ou-estouffade}
@@ -501,24 +521,25 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 \index{ふぉん@フォン!ちゃいろいふぉん@茶色い---}
 \index{えすとぅふぁーど@エストゥファード}
 \index{fonds@fonds!fonds brun@--- brun}
-\index{fonds!estouffade@estouffade (fonds brun}
+\index{fonds!estouffade@estouffade (fonds brun)}
 \index{estouffade@estouffade!fonds brun@ (fonds brun)}
 
-(仕上がり10 L 分）
+(仕上がり10L分）
 
-\textbf{主素材}\ldots{}\ldots{}牛すね6 kg 、仔牛のすね6 kg
-または仔牛の端肉で脂身を含まな いもの6 kg
-、骨付きハムのすねの部分1本（前もって下茹でしておくこと）、
-塩漬けしていない豚皮を下茹でしたもの650 g 。
-
-\textbf{香味素材}\ldots{}\ldots{}にんじん650 g 、玉ねぎ650 g
-、ブーケガルニ（パセリの枝100 g 、 タイム10 g 、ローリエ5 g
-、にんにく1片）。
-
-\textbf{作業手順}\ldots{}\ldots{}肉を骨から外す。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}牛すね6kg、仔牛のすね6kgまたは仔牛の端肉で脂身を含まな
+  いもの6kg、骨付きハムのすねの部分1本（前もって下茹でしておくこと）、
+  塩漬けしていない豚皮を下茹でしたもの650g。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}にんじん650g、玉ねぎ650g、ブーケガルニ（パセリの枝100g、
+  タイム10g、ローリエ5g、にんにく1片）。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}肉を骨から外す。
+\end{itemize}
 
 骨は細かく砕き、オーブンに入れて軽く焼き色を付ける。野菜は焼き色が付く
-まで炒める。これらを鍋に入れて14 L の水を注ぎ、ゆっくりと、最低12時間煮
+まで炒める。これらを鍋に入れて14Lの水を注ぎ、ゆっくりと、最低12時間煮
 込む。水位が下がらぬように、適宜沸騰した湯を足すこと。
 
 大きめのさいの目に切った牛すね肉を別鍋で焼き色が付くまで炒める。先に煮
@@ -538,15 +559,15 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
   いて、トングなどでしっかり「抓ま」ないと取れないくらい強く焼き付け
   ることからそう呼ばれるようになった。古い料理書では推奨するものも多
   かった。}のはよろしく
-ない。経験からいって、フを丁度いい色合いに仕上げるには、肉に含まれてい
+ない。経験からいって、丁度いい色合いのフォンに仕上げるには、肉に含まれてい
 るオスマゾーム\footnote{19世紀頃、赤身肉の美味しさの本質であると考えられていた想像上の物
   質。赤褐色をした窒素化合物の一種で水に溶ける性質があるとされた。な
   お、当時のヨーロッパではグルタミン酸はもとよりイノシン酸が「うま味」
   の要素であるという概念すらなく、「コクがある」corsé とか「肉汁たっ
   ぷり」onctueux や succulent などの表現で肉料理やソースの美味しさが表
-  現された。}の働きだけで充分だ。
+  現された。}の働きだけで充分。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{白いフォン}\label{ux767dux3044ux30d5ux30a9ux30f3}
 
@@ -555,22 +576,24 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 \index{ふぉん@フォン!しろいふぉん@白い---}
 \index{fonds@fonds!fonds blanc ordinaire@--- blanc ordinaire}
 
-（仕上がり10 L 分）
+（仕上がり10L分）
 
-\textbf{主素材}\ldots{}\ldots{}仔牛のすね、および端肉10 kg
-、鶏の手羽やとさか、足など、ま たは鶏がら4羽分、
-
-\textbf{香味素材}\ldots{}\ldots{}にんじん800 g 、玉ねぎ400 g
-、ポワロー300 g 、セロリ100 g 、ブー ケガルニ（パセリの枝100 g
-、タイム1枝、ローリエの葉1枚、クローブ4本）。
-
-\textbf{使用する液体と味付け}\ldots{}\ldots{}水12 L 、塩60 g 。
-
-\textbf{作業手順}\ldots{}\ldots{}肉は骨を外し、紐で縛る。骨は細かく砕く。鍋に肉と骨を入
-れ、水を注ぎ塩を加える。火にかけ、浮いてくるアクを取り除き香味素材を加
-える。
-
-\textbf{加熱時間}\ldots{}\ldots{}弱火で3時間。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}仔牛のすね、および端肉10kg、鶏の手羽やとさか、足など、ま
+  たは鶏がら4羽分、
+\item
+  \textbf{香味素材}\ldots{}\ldots{}にんじん800g、玉ねぎ400g、ポワロー300g、セロリ100g、ブー
+  ケガルニ（パセリの枝100g、タイム1枝、ローリエの葉1枚、クローブ4本）。
+\item
+  \textbf{使用する液体と味付け}\ldots{}\ldots{}水12L、塩60g。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}肉は骨を外し、紐で縛る。骨は細かく砕く。鍋に肉と骨を入
+  れ、水を注ぎ塩を加える。火にかけ、浮いてくるアクを取り除き香味素材を加
+  える。
+\item
+  \textbf{加熱時間}\ldots{}\ldots{}弱火で3時間。
+\end{itemize}
 
 \subparagraph{【原注】}\label{ux539fux6ce8-1}
 
@@ -583,9 +606,9 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 この骨を煮た汁で肉を煮るわけだ。その作業内容は上記茶色いフォンの場合と
 同様。この方法は、骨からゼラチン質を完全に抽出出来るという利点がある。
 当然のことだが、煮ている間に蒸発して失なわれてしまった分は湯を足してや
-り、全体量を12 L にしてから肉を煮ること。
+り、全体量を12Lにしてから肉を煮ること。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{鶏のフォン（フォンドヴォライユ）}\label{ux9d8fux306eux30d5ux30a9ux30f3ux30d5ux30a9ux30f3ux30c9ux30f4ux30a9ux30e9ux30a4ux30e6}
 
@@ -597,7 +620,7 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 白いフォンと同じ主素材、香味素材、水の量で、さらに鶏のとさかや手羽、ガ
 ラを適宜増量し、廃鶏3羽を加えて作る。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{仔牛の茶色いフォン（仔牛の茶色いジュ）}\label{ux4ed4ux725bux306eux8336ux8272ux3044ux30d5ux30a9ux30f3ux4ed4ux725bux306eux8336ux8272ux3044ux30b8ux30e5}
 
@@ -610,20 +633,23 @@ Sauces}\label{traitement-des-elements-de-base-dans-le-travail-des-sauces}
 \index{こうし@仔牛!こうしのちゃいろいふぉん@---の茶色いフォン(ジュ)}
 \index{veau@veau!fonds ou de veau brun@fonds ou jus de --- brun}
 
-（仕上がり10 L 分）
+（仕上がり10L分）
 
-\textbf{主素材}\ldots{}\ldots{}骨を取り除いた仔牛のすね肉と肩肉（紐で縛っておく）6
-kg 、 細かく砕いた仔牛の骨5 kg 。
-
-\textbf{香味素材}\ldots{}\ldots{}にんじん600 g 、玉ねぎ400 g
-、パセリの枝100 g 、ローリエの葉 2枚、タイム2枝。
-
-\textbf{使用する液体}\ldots{}\ldots{}白いフォンまたは水12 L
-。水を用いる場合は1 L あたり3 g の塩を加える。
-
-\textbf{作業手順}\ldots{}\ldots{}厚手の片手鍋または寸胴鍋の底に輪切りにしたにんじんと玉
-ねぎを敷きつめる。その他の香味素材と、あらかじめオーブンで焼き色を付けておい
-た骨と肉を鍋に加える。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}骨を取り除いた仔牛のすね肉と肩肉（紐で縛っておく）6kg、
+  細かく砕いた仔牛の骨5kg。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}にんじん600g、玉ねぎ400g、パセリの枝100g、ローリエの葉
+  2枚、タイム2枝。
+\item
+  \textbf{使用する液体}\ldots{}\ldots{}白いフォンまたは水12L。水を用いる場合は1Lあたり3g
+  の塩を加える。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}厚手の片手鍋または寸胴鍋の底に輪切りにしたにんじんと玉
+  ねぎを敷きつめる。その他の香味素材と、あらかじめオーブンで焼き色を付けておい
+  た骨と肉を鍋に加える。
+\end{itemize}
 
 蓋をして約10分間シュエ\footnote{蓋をして弱火にかけた野菜から水分が汗をかくように出るイメージで
   蒸し焼き状態にし、素材の味を引き出すこと。}する。フォンまたは水少量を加え、煮詰める。
@@ -633,7 +659,7 @@ kg 、 細かく砕いた仔牛の骨5 kg 。
 布で漉し、ストックしておく。使用目的や必要に応じて、さらに煮詰めてから
 ストックしてもいい。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{ジビエのフォン}\label{ux30b8ux30d3ux30a8ux306eux30d5ux30a9ux30f3}
 
@@ -644,29 +670,35 @@ kg 、 細かく砕いた仔牛の骨5 kg 。
 \index{じびえ@ジビエ!じびえのふぉん@---のフォン}
 \index{gibier@gibier!fonds de gibier@fonds de ---}
 
-（仕上がり5 L 分）
+（仕上がり5L分）
 
-\textbf{主素材}\ldots{}\ldots{}ノロ鹿の頸、胸肉および端肉3 kg
-（老いたノロ鹿がいいが、新 鮮なものを使うこと）、野うさぎの端肉1 kg
-、老うさぎ2羽、山うずら2羽、 老きじ1羽。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}ノロ鹿の頸、胸肉および端肉3kg（老いたノロ鹿がいいが、新
+  鮮なものを使うこと）、野うさぎの端肉1kg、老うさぎ2羽、山うずら2羽、
+  老きじ1羽。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}にんじん250g、玉ねぎ250g、セージ1枝、ジュニパーベリー
+  \footnote{セイヨウネズの樹の実。}15粒、標準的なブーケガルニ。
+\end{itemize}
 
-\textbf{香味素材}\ldots{}\ldots{}にんじん250 g 、玉ねぎ250 g
-、セージ1枝、ジュニパーベリー \footnote{セイヨウネズの樹の実。}15粒、標準的なブーケガルニ。
-
-\textbf{使用する液体}\ldots{}\ldots{}水6 L および白ワイン1瓶。
-
-\textbf{加熱時間}\ldots{}\ldots{}3時間。
-
-\textbf{作業手順}\ldots{}\ldots{}ジビエは事前にオーブンで焼き色を付けておき、野菜と香草を
-敷き詰めた鍋に入れる。野菜類も事前に焼き色を付けておくこと。ジビエを焼
-くのに用いた天板を白ワインでデグラセし、これを鍋に注ぐ。同量の水も加え、
-ほぼ水分がなくなるまで煮詰める。
+\begin{itemize}
+\item
+  \textbf{使用する液体}\ldots{}\ldots{}水6Lおよび白ワイン1瓶。
+\item
+  \textbf{加熱時間}\ldots{}\ldots{}3時間。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}ジビエは事前にオーブンで焼き色を付けておき、野菜と香草を
+  敷き詰めた鍋に入れる。野菜類も事前に焼き色を付けておくこと。ジビエを焼
+  くのに用いた天板を白ワインでデグラセし、これを鍋に注ぐ。同量の水も加え、
+  ほぼ水分がなくなるまで煮詰める。
+\end{itemize}
 
 この作業の後で、残りの水全量を注ぎ、沸騰させる。丁寧にアクを引きながら
 ごく弱火で煮る\footnote{最後に布で漉す必要があるが、当然のこととして明記されていないの
   で注意。}。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection[魚のフォン（フュメドポワソン）]{\texorpdfstring{魚のフォン（フュメドポワソン\footnote{本質的には前出の「フォン」と同様のものだが、魚（およびジビエ）
   を素材としたフォンは香りがポイントとなるため、フュメ fumet (香気、
@@ -680,25 +712,26 @@ kg 、 細かく砕いた仔牛の骨5 kg 。
 \index{fumet@fumet!fumet de poisson@--- de poisson}
 \index{fonds@fonds!fumet de poisson@fumet de poisson}
 
-（仕上がり10 L 分）
+（仕上がり10L分）
 
-\textbf{主素材}\ldots{}\ldots{}舌びらめ、メルラン\footnote{タラの近縁種。}やバルビュ\footnote{ヒラメの近縁種。}のあら10
-kg 。
-
-\textbf{香味素材}\ldots{}\ldots{}薄切りにした玉ねぎ500 g
-、パセリの根\footnote{パセリには根がにんじん形に肥大する品種もある（persil
-  tubéreux 根パセリ。葉は平らでイタリアンパセリのように使う）。}と茎100
-g 、マッ シュルームの切りくず250 g 、レモンの搾り汁1個分、粒こしょう15 g
-（これは フュメを漉す10分前に投入する）。
-
-\textbf{使用する液体と調味料}\ldots{}\ldots{}水10 L 、白ワイン1瓶。液体1
-L あたり3〜4 g の 塩。
-
-\textbf{加熱時間}\ldots{}\ldots{}30分。
-
-\textbf{作業手順}\ldots{}\ldots{}鍋底に香味野菜を敷き詰め、魚のあらを入れる。水と白ワイ
-ンを注ぎ、強火にかける。丁寧にアクを引き、微沸騰の状態を保つようにする。
-30分煮たら目の細かい網で漉す。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}舌びらめ、メルラン\footnote{タラの近縁種。}やバルビュ\footnote{ヒラメの近縁種。}のあら10kg。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}薄切りにした玉ねぎ500g、パセリの根\footnote{パセリには根がにんじん形に肥大する品種もある（persil
+    tubéreux 根パセリ。葉は平らでイタリアンパセリのように使う）。}と茎100g、マッ
+  シュルームの切りくず250g、レモンの搾り汁1個分、粒こしょう15g（これは
+  フュメを漉す10分前に投入する）。
+\item
+  \textbf{使用する液体と調味料}\ldots{}\ldots{}水10L、白ワイン1瓶。液体1Lあたり3〜4gの
+  塩。
+\item
+  \textbf{加熱時間}\ldots{}\ldots{}30分。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}鍋底に香味野菜を敷き詰め、魚のあらを入れる。水と白ワイ
+  ンを注ぎ、強火にかける。丁寧にアクを引き、微沸騰の状態を保つようにする。
+  30分煮たら目の細かい網で漉す。
+\end{itemize}
 
 \subparagraph{【原注】}\label{ux539fux6ce8-2}
 
@@ -709,7 +742,7 @@ L あたり3〜4 g の 塩。
 スパニョルを作ることを想定する場合には、魚のあらをバターでエチュベして
 から水と白ワインを注いで煮るといい。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{赤ワインを用いた魚のフォン}\label{ux8d64ux30efux30a4ux30f3ux3092ux7528ux3044ux305fux9b5aux306eux30d5ux30a9ux30f3}
 
@@ -730,22 +763,22 @@ ROUGE}\label{fonds-de-poisson-au-vin-rouge}
 のアラを用いて、その香りの特徴を生かす必要がある。だが、どんな種類の魚
 を使う場合でも作り方は同じだ。
 
-（仕上がり5 L 分）
+（仕上がり5L分）
 
-\textbf{主素材}\ldots{}\ldots{}料理に用いるのと同じ魚種の頭とアラ2.5 kg
-。
-
-\textbf{香味素材}\ldots{}\ldots{}薄切りにして下茹でした玉ねぎ300 g
-、パセリの枝100 g 、タイ
-ムの小枝1本、小さめのローリエの葉2枚、にんにく5片、マッシュルームの切
-りくず100 g 。
-
-\textbf{使用する液体と調味料}\ldots{}\ldots{}水3.5 L 、良質の赤ワイン2 L
-、塩15 g 。
-
-\textbf{加熱時間}\ldots{}\ldots{}30分。
-
-\textbf{作業手順}\ldots{}\ldots{}「魚の白いフォン\footnote{前項のフュメドポワソンのこと。}」と同様にする。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}料理に用いるのと同じ魚種の頭とアラ2.5kg。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}薄切りにして下茹でした玉ねぎ300g、パセリの枝100g、タイ
+  ムの小枝1本、小さめのローリエの葉2枚、にんにく5片、マッシュルームの切
+  りくず100g。
+\item
+  \textbf{使用する液体と調味料}\ldots{}\ldots{}水3.5L、良質の赤ワイン2L、塩15g。
+\item
+  \textbf{加熱時間}\ldots{}\ldots{}30分。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}「魚の白いフォン\footnote{前項のフュメドポワソンのこと。}」と同様にする。
+\end{itemize}
 
 \subparagraph{【原注】}\label{ux539fux6ce8-3}
 
@@ -753,7 +786,7 @@ ROUGE}\label{fonds-de-poisson-au-vin-rouge}
 え、保存のために煮詰めないでいいように、その都度、必要な量だけ仕込むこ
 とを勧める。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{魚のエッセンス}\label{ux9b5aux306eux30a8ux30c3ux30bbux30f3ux30b9}
 
@@ -762,25 +795,25 @@ ROUGE}\label{fonds-de-poisson-au-vin-rouge}
 \index{えっせんす@エッセンス!さかなのえっせんす@魚の---}
 \index{essence@essence!essence de poisson@--- de poisson}
 
-\textbf{主素材}\ldots{}\ldots{}メルラン\footnote{タラの近縁種。}および舌びらめの頭、アラ2
-kg 。
-
-\textbf{香味素材}\ldots{}\ldots{}薄切りにした玉ねぎ125 g
-、マッシュルームの切りくず300 g 、 パセリの枝50 g
-、レモンの搾り汁1個分。
-
-\textbf{使用する液体}\ldots{}\ldots{}煮詰めていないフュメドポワソン1\(\sfrac{1}{2}\)
-L 、良質の白ワイ ン3dl。
-
-\textbf{所要時間}\ldots{}\ldots{}45分。
-
-\textbf{作業手順}\ldots{}\ldots{}鍋にバター100 g
-と玉ねぎ、パセリの枝、マッシュルームの切
-りくずを入れ、強火で色づかないようさっと炒める。蓋をして約15分弱火で蒸
-し煮する\footnote{素材を入れた鍋に蓋をして弱火にかけ、少量の水分で蒸し煮状態にす
-  ることを étuver エチュベという。このフランス語をそのまま用いている
-  調理現場も少なくない。}。その間、小まめに混ぜてやること。白ワインを注ぎ、半量になるま
-で煮詰める。最後にフュメドポワソンを注ぎ、レモン汁と塩2 g を加える。
+\begin{itemize}
+\item
+  \textbf{主素材}\ldots{}\ldots{}メルラン\footnote{タラの近縁種。}および舌びらめの頭、アラ2kg。
+\item
+  \textbf{香味素材}\ldots{}\ldots{}薄切りにした玉ねぎ125g、マッシュルームの切りくず300g、
+  パセリの枝50g、レモンの搾り汁1個分。
+\item
+  \textbf{使用する液体}\ldots{}\ldots{}煮詰めていないフュメドポワソン1\(\sfrac{1}{2}\)L、良質の白ワイ
+  ン3dl。
+\item
+  \textbf{所要時間}\ldots{}\ldots{}45分。
+\item
+  \textbf{作業手順}\ldots{}\ldots{}鍋にバター100gと玉ねぎ、パセリの枝、マッシュルームの切
+  りくずを入れ、強火で色づかないようさっと炒める。蓋をして約15分弱火で蒸
+  し煮する\footnote{素材を入れた鍋に蓋をして弱火にかけ、少量の水分で蒸し煮状態にす
+    ることを étuver エチュベという。このフランス語をそのまま用いている
+    調理現場も少なくない。}。その間、小まめに混ぜてやること。白ワインを注ぎ、半量になるま
+  で煮詰める。最後にフュメドポワソンを注ぎ、レモン汁と塩2gを加える。
+\end{itemize}
 
 再び火にかけて、とろ火で15分程煮込んだら、布で漉す。
 
@@ -792,7 +825,7 @@ L 、良質の白ワイ ン3dl。
 さらに、このエッセンスを煮詰めて、上記でポシェした魚のソースに加えて風
 味を強くするのに使う。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{エッセンスについて}\label{ux30a8ux30c3ux30bbux30f3ux30b9ux306bux3064ux3044ux3066}
 
@@ -824,7 +857,7 @@ L 、良質の白ワイ ン3dl。
 われる。ベースとなるフォンがコクと風味がゆたかなものならであるなら、エッ
 センスはまったく無用の長物と言える。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{グラスについて}\label{ux30b0ux30e9ux30b9ux306bux3064ux3044ux3066}
 
@@ -859,7 +892,7 @@ L 、良質の白ワイ ン3dl。
 素晴しい結果が得られる。 だから多くの場合、グラスはまことに有用なもの
 と言える。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{グラストヴィアンド}\label{ux30b0ux30e9ux30b9ux30c8ux30f4ux30a3ux30a2ux30f3ux30c9}
 
@@ -886,7 +919,7 @@ L 、良質の白ワイ ン3dl。
 色が薄くて軽い仕上りのグラスが必要な場合には、茶色いフォンではなく、標
 準的な仔牛のフォンを用いる。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{鶏のグラス（グラスドヴォライユ）}\label{ux9d8fux306eux30b0ux30e9ux30b9ux30b0ux30e9ux30b9ux30c9ux30f4ux30a9ux30e9ux30a4ux30e6}
 
@@ -898,7 +931,7 @@ L 、良質の白ワイ ン3dl。
 鶏のフォン（フォンドヴォライユ）を用いて、グラスドヴィアンドと同様にし
 て作る。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{ジビエのグラス}\label{ux30b8ux30d3ux30a8ux306eux30b0ux30e9ux30b9}
 
@@ -912,7 +945,7 @@ L 、良質の白ワイ ン3dl。
 ジビエのフォンを煮詰めて作る。ある特定のジビエの風味を生かしたグラスを
 作るには、そのジビエだけでとったフォンを用いること。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{魚のグラス}\label{ux9b5aux306eux30b0ux30e9ux30b9}
 
@@ -924,9 +957,7 @@ L 、良質の白ワイ ン3dl。
 このグラスを用いることはあまり多くない。日常的な業務においては「魚のエッ
 センス」を用いることが好まれる。そのほうが魚の風味も繊細ある。魚のエッ
 センスで魚をポシェした後に煮詰めてソースに加える。
-
 \end{recette}
-
 
 \section{ルー}\label{ux30ebux30fc}
 
@@ -941,12 +972,9 @@ L 、良質の白ワイ ン3dl。
 茶色いルーは加熱に時間がかかるので、大規模な調理現場では前もって仕込ん
 でおく。きつね色のルーと白いルーはその都度用意すればいい。
 
-\vspace*{2\zw}
-
+\vspace*{1.7\zw}
 
 \begin{recette}
-
-  
 \subsubsection{茶色いルー}\label{ux8336ux8272ux3044ux30ebux30fc}
 
 \paragraph{ROUX BRUN}\label{roux-brun}
@@ -954,22 +982,22 @@ L 、良質の白ワイ ン3dl。
 \index{るー@ルー!ちゃいろいるー@茶色い---}
 \index{roux@roux!roux brun@--- brun}
 
-（仕上がり1 kg 分）
+（仕上がり1kg分）
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  澄ましバター\ldots{}\ldots{}500 g
+  澄ましバター\ldots{}\ldots{}500g
 \item
-  ふるった小麦粉\ldots{}\ldots{}600 g
+  ふるった小麦粉\ldots{}\ldots{}600g
 \end{enumerate}
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subparagraph{ルーの火入れについて}\label{cuisson-du-roux}
 
-\index{るー@ルー!るーのひいれについて!---の火入れについて}
+\index{るー@ルー!るーのひいれについて@---の火入れについて}
 \index{roux@roux!cuisson du roux@cuisson du ---}
 
 加熱時間は使用する熱源の強さで変わってくる。だから数字で何分とは言えな
@@ -986,8 +1014,8 @@ L 、良質の白ワイ ン3dl。
 
 ルーを作る際には必ず、澄ましバターを使うこと\footnote{初版では「澄ましバターまたは充分に澄ましたグレスドマルミッ
   ト (コンソメ等を作る際に浮いてくる脂を集めて澄ませたもの)」となっ
-  ている。なお、同時代の料理書 --- 例えばペラプラ『近代料理技術』
-  （1935年）--- には、ルーを作るのにバターを使う必要はなく、グレスド
+  ている。なお、同時代の料理書 -\/-\/- 例えばペラプラ『近代料理技術』
+  （1935年）-\/-\/- には、ルーを作るのにバターを使う必要はなく、グレスド
   マルミットで充分、としているものもある。}。 生のバターには相当
 量のカゼインが含まれている。カゼインがあると火を均質に通すことが出来な
 くなってしまう。とはいえ、以下のことを覚えておくといい。ソースとして仕
@@ -1017,7 +1045,7 @@ L 、良質の白ワイ ン3dl。
 払えば、ルーに用いたバターを回収するのはさして難しいことではない。それ
 を後で他の用途で使えばいいだろう。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{きつね色のルー}\label{ux304dux3064ux306dux8272ux306eux30ebux30fc}
 
@@ -1026,14 +1054,13 @@ L 、良質の白ワイ ン3dl。
 \index{るー@ルー!きつねいろのるー@きつね色の---}
 \index{roux@roux!roux blond@--- blond}
 
-（仕上がり1 kg 分）
+（仕上がり1kg分）
 
-材料の比率は茶色いルーと同じ。すなわちバター500 g と、ふるった小麦粉600
-g 。
+材料の比率は茶色いルーと同じ。すなわちバター500gと、ふるった小麦粉600g。
 
 火入れは、ルーがほんのりきつね色になるまで、ごく弱火で行なう。
 
-\vspace*{2\zw}
+\vspace*{1.7\zw}
 
 \subsubsection{白いルー}\label{ux767dux3044ux30ebux30fc}
 
@@ -1042,12 +1069,11 @@ g 。
 \index{るー@ルー!しろいるー@白い---}
 \index{roux@roux!roux blanc@--- blanc}
 
-500 g のバターと、ふるった小麦粉600 g 。
+500gのバターと、ふるった小麦粉600g。
 
 このルーの火入れは数分、つまり粉っぽさがなくなるまでの時間でいい。
 
 \end{recette}
-
 {\printindex}
 
 

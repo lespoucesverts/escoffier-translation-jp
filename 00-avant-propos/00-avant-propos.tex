@@ -1,8 +1,15 @@
-\documentclass[twoside,12Q,b5paper,tombo]{ltjsbook}
+\documentclass[twoside,12Q,b5j]{escoffierltjsbook}
+%\documentclass[twoside,8pt,a5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 %\usepackage{xunicode}
+\usepackage{geometry}
+\usepackage{unicode-math}
+\usepackage{xfrac}
+\usepackage{luaotfload}
+\usepackage{makeidx}
+
 
 \usepackage[unicode=true]{hyperref}
 \hypersetup{breaklinks=true,
@@ -16,14 +23,23 @@
              pdfborder={0 0 0}}
 \urlstyle{same}
 
-\setmainfont[Ligatures=TeX,Scale=1.4]{EB Garamond}%fontspecによるフォント設定
+%%欧文フォント設定
+\setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+
+%%Garamond
+%\usepackage{ebgaramond-maths}
+%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+
+
 %\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
 \setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
 \setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+\unimathsetup{math-style=ISO,bold-style=ISO}
+\setmathfont{xits-math.otf}
+\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
 
 \usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
-\usepackage{ebgaramond-maths}
 
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
@@ -32,7 +48,9 @@
 \usepackage{luatexja-ruby}
 
 %%%%和文仮名プロポーショナル
-\usepackage[hiragino-pron,expert,deluxe]{luatexja-preset}
+%\usepackage[yu-osx]{luatexja-preset}
+\usepackage[hiragino-pron,90jis,expert,deluxe]{luatexja-preset}
+%\usepackage[ipaex]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
 %    JFM=prop,PKana=On,Kerning=On,
@@ -47,6 +65,7 @@
 %    BoldItalicFont={YuGothic-Bold}
 %]{YuGothic-Medium}
 %%%%和文仮名プロプーショナルここまで
+
 \renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
 \renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
 
@@ -61,20 +80,106 @@
 %\usepackage[garamondx]{newtxmath}
 \usepackage{xfrac}
 
-%レイアウト調整
 \usepackage{layout}
-%\setlength{\hoffset}{-1truein}
-%\setlength{\hoffset}{50pt}
+
+	%レイアウト調整(B5,12Q,escoffierltjsbook.cls)
+%
+\setlength{\hoffset}{-1truein}
+\setlength{\hoffset}{5mm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{-1cm}
+\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\fullwidth}{13cm}
+\setlength{\textwidth}{13cm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\textheight}{20.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+
+%レイアウト調整(8pt,a5j,escoffierltjsbook)
+%\setlength{\voffset}{-.5cm}
+%\setlength{\hoffset}{-.6cm}
 %\setlength{\oddsidemargin}{0pt}
-%\setlength{\evensidemargin}{-.5truein}
+%\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-%\setlength{\textwidth}{14cm}
+%\setlength{\fullwidth}{40\zw}
+%\setlength{\textwidth}{40\zw}
 %\setlength{\marginparsep}{0pt}
 %\setlength{\marginparwidth}{0pt}
-%\makeatletter
-%\setlength{\skip\footins}{9\p@ \@plus 4\p@ \@minus 2\p@}
-%\makeatother
+%\setlength{\footskip}{0pt}
+%\setlength{\textheight}{17.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+%\setlength{\baselineskip}{15pt}
+
+
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
+
+%リスト環境
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = 1\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     \topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = 0pt \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+
   
+%\usepackage{fancyhdr}
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+
+%レシピ本文
+\usepackage{multicol}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+
+%subsubsectionに連番をつける
+%\usepackage{remreset}
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+%\makeatletter
+%\@removefromreset{subsubsection}{subsection}
+%\def\thesubsubsection{\arabic{subsubsection}.}
+%\newcounter{rnumber}
+%\renewcommand{\thernumber}{\refstepcounter{rnumber} }
+
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+\makeatother
+
 
 
 % PDF/X-1a
@@ -83,7 +188,6 @@
 % \Title{Sample LaTeX input file}
 % \Author{LaTeX project team}
 % \Org{TeX Users Group}
-
 % \pdfcompresslevel=0
 %\usepackage[cmyk]{xcolor}
 
@@ -96,149 +200,217 @@
 % % % % 
 \date{}
 
-\begin{document}
-\layout
+%%%脚注番号のページ毎のリセット
+%\makeatletter
+%  \@addtoreset{footnote}{page}
+%\makeatother
+\usepackage[perpage,marginal,stable]{footmisc}
+\makeatletter
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 1.5\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
 
-\section*{序}\label{ux5e8f}
-\addcontentsline{toc}{section}{序}
+
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%変更点
+    \else
+      \ifdim\textwidth<\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \else
+        \begin{multicols}{3}[\chapter*{\indexname}
+	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+      \fi
+    \fi
+    \@mkboth{\indexname}{\indexname}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\p@\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+\makeatother
+
+
+\makeindex
+
+\begin{document}
+
+%\layout
+
+
+%fancyhdr
+%\pagestyle{fancy}
+%\lhead[\thepage]{\thesection}
+%\chead{}
+%\rhead[\thechapter]{\thepage}
+%\fancyhead{\gdef\headrulewidth{0pt}}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+
+
+
+\chapter{総序}\label{ux7dcfux5e8f}
 
 もう20年も前のことだ。本書の着想を我が尊敬する師、今は亡きユルバン・デュ
-ボワ\footnote{Urbain Dubois (1818〜1901)。19世紀後半を代表する料理人。}先生に話したのは。先生は是非とも実現させなさいと強く勧めてくだ
-さった。けれども忙しさにかまけてしまい、漸く1898年になって、フィレアス・
-ジルベール\footnote{Philéas Gilbert
+ボワ\footnote{Urbain Dubois (1818〜1901)。19世紀後半を代表する料理人。}先生に話したのは。先生は\ruby{是非}{ぜひ}とも実現させなさいと
+強く勧めてくださった。けれども忙しさにかまけてしまい、\ruby{漸}{ようや}く
+1898年になって、フィレアス・ジルベール\footnote{Philéas Gilbert
   (1857〜1942)。19世紀末から20世紀初頭に活躍した料
-  理人。料理雑誌「ポトフ」を主宰した。}氏と話し合い協力をとりつけることが出来た。とことがまもな
-く、カールトンホテル開業のため、私はロンドンに呼び戻され、その厨房の準
-備や運営に忙殺された\footnote{エスコフィエはセザール・リッツの経営するホテルグループにおいて料
+  理人。料理雑誌「ポトフ」を主宰した。}君と話し合い協力をとりつける
+ことが出来た。ところがまもなく、カールトンホテル開業のために私はロンド
+ンに呼び戻され、その厨房の準備や運営に忙殺されることとなった\footnote{エスコフィエはセザール・リッツの経営するホテルグループにおいて料
   理に関わる重要な役割を一手に担っていた。1890年〜1997年にかけてロン
   ドンのサヴォイホテルの総料理長を勤めた後、1898年にはパリのオテル・
   リッツの、1899年にはロンドンのカールトンホテルの開業に携わり、1920
-  年までカールトンホテルで総料理長を務めた。}。本書の計画をを実現させるために落ち着いた時間
-を取り戻さねばならなくなってしまった。
+  年までカールトンホテルで総料理長を務めた。}。本書
+の計画を実現させるために落ち着いた時間を取り戻さねばならなくなってしまっ
+た。
 
-1898年から放ったらかしにしてしまっていた本書に再度着手出来たのは、多く
-の同僚たる料理人諸氏の助力と、友人でもあるフィレアス・ジルベールとエミー
-ル・フェチュ\footnote{初版には、この二人の他にも共著者として、A.
-  Suzanne, B. Beboul,Ch. Dietrich, A. Caillat
-  らの名が挙げられている。第二版
-  では共著者としてジルベールとフェチュの名しかクレジットされていない。
-  第二版は初版から構成などの異同が多い。レシピの入れ替えや書き換えの
-  他、第二版以降が「フォン（ストック）」から始まるのに対して、初版は
-  「ポタージュ」を第１章としている点など。おそらくは、第二版での大幅
-  な改訂作業を実際に行なったのがジルベールとフェチュであったとことか
-  ら、他の共著者のクレジットが抹消されたと考えられる。}両氏の献身的な協力を得られたからに他ならない。この一大
-事業を完成させることが出来たのは、ひとえに皆の励ましと、とりわけ辛抱強
-く、粘り強く仕事を手伝ってくれた二人の共著者\footnote{フィレアス・ジルベールとエミール・フェチュのこと。}のおかげだ。
+1898年から放ったらかしにしてしまっていた本書に再び着手出来たのは、多く
+の同僚たる料理人諸君の助力と、友人でもあるフィレアス・ジルベール君とエ
+ミール・フェチュ\footnote{Emile Fétu 生没年不詳。}君の献身的な協力を得られたからに他ならない。この
+一大事業を完成させることが出来たのは、ひとえに皆の励ましと、とりわけ辛
+抱強く、粘り強く仕事を手伝ってくれた二人の共著者\footnote{ジルベールとフェチュを指しているが、初版には、この二人の他にも共著者
+  として４人の名が挙げられている。第二版以降は共著者としてジルベールと
+  フェチュの名しかクレジットされていない。第二版は初版から構成も含め
+  大幅な改訂が行なわれた。その作業を実際に行なったのがジルベールとフェ
+  チュだったために、他の共著者のクレジットが抹消されたと考えられる。}のおかげだ。
 
 私が作りたいと思ったのは立派な書物というよりはむしろ実用的な本だ。だか
 ら、執筆協力者の皆には、作業手順を各自の考えにもとづいて自由にレシピを
 書いてもらい、私自身は、40年にわたる現場経験に即して、少なくとも原理原
-則、料理における伝統的基礎に関する部分を明確に説明することに専念した。
+則、料理における伝統的基礎を明確に説明するのに専念した。
 
-本書は、かつて私が構想したとおりとは言い難い出来だが、それはいずれ実現
-せねばなるまい。それでもなお、現状で料理人諸氏にとって大いに役立つもの
-だと信じている。だからこそ、本書を誰にでも、とりわけ若い料理人にも買え
-る価格に設定した\footnote{1903年の初版の売価は、\href{http://gallica.bnf.fr/ark:/12148/bpt6k65768837}{フランス国立図書館蔵}のものの表紙には、フランス国内で12フランと記したシールが貼られている。また、\href{https://archive.org/details/b21525912}{リーズ大学図書館蔵の第二版}にも同様に国内売価12フランのシールが貼られている。なお、同じく\href{https://archive.org/details/b21525730}{リーズ大学図書館蔵の初版}および訳者個人蔵の第二版に売価を示すものは何も認められない。\\
-  これに対し、辻静雄は「1903年の初版発売当時は、800ページでたった８フラン、全く破格の値段だった」（「エスコフィエ　偉大なる料理人の生涯」、『辻静雄著作集』、新潮社、1995年、729〜730ページ。）と記している。\\
-  しかし、オドの『都市および地方における女性料理人のための本』第78版（1900年）において広告されているレオン・スーシェ著『挿絵付き料理書』が『ル・ギード・キュリネール』初版とほぼ同じ800ページ、八折り判がフランス装で10フラン、厚紙の表紙のものが11フランとなっている。当時、急激なインフレがあったとは考えられていないため、初版の12フランという価格が、むしろ料理書としては一般的か、もしくはやや高めのものであったと判断した方がいいだろう。\\
-  なお、判型の八折り判というのは、元来は大きな紙の両面に16ページ分印刷し、３回折ることで8枚にしたもの。具体的なサイズは時代、地方によってまちまちだが、『ル・ギード・キュリネール』の時代のフランスにおいては、概ね、縦20〜25cm、横12〜16cm程度で、フランス装の場合、製本業者が端を切り落すため、それより若干小さくなる。具体的には、訳者個人蔵の第二版は表紙が縦22.5cm、横13.5cm。感覚的には、日本のハードカバーに多い「菊判」に近い。\\
-  この序文でことさらに「実用性」や入手しやすい価格であることが強調されて
-  いるのは、何度も言及しているデュボワとベルナールの名著『古典料理』が四
-  折り判（概ね縦45cm、横30cm）の豪華本であったことを意識しているためとも
-  推測される。}。そもそも若い料理人にこそこの本を読んで欲しいのだ。
-彼らは、いまはまだ初心者であったとしても、20年後には組織のトップに立つ
-べき人材なのだから。
+本書は、かつて私が構想したとおりとは言い難い出来だが、いずれはそうなる
+べく努めねばなるまい。それでもなお、現状でも料理人諸君にとって大いに役
+立つものと信じている。だからこそ、本書を誰にでも、とりわけ若い料理人に
+も買える価格にした\footnote{1903年の初版の売価は、\href{http://gallica.bnf.fr/ark:/12148/bpt6k65768837}{フランス国立図書館蔵}のものの表紙には、フランス国内で12フランと記したシールが貼られている。また、\href{https://archive.org/details/b21525912}{リーズ大学図書館蔵の第二版}にも同様に国内売価12フランのシールが貼られている。\\
+  辻静雄は「1903年の初版発売当時は、800ページでたった8フラン、全く破格の値段だった」（「エスコフィエ　偉大なる料理人の生涯」、『辻静雄著作集』、新潮社、1995年、729〜730頁）と記しているが、8フランという価格の典拠は示されていない。現在と当時の通貨価値、物価の違いが分りにくいため、この「破格に安い」という言葉にはやや疑問が残るだろう。1900年当時の書籍広告において『料理の手引き』初版と同様の八折り版800ページの料理書が、フランス装10フラン、厚紙の表紙のものが11フランとある。初版の12フランという価格は、むしろ料理書としては一般的か、もしくはやや高めだったとも考えられる。なお、八折り判というのは書籍の大きさを表す用語で、概ね縦20〜25cm、横12〜16cm程度。\\
+  この序文でことさらに「実用性」や入手しやすい価格であることが強調さ
+  れているのは、何度も言及されているデュボワとベルナールの名著『古典料
+  理』が四折り判（概ね縦45cm、横30cm）の豪華本であったことを意識して
+  いたためとも推測されよう。}。そもそも若い料理人諸君にこそこの本を読んで
+\ruby{貰}{もら}いたい。今はまだ初心者であったとしても、20年後には組織
+のトップに立つべき人材なのだから。
 
-私はこの本を豪華な装釘の\footnote{かつてフランスでは、大判の紙に印刷して折ったものを綴じただけの状
-  態（いわゆる「フランス装」）で販売された本を、買い求めた者が別途、
-  業者に製本、装釘させることが一般的に行なわれていた。}、書棚の飾りのようにはして欲しくない。そう
-ではなく、いつでも、どんな時でも手元に置いて、わからないことは常に明ら
-かにしてくれる伴侶のようなものにして欲しい。
+私はこの本を豪華な装丁の\footnote{かつてフランスでは、大判の紙の両面に印刷して折ったものを糸で綴じ
+  ただけの状態（いわゆる「フランス装」）で販売された本を、書店で買い
+  求めた者が別途、業者に製本、装丁させることが一般的に行なわれていた。}、書棚の飾りのごときにはして欲しくない。そ
+うではなく、いつでも、どんな時でも手元に置いて、分からないことを常に明
+らかにしてくれる\ruby{盟友}{めいゆう}として欲しい。
 
-本書には五千を越えるレシピが掲載されているが、それでも私は、この手引書
-が完全だとは思っていない。たとえ今この瞬間に完璧であったとしても、明日
-にはそうではないかも知れぬ。料理は進化し、新しいレシピが日々創案されて
-いるのだ。まことにもって不都合なことだが、版を重ねる毎に新しい料理を採
-り入れ、古くなってしまったものは改良を加えねばなるまい。
+本書には五千を越えるレシピが掲載されているが、それでも私は、この教本が
+完全だとは思っていない。たとえ今この瞬間に完璧であったとしても、明日に
+はそうではないかも知れぬ。料理は進化し、新しいレシピが日々創案されてい
+るのだ。まことにもって不都合なことだが、版を重ねる毎に新しい料理を採り
+入れ、古くなってしまったものは改良を加えねばなるまい。
 
-ユルバン・デュボワとエミール・ベルナール両氏の著作\footnote{『古典料理』\emph{La
-  Cuisine Classique} (1856),『芸術的料理』 \emph{LaCuisine Artistique}
-  (1870) etc.}に昔から慣れ親し
-み、その巨大な影がなおも料理の地平を覆い尽している現在、私としては本書
-がその後に続くものになって欲しい。カレーム以後、最高の料理の高みに逹し
-た二人に対し、ここであらためて心から敬意を示させていただきたいと思う。
+ユルバン・デュボワ、エミール・ベルナール\footnote{Emile Bernard
+  (1827〜1897)。クラシンスキ将軍の料理人を務めた。}両氏の著作\footnote{デュボワとベルナールの共著は他にもあるが、ここでは『古典料理』
+  （1856年）を指している。}に昔から慣
+れ親しみ、その巨大な影がなおも料理の地平を覆い尽している現在、私として
+は本書がその後継になって欲しいと思っている。カレーム以後、最高の料理の
+高みに逹した二人に対し、ここであらためて心から敬意を表させていただきた
+いと思う。
 
-調理現場を取り巻く諸事情により、私は、デュボワとベルナール両氏がもたら
+調理現場を取り巻く諸事情により、私は、デュボワ、ベルナール両氏がもたら
 したサービス（給仕）面での革新\footnote{19世紀後半に少しずつ一般的となった「ロシア式サービス」のこと。そ
-  れまで宴席の料理は卓上に大皿が一度に何種も並べられ、食べる者がそれ
-  ぞれ好きなように取り分けていた。これを、料理を食べる順に１種ずつ、
-  大皿の場合は食べ手に見せて回ってから、給仕が取り分けて供する方式に
-  改めたものがロシア式サービスである。デュボワとベルナールの『古典料
-  理』の序文において詳述されている。}に対し、こんにちのようなとりわけスピー
-ドが重視される目まぐるしい生活リズムに合わせて、大きく変更を加えざるを
+  れまで中世以来、正式な宴席では卓上に大皿盛られた料理が一度に何種も
+  並べられ、食べる者がそれぞれ好きなように取り皿に移して食べていた。
+  これを、献立を食べる順に１種ずつ、大皿料理の場合は食べ手に見せて回っ
+  てから、給仕が取り分けて供する方式に改めたものがロシア式サービスで
+  ある。食卓に大皿を並べない代わりに、花を飾りナフキンを美しく折るな
+  どの工夫により卓上が洗練されたものになっていった。19世紀パリに駐在
+  していたロシア帝国の外交官クラーキンが提唱したと言われている。デュ
+  ボワとベルナールの『古典料理』序文において詳述されている。}に対し、こんにちのようなとりわけスピー
+ドが重視される目まぐるしい生活リズムに合わせて、大きな変更を加えざるを
 得なかった。そもそも物理的理由から、料理を載せる飾り台\footnote{socle
   ソークル。パンや米、ジュレなどで作った、料理を盛り付ける
   ために銀の盆の上に据える飾り台。カレームの時代、つまり19世紀前半に
   はその装飾に凝ることが多かった。食べもので作られてはいるが、料理の
   一部ではなく、あくまで装飾的要素でしかなかった。}をやめて、
-シンプルな盛り付けにする新たなメソッドと新たな道具を考案せざるを得なかっ
-た。もちろん冗談なんかではなく、デュボワとベルナールが推奨した壮麗な盛
-り付けを私自身も行なっていた頃はもちろん、今だって彼らの考えにはまった
-く共感している。しかし、カレームを信奉する者たちは、装飾に才があるが故
-に、その代もはやに合わなくなってしまった作品に改良を加えようとはしなかっ
-た。それこそがまさに重要なのに。本書で奨励している盛り付けは、少なくと
-もそれなりの期間は必要とされ続けると思う。全ては変化する。姿を変える。
-それなのに、装飾芸術の役割を変化しないと主張するなんて愚かなことだろう。
-芸術は流行によって栄えるものだし、流行のように移ろいやすいものだ。
+シンプルな盛り付けにする新たなメソッドと新たな道具を考案する必要があっ
+たのだ。デュボワ、ベルナール両氏が推奨した壮麗な盛り付けを私自身も行なっ
+ていた頃はもちろん、今なお二方の思想にはまったく共感している。冗談でこ
+んなことを言っているのではない。しかし、カレームを信奉する者たちは、装
+飾の才があるが\ruby{故}{ゆえ}に、時代にもはや\ruby{似}{そぐ}わなくなっ
+てしまった作品に対して改良を加えようとはしなかった。時代に合わせて改良
+することこそ、まさに重要なのに。本書で奨励している盛り付けは、少なくと
+もそれなりの期間、有用であり続けると思う。全ては変化する。姿を変える。
+それなのに、装飾芸術の役割が変化しないと主張するなどとは\ruby{蒙昧}{も
+うまい}ではないか。芸術は流行によって栄えるものだし、流行のように移
+ろいやすいものだ。
 
-だが、カレームの時代にはこんにちと同様に既にあり、料理が続く限りなくな
-らないであろうものがある。それが料理の基礎だ。そもそも、料理が見た目で
-シンプルになっても、料理そのものの価値は失なわれないが、その逆はどうだ
-ろう？　人々の味覚は絶え間なく洗練され続け、それを満足させるために料理
-そのものも洗練されることになる。こんにちの余剰活動が精神におよぼす悪影
-響に打ち克つためには、料理そのものがいっそう科学的な、正確なものとなる
-べきなのだ。
+だが、カレームの時代にはこんにちと同じく\ruby{既}{すで}にあり、料理が
+続く限りなくならないだろうものがある。それが料理のベースとなるフォンや
+ストックだ。そもそも、料理が見た目にシンプルになっても料理そのものの価
+値は失なわれないが、その逆はどうだろう？ 人々の味覚は絶え間なく洗練さ
+れ続け、それを満足させるために料理そのものも洗練されることになる。こん
+にちの余剰活動が精神におよぼす悪影響に打ち\ruby{克}{か}つためには、料
+理そのものがいっそう科学的な、正確なものとなるべきなのだ。
 
-その意味で料理が進歩すればする程、我々料理人たちにとって、19世紀に料理
+その意味で料理が進歩すればする程、我々料理人たちにとって、19世紀、料理
 の行く末に大きく影響を与えた三人の料理人の存在は大きなものとなるだろう。
 カレームとデュボワ、ベルナールはともすれば技術的側面ばかり評価されるが、
-料理芸術の基礎について何よりも優れているのだ。
+料理芸術の基礎において何よりも優れているのだ。
 
-物故した者の名だけ挙げるが、確かにグーフェ\footnote{Jules Gouffé
+既に物故した名だけ挙げるが、確かにグフェ\footnote{Jules Gouffé
   (1807〜1877)。ナポレオン三世の料理人として知られる。
-  著書も多く、代表作『料理の本』\emph{Le Livre de Cuisine} (1867年) は前
+  著書も多く、代表作『料理の本（1867年） は前
   半が家庭料理、後半が高級料理（オートキュイジーヌ）の二部構成となっ
   ており、レシピの書き方も、まず材料表を掲げた後に調理手順を説明する
   という現代のそれに近いものになっている。}、ファーヴル\footnote{Joséph
-  Favre (1849〜1903年)。スイス生まれの料理人で、パリ、ドイ
+  Favre (1849〜1903)。スイス生まれの料理人で、パリ、ドイ
   ツ、イギリス、ベルギー等において腕を活躍した。『料理および食品衛生
-  事典』\emph{Dictionnaire universel de cuisine et d'hygiène
-  alimentaire}(1884〜1895年)は、こんにちでも事典としての有用性が失な
-  われていない。}、エルー イ\footnote{Edouard Hélouis（生没年不詳）。
+  事典』(1884〜1895年)は、こんにちでも事典としての有用性が失な
+  われていない。}、エルーイ\footnote{Edouard Hélouis（生没年不詳）。
   イギリスのアルバート王配（ヴィ
   クトリア女王の夫）およびサルデーニャ国王ヴィットーリオ・エマヌエー
-  レ二世の料理人を務めた。著書『王室の晩餐』\emph{Les Royal-Diners ---
-  Guide du Gourmet}(1878年)。}、ルキュレ\footnote{『実践的料理』\emph{Le
-  Cuisinier praticien ou la Cuisine simple et pratique} (1859年) の著者
-  C. Reculet を指していると思われる。 cf.~G. Vicaire,
-  \emph{Bbibliographie gastronomique}, Paris, P. Rouquette et fils,
-  1890, p.733.}はとても素晴らしい著作を残した。だが、『古典料理』
-という稀代の名著と同列といえるものはひとつもない。
+  レ二世の料理人を務めた。著書『王室の晩餐』(1878年)。}、ルキュレ\footnote{『実践的料理』（1859年）の著者C.
+  Reculet を指していると思われる。}はとても素晴らしい著作を残した。だが、『古典料理』という\ruby{稀代}{きだい}の名著に\ruby{比肩}{ひけん}し得るものはひとつとしてない。
 
-料理人諸氏に、新たに本書を使っていただくにあたり、私はこう言わねばなら
-ない。いろいろな料理書、雑誌を読むのもいいが、偉大な先達の不朽の名作を
-しっかり読むように、と。諺にあるように「知り過ぎることなはい」のだ。学
-べば学ぶ程、さらに学ぶべきことは増えていく。ひいては、精神が柔軟になり、
-料理を作るということにおいて上達するより効果的な方法を知ることが出来る
-だろう。
+料理人諸君に、新たに本書を使っていただくにあたり、言うべきことがある。
+いろいろな料理書、雑誌を読み散らかすのもいいが、偉大な先達の不朽の名著
+はしっかり読み込むように、と。\ruby{諺}{ことわざ}にあるように「知り過
+ぎることなはい」のだ。学べば学ぶ程、さらに学ぶべきことは増えていく。そ
+うすれば、柔軟な思考が出来るようになり、料理が上達するためのより効果的
+な方法を知ることも出来るだろう。
 
-本書を公刊するにあたって唯ひとつ望むこと、切に願う唯一のことは、上記の
-点において、本書が想定する読者が我が言に耳を傾け、実践するさまを見るこ
-とに尽きる。
+本書を\ruby{上梓}{じょうし}するにあたって\ruby{唯}{ただ}ひとつ望むこと、
+切に願う\ruby{唯一}{ゆいいつ}のことは、上記の点において、本書の対象た
+る読者諸君が我が\ruby{言}{げん}に耳を傾け、実践するさまを見ることに尽きる。
 
-A. エスコフィエ
+\begin{flushright} A. エスコフィエ\end{flushright}
 
 1902年11月1日
+
+
+{\printindex}
 
 
 
