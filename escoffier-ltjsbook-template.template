@@ -1,4 +1,5 @@
 \documentclass[twoside,12Q,b5j]{escoffierltjsbook}
+%\documentclass[twoside,8pt,a5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
@@ -79,13 +80,15 @@
 %\usepackage[garamondx]{newtxmath}
 \usepackage{xfrac}
 
-%レイアウト調整
 \usepackage{layout}
-%\setlength{\hoffset}{-1truein}
+
+	%レイアウト調整(B5,12Q,escoffierltjsbook.cls)
+%
+\setlength{\hoffset}{-1truein}
 \setlength{\hoffset}{5mm}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{-1cm}
-%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
 \setlength{\fullwidth}{13cm}
 \setlength{\textwidth}{13cm}
 \setlength{\marginparsep}{0pt}
@@ -94,6 +97,22 @@
 \setlength{\textheight}{20.5cm}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+
+%レイアウト調整(8pt,a5j,escoffierltjsbook)
+%\setlength{\voffset}{-.5cm}
+%\setlength{\hoffset}{-.6cm}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{\oddsidemargin}
+%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{40\zw}
+%\setlength{\textwidth}{40\zw}
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{0pt}
+%\setlength{\footskip}{0pt}
+%\setlength{\textheight}{17.5cm}
+%%%ベースライン調整
+%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
+%\setlength{\baselineskip}{15pt}
 
 
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
@@ -126,12 +145,15 @@
   
 %\usepackage{fancyhdr}
 
+\usepackage{setspace}
+\setstretch{1.15}
+
 
 %レシピ本文
 \usepackage{multicol}
-\usepackage{setspace}
-%\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+\newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
 
 
 %subsubsectionに連番をつける
