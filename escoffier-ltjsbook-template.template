@@ -49,7 +49,7 @@
 
 %%%%和文仮名プロポーショナル
 %\usepackage[yu-osx]{luatexja-preset}
-\usepackage[hiragino-pron,90jis,expert,deluxe]{luatexja-preset}
+\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[ipaex]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
