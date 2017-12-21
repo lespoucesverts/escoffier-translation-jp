@@ -141,7 +141,8 @@
   \let\@listvi\@listii
 \makeatother
 
-
+%Pandocの\ldots{}対策
+\renewcommand{\ldots}{…}
   
 %\usepackage{fancyhdr}
 
