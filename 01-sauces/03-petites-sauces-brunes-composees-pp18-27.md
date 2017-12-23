@@ -753,3 +753,108 @@ $\sfrac{2}{3}$量になるまで煮詰め、布で漉す。
 
 [^39]: 底本とした現行版（第四版）では最後がdではなくtとなっているが、初版から第三
     版にいたるまでdとなっており、現行版は明らかな誤植。
+
+
+
+
+\vspace*{1.7\zw}
+
+#### ソース・グランヴヌール[^40]
+
+##### Sauce Grand-Veneur {#sauce-grand-veneur}
+
+\index{そーす@ソース!くらんうぬーる@---・グランヴヌール}
+\index{くらんうぬーる@グランヴヌール!そーす@ソース・---}
+\index{sauce@sauce!grand-veneur@--- Grand-Veneur}
+\index{grand-veneur@grand-veneur!sauce@Sauce ---}
+
+大型猟獣肉のフュメで澄んだ色合いに作った[ソース・ポワヴラー
+ド](#sauce-poivrade)に、ソース1Lあたり野うさぎの血1dlをマリネ液1dlで薄
+めたものを加える。
+
+火をごく弱くして、血が沸騰しないよう気をつけながら数分間煮る。布で漉す。
+
+
+
+[^40]: 王家や貴族に仕える狩猟長のことをグランヴヌールと呼ぶ。
+
+
+
+\vspace*{1.7\zw}
+
+#### ソース・グランヴヌール（エスコフィエ流）
+
+##### Sauce Grand-Veneur (Procédé Escoffier) {#sauce-grand-veneur-procede-escoffier}
+
+\index{そーす@ソース!くらんうぬーるえすこふぃえ@---・グランヴヌール(エスコフィエ)}
+\index{くらんうぬーるえすこふぃえ@グランヴヌール(エスコフィエ)!そーす@ソース・---}
+\index{sauce@sauce!grand-veneur escoffier@--- Grand-Veneur (Procédé Escoffier)}
+\index{grand-veneur@grand-veneur!sauce escoffier@Sauce --- (Procédé Escoffier)}
+
+
+軽く仕上げた[ソース・ポワヴラード](#sauce-poivrade)1Lあたり[グロゼイユ
+のジュレ](#gelee-de-groseilles)大さじ2杯と生クリーム2$\sfrac{1}{2}$dl
+を加える。
+
+……上記2つのソースは鹿、猪などの大きな塊肉の料理に用いる。
+
+
+\vspace*{1.7\zw}
+
+#### ソース・グラタン
+
+
+##### Sauce Gratin {#sauce-gratin}
+
+\index{そーす@ソース!くらたん@---・グラタン}
+\index{くらたん@グラタン!そーす@ソース・---}
+\index{sauce@sauce!gratin@--- Gratin}
+\index{gratin@gratin!sauce@Sauce ---}
+
+
+白ワインと、このソースを合わせる魚のアラなどでとった[魚のフュ
+メ](#fumet-de-poisson)各3dlにエシャロットのみじん切り大さじ
+1$\sfrac{1}{2}$杯を加え、半量以下になるまで煮詰める。
+
+[デュクセル・セッシュ](#duxelles-seche)大さじ3杯と、[魚料理用ソース・
+エスパニョル](#sauce-espagnole-maigre)または[ソース・ドゥミグラ
+ス](#sauce-demi-glace)5dlを加える。5〜6分間煮立たせる。提供直前に、パ
+セリのみじん切り大さじ$\sfrac{1}{2}$を加えて仕上げる。
+
+……舌びらめ、メルラン[^41]、バルビュ[^42]のフィレなどのグラタン用。
+
+
+
+[^41]: タラの近縁種。
+
+[^42]: 鰈の近縁種。この場合のフィレはいわゆる「五枚おろし」にしたもの。
+
+
+
+
+\vspace*{1.7\zw}
+
+#### ソース・アシェ[^43]
+
+
+##### Sauce Hachée {#sauce-hachee}
+
+\index{そーす@ソース!あしぇ@---・アシェ}
+\index{sauce@sauce!hachee@--- Hach\'ee}
+
+玉ねぎの細かいみじん切り100gと、エシャロットの細かいみじん切り大さじ
+1$\sfrac{1}{2}$杯をバターで色付かないよう炒める。ヴィネガー3dlを注ぎ、
+半量まで煮詰める。[ソース・エスパニョル](#sauce-espagnole)4dlと[トマト
+ソース](#sauce-tomate)1$\sfrac{1}{2}$dlを加える。5〜6分煮立たせる。
+
+ハムの脂身のない部分を細かく刻んだもの大さじ1$\sfrac{1}{2}$杯と小ぶり
+のケイパー大さじ1$\sfrac{1}{2}$杯、[デュクセル・セッ
+シュ](#duxelles-seche)大さじ1$\sfrac{1}{2}$杯、パセリのみじん切り大さ
+じ$\sfrac{1}{2}$杯を加えて仕上げる
+
+……このソースは[ソース・ピカント](#sauce-piquant)と等価のものと考えていい。用途も同じ。
+
+
+[^43]: 細かく刻んだもの、の意。
+
+

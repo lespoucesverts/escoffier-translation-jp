@@ -1013,8 +1013,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
    {\parindent \z@ \centering \normalfont                                
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-%        \huge\headfont \@chapapp\thechapter\@chappos
-         \Large\headfont \@chapapp\thechapter\@chappos%変更
+        \Huge\headfont \@chapapp\thechapter\@chappos
+%         \Large\headfont \@chapapp\thechapter\@chappos%変更
         \par\nobreak
 %        \vskip \Cvs % 欧文は20pt
          \vskip .5\Cvs %変更
@@ -1038,8 +1038,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   {\parindent \z@ \centering
     \normalfont
     \interlinepenalty\@M
-%    \Huge \headfont #1\par\nobreak
-     \LARGE \headfont #1\par\nobreak%変更
+    \Huge \headfont #1\par\nobreak
+%     \LARGE \headfont #1\par\nobreak%変更
     \vskip 3\Cvs}} % 欧文は40pt
 \if@twocolumn
   \newcommand{\section}{%
@@ -1054,7 +1054,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %    {\z@}
 %    {.5\Cvs \@plus.3\Cdp}% 後アキ
     {0\Cvs \@plus.0\Cdp}% 後アキ
-    {\normalfont\large\headfont\scshape\centering}}%raggedrightから変更
+    {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
 \fi
 \if@twocolumn
