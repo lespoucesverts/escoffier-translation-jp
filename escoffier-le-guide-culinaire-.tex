@@ -1,6 +1,8 @@
 \documentclass[twoside,12Q,b5j]{escoffierltjsbook}
 %\documentclass[twoside,8pt,a5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
+% \let\equation\gather
+%  \let\endequation\endgather
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 %\usepackage{xunicode}
@@ -8,20 +10,11 @@
 \usepackage{unicode-math}
 \usepackage{xfrac}
 \usepackage{luaotfload}
-\usepackage{makeidx}
 
 
-\usepackage[unicode=true]{hyperref}
-\hypersetup{breaklinks=true,
-             bookmarks=true,
-             pdfauthor={$author-meta$},
-             pdftitle={$title-meta$},
-             colorlinks=true,
-             citecolor=blue,
-             urlcolor=blue,
-             linkcolor=magenta,
-             pdfborder={0 0 0}}
-\urlstyle{same}
+
+
+
 
 %%欧文フォント設定
 \setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
@@ -30,16 +23,17 @@
 %\usepackage{ebgaramond-maths}
 %\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
 
+%\usepackage{qpalatin}%palatino
 
 %\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
 \setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
-\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
-\unimathsetup{math-style=ISO,bold-style=ISO}
-\setmathfont{xits-math.otf}
-\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
+%\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+%\unimathsetup{math-style=ISO,bold-style=ISO}
+%\setmathfont{xits-math.otf}
+%\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
 
-\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+%\index{\usepackage}\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
 
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
@@ -48,9 +42,9 @@
 \usepackage{luatexja-ruby}
 
 %%%%和文仮名プロポーショナル
-%\usepackage[yu-osx]{luatexja-preset}
-\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[ipaex]{luatexja-preset}
+\usepackage[sourcehan,expert]{luatexja-preset}
+%\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[ipa]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
 %    JFM=prop,PKana=On,Kerning=On,
@@ -141,8 +135,7 @@
   \let\@listvi\@listii
 \makeatother
 
-%Pandocの\ldots{}対策
-\renewcommand{\ldots}{…}
+
   
 %\usepackage{fancyhdr}
 
@@ -154,7 +147,8 @@
 \usepackage{multicol}
 
 \newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-%\newenvironment{recette}{\begin{multicols}{2}}{\end{multicols}}
+
+%\newenvironment{recette}{\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
 
 
 %subsubsectionに連番をつける
@@ -198,30 +192,8 @@
 %\addbibresource{hist-agri.bib}
 \let\cite=\autocite
 
-% $if(geometry)$
-% \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-% $endif$
-% $if(natbib)$
-% % \usepackage{natbib}
-% % \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-% % $endif$
-% % $if(biblatex)$
-% \usepackage{biblatex}
-% $if(biblio-files)$
-% \bibliography{$biblio-files$}
-% $endif$
-% $endif$
-
-$if(title)$
-\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-\date{$date$}
-$for(header-includes)$
-$header-includes$
-$endfor$
+% % % % 
+\date{}
 
 %%%脚注番号のページ毎のリセット
 %\makeatletter
@@ -273,64 +245,68 @@ $endfor$
     \fi
     \clearpage
   }
-\makeatother
+  \makeatother
 
 
+
+  
+  \renewcommand{\ldots}{…}
+\usepackage{makeidx}
 \makeindex
 
+
+\usepackage[unicode=true]{hyperref}
+%\usepackage{pxjahyper}
+\hypersetup{breaklinks=true,%
+             bookmarks=true,%
+             pdfauthor={},%
+             pdftitle={},%
+             colorlinks=true,%
+             citecolor=blue,%
+             urlcolor=cyan,%
+             linkcolor=magenta,%
+             pdfborder={0 0 0}}
+
+
+% \hypersetup{
+%     pdfborderstyle={/S/U/W 1}, % underline links instead of boxes
+%     linkbordercolor=red,       % color of internal links
+%     citebordercolor=green,     % color of links to bibliography
+%     filebordercolor=magenta,   % color of file links
+%     urlbordercolor=cyan        % color of external links
+% }
+
+           \urlstyle{same}
+%\renewcommand*{\label}[1]{\hypertarget{#1}{}}
+%\renewcommand{\hyperlink}[2]{\hyperref[#1]{#2}}
+
+\renewcommand{\ldots}{…}
+           
 \begin{document}
 
-%\layout
+\frontmatter
+\input{00-avant-propos/00-avant-propos}
 
 
-%fancyhdr
-%\pagestyle{fancy}
-%\lhead[\thepage]{\thesection}
-%\chead{}
-%\rhead[\thechapter]{\thepage}
-%\fancyhead{\gdef\headrulewidth{0pt}}
-%\lfoot{}
-%\cfoot{}
-%\rfoot{}
-
-
-$if(title)$
-\maketitle
-$endif$
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+\mainmatter
+  
+\input{01-sauces/01-fonds-de-cuisine-pp1-12}
+\newpage
+\input{01-sauces/02-grandes-sauces-pp13-17}
+\newpage
+\input{01-sauces/03-petites-sauces-brunes-composees-pp18-27}
 
 
 
-$for(include-before)$
-$include-before$
 
-$endfor$
-$if(toc)$
-{
-%\hypersetup{linkcolor=black}
-\setcounter{tocdepth}{$toc-depth$}
-\tableofcontents
-}
-$endif$
-$if(lot)$
-\listoftables
-$endif$
-$if(lof)$
-\listoffigures
-$endif$
-$body$
+
+
+
+
+
+
 
 
 {\printindex}
-$for(include-after)$
-$include-after$
-
-$endfor$
-
-
 
 \end{document}

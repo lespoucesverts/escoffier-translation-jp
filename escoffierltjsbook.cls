@@ -459,7 +459,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
-  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
+  \newcommand{\large}{\jsc@setfontsize\large\@xpt{14}}
 %  \newcommand{\large}{\jsc@setfontsize\large\@xipt{17}}
 \fi
 \newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
@@ -1013,8 +1013,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
    {\parindent \z@ \centering \normalfont                                
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-%        \huge\headfont \@chapapp\thechapter\@chappos
-         \Large\headfont \@chapapp\thechapter\@chappos%変更
+        \Huge\headfont \@chapapp\thechapter\@chappos
+%         \Large\headfont \@chapapp\thechapter\@chappos%変更
         \par\nobreak
 %        \vskip \Cvs % 欧文は20pt
          \vskip .5\Cvs %変更
@@ -1038,8 +1038,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   {\parindent \z@ \centering
     \normalfont
     \interlinepenalty\@M
-%    \Huge \headfont #1\par\nobreak
-     \LARGE \headfont #1\par\nobreak%変更
+    \Huge \headfont #1\par\nobreak
+%     \LARGE \headfont #1\par\nobreak%変更
     \vskip 3\Cvs}} % 欧文は40pt
 \if@twocolumn
   \newcommand{\section}{%
@@ -1054,7 +1054,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %    {\z@}
 %    {.5\Cvs \@plus.3\Cdp}% 後アキ
     {0\Cvs \@plus.0\Cdp}% 後アキ
-    {\normalfont\large\headfont\scshape\centering}}%raggedrightから変更
+    {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
 \fi
 \if@twocolumn
@@ -1081,7 +1081,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {0\zw}%前アキ
     {0\zw}%後アキ
    %{0\Cvs \@plus.0\Cdp}%
-   {\normalfont\normalsize\headfont\raggedright}}
+   {\normalfont\large\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
@@ -1100,11 +1100,11 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %    {0\Cvs \@plus.0\Cdp \@minus.2\Cdp}%
  %   {\Cvs \@plus.0\Cdp \@minus.5\Cdp}%
 %    {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-     {1\zw}%前アキ
+     {0\zw}%前アキ
      {0.5\zw}%後アキ     
 %    {.5\Cvs \@plus.5\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-    {\normalfont\normalsize\headfont\hskip .1\zw}}%normalsizeから変更
+    {\normalfont\small\headfont\hskip .1\zw}}%normalsizeから変更
 \fi
 \if@twocolumn
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
