@@ -10,7 +10,6 @@
 \usepackage{unicode-math}
 \usepackage{xfrac}
 \usepackage{luaotfload}
-\usepackage{graphicx}
 
 
 
@@ -43,8 +42,8 @@
 \usepackage{luatexja-ruby}
 
 %%%%和文仮名プロポーショナル
-%\usepackage[sourcehan,expert]{luatexja-preset}%Adobe源ノ明朝、ゴチ
-\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
+\usepackage[sourcehan,expert]{luatexja-preset}
+%\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[ipa]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
@@ -282,32 +281,25 @@
 %\renewcommand{\hyperlink}[2]{\hyperref[#1]{#2}}
 
 \renewcommand{\ldots}{…}
-
-%\newcommand{\maeaki}{\vspace*{0.5\zw}}
-%\newcommand{\maeaki}{\vspace*{1.0\zw}}}
-%\newcommand{\maeaki}{\vspace*{1.1\zw}}
-%\newcommand{\maeaki}{\vspace*{1.5\zw}}
-\newcommand{\maeaki}{\vspace*{1.7\zw}}
-                     
            
 \begin{document}
 
 \frontmatter
 \input{00-avant-propos/00-avant-propos}
 
+
 \mainmatter
-
-%% Chapitre I. Sauces
-
-\input{01-sauces/01-01-pp1-12}\newpage
-\input{01-sauces/01-02-pp13-17}\newpage
-\input{01-sauces/01-03-pp18-27}\newpage
-
-
+  
+\input{01-sauces/01-fonds-de-cuisine-pp1-12}
+\newpage
+\input{01-sauces/02-grandes-sauces-pp13-17}
+\newpage
+\input{01-sauces/03-petites-sauces-brunes-composees-pp18-27}
 
 
 
-%%%Chapitre II. Garnitures
+
+
 
 
 
