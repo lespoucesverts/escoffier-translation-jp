@@ -10,7 +10,9 @@
 
 Markdownファイル（.md）が作業ファイル=原稿です。
 
-**[Pandoc Extended Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown)**いう書式を用いており（[日本語版はこのリンクの上から1/3くらいのところ](http://sky-y.github.io/site-pandoc-jp/users-guide/)ただし内容が古いので出来るだけ英語版を参照してください）、このサービスで標準とされている Github Flavored Markdown に準拠していない部分があるため、ブラウザ上でのプレビューは正しく表示されないことがほとんどです。
+[**Pandoc Extended Markdown**](https://pandoc.org/MANUAL.html#pandocs-markdown)いう書式を用いており（[**日本語版はこのリンクの上から1/3くらいのところ**](http://sky-y.github.io/site-pandoc-jp/users-guide/)、ただし内容が古いので出来るだけ英語版を参照してください）、このサービスで標準とされている Github Flavored Markdown に準拠していない部分があるため、ブラウザ上でのプレビューは正しく表示されないことがほとんどです。
+
+原稿そのものを適切にプレビューするには、Pandoc Extended Markdown に対応したエディタが必要です。（Atomいうエディタに追加パッケージで対応するものがあったと思います）。
 
 **編集協力者は、番号（=章番号）で始まるディレクトリ内のMarkdownファイルに対してのみ編集してコミットするようにしてください**。（以下にファイル名を列挙しておきます）
 
