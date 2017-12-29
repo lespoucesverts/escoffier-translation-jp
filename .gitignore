@@ -11,4 +11,3 @@ package/**/*.ltjruby
 !*.pdf
 !*.tex
 !*.cls
-!*.html
