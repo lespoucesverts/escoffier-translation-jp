@@ -32,6 +32,7 @@ Markdownファイル（.md）が作業ファイル=原稿です。
 * 00-avant-propos/00-avant-propos.md
 * 01-sauces/01-01-pp1-12.md
 * 01-sauces/01-02-pp13-17.md
+* 01-sauces/01-03-pp18-27.md
 
 **これらのファイルに対してだけ変更をコミットしてください。**
 
