@@ -1,3 +1,4 @@
+\documentclass[twoside,12Q,b5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 % \let\equation\gather
 %  \let\endequation\endgather
@@ -143,7 +144,7 @@
 
 
   
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 
 \usepackage{setspace}
 \setstretch{1.1}
@@ -201,10 +202,10 @@
 % % % % 
 \date{}
 
-%%%脚注番号のページ毎のリセット
-%\makeatletter
-%  \@addtoreset{footnote}{page}
-%\makeatother
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+\makeatletter
+  \@addtoreset{footnote}{page}
+\makeatother
 \usepackage[perpage,marginal,stable]{footmisc}
 \makeatletter
 \renewcommand\@makefntext[1]{%
@@ -294,3 +295,18 @@
 %\newcommand{\maeaki}{\vspace*{1.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.7\zw}}
 %\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
+
+
+%%分数の表記
+
+\newcommand{\undemi}{$\sfrac{1}{2}$}
+\newcommand{\untiers}{$\sfrac{1}{3}$}
+\newcommand{\deuxtiers}{$\sfrac{2}{3}$}
+\newcommand{\unquart}{$\sfrac{1}{4}$}
+\newcommand{\troisquarts}{$\sfrac{3}{4}$}
+\newcommand{\uncinquieme}{$\sfrac{1}{5}$}
+\newcommand{\deuxcinquiemes}{$\sfrac{2}{5}$}
+\newcommand{\troiscinquiemes}{$\sfrac{3}{5}$}
+\newcommand{\quatrecinquiemes}{$\sfrac{4}{5}$}
+\newcommand{\unsixieme}{$\sfrac{1}{6}$}
+\newcommand{\cinqsixiemes}{$\sfrac{5}{6}$}
