@@ -95,7 +95,8 @@
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\footskip}{0pt}
-\setlength{\textheight}{20.5cm}
+\setlength{\voffset}{-0.5cm}
+\setlength{\textheight}{21.5cm}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
@@ -203,10 +204,13 @@
 \date{}
 
 %%% 脚注番号のページ毎のリセットと脚注位置の調整
-\makeatletter
-  \@addtoreset{footnote}{page}
-\makeatother
-\usepackage[perpage,marginal,stable]{footmisc}
+%\makeatletter
+%  \@addtoreset{footnote}{page}
+%  \makeatother
+%\usepackage{dblfnote}
+%\usepackage[stable]{footmisc}
+\usepackage[perpage,hang,marginal,stable]{footmisc}
+%\usepackage{footnpag}
 \makeatletter
 \renewcommand\@makefntext[1]{%
   \advance\leftskip 1.5\zw
@@ -290,9 +294,9 @@
 \renewcommand{\ldots}{…}
 
 %\newcommand{\maeaki}{\vspace*{0.5\zw}}
-\newcommand{\maeaki}{\vspace*{1.0\zw}}
+%\newcommand{\maeaki}{\vspace*{1.0\zw}}
 %\newcommand{\maeaki}{\vspace*{1.1\zw}}
-%\newcommand{\maeaki}{\vspace*{1.5\zw}}
+\newcommand{\maeaki}{\vspace*{1.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.7\zw}}
 %\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
 

@@ -386,7 +386,9 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \if@slide
       \ltjsetxkanjiskip .1em
     \else
-      \ltjsetxkanjiskip .25em plus .15em minus .06em
+       \ltjsetxkanjiskip .25\zw
+%      \ltjsetxkanjiskip .15em plus .10em minus .06em   
+%      \ltjsetxkanjiskip .25em plus .15em minus .06em %original
     \fi
   \fi}
 \def\jsc@setfontsize#1#2#3{%
