@@ -153,7 +153,7 @@
 
 %レシピ本文
 \usepackage{multicol}
-
+\setlength{\columnsep}{3\zw}
 \newenvironment{recette}{\begin{small}\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
 %\newenvironment{recette}{\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
@@ -209,7 +209,8 @@
 %  \makeatother
 %\usepackage{dblfnote}
 %\usepackage[stable]{footmisc}
-\usepackage[perpage,hang,marginal,stable]{footmisc}
+\usepackage[bottom,perpage,hang,marginal,stable]{footmisc}
+\setlength{\skip\footins}{5mm plus 2mm}
 %\usepackage{footnpag}
 \makeatletter
 \renewcommand\@makefntext[1]{%
@@ -296,9 +297,9 @@
 %\newcommand{\maeaki}{\vspace*{0.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.0\zw}}
 %\newcommand{\maeaki}{\vspace*{1.1\zw}}
-\newcommand{\maeaki}{\vspace*{1.5\zw}}
+%\newcommand{\maeaki}{\vspace*{1.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.7\zw}}
-%\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
+\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
 
 
 %%分数の表記
