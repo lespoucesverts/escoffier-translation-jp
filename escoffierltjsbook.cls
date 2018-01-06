@@ -1083,7 +1083,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {0\zw}%前アキ
     {0\zw}%後アキ
    %{0\Cvs \@plus.0\Cdp}%
-   {\normalfont\large\headfont\raggedright}}
+   {\normalfont\large\headfont\hskip -1\zw}}
+%   {\normalfont\large\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
@@ -1096,7 +1097,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {0.5\zw}%後アキ
 %     {.5\Cvs \@plus.5\Cdp}%後アキ
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-     {\normalfont\small\headfont}}
+%     {\normalfont\small\headfont}}
+      {\normalfont\small\headfont\hskip -1\zw}}
 \else
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
 %    {0\Cvs \@plus.0\Cdp \@minus.2\Cdp}%
@@ -1107,6 +1109,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %    {.5\Cvs \@plus.5\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
     {\normalfont\small\headfont\hskip .1\zw}}%normalsizeから変更
+%     {\normalfont\small\headfont}}
 \fi
 \if@twocolumn
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
