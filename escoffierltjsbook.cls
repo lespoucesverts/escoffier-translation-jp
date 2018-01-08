@@ -484,9 +484,12 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \else
   \setlength\parindent{1\zw}
 \fi
-\@lowpenalty   51
-\@medpenalty  151
-\@highpenalty 301
+%\@lowpenalty   51%original
+%\@medpenalty  151%original
+%\@highpenalty 301%original
+\@lowpenalty  0
+\@medpenalty 51
+\@highpenalty 151
 \setlength\topskip{1.38\zh}%% from 10\jsc@mpt (2016-08-17)
 \if@slide
   \setlength\headheight{0\jsc@mpt}
@@ -1054,7 +1057,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \@startsection{section}{1}{\z@}%
     {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
 %    {\z@}
-%    {.5\Cvs \@plus.3\Cdp}% 後アキ
+%    {.125\Cvs \@plus.3\Cdp}% 後アキ
     {0\Cvs \@plus.0\Cdp}% 後アキ
     {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
@@ -1077,38 +1080,40 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-%    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+%    {.25\Cvs \@plus.025\Cdp \@minus.25\Cdp}%前アキ
+     {2.5mm \@plus.25mm \@minus2.5mm}%
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
-    {0\zw}%前アキ
-    {0\zw}%後アキ
-   %{0\Cvs \@plus.0\Cdp}%
-   {\normalfont\large\headfont\hskip -1\zw}}
-%   {\normalfont\large\headfont\raggedright}}
+%    {0\zw}%前アキ
+  %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
+  % {0\Cvs \@plus.0\Cdp}%
+  {0pt}%後アキ
+%   {\normalfont\large\headfont\hskip -1\zw}}
+   {\normalfont\large\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
 \if@twocolumn
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
 %    {\z@}{\if@slide .4\Cvs \else -1\zw\fi}% 改行せず 1\zw のアキ
-  %   {0\Cvs \@plus.0\Cdp \@minus.5\Cdp}%前アキ
+  %   {0\Cvs \@plus.0\Cdp \@minus.5\Cdp}%前アキoriginal
  %    {\Cvs \@plus.5\Cdp \@minus.5\Cdp}%前アキ
-     {-1\zw}%前アキ  
-     {0.5\zw}%後アキ
+     {.5\Cvs \@plus-.5\Cdp \@minus-.5\Cdp}%前アキ  
+     {1sp}%後アキ
 %     {.5\Cvs \@plus.5\Cdp}%後アキ
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
 %     {\normalfont\small\headfont}}
       {\normalfont\small\headfont\hskip -1\zw}}
 \else
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-%    {0\Cvs \@plus.0\Cdp \@minus.2\Cdp}%
- %   {\Cvs \@plus.0\Cdp \@minus.5\Cdp}%
+%    {0\Cvs \@plus.0\Cdp \@minus.0Cdp}%
+    {.1sp \@plus -1ex \@minus -1ex}%
 %    {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-     {0\zw}%前アキ
-     {0.5\zw}%後アキ     
-%    {.5\Cvs \@plus.5\Cdp}%
+%     {\@minus5ex}%前アキ
+     {0\zw}%後アキ     
+%    {.5\Cvs \@plus.0\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-    {\normalfont\small\headfont\hskip .1\zw}}%normalsizeから変更
+    {\normalfont\small\headfont\vskip -1ex\hskip -1\zw}}%normalsizeから変更
 %     {\normalfont\small\headfont}}
 \fi
 \if@twocolumn
