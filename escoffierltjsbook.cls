@@ -1080,15 +1080,16 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-%    {.25\Cvs \@plus.025\Cdp \@minus.25\Cdp}%前アキ
-     {2.5mm \@plus.25mm \@minus2.5mm}%
+%   {.125\Cvs \@plus.125\Cdp \@minus.125\Cdp}%前アキ
+  {1.25mm \@plus1.25mm \@minus1.25mm}%前アキ
+%    {1sp \@plus5sp \@minus1sp}%前アキ
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
 %    {0\zw}%前アキ
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
-  % {0\Cvs \@plus.0\Cdp}%
-  {0pt}%後アキ
-%   {\normalfont\large\headfont\hskip -1\zw}}
+   {0\Cvs \@plus.0\Cdp}%
+  %{0pt}%後アキ
+ %  {\normalfont\large\headfont\hskip -1\zw}}
    {\normalfont\large\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi

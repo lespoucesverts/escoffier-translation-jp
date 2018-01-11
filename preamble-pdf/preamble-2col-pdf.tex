@@ -154,9 +154,9 @@
 %レシピ本文
 \usepackage{multicol}
 \setlength{\columnsep}{2\zw}
-\newenvironment{recette}{\begin{small}\begin{spacing}{1.1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%\newenvironment{recette}{\begin{small}\begin{spacing}{1.1}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
-%\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
+\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
 
 
 %subsubsectionに連番をつける
@@ -208,9 +208,9 @@
 %  \@addtoreset{footnote}{page}
 %  \makeatother
 %\usepackage{dblfnote}
-%\usepackage[bottom,perpage,marginal,stable]{footmisc}
-\usepackage[bottom,perpage,hang,marginal,stable]{footmisc}
-\setlength{\skip\footins}{6mm plus 2mm}
+\usepackage[bottom,perpage]{footmisc}
+%\usepackage[bottom,perpage,hang,marginal,stable]{footmisc}
+%\setlength{\skip\footins}{4mm plus 2mm}
 %\usepackage{footnpag}
 \makeatletter
 \renewcommand\@makefntext[1]{%
@@ -294,11 +294,11 @@
 
 \renewcommand{\ldots}{\noindent…}
 
-\newcommand{\maeaki}{\vspace*{0pt}}
+\newcommand{\maeaki}{}
 %\newcommand{\maeaki}{\vspace*{0.5\zw}}
 %\newcommand{\maeaki}{\vspace*{0.75\zw}}
 %\newcommand{\maeaki}{\vspace*{1.0\zw}}
-%\newcommand{\maeaki}{\vspace*{1.25\zw}}
+%\newcommand{\maeaki}{\vspace*{1.1\zw}}
 %\newcommand{\maeaki}{\vspace*{1.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.75\zw}}
 %\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
@@ -312,6 +312,7 @@
 \newcommand{\deuxtiers}{$\sfrac{2}{3}$}
 \newcommand{\unquart}{$\sfrac{1}{4}$}
 \newcommand{\troisquarts}{$\sfrac{3}{4}$}
+\newcommand{\quatrequatrieme}{$\sfrac{4}{4$}}
 \newcommand{\uncinquieme}{$\sfrac{1}{5}$}
 \newcommand{\deuxcinquiemes}{$\sfrac{2}{5}$}
 \newcommand{\troiscinquiemes}{$\sfrac{3}{5}$}
