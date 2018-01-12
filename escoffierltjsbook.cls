@@ -1,5 +1,5 @@
 %%
-%% This is file `ltjsbook.cls',
+%% This is file `escoffierltjsbook.cls',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
@@ -11,7 +11,7 @@
 %% For the copyright see the source file.
 %% 
 %% Any modified versions of this file must be renamed
-%% with new filenames distinct from ltjsbook.cls.
+%% with new filenames distinct from escoffierltjsbook.cls.
 %% 
 %% For distribution of the original source see the terms
 %% for copying and modification in the file ltjsclasses.dtx.
@@ -114,6 +114,8 @@
 \DeclareOption{30pt}{\def\jsc@magscale{2.986}}
 \DeclareOption{36pt}{\def\jsc@magscale{3.583}}
 \DeclareOption{43pt}{\def\jsc@magscale{4.300}}
+\DeclareOption{10Q} {\def\jsc@magscale{0.76923}}% 1pt*10Q/13Q
+\DeclareOption{11Q} {\def\jsc@magscale{0.84615}}% 1pt*11Q/13Q
 \DeclareOption{12Q} {\def\jsc@magscale{0.923}}% 1pt*12Q/13Q
 \DeclareOption{14Q} {\def\jsc@magscale{1.077}}% 1pt*14Q/13Q
 \DeclareOption{10ptj}{\def\jsc@magscale{1.085}}% 1pt*10bp/13Q
@@ -1080,8 +1082,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-%   {.125\Cvs \@plus.125\Cdp \@minus.125\Cdp}%前アキ
-  {1.25mm \@plus1.25mm \@minus1.25mm}%前アキ
+%   {.125\Cvs \@plus.25\Cdp \@minus.125\Cdp}%前アキ
+  {.75mm \@plus0mm \@minus.75mm}%前アキ
 %    {1sp \@plus5sp \@minus1sp}%前アキ
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
@@ -1089,8 +1091,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
    {0\Cvs \@plus.0\Cdp}%
   %{0pt}%後アキ
- %  {\normalfont\large\headfont\hskip -1\zw}}
-   {\normalfont\large\headfont\raggedright}}
+   {\normalfont\large\headfont\hskip -1\zw}}
+ %  {\normalfont\large\headfont\raggedright\vskip-.2\zw}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
@@ -1103,8 +1105,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {1sp}%後アキ
 %     {.5\Cvs \@plus.5\Cdp}%後アキ
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-%     {\normalfont\small\headfont}}
-      {\normalfont\small\headfont\hskip -1\zw}}
+     {\normalfont\small\headfont}}
+%      {\normalfont\small\headfont\hskip -1\zw}}
 \else
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
 %    {0\Cvs \@plus.0\Cdp \@minus.0Cdp}%
@@ -1115,7 +1117,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %    {.5\Cvs \@plus.0\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
     {\normalfont\small\headfont\vskip -1ex\hskip -1\zw}}%normalsizeから変更
-%     {\normalfont\small\headfont}}
+%     {\normalfont\small\headfont\vskip -1ex}}
 \fi
 \if@twocolumn
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
