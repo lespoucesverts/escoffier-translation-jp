@@ -95,6 +95,15 @@
 \DeclareOption{executivepaper}{%
   \setlength\paperheight {10.5in}%
   \setlength\paperwidth  {7.25in}}
+\DeclareOption{kiku}{%
+  \setlength\paperheight {218mm}%
+  \setlength\paperwidth  {152mm}}
+\DeclareOption{kikulong}{%
+  \setlength\paperheight {227mm}%
+  \setlength\paperwidth  {152mm}}
+\DeclareOption{shiroku}{%
+  \setlength\paperheight {188mm}%
+  \setlength\paperwidth  {127mm}}   
 \newif\if@landscape
 \@landscapefalse
 \DeclareOption{landscape}{\@landscapetrue}
@@ -114,9 +123,11 @@
 \DeclareOption{30pt}{\def\jsc@magscale{2.986}}
 \DeclareOption{36pt}{\def\jsc@magscale{3.583}}
 \DeclareOption{43pt}{\def\jsc@magscale{4.300}}
+\DeclareOption{9Q} {\def\jsc@magscale{0.692307}}% 1pt*9Q/13Q
 \DeclareOption{10Q} {\def\jsc@magscale{0.76923}}% 1pt*10Q/13Q
 \DeclareOption{11Q} {\def\jsc@magscale{0.84615}}% 1pt*11Q/13Q
 \DeclareOption{12Q} {\def\jsc@magscale{0.923}}% 1pt*12Q/13Q
+\DeclareOption{13Q} {\def\jsc@magscale{1.0}}% 1pt*13Q/13Q
 \DeclareOption{14Q} {\def\jsc@magscale{1.077}}% 1pt*14Q/13Q
 \DeclareOption{10ptj}{\def\jsc@magscale{1.085}}% 1pt*10bp/13Q
 \DeclareOption{10.5ptj}{\def\jsc@magscale{1.139}}
@@ -1082,8 +1093,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-%   {.125\Cvs \@plus.25\Cdp \@minus.125\Cdp}%前アキ
-  {.75mm \@plus0mm \@minus.75mm}%前アキ
+   {0\Cvs \@plus.25\Cdp \@minus0\Cdp}%前アキ
+%  {.75mm \@plus0mm \@minus.75mm}%前アキ
 %    {1sp \@plus5sp \@minus1sp}%前アキ
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
