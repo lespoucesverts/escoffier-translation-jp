@@ -103,9 +103,11 @@
 る読者諸君が我が\ruby{言}{げん}に耳を傾け、実践するさまを見ることに尽
 きる。
 
-\raggedleft{A. エスコフィエ}
+\begin{flushright}
+A. エスコフィエ
+\end{flushright}
 
-\raggedright 1902年11月1日
+1902年11月1日
 
 
 
