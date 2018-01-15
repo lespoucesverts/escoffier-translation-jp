@@ -18,6 +18,7 @@
 
 %%欧文フォント設定
 \setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
 
 %%Garamond
 %\usepackage{ebgaramond-maths}
@@ -25,15 +26,15 @@
 
 %\usepackage{qpalatin}%palatino
 
-%\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
+%\setmainfont[Ligatures=TeX]{TeX Gyre Schola}%
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
-\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
+
 %\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
 %\unimathsetup{math-style=ISO,bold-style=ISO}
 %\setmathfont{xits-math.otf}
 %\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
-
 %\index{\usepackage}\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+
 
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
@@ -115,6 +116,8 @@
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 %\setlength{\baselineskip}{15pt}
+%%%キリル文字
+\ltjsetparameter{jacharrange={-2,-3}}
 
 
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}

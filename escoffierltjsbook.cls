@@ -1095,7 +1095,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
 %   {0\Cvs \@plus.25\Cdp \@minus0\Cdp}%前アキ
 %  {.75mm \@plus0mm \@minus.75mm}%前アキ
-    {1sp \@plus.25\Cdp \@minus1sp}%前アキ
+    {1sp \@plus.125\Cdp \@minus1sp}%前アキ
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
 %    {0\zw}%前アキ
