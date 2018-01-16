@@ -213,17 +213,25 @@
 %  \makeatother
 %\usepackage{dblfnote}
 %\usepackage[bottom,perpage]{footmisc}
-\usepackage[bottom,perpage,stable]{footmisc}%
+%\usepackage[bottom,perpage,stable]{footmisc}%
 %\setlength{\skip\footins}{6mm plus 4mm minus 2mm}
 %\usepackage{footnpag}
+%\usepackage{endnote}
+%\makeatletter
+%\renewcommand\@makefntext[1]{%
+%  \advance\leftskip 1.5\zw
+%  \parindent 1\zw
+%  \noindent
+%  \llap{\@thefnmark\hskip0.5\zw}#1}
+%%%%後注
+\usepackage{endnotes}
+\let\footnote=\endnote
+\renewcommand{\theendnote}{\arabic{endnote})}
+\renewcommand{\notesname}{註}
+\usepackage{etoolbox}
+\patchcmd{\enoteformat}{1.8em}{0pt}{}{}
+
 \makeatletter
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 1.5\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
     \if@twocolumn
       \onecolumn\@restonecolfalse
