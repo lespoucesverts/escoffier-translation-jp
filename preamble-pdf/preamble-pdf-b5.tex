@@ -1,4 +1,4 @@
-\documentclass[twoside,10Q,kiku]{escoffierltjsbook}
+\documentclass[twoside,12Q,b5j]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 % \let\equation\gather
 %  \let\endequation\endgather
@@ -42,9 +42,9 @@
 \usepackage{luatexja-ruby}
 
 %%%%和文仮名プロポーショナル
-\usepackage[sourcehan,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
-%\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[ipaex,jis2004,expert,deluxe]{luatexja-preset}
+\usepackage[sourcehan,expert]{luatexja-preset}%Adobe源ノ明朝、ゴチ
+% \usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[ipa,expert,deluxe]{luatexja-preset}
 %\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %\setmainjfont[
 %    JFM=prop,PKana=On,Kerning=On,
@@ -74,6 +74,10 @@
 %\usepackage[garamondx]{newtxmath}
 \usepackage{xfrac}
 
+%%%キリル文字
+\ltjsetparameter{jacharrange={-2}}
+
+
 \usepackage{layout}
 
 % レイアウト調整(B5,14Q,onside,escoffierltjsbook.cls)
@@ -83,20 +87,19 @@
 %\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textheight}{23cm}
 
-%レイアウト調整(kiku,escoffierltjsbook.cls)
+%レイアウト調整(B5,12Q,escoffierltjsbook.cls)
 %
-%\setlength{\hoffset}{-25.4mm}
-\setlength{\hoffset}{-6mm}
+\setlength{\hoffset}{-0.5mm}
 \setlength{\oddsidemargin}{0pt}
-\setlength{\evensidemargin}{-2.5mm}
-%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-\setlength{\fullwidth}{115mm}
-\setlength{\textwidth}{115mm}
+\setlength{\evensidemargin}{-1cm}
+%%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\fullwidth}{14cm}
+\setlength{\textwidth}{14cm}
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
+\setlength{\voffset}{-5mm}
 \setlength{\footskip}{0pt}
-\setlength{\voffset}{-8mm}
-\setlength{\textheight}{185mm}
+\setlength{\textheight}{21cm}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
@@ -106,12 +109,12 @@
 %\setlength{\oddsidemargin}{0pt}
 %\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-%\setlength{\fullwidth}{125mm}
-%\setlength{\textwidth}{125mm}
+%\setlength{\fullwidth}{40\zw}
+%\setlength{\textwidth}{40\zw}
 %\setlength{\marginparsep}{0pt}
 %\setlength{\marginparwidth}{0pt}
 %\setlength{\footskip}{0pt}
-%\setlength{\textheight}{180mm}
+%\setlength{\textheight}{17.5cm}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 %\setlength{\baselineskip}{15pt}
@@ -145,7 +148,7 @@
 
 
   
-%\usepackage{fancyhdr}
+\usepackage{fancyhdr}
 
 \usepackage{setspace}
 \setstretch{1.1}
@@ -153,11 +156,10 @@
 
 %レシピ本文
 \usepackage{multicol}
-\setlength{\columnsep}{2\zw}
-\setlength{\columnwidth}{24\zw}	
+
 \newenvironment{recette}{\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
-%\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
+%\newenvironment{recette}{\begin{spacing}{1}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
 
 
 %subsubsectionに連番をつける
@@ -204,15 +206,11 @@
 % % % % 
 \date{}
 
-%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%%%脚注番号のページ毎のリセット
 %\makeatletter
 %  \@addtoreset{footnote}{page}
-%  \makeatother
-%\usepackage{dblfnote}
-%\usepackage[bottom,perpage]{footmisc}
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 2mm}
-%\usepackage{footnpag}
+%\makeatother
+\usepackage[perpage,marginal,stable]{footmisc}
 \makeatletter
 \renewcommand\@makefntext[1]{%
   \advance\leftskip 1.5\zw
@@ -293,18 +291,15 @@
 %\renewcommand*{\label}[1]{\hypertarget{#1}{}}
 %\renewcommand{\hyperlink}[2]{\hyperref[#1]{#2}}
 
-\renewcommand{\ldots}{\noindent…}
+\renewcommand{\ldots}{…}
 
-\newcommand{\maeaki}{}
 %\newcommand{\maeaki}{\vspace*{0.5\zw}}
-%\newcommand{\maeaki}{\vspace*{0.75\zw}}
-%\newcommand{\maeaki}{\vspace*{1.0\zw}}
+%\newcommand{\maeaki}{\vspace*{1.0\zw}}}
 %\newcommand{\maeaki}{\vspace*{1.1\zw}}
 %\newcommand{\maeaki}{\vspace*{1.5\zw}}
-%\newcommand{\maeaki}{\vspace*{1.75\zw}}
-%\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
-%\newcommand{\maeaki}{\vspace*{2.2\zw}}
-%\newcommand{\maeaki}{\vspace*{1.25mm}}
+%\newcommand{\maeaki}{\vspace*{1.7\zw}}
+\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
+
 
 %%分数の表記
 
@@ -313,7 +308,6 @@
 \newcommand{\deuxtiers}{$\sfrac{2}{3}$}
 \newcommand{\unquart}{$\sfrac{1}{4}$}
 \newcommand{\troisquarts}{$\sfrac{3}{4}$}
-\newcommand{\quatrequatrieme}{$\sfrac{4}{4$}}
 \newcommand{\uncinquieme}{$\sfrac{1}{5}$}
 \newcommand{\deuxcinquiemes}{$\sfrac{2}{5}$}
 \newcommand{\troiscinquiemes}{$\sfrac{3}{5}$}

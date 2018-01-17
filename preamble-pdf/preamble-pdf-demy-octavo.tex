@@ -1,4 +1,4 @@
-\documentclass[twoside,10Q,kiku]{escoffierltjsbook}
+\documentclass[twoside,10Q,demy-octavo]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 % \let\equation\gather
 %  \let\endequation\endgather
@@ -83,20 +83,20 @@
 %\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textheight}{23cm}
 
-%レイアウト調整(kiku,escoffierltjsbook.cls)
+%レイアウト調整(demy-octavo,escoffierltjsbook.cls)
 %
-%\setlength{\hoffset}{-25.4mm}
-\setlength{\hoffset}{-6mm}
+\setlength{\hoffset}{-8mm}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{-2.5mm}
 %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-\setlength{\fullwidth}{115mm}
-\setlength{\textwidth}{115mm}
+\setlength{\fullwidth}{110mm}
+\setlength{\textwidth}{110mm}
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\footskip}{0pt}
-\setlength{\voffset}{-8mm}
-\setlength{\textheight}{185mm}
+\setlength{\voffset}{-10mm}
+\setlength{\textheight}{195mm}
+%\setlength{\parindent}{0pt}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
@@ -106,8 +106,8 @@
 %\setlength{\oddsidemargin}{0pt}
 %\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-%\setlength{\fullwidth}{125mm}
-%\setlength{\textwidth}{125mm}
+%\setlength{\fullwidth}{145mm}
+%\setlength{\textwidth}{14mm}
 %\setlength{\marginparsep}{0pt}
 %\setlength{\marginparwidth}{0pt}
 %\setlength{\footskip}{0pt}
@@ -155,10 +155,10 @@
 \usepackage{multicol}
 \setlength{\columnsep}{2\zw}
 \setlength{\columnwidth}{24\zw}	
-\newenvironment{recette}{\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
 %\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
-
+%\newenvironment{recette}{\begin{small}\begin{spacing}{1.0}\end{spacing}\end{small}}
 
 %subsubsectionに連番をつける
 %\usepackage{remreset}

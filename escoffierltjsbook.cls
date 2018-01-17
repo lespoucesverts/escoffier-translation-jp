@@ -37,9 +37,9 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ltjsbook}
-  [2017/09/19 ltjsclasses ]
-\def\jsc@clsname{ltjsbook}
+\ProvidesClass{escoffierltjsbook}
+  [2018/01/17 escoffierltjsclasses ]
+\def\jsc@clsname{escoffierltjsbook}
 \RequirePackage{luatexja}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -103,7 +103,13 @@
   \setlength\paperwidth  {152mm}}
 \DeclareOption{shiroku}{%
   \setlength\paperheight {188mm}%
-  \setlength\paperwidth  {127mm}}   
+  \setlength\paperwidth  {127mm}}
+\DeclareOption{crown-octavo}{%
+  \setlength\paperheight {7.5in}%
+  \setlength\paperwidth  {5in}} 
+\DeclareOption{demy-octavo}{%
+  \setlength\paperheight {8.75in}%
+  \setlength\paperwidth  {5.625in}}    
 \newif\if@landscape
 \@landscapefalse
 \DeclareOption{landscape}{\@landscapetrue}
@@ -447,8 +453,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \setbox0=\box\voidb@x
 \newcommand{\small}{%
   \ltj@@ifnarrowbaselines
-    {\jsc@setfontsize\small\@ixpt{11}}%
-    {\jsc@setfontsize\small\@ixpt{13}}%
+    {\jsc@setfontsize\small\@ixpt{11}}%original
+    {\jsc@setfontsize\small\@ixpt{13}}%original
+  %   {\jsc@setfontsize\small{9.5}{11}}%
+  %   {\jsc@setfontsize\small{9.5}{13}}%
   \abovedisplayskip 9\jsc@mpt \@plus3\jsc@mpt \@minus4\jsc@mpt
   \abovedisplayshortskip  \z@ \@plus3\jsc@mpt
   \belowdisplayskip \abovedisplayskip
@@ -1093,9 +1101,9 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-   {0\Cvs \@plus.125\Cdp \@minus0\Cdp}%前アキ
-%  {1.25mm \@plus.25mm \@minus1.25mm}%前アキ
-%    {1sp \@plus.125\Cdp \@minus1sp}%前アキ
+%   {0\Cvs \@plus.5\Cdp \@minus0\Cdp}%前アキ
+ % {1.25mm \@plus.25mm \@minus1.25mm}%前アキ
+    {1sp \@plus.125\Cdp \@minus1sp}%前アキ
 %   {\z@}%
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
 %    {0\zw}%前アキ
@@ -1127,7 +1135,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {0\zw}%後アキ     
 %    {.5\Cvs \@plus.0\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-    {\normalfont\small\headfont\vskip -0.8ex \hskip -2\zw}}%normalsizeから変更
+    {\normalfont\small\headfont\vskip -0.8ex \hskip -1\zw}}%normalsizeから変更
 %     {\normalfont\small\headfont\vskip -1ex}}
 \fi
 \if@twocolumn
