@@ -1136,7 +1136,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {0\zw}%後アキ     
 %    {.5\Cvs \@plus.0\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-    {\normalfont\small\headfont\vskip -0.8ex \hskip -1\zw}}%normalsizeから変更
+    {\normalfont\small\bfseries\vskip -0.8ex \hskip -1\zw}}%normalsizeから変更
 %     {\normalfont\small\headfont\vskip -1ex}}
 \fi
 \if@twocolumn
