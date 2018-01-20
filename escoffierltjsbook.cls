@@ -1048,7 +1048,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \fi
     \interlinepenalty\@M
 %    \Huge \headfont #1\par\nobreak
-     \LARGE \headfont #1\par\nobreak%変更
+     \LARGE \headfont\scshape #1\par\nobreak%変更
 %    \vskip 3\Cvs}} % 欧文は40pt
      \vskip 1\Cvs}} %変更
 \def\@schapter#1{%
@@ -1064,7 +1064,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   {\parindent \z@ \centering
     \normalfont
     \interlinepenalty\@M
-    \Huge \headfont #1\par\nobreak
+    \Huge \headfont\scshape #1\par\nobreak
 %     \LARGE \headfont #1\par\nobreak%変更
     \vskip 3\Cvs}} % 欧文は40pt
 \if@twocolumn
