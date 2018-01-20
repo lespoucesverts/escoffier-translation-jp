@@ -662,7 +662,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \hbox to \fullwidth{\textbf{\thepage}\hfil}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{%
-    \hbox to \fullwidth{\hfil\textbf{\thepage}}\hss}}
+    \hbox to \fullwidth{\hfil\normalfont{\thepage}}\hss}}
 \if@report \let\ps@plain\ps@plainfoot \else \let\ps@plain\ps@plainhead \fi
 \newif\if@omit@number
 \def\ps@headings{%
@@ -671,10 +671,11 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \def\@evenhead{%
     \if@mparswitch \hss \fi
     \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-        \textbf{\thepage}\hfil\leftmark}}%
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\leftmark\normalfont}}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-        {\if@twoside\rightmark\else\leftmark\fi}\hfil\textbf{\thepage}}}\hss}%
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
   \let\@mkboth\markboth
   \def\chaptermark##1{\markboth{%
     \ifnum \c@secnumdepth >\m@ne
@@ -693,7 +694,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \let\@oddfoot\@empty\let\@evenfoot\@empty
   \def\@evenhead{%
     \if@mparswitch \hss \fi%
-    \hbox to \fullwidth{\thepage\hfil\leftmark}%
+    \hbox to \fullwidth{\thepage\hfil\scshape{\leftmark}}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{%
     \hbox to \fullwidth{\rightmark\hfil\thepage}\hss}%
@@ -1039,7 +1040,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
    {\parindent \z@ \centering \normalfont                                
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-        \Huge\headfont \@chapapp\thechapter\@chappos
+        \Huge\headfont\scshape \@chapapp\thechapter\@chappos
 %         \Large\headfont \@chapapp\thechapter\@chappos%変更
         \par\nobreak
 %        \vskip \Cvs % 欧文は20pt
@@ -1227,7 +1228,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \labelsep=1\zw
     \advance \labelwidth by -\labelsep
     \let \makelabel=\descriptionlabel}}{\endlist}
-\newcommand*\descriptionlabel[1]{\normalfont\headfont #1\hfil}
+\newcommand*\descriptionlabel[1]{\normalfont\headfont\scshape #1\hfil}
 \newenvironment{abstract}{%
   \begin{list}{}{%
     \listparindent=1\zw
