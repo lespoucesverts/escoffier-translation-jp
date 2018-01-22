@@ -21,7 +21,7 @@
 
 %%Garamond
 %\usepackage{ebgaramond-maths}
-\setmonofont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
 
 %\usepackage{qpalatin}%palatino
 
@@ -40,6 +40,7 @@
 %\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
 %\ltjsetparameter{jacharrange={-2, +8}}
 \usepackage{luatexja-ruby}
+\ltjsetparameter{jacharrange={-2}}%キリル文字
 
 %%%%和文仮名プロポーショナル
 \usepackage[sourcehan,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
@@ -97,7 +98,6 @@
 \setlength{\voffset}{-10mm}
 \setlength{\textheight}{195mm}
 %\setlength{\parindent}{0pt}
-\setlength{\fboxrule}{0.1pt}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
@@ -108,7 +108,7 @@
 %\setlength{\evensidemargin}{\oddsidemargin}
 %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
 %\setlength{\fullwidth}{145mm}
-%\setlength{\textwidth}{14mm}
+%\setlength{\textwidth}{145mm}
 %\setlength{\marginparsep}{0pt}
 %\setlength{\marginparwidth}{0pt}
 %\setlength{\footskip}{0pt}
@@ -157,7 +157,7 @@
 \setlength{\columnsep}{2\zw}
 \setlength{\columnwidth}{24\zw}	
 \newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-\usepackage{nidanfloat}
+
 %\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
 %\newenvironment{recette}{\begin{small}\begin{spacing}{1.0}\end{spacing}\end{small}}
 
@@ -184,8 +184,8 @@
 \renewcommand{\postsectionname}{}% 節
 
 \makeatother
-%\renewcommand{\headfont}{\bfseries}
-%\renewcommand{\emph}[1]{\textsl{#1}}
+
+
 
 % PDF/X-1a
 % \usepackage[x-1a]{pdfx}
