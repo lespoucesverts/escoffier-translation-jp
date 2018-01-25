@@ -40,26 +40,29 @@
 %\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
 %\ltjsetparameter{jacharrange={-2, +8}}
 \usepackage{luatexja-ruby}
-\ltjsetparameter{jacharrange={-2}}%キリル文字
 
 %%%%和文仮名プロポーショナル
-\usepackage[sourcehan,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
+\usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
 %\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[ipaex,jis2004,expert,deluxe]{luatexja-preset}
-%\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-%\setmainjfont[
-%    JFM=prop,PKana=On,Kerning=On,
-%    BoldFont={YuMincho-DemiBold},
-%    ItalicFont={YuMincho-Medium},
-%    BoldItalicFont={YuMincho-DemiBold}
-%]{YuMincho-Medium}
-%\setsansjfont[
-%    JFM=prop,PKana=On,Kerning=On,
-%    BoldFont={YuGothic-Bold},
-%    ItalicFont={YuGothic-Medium},
-%    BoldItalicFont={YuGothic-Bold}
-%]{YuGothic-Medium}
-%%%%和文仮名プロプーショナルここまで
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%  \setmainjfont[
+%      YokoFeatures={JFM=prop},
+%      CharacterWidth=AlternateProportional,
+%      BoldFont={SourceHanSans-Medium},
+%      ItalicFont={SourceHanSans-Regular},
+%      BoldItalicFont={SourceHanSans-medium}
+%  ]{SourceHanSerif-Regular}
+%  \setsansjfont[
+%      YokoFeatures={JFM=prop},
+%      CharacterWidth=AlternateProportional,
+%      BoldFont={SourceHanSans-Medium},
+%      ItalicFont={SourceHanSans-Normal},
+%      BoldItalicFont={SourceHanSans-Medium}
+%  ]{SourceHanSans-Normal}
+ %%%% 和文仮名プロプーショナルここまで
+\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
+
 
 \renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
 \renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
@@ -297,7 +300,7 @@
 \renewcommand{\ldots}{\noindent…}
 
 \newcommand{\maeaki}{}
-%\newcommand{\maeaki}{\vspace*{0.5\zw}}
+%\newcommand{\maeaki}{\vspace*{0.125\zw}}
 %\newcommand{\maeaki}{\vspace*{0.75\zw}}
 %\newcommand{\maeaki}{\vspace*{1.0\zw}}
 %\newcommand{\maeaki}{\vspace*{1.1\zw}}
