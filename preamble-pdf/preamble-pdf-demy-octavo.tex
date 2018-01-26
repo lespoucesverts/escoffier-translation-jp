@@ -137,7 +137,7 @@
   \let\@listI\@listi
   \@listi
   \def\@listii{%
-     \leftmargin = 1\zw \rightmargin = 0pt
+     \leftmargin = 2\zw \rightmargin = 0pt
      \labelwidth\leftmargin \advance\labelwidth-\labelsep
      \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
      \itemindent = 0pt \listparindent = 1\zw}
@@ -161,8 +161,11 @@
 \setlength{\columnwidth}{24\zw}	
 \newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
-%\newenvironment{recette}{\begin{small}\begin{multicols}{2}}{\end{multicols}\end{small}}
-%\newenvironment{recette}{\begin{small}\begin{spacing}{1.0}\end{spacing}\end{small}}
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
+
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
+
+
 
 %subsubsectionに連番をつける
 %\usepackage{remreset}

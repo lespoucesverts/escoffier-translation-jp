@@ -1146,10 +1146,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\small\headfont}}%normalsizeから変更
 \else
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.25\zw\fi}%
 %    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else 0\zw\fi}%
     {\normalfont\small\headfont}}
-%    {\normalfont\normalsize\itshape\hskip 2\zw}}
+%    {\normalfont\normalsize\itshape\hskip 1\zw}}
 \fi
 \if@slide
   \setlength\leftmargini{1\zw}
