@@ -86,6 +86,9 @@
 \DeclareOption{b5var}{%
   \setlength\paperheight {230mm}%
   \setlength\paperwidth  {182mm}}
+  \DeclareOption{b6var}{%
+  \setlength\paperheight {182mm}%
+  \setlength\paperwidth  {118mm}}
 \DeclareOption{letterpaper}{%
   \setlength\paperheight {11in}%
   \setlength\paperwidth  {8.5in}}
@@ -129,6 +132,7 @@
 \DeclareOption{30pt}{\def\jsc@magscale{2.986}}
 \DeclareOption{36pt}{\def\jsc@magscale{3.583}}
 \DeclareOption{43pt}{\def\jsc@magscale{4.300}}
+\DeclareOption{8Q} {\def\jsc@magscale{0.6153846}}% 1pt*8Q/13Q
 \DeclareOption{9Q} {\def\jsc@magscale{0.692307}}% 1pt*9Q/13Q
 \DeclareOption{10Q} {\def\jsc@magscale{0.76923}}% 1pt*10Q/13Q
 \DeclareOption{11Q} {\def\jsc@magscale{0.84615}}% 1pt*11Q/13Q
