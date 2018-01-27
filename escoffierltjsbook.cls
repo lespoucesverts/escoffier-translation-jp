@@ -676,7 +676,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \if@mparswitch \hss \fi
     \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
 %      \textbf{\thepage}\hfil\leftmark}}%
-       \normalfont\thepage\hfill\scshape\leftmark\normalfont}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
         {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
