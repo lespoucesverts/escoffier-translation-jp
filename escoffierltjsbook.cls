@@ -1098,7 +1098,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
 %     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
      {1\Cvs \@plus.5\Cdp}%
-    {\normalfont\large\headfont\scshape\centering}}%largeから変更
+    {\normalfont\Large\headfont\scshape\centering}}%largeから変更
 \fi
 \if@twocolumn
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
