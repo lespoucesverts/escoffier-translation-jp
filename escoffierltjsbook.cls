@@ -486,8 +486,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
-  \newcommand{\large}{\jsc@setfontsize\large\@xpt{14}}
-%  \newcommand{\large}{\jsc@setfontsize\large\@xipt{17}}
+%  \newcommand{\large}{\jsc@setfontsize\large\@xpt{14}}
+  \newcommand{\large}{\jsc@setfontsize\large\@xipt{17}}
 \fi
 \newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
 \newcommand{\LARGE}{\jsc@setfontsize\LARGE\@xviipt{25}}
@@ -1098,7 +1098,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
 %     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
      {1\Cvs \@plus.5\Cdp}%
-    {\normalfont\Large\headfont\scshape\centering}}%largeから変更
+    {\normalfont\large\headfont\scshape\centering}}%largeから変更
 \fi
 \if@twocolumn
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
