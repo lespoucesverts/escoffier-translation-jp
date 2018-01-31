@@ -487,7 +487,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
 %  \newcommand{\large}{\jsc@setfontsize\large\@xpt{14}}
-  \newcommand{\large}{\jsc@setfontsize\large\@xipt{17}}
+  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
 \fi
 \newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
 \newcommand{\LARGE}{\jsc@setfontsize\LARGE\@xviipt{25}}
