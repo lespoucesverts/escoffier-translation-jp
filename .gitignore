@@ -11,3 +11,5 @@ package/**/*.ltjruby
 !*.pdf
 !*.tex
 !*.cls
+!*.png
+!*.jpg
