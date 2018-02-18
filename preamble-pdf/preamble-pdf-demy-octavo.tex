@@ -132,6 +132,38 @@
 \setstretch{1.1}
 
 
+%% %%%%%%行取りマクロ
+% \makeatletter
+% \ifx\Cht\undefined
+%  \newdimen\Cht\newdimen\Cdp
+%  \setbox0\hbox{\char\jis"2121}\Cht=\ht0\Cdp=\dp0\fi
+% \catcode`@=11
+% \long\def\linespace#1#2{\par\noindent
+%   \dimen@=\baselineskip
+%   \multiply\dimen@ #1\advance\dimen@-\baselineskip
+%   \advance\dimen@-\Cht\advance\dimen@\Cdp
+%   \setbox0\vbox{\noindent #2}%
+%   \advance\dimen@\ht0\advance\dimen@-\dp0%
+%   \vtop to\z@{\hbox{\vrule width\z@ height\Cht depth\z@
+%    \raise-.5\dimen@\hbox{\box0}}\vss}%
+%   \dimen@=\baselineskip
+%   \multiply\dimen@ #1\advance\dimen@-2\baselineskip
+%   \par\nobreak\vskip\dimen@
+%   \hbox{\vrule width\z@ height\Cht depth\z@}\vskip\z@}
+% \catcode`@=12
+% \setlength{\parskip}{0pt}
+% \setlength{\topskip}{\Cht}
+% \setlength{\textheight}{43\baselineskip}
+% \addtolength{\textheight}{1\zh}
+% \makeatother
+ 
+%%%%%%%%%%%%失敗%%%%%%%%%%%%
+%\let\formule\subsubsection
+%\renewcommand{\subsubsection}[1]{\linespace{1}{\formule#1}}
+%%%%%%%%%%%%失敗%%%%%%%%%%%%
+
+
+
 %レシピ本文
 \usepackage{multicol}
 \setlength{\columnsep}{3\zw}

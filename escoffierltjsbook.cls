@@ -1117,7 +1117,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
   % {0\Cvs \@plus.0\Cdp}%後アキ
     {0pt}%後アキ
-   {\normalfont\normalsize\headfont\hskip -1\zw}}
+   {\normalfont\normalsize\headfont\vskip -0.1\zw\hskip -1\zw}}
  %  {\normalfont\large\headfont\raggedright\vskip-.2\zw}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
