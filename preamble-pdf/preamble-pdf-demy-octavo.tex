@@ -56,8 +56,10 @@
 %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
 
-\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+%\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
 \renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+
 
 \defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
 \defaultjfontfeatures{Scale=0.92487}%和文フォントのサイズ調整。デフォルトは 0.962212 倍%ltjsclassesでは不要?
@@ -312,14 +314,14 @@
 
 \newcommand{\maeaki}{}
 %\newcommand{\maeaki}{\vspace*{0.125\zw}}
-%\newcommand{\maeaki}{\vspace*{0.75\zw}}
+%\newcommand{\maeaki}{\vspace*{-0.75\zw}}
 %\newcommand{\maeaki}{\vspace*{1.0\zw}}
 %\newcommand{\maeaki}{\vspace*{1.1\zw}}
 %\newcommand{\maeaki}{\vspace*{1.5\zw}}
 %\newcommand{\maeaki}{\vspace*{1.75\zw}}
-%\newcommand{\maeaki}{\vspace*{2.0\zw}}                     
+%\newcommand{\maeaki}{\vspace*{1.0mm}}                     
 %\newcommand{\maeaki}{\vspace*{2.2\zw}}
-%\newcommand{\maeaki}{\vspace*{1.25mm}}
+%\newcommand{\maeaki}{\vspace*{-.25mm}}
 
 %%分数の表記
 
