@@ -107,13 +107,10 @@
 \DeclareOption{shiroku}{%
   \setlength\paperheight {188mm}%
   \setlength\paperwidth  {127mm}}
-\DeclareOption{crown-octavo}{%
-  \setlength\paperheight {7.5in}%
-  \setlength\paperwidth  {5in}}
 \DeclareOption{octavo}{%
   \setlength\paperheight {221mm}%
   \setlength\paperwidth  {142mm}}  
-\DeclareOption{american-octavo}{%
+\DeclareOption{americanoctavo}{%
   \setlength\paperheight {228mm}%
   \setlength\paperwidth  {153mm}}
 \DeclareOption{kikubai}{%
@@ -1124,7 +1121,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
   % {0\Cvs \@plus.0\Cdp}%後アキ
     {0pt}%後アキ
-   {\normalfont\normalsize\headfont\vskip .5\zw\leftskip -1\zw\baselineskip -.25\zw}}
+   {\normalfont\normalsize\headfont\vskip .5\zw \leftskip -1\zw \baselineskip -.25\zw}}
  %  {\normalfont\large\subheadfont\raggedright\vskip-.2\zw}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi

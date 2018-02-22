@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 
 %%欧文フォント設定
-\setmainfont[Ligatures=TeX,Scale=1.0]{Linux Libertine O}
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
 
 %%Garamond
 %\usepackage{ebgaramond-maths}
@@ -56,9 +56,9 @@
 %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
 
-%\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
 \renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
-
+%\addfontfeature{Fractions=On}
 
 
 \defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
@@ -168,7 +168,7 @@
 
 %レシピ本文
 \usepackage{multicol}
-\setlength{\columnsep}{3\zw}
+\setlength{\columnsep}{2.7\zw}
 %\setlength{\columnwidth}{24\zw}	
 \newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
