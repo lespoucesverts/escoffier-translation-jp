@@ -109,10 +109,17 @@
   \setlength\paperwidth  {127mm}}
 \DeclareOption{crown-octavo}{%
   \setlength\paperheight {7.5in}%
-  \setlength\paperwidth  {5in}} 
-\DeclareOption{demy-octavo}{%
-  \setlength\paperheight {8.75in}%
-  \setlength\paperwidth  {5.625in}}    
+  \setlength\paperwidth  {5in}}
+\DeclareOption{octavo}{%
+  \setlength\paperheight {221mm}%
+  \setlength\paperwidth  {142mm}}  
+\DeclareOption{american-octavo}{%
+  \setlength\paperheight {228mm}%
+  \setlength\paperwidth  {153mm}}
+\DeclareOption{kikubai}{%
+  \setlength\paperheight {304mm}%
+  \setlength\paperwidth  {218mm}}
+
 \newif\if@landscape
 \@landscapefalse
 \DeclareOption{landscape}{\@landscapetrue}
@@ -459,8 +466,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \ltj@@ifnarrowbaselines
     {\jsc@setfontsize\small\@ixpt{11}}%original
     {\jsc@setfontsize\small\@ixpt{13}}%original
-  %   {\jsc@setfontsize\small{9.5}{11}}%
-  %   {\jsc@setfontsize\small{9.5}{13}}%
+   %  {\jsc@setfontsize\small{9.090909}{11}}%
+   %  {\jsc@setfontsize\small{9.090909}{13}}%
   \abovedisplayskip 9\jsc@mpt \@plus3\jsc@mpt \@minus4\jsc@mpt
   \abovedisplayshortskip  \z@ \@plus3\jsc@mpt
   \belowdisplayskip \abovedisplayskip
