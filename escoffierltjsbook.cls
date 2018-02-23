@@ -490,10 +490,11 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
-%  \newcommand{\large}{\jsc@setfontsize\large\@xpt{14}}
-  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
+  \newcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
 \fi
-\newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
+\newcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+%\newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
 \newcommand{\LARGE}{\jsc@setfontsize\LARGE\@xviipt{25}}
 \newcommand{\huge}{\jsc@setfontsize\huge\@xxpt{28}}
 \newcommand{\Huge}{\jsc@setfontsize\Huge\@xxvpt{33}}
@@ -1102,7 +1103,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
 %     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
      {1\Cvs \@plus.5\Cdp}%
-    {\normalfont\large\headfont\scshape\centering}}%largeから変更
+    {\normalfont\Large\headfont\scshape\centering}}%largeから変更
 \fi
 \if@twocolumn
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
@@ -1114,14 +1115,14 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %  {1.25mm \@plus0.25mm \@minus1.25mm}%前アキ
  %   {1sp \@plus.125\Cdp \@minus1sp}%前アキ
 %   {\z@}%前アキ
-    {0pt}%前アキ
+    {.5\zw}%前アキ
     % {1sp}%前アキ
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%前アキ
  %   {0pt \@plus.25\zw \@minus0pt}%前アキ
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
   % {0\Cvs \@plus.0\Cdp}%後アキ
     {0pt}%後アキ
-   {\normalfont\normalsize\headfont\vskip .5\zw \leftskip -1\zw \baselineskip -.25\zw}}
+   {\normalfont\large\headfont\leftskip -1\zw}}
  %  {\normalfont\large\subheadfont\raggedright\vskip-.2\zw}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
@@ -1147,7 +1148,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
      {0\zw}%後アキ     
 %    {.5\Cvs \@plus.0\Cdp}%
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-     {\normalfont\small\bfseries\leftskip -1\zw\baselineskip -.9ex}}%normalsizeから変更
+     {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
 %     {\normalfont\small\headfont\vskip -1ex}}
 \fi
 \if@twocolumn
