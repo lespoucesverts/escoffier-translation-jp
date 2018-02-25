@@ -77,15 +77,16 @@
 %% レイアウト調整(A4Paper,13Q,onside,escoffierltjsbook.cls) 
 %%
 \setlength{\hoffset}{0mm}
-\setlength{\oddsidemargin}{0mm}
-\setlength{\evensidemargin}{0mm}
-%\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-\setlength{\fullwidth}{159mm}
-\setlength{\textwidth}{159mm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{\oddsidemargin}
+\setlength{\fullwidth}{49\zw}
+\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\footskip}{0pt}
-\setlength{\voffset}{-15mm}
+\setlength{\voffset}{-17mm}
 \setlength{\textheight}{265mm}
 \setlength{\parskip}{0pt}
 %\setlength{\parindent}{0pt}
@@ -330,3 +331,11 @@
 \newcommand{\quatrecinquiemes}{$\sfrac{4}{5}$}
 \newcommand{\unsixieme}{$\sfrac{1}{6}$}
 \newcommand{\cinqsixiemes}{$\sfrac{5}{6}$}
+
+\newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
+
+\newcommand{\frsub}[1]{\vspace*{-.5ex}\normalfont\bfseries\hspace*{-1\zw}\normalsize#1\normalfont\normalsize}
+
+\newcommand{\medlarge}{\fontsize{10.5}{10.5}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.5}{9.5}\selectfont}
+

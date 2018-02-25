@@ -487,6 +487,9 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
               \itemsep \parsep}}
 \newcommand{\scriptsize}{\jsc@setfontsize\scriptsize\@viipt\@viiipt}
 \newcommand{\tiny}{\jsc@setfontsize\tiny\@vpt\@vipt}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}}
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
@@ -1086,11 +1089,13 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\section}{%
     \if@slide\clearpage\fi
     \@startsection{section}{1}{\z@}%
-    {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+%    {1\zw \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+%    {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
 %    {\z@}
-%    {.125\Cvs \@plus.3\Cdp}% 後アキ
-    {0\Cvs \@plus.0\Cdp}% 後アキ
-    {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
+%   {.125\Cvs \@plus.3\Cdp}% 後アキ
+%   {0\Cvs \@plus.0\Cdp}% 後アキ
+    {2\zw}{1\zw}%前アキ後アキ
+    {\normalfont\Large\headfont\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
 \fi
 \if@twocolumn
@@ -1100,10 +1105,12 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \else
   \newcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
 %     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-     {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+%     {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
 %     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
-     {1\Cvs \@plus.5\Cdp}%
-    {\normalfont\Large\headfont\scshape\centering}}%largeから変更
+%     {1\Cvs \@plus.5\Cdp}%
+      {.5\zw}%前アキ
+      {0pt}%後アキ
+    {\normalfont\large\headfont\centering}}%largeから変更
 \fi
 \if@twocolumn
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
@@ -1115,14 +1122,16 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %  {1.25mm \@plus0.25mm \@minus1.25mm}%前アキ
  %   {1sp \@plus.125\Cdp \@minus1sp}%前アキ
 %   {\z@}%前アキ
-    {.5\zw}%前アキ
+   {0.5\zw}%前アキ
     % {1sp}%前アキ
 %   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%前アキ
  %   {0pt \@plus.25\zw \@minus0pt}%前アキ
   %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
   % {0\Cvs \@plus.0\Cdp}%後アキ
     {0pt}%後アキ
-   {\normalfont\large\headfont\leftskip -1\zw}}
+    % {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.25\zw\fi}%%改行せず1\zwのアキ
+%     {\normalfont\normalsize\headfont}}
+   {\normalfont\fourteenq\headfont\leftskip -1\zw}}
  %  {\normalfont\large\subheadfont\raggedright\vskip-.2\zw}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
@@ -1147,8 +1156,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 %     {\@minus5ex}%前アキ
      {0\zw}%後アキ     
 %    {.5\Cvs \@plus.0\Cdp}%
-%    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-     {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
+    {\normalfont\normalsize\headfont}}%normalsizeから変更
+%     {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
 %     {\normalfont\small\headfont\vskip -1ex}}
 \fi
 \if@twocolumn
@@ -1159,7 +1168,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
     {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.25\zw\fi}%
 %    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else 0\zw\fi}%
-    {\normalfont\small\headfont}}
+    {\normalfont\normalsize\headfont}}
 %    {\normalfont\normalsize\itshape\hskip 1\zw}}
 \fi
 \if@slide
