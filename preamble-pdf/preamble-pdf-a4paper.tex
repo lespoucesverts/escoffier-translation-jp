@@ -1,4 +1,4 @@
-\documentclass[twoside,13Q,a4paper,openany]{escoffierltjsbook}
+\documentclass[twoside,14Q,a4paper,openany]{escoffierltjsbook}
 \usepackage{amsmath}%数式
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
@@ -36,22 +36,26 @@
 %%%%和文仮名プロポーショナル
 \usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
 %\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[ipaex,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[ipaex,bold,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[yu-osx,bold,jis2004,expert,deluxe]{luatexja-preset}
+
 \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-%  \setmainjfont[
-%      YokoFeatures={JFM=prop},
-%      CharacterWidth=AlternateProportional,
-%      BoldFont={SourceHanSans-Medium},
-%      ItalicFont={SourceHanSans-Regular},
-%      BoldItalicFont={SourceHanSans-medium}
-%  ]{SourceHanSerif-Regular}
-%  \setsansjfont[
-%      YokoFeatures={JFM=prop},
-%      CharacterWidth=AlternateProportional,
-%      BoldFont={SourceHanSans-Medium},
-%      ItalicFont={SourceHanSans-Normal},
-%      BoldItalicFont={SourceHanSans-Medium}
-%  ]{SourceHanSans-Normal}
+\setmainjfont[
+      YokoFeatures={JFM=prop,PKana=On},
+      CharacterWidth=AlternateProportional,
+      Kerning=On,
+      BoldFont={SourceHanSans-Medium},
+      ItalicFont={SourceHanSans-Regular},
+      BoldItalicFont={SourceHanSans-medium}
+  ]{SourceHanSerif-Regular}
+  \setsansjfont[
+      YokoFeatures={JFM=prop,PKana=On},
+      CharacterWidth=AlternateProportional,
+      Kerning=On,
+      BoldFont={SourceHanSans-Medium},
+      ItalicFont={SourceHanSans-Normal},
+      BoldItalicFont={SourceHanSans-Medium}
+  ]{SourceHanSans-Normal}
  %%%% 和文仮名プロプーショナルここまで
 %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
@@ -76,10 +80,10 @@
 
 %% レイアウト調整(A4Paper,13Q,onside,escoffierltjsbook.cls) 
 %%
-\setlength{\hoffset}{0mm}
+\setlength{\hoffset}{0\zw}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{\oddsidemargin}
-\setlength{\fullwidth}{49\zw}
+\setlength{\fullwidth}{45\zw}
 \setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
 %\setlength{\fullwidth}{159mm}
 %\setlength{\textwidth}{159mm}
@@ -100,14 +104,14 @@
 %リスト環境
 \makeatletter
   \parsep   = 0pt
-  \labelsep = 1\zw
+  \labelsep = .5\zw
   \def\@listi{%
      \leftmargin = 0pt \rightmargin = 0pt
      \labelwidth\leftmargin \advance\labelwidth-\labelsep
      \topsep     = 0pt%\baselineskip
      %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
      \partopsep  = 0pt \itemsep       = 0pt
-     \itemindent = 0pt \listparindent = 0\zw}
+     \itemindent = -.5\zw \listparindent = 0\zw}
   \let\@listI\@listi
   \@listi
   \def\@listii{%
@@ -334,8 +338,10 @@
 
 \newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
 
-\newcommand{\frsub}[1]{\vspace*{-.5ex}\normalfont\bfseries\hspace*{-1\zw}\normalsize#1\normalfont\normalsize}
-
+\newcommand{\frsecb}[1]{\vspace*{-.5ex}\begin{center}\hspace*{1\zw}\normalfont\headfont\fifteenq\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
+\makeatletter
+\newcommand{\frsub}[1]{\vspace{-.5ex}\hspace{-1\zw}{\bfseries#1}\hspace{.5em}\normalfont}
+\makeatother
 \newcommand{\medlarge}{\fontsize{10.5}{10.5}\selectfont}
-\newcommand{\medsmall}{\fontsize{9.5}{9.5}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
 
