@@ -39,25 +39,25 @@
 %\usepackage[ipaex,bold,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[yu-osx,bold,jis2004,expert,deluxe]{luatexja-preset}
 
-\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-\setmainjfont[
-      YokoFeatures={JFM=prop,PKana=On},
-      CharacterWidth=AlternateProportional,
-      Kerning=On,
-      BoldFont={SourceHanSans-Medium},
-      ItalicFont={SourceHanSans-Regular},
-      BoldItalicFont={SourceHanSans-medium}
-  ]{SourceHanSerif-Regular}
-  \setsansjfont[
-      YokoFeatures={JFM=prop,PKana=On},
-      CharacterWidth=AlternateProportional,
-      Kerning=On,
-      BoldFont={SourceHanSans-Medium},
-      ItalicFont={SourceHanSans-Normal},
-      BoldItalicFont={SourceHanSans-Medium}
-  ]{SourceHanSans-Normal}
- %%%% 和文仮名プロプーショナルここまで
-%\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
+ \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+ \setmainjfont[
+       YokoFeatures={JFM=prop,PKana=On},
+       CharacterWidth=AlternateProportional,
+%       Kerning=On,
+       BoldFont={SourceHanSans-Medium},
+       ItalicFont={SourceHanSans-Regular},
+       BoldItalicFont={SourceHanSans-medium}
+   ]{SourceHanSerif-Regular}
+   \setsansjfont[
+       YokoFeatures={JFM=prop,PKana=On},
+       CharacterWidth=AlternateProportional,
+%       Kerning=On,
+       BoldFont={SourceHanSans-Medium},
+       ItalicFont={SourceHanSans-Normal},
+       BoldItalicFont={SourceHanSans-Medium}
+   ]{SourceHanSans-Normal}
+%  %%%% 和文仮名プロプーショナルここまで
+% %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
 
 \renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
@@ -340,7 +340,7 @@
 
 \newcommand{\frsecb}[1]{\vspace*{-.5ex}\begin{center}\hspace*{1\zw}\normalfont\headfont\fifteenq\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
 \makeatletter
- \newcommand{\frsub}[1]{{\leftskip-1\zw\bfseries#1}\normalfont\leftskip0pt}
+\newcommand{\frsub}[1]{\vspace{-.5ex}\hskip -1\zw\leftskip -1\zw\textbf{#1}\leftskip 0pt}
 %\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
 %   {-1\zw}% 改行せず 1\zw のアキ
 %   {-1\zw}%後アキ     
