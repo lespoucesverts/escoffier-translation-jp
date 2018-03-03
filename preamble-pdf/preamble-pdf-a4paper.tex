@@ -1,5 +1,6 @@
-\documentclass[twoside,14Q,a4paper,openany]{escoffierltjsbook}
-\usepackage{amsmath}%数式
+\documentclass[twoside,14Q,a4paper,openany]{ltjsbook}
+
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 \usepackage{geometry}
@@ -13,13 +14,15 @@
 
 %%Garamond
 %\usepackage{ebgaramond-maths}
-%\setmainfont[Ligatures=TeX,Scale=1.0]{EB Garamond}%fontspecによるフォント設定
+%\setmainfont[Ligatures=Historic,Scale=1.1]{EB Garamond}%fontspecによるフォント設定
 
 %\usepackage{qpalatin}%palatino
 
-%\setmainfont[Ligatures=TeX]{TeX Gyre Pagella}%ギリシャ語を用いる場合はこちら
+%%%%%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Schola}
+%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Pagella}
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
-\setsansfont[Ligatures=TeX, Scale=1]{Linux Biolinum O}     % Libertine/Biolinum
+%\setsansfont[Scale=MatchLowercase]{TeX Gyre Adventor}  % \sffamily のフォント
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O}     % Libertine/Biolinum
 %\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
 %\unimathsetup{math-style=ISO,bold-style=ISO}
 %\setmathfont{xits-math.otf}
@@ -33,29 +36,31 @@
 %\ltjsetparameter{jacharrange={-2, +8}}
 \usepackage{luatexja-ruby}
 
-%%%%和文仮名プロポーショナル
-\usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
-%\usepackage[hiragino-pron,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[ipaex,bold,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[yu-osx,bold,jis2004,expert,deluxe]{luatexja-preset}
+%%%%和文フォント設定
+%\usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
+\usepackage[hiragino-pron,jis,bold,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[yu-osx,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[moga-mogo,bold,jis]{luatexja-preset}
 
- \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
- \setmainjfont[
-       YokoFeatures={JFM=prop,PKana=On},
-       CharacterWidth=AlternateProportional,
-%       Kerning=On,
-       BoldFont={SourceHanSans-Medium},
-       ItalicFont={SourceHanSans-Regular},
-       BoldItalicFont={SourceHanSans-medium}
-   ]{SourceHanSerif-Regular}
-   \setsansjfont[
-       YokoFeatures={JFM=prop,PKana=On},
-       CharacterWidth=AlternateProportional,
-%       Kerning=On,
-       BoldFont={SourceHanSans-Medium},
-       ItalicFont={SourceHanSans-Normal},
-       BoldItalicFont={SourceHanSans-Medium}
-   ]{SourceHanSans-Normal}
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%   \setmainjfont[
+% %   YokoFeatures={JFM=prop,PKana=On},
+% %   CharacterWidth=AlternateProportional,
+% % %       Kerning=On,
+%         BoldFont={MogaHMinB~Bold},
+%         ItalicFont={MogaHMinEx~Regular},
+%         BoldItalicFont={MogaMinExB~Bold}
+%    ]{IPAExMincho}
+%     \setsansjfont[
+% %        YokoFeatures={JFM=prop,PKana=On},
+% %        CharacterWidth=AlternateProportional,
+% % %       Kerning=On,
+%         BoldFont={MoboGoB~Bold},
+%         ItalicFont={MoboGoEx~Bold},
+%         BoldItalicFont={MoboGoExi~Regular}
+%         ]{IPAExGothic}
 %  %%%% 和文仮名プロプーショナルここまで
 % %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
@@ -81,10 +86,10 @@
 %% レイアウト調整(A4Paper,13Q,onside,escoffierltjsbook.cls) 
 %%
 \setlength{\hoffset}{0\zw}
-\setlength{\oddsidemargin}{0pt}
+\setlength{\oddsidemargin}{0\zw}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\fullwidth}{45\zw}
-\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
 %\setlength{\fullwidth}{159mm}
 %\setlength{\textwidth}{159mm}
 \setlength{\marginparsep}{0pt}
@@ -97,11 +102,9 @@
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
-
-
-\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}
-
 %リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
 \makeatletter
   \parsep   = 0pt
   \labelsep = .5\zw
@@ -163,18 +166,137 @@
 %%%%%%%%%%%%失敗%%%%%%%%%%%%
 
 
+%文字サイズ、見出しなどの再定義
+\makeatletter
+\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
 
-%レシピ本文
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-%\setlength{\columnwidth}{24\zw}	
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+\newcommand{\medlarge}{\fontsize{10.5}{10.5}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
 
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.85}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
 
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\large\headfont\bfseries\centering}} %変更
 
 
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+    {0.2\Cvs \@plus.5\Cdp \@minus.2\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}%
+    {\normalfont\normalsize\headfont}}  
+
+
+
+\newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\end{center}\vspace{1\zw}}
+
+\newcommand{\frsecb}[1]{\vspace*{-1\zw}\begin{center}\hspace{1\zw}\normalfont\headfont\large\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}}
+
+\newcommand{\frsub}[1]{\vspace{-.5ex}\leftskip -1\zw\textbf{#1}\leftskip 0pt}
+%\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
+%   {-1\zw}% 改行せず 1\zw のアキ
+%   {-1\zw}%後アキ     
+%   {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
+%\newcommand*{\l@frsub}{%
+%          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
+%          \@dottedtocline{5}{\@tempdima}{6.5\zw}}
+
+\makeatother
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 2mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 1.5\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+%\makeatletter
+% \@addtoreset{footnote}{page}
+% \makeatother
+%\usepackage{dblfnote}
+%\usepackage[bottom,perpage]{footmisc}
+
+
+\makeatother
 
 %subsubsectionに連番をつける
 %\usepackage{remreset}
@@ -198,7 +320,23 @@
 \renewcommand{\presectionname}{}%  第
 \renewcommand{\postsectionname}{}% 節
 
-\makeatother
+
+
+
+
+%レシピ本文
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+%\setlength{\columnwidth}{24\zw}	
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.785}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
+
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
+
+
+
+
 
 
 
@@ -220,23 +358,9 @@
 % % % % 
 \date{}
 
-%%% 脚注番号のページ毎のリセットと脚注位置の調整
-%\makeatletter
-%  \@addtoreset{footnote}{page}
-%  \makeatother
-%\usepackage{dblfnote}
-%\usepackage[bottom,perpage]{footmisc}
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 2mm}
-%\usepackage{footnpag}
+
+
 \makeatletter
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 1.5\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
     \if@twocolumn
       \onecolumn\@restonecolfalse
@@ -335,20 +459,3 @@
 \newcommand{\quatrecinquiemes}{$\sfrac{4}{5}$}
 \newcommand{\unsixieme}{$\sfrac{1}{6}$}
 \newcommand{\cinqsixiemes}{$\sfrac{5}{6}$}
-
-\newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
-
-\newcommand{\frsecb}[1]{\vspace*{-.5ex}\begin{center}\hspace*{1\zw}\normalfont\headfont\fifteenq\scshape#1\normalfont\normalsize\end{center}\vspace*{1\zw}}
-\makeatletter
-\newcommand{\frsub}[1]{\vspace{-.5ex}\hskip -1\zw\leftskip -1\zw\textbf{#1}\leftskip 0pt}
-%\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
-%   {-1\zw}% 改行せず 1\zw のアキ
-%   {-1\zw}%後アキ     
-%   {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
-%\newcommand*{\l@frsub}{%
-%          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
-%          \@dottedtocline{5}{\@tempdima}{6.5\zw}}
-\makeatother
-\newcommand{\medlarge}{\fontsize{10.5}{10.5}\selectfont}
-\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
-

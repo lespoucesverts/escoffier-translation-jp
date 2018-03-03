@@ -487,9 +487,6 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
               \itemsep \parsep}}
 \newcommand{\scriptsize}{\jsc@setfontsize\scriptsize\@viipt\@viiipt}
 \newcommand{\tiny}{\jsc@setfontsize\tiny\@vpt\@vipt}
-\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}}
-\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}}
-\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}}
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
