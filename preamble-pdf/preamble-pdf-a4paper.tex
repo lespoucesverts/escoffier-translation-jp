@@ -38,29 +38,29 @@
 
 %%%%和文フォント設定
 %\usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
-\usepackage[hiragino-pron,jis,bold,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[hiragino-pron,jis,bold,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[yu-osx,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[moga-mogo,bold,jis]{luatexja-preset}
+%\usepackage[yu-osx,bold]{myluatexja-preset}
+%\usepackage[moga-mogo-ex,bold]{myluatexja-preset}
 
 \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-%   \setmainjfont[
-% %   YokoFeatures={JFM=prop,PKana=On},
+   \setmainjfont[%
+%   YokoFeatures={JFM=prop,PKana=On},
 % %   CharacterWidth=AlternateProportional,
 % % %       Kerning=On,
-%         BoldFont={MogaHMinB~Bold},
-%         ItalicFont={MogaHMinEx~Regular},
-%         BoldItalicFont={MogaMinExB~Bold}
-%    ]{IPAExMincho}
-%     \setsansjfont[
-% %        YokoFeatures={JFM=prop,PKana=On},
+         BoldFont={ MogaGoB },%
+         ItalicFont={ MogaGoEx },%
+         BoldItalicFont={ MogaGoExB }%
+    ]{ IPAExMincho }
+     \setsansjfont[%
+%        YokoFeatures={JFM=prop,PKana=On},
 % %        CharacterWidth=AlternateProportional,
 % % %       Kerning=On,
-%         BoldFont={MoboGoB~Bold},
-%         ItalicFont={MoboGoEx~Bold},
-%         BoldItalicFont={MoboGoExi~Regular}
-%         ]{IPAExGothic}
+         BoldFont={ MoboGoB },%
+         ItalicFont={ MoboGoEx },%
+         BoldItalicFont={ MoboGoEx }%
+         ]{ IPAExGothic }
 %  %%%% 和文仮名プロプーショナルここまで
 % %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
@@ -168,8 +168,8 @@
 
 %文字サイズ、見出しなどの再定義
 \makeatletter
-\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
-\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
 
 \newcommand{\medlarge}{\fontsize{10.5}{10.5}\selectfont}
 \newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
@@ -239,7 +239,7 @@
 
 
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-    {0.2\Cvs \@plus.5\Cdp \@minus.2\Cdp}%変更
+    {.2\Cvs \@plus.5\Cdp \@minus.5\Cdp}%変更
     {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
     {\normalfont\medlarge\headfont\leftskip -1\zw}}
 
@@ -258,7 +258,7 @@
 
 \newcommand{\frsecb}[1]{\vspace*{-1\zw}\begin{center}\hspace{1\zw}\normalfont\headfont\large\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}}
 
-\newcommand{\frsub}[1]{\leftskip-1\zw\medsmall\setstretch{0.1}\textbf{#1}\normalsize\setlength{\parindent}{0pt}\setstretch{0.785}}
+\newcommand{\frsub}[1]{\hskip -.9\zw\textbf{#1}\leftskip 0pt\normalsize}
 %\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
 %   {-1\zw}% 改行せず 1\zw のアキ
 %   {-1\zw}%後アキ     
@@ -330,7 +330,7 @@
 %\setlength{\columnwidth}{24\zw}	
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spacing}{1.0}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
 
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.785}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
 
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
 
