@@ -49,18 +49,20 @@
 %   YokoFeatures={JFM=prop,PKana=On},
 % %   CharacterWidth=AlternateProportional,
 % % %       Kerning=On,
-         BoldFont={ MogaGoB },%
-         ItalicFont={ MogaGoB },%
-         BoldItalicFont={ MogaGoExB }%
-    ]{ IPAExMincho }
+         BoldFont={ MogaHMinB },%
+         ItalicFont={ MogaHMinB },%
+         BoldItalicFont={ MogaHMinExB }%
+%         ]{ MogaHMin }
+          ]{ IPAExMincho }
      \setsansjfont[%
 %        YokoFeatures={JFM=prop,PKana=On},
 % %        CharacterWidth=AlternateProportional,
 % % %       Kerning=On,
          BoldFont={ MoboGoB },%
-         ItalicFont={ MoboGoEx },%
-         BoldItalicFont={ MoboGoEx }%
-         ]{ IPAExGothic }
+         ItalicFont={ MoboGoB },%
+         BoldItalicFont={ MoboGoExB }%
+         % ]{ MoboGo}
+          ]{ IPAExGothic }
 %  %%%% 和文仮名プロプーショナルここまで
 % %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
@@ -433,9 +435,11 @@
 %\renewcommand{\hyperlink}[2]{\hyperref[#1]{#2}}
 
 \renewcommand{\ldots}{\noindent…}
-%\usepackage{ulem}
-%\setlength{\UnderlineDepth}{1pt}
-%\let\emph\underline
+%\usepackage{udline}
+% \usepackage{ulem}
+\usepackage{umoline}
+\setlength{\UnderlineDepth}{2pt}
+\let\ul\Underline
 
 \newcommand{\maeaki}{}
 %\newcommand{\maeaki}{\vspace{0.125\zw}}
