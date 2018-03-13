@@ -1,4 +1,4 @@
-# 序
+# 序 {#avant-propos}
 
 \fifteenq
 \setstretch{1.3}
@@ -207,7 +207,7 @@ A. エスコフィエ \nopagebreak
 
 
 \newpage
-## 第二版序文
+## 第二版序文 {#introduction-deuxieme-edition}
 \normalsize
 \setstretch{1.1}
 \vspace*{1\zw}
@@ -459,7 +459,7 @@ A. エスコフィエ \nopagebreak
 \end{flushright}
 
 \newpage
-## 第三版序文
+## 第三版序文 {#introduction-troisieme-edition}
 
 \vspace*{1\zw}
 『料理の手引き』第三版を同業たる料理人諸賢に向けて上梓するにあたり、絶
@@ -529,7 +529,7 @@ A. エスコフィエ \nopagebreak
 
 
 
-## 第四版序文
+## 第四版序文 {#introduction-quatrieme-edition}
 
 \vspace*{1\zw}
 
@@ -570,7 +570,7 @@ A. エスコフィエ \nopagebreak
 \setstretch{1.0}
 
 
-## 【参考】盛り付けをシンプルにするということ（初版のみ）
+## 【参考】盛り付けをシンプルにするということ（初版のみ） {#remarque-sur-la-simplification-des-procedes-de-dressage}
 
 
 本書では、かつては料理の盛り付けによく用いられた飾り串[^31]、縁飾り
@@ -634,7 +634,7 @@ A. エスコフィエ \nopagebreak
 
 
 
-## 【参考】初版はしがき
+## 【参考】初版はしがき {#avertissement-premier-edition}
 
 
 本書はある特定の階層の料理人を対象としているものではなく、全ての料理人
