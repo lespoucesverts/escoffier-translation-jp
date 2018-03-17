@@ -4,31 +4,38 @@
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 \usepackage{geometry}
-\usepackage{unicode-math}
 \usepackage{xfrac}
 \usepackage{luaotfload}
 \usepackage{graphicx}
 
-%%欧文フォント設定
-\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+%% 欧文フォント設定
+% Libertine/Biolinum
+%\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+%\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+%\unimathsetup{math-style=ISO,bold-style=ISO}
+%\setmathfont{xits-math.otf}
+%\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
 
-%%Garamond
+
+
+
+%% Garamond
 %\usepackage{ebgaramond-maths}
 %\setmainfont[Ligatures=Historic,Scale=1.1]{EB Garamond}%fontspecによるフォント設定
 
 %\usepackage{qpalatin}%palatino
 
-%%%%%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Schola}
+%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Schola}
 %\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Pagella}
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
 %\setsansfont[Scale=MatchLowercase]{TeX Gyre Adventor}  % \sffamily のフォント
-\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O}     % Libertine/Biolinum
-%\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
-%\unimathsetup{math-style=ISO,bold-style=ISO}
-%\setmathfont{xits-math.otf}
-%\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
 
-%\index{\usepackage}\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
+%\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
+
+%\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
 
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
@@ -454,15 +461,16 @@
 
 %%分数の表記
 
-\newcommand{\undemi}{$\sfrac{1}{2}$}
-\newcommand{\untiers}{$\sfrac{1}{3}$}
-\newcommand{\deuxtiers}{$\sfrac{2}{3}$}
-\newcommand{\unquart}{$\sfrac{1}{4}$}
-\newcommand{\troisquarts}{$\sfrac{3}{4}$}
-\newcommand{\quatrequatrieme}{$\sfrac{4}{4$}}
-\newcommand{\uncinquieme}{$\sfrac{1}{5}$}
-\newcommand{\deuxcinquiemes}{$\sfrac{2}{5}$}
-\newcommand{\troiscinquiemes}{$\sfrac{3}{5}$}
-\newcommand{\quatrecinquiemes}{$\sfrac{4}{5}$}
-\newcommand{\unsixieme}{$\sfrac{1}{6}$}
-\newcommand{\cinqsixiemes}{$\sfrac{5}{6}$}
+\newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
+\newcommand{\untiers}{\hspace{.25\zw}$\sfrac{1}{3}$}
+\newcommand{\deuxtiers}{\hspace{.25\zw}$\sfrac{2}{3}$}
+\newcommand{\unquart}{\hspace{.25\zw}$\sfrac{1}{4}$}
+\newcommand{\troisquarts}{\hspace{.25\zw}$\sfrac{3}{4}$}
+\newcommand{\quatrequatrieme}{\hspace{.25\zw}$\sfrac{4}{4$}}
+\newcommand{\uncinquieme}{\hspace{.25\zw}$\sfrac{1}{5}$}
+\newcommand{\deuxcinquiemes}{\hspace{.25\zw}$\sfrac{2}{5}$}
+\newcommand{\troiscinquiemes}{\hspace{.25\zw}$\sfrac{3}{5}$}
+\newcommand{\quatrecinquiemes}{\hspace{.25\zw}$\sfrac{4}{5}$}
+\newcommand{\unsixieme}{\hspace{.25\zw}$\sfrac{1}{6}$}
+\newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
+\newcommand{\quatresurquatre}{\hspace{.25\zw}$\sfrac{4}{4}$}
