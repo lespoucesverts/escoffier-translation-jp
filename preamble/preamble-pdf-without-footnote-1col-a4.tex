@@ -241,6 +241,7 @@
 % \makeatother
 %\usepackage{dblfnote}
 %\usepackage[bottom,perpage]{footmisc}
+\renewcommand{\footnote}[1]{}
 
 \makeatother
 
@@ -276,10 +277,11 @@
 %\setlength{\columnwidth}{24\zw}	
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
 
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
 
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
 
+\newenvironment{recette}{}{}
 
 %リスト環境
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
