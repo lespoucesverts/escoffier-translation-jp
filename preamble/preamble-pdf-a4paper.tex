@@ -10,9 +10,9 @@
 
 %% 欧文フォント設定
 % Libertine/Biolinum
-%\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
-%\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
-\usepackage{libertine}
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
 \usepackage{unicode-math}
 \setmathfont[Scale=1.2]{libertinusmath-regular.otf}
 %\unimathsetup{math-style=ISO,bold-style=ISO}
@@ -212,7 +212,21 @@
 
 \newcommand{\frsecb}[1]{\vspace*{-1\zw}\begin{center}\hspace{1\zw}\normalfont\headfont\large\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}}
 
-\newcommand{\frsub}[1]{\vskip -.8ex\hskip -1\zw\textbf{#1}\leftskip0pt}
+%\newcounter{frsub}[subsubsection]
+%\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
+%  {1sp}{1sp}%
+%  {\normalfont\normalsize\bfseries\baselineskip-.8ex\leftskip-1\zw}}
+%\let\frsubmark\@gobble
+%\newcommand*{\l@frsub}{%
+%          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
+%          \@dottedtocline{7}{\@tempdima}{6.5\zw}}
+%\renewcommand{\thefrsub}{6}
+%\let\frsub\paragraph
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+%\newcommand{\frsub}[1]{\vskip -.8ex\hskip -1\zw\textbf{#1}\leftskip0pt}
 %\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
 %   {-1\zw}% 改行せず 1\zw のアキ
 %   {-1\zw}%後アキ     
@@ -259,6 +273,7 @@
 \renewcommand{\thesubsection}{}
 \renewcommand{\thesubsubsection}{}
 \renewcommand{\theparagraph}{}
+
 
 %\makeatletter
 %\@removefromreset{subsubsection}{subsection}
