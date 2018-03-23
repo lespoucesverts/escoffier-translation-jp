@@ -287,21 +287,6 @@
 \renewcommand{\presectionname}{}%  第
 \renewcommand{\postsectionname}{}% 節
 
-
-
-
-
-%レシピ本文
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-%\setlength{\columnwidth}{24\zw}	
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
-
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{normalsize}}
-
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{normalsize}\begin{multicols}{2}}{\end{multicols}\end{normalsize}}
-
-
 %リスト環境
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
 
@@ -327,6 +312,24 @@
   \let\@listv\@listii
   \let\@listvi\@listii
 \makeatother
+
+
+
+
+%レシピ本文
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
+
+
+
+
 %% %%%%%%行取りマクロ
 % \makeatletter
 % \ifx\Cht\undefined
