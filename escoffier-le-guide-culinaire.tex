@@ -1,9 +1,57 @@
-%!TEX program = LuaLaTeX
+% !TEX program = LuaLaTeX
+%
+%%%%PDFのつくりかた%%%
+%
+%%%%エスコフィエ『料理の手引き』全注解のTeX原稿はLuaLaTeXで書かれています。
+%%%%
+%%%% 1. Githubのリポジトリをクローンまたはフォークさせてください。これ
+%%%% でリポジトリ（原稿全部があなたのものです）
+
+%%%% 2. TeXのプログラムをパソコンにインストールしてください。インストール方法は
+%%%% https://texwiki.texjp.org/?TeX%20Live
+%%%% をご参照ください。
+%
+%%%% 3. フォントの設定をいじらない場合はMoboMogaフォントをインストールしてください。
+%%%% http://yozvox.web.fc2.com/82A882B782B782DF8374834883938367.html
+%
+%%%% 4. Macの場合は自分のホームディレクトリに .latexmkrcというファイルを作成します。
+%%%% https://texwiki.texjp.org/?Latexmk
+%%%% を参考にしてください(コピペで大丈夫だと思います)
+%
+%%%% 5. 上記サイトにあるようにLuaLaTeXを使いますので、ターミナル(macの
+%%%% 場合)を開いて、このファイルのあるディレクトリに移動し
+%
+%%%% 、latexmk -gg -pdflua escoffier-le-guide-culinaire.tex
+%
+%%%% と打ち込むと、あとは勝手にPDFを生成してくれる(はず)です。質問など
+%%%% は、たとえ僕が存命中でも、元気であっても、いっさいおうけできません。
+%%%% すべて自己責任でお願いします。
+%
+%%%% あとは改訳するもよし、版面設定を変更するもよし、好きになさってくだ
+%%%% さい。知識と能力さえあれば、さして時間もかからずに、お好みのものが
+%%%% 出来るでしょう。ちなみに注釈なしバージョンを作るには、この下の
+%% \renewcommand{\footnote}[1]{}%注釈なしバージョンを作るにはこの行頭の%を消す
+%%%% というところを書いてあるとおりにすれば簡単にいまのA4版の設定で注釈
+%%%% なしのPDFで出来るはずです。その場合は下のタイトル部分も変えたほうがいいでしょう。
+%
+%%%% ただし、2018年現在、日本国の著作権法にもとづいて、訳文と注釈につい
+%%%% てのすべての権利を訳、注釈者である五島学が維持しています。したがっ
+%%%% て、上記のPDF作成作業や改変はあくまでも「個人の私的利用の範囲」に
+%%%% 留まるものとしてください。無断配布は禁止となります。商用利用の場合
+%%%% には著作権法にもとづいて適正なロイヤリティをお支払いいただきます。
+%
+%
+%
 %%% Preamble読み込み
 \input{preamble/preamble-pdf-a4paper.tex}
-%\input{preamble-pdf/preamble-pdf-octavo.tex}
-%\input{preamble/preamble-pdf-without-notes-a4.tex}
-%\input{preamble/preamble-pdf-with-footnote-1col-a4.tex}
+% \input{preamble-pdf/preamble-pdf-octavo.tex}%初版、第二版原書とほぼ同じ判型。ただし調整が必要
+% \input{preamble/preamble-pdf-without-notes-a4.tex}%脚注なしバージョン、ただし調整が必要
+% \input{preamble/preamble-pdf-with-footnote-1col-a4.tex}%1段組みバージョン、ただし調整が必要
+% \renewcommand{\footnote}[1]{}%単に注釈なしバージョンを作るにはこの行頭の%を消す
+%
+%
+%
+%
 %%% Important!%%%%%%% 文書開始%%%
 
 %%%info%%%
