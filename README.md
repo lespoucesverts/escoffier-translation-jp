@@ -6,6 +6,7 @@
 
 [リンク先 PETITESl-ANNONCES.md をご覧ください](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
 
+-----
 # 重要!　文書構造の見直しをおこないました。このため、節やレシピ名の見出しの部分で用いている記号が変わっています(最下部参照)
 
 * 原稿ファイル *.mdの冒頭にMarkdownのコメント形式で作業チェックリストを入れました。
