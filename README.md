@@ -4,7 +4,7 @@
 
 # [急募! 原稿下準備ボランティア](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
 
-[リンク先 PETITESl-ANNONCES.md をご覧ください](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
+[リンク先 PETITES-ANNONCES.md をご覧ください](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
 
 -----
 # 重要!　文書構造の見直しをおこないました。このため、節やレシピ名の見出しの部分で用いている記号が変わっています(最下部参照)
