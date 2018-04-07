@@ -269,7 +269,7 @@
 %\usepackage{remreset}
 
 \renewcommand{\thechapter}{}
-\renewcommand{\thesection}{}
+\renewcommand{\thesection}{\hskip-1\zw}
 \renewcommand{\thesubsection}{}
 \renewcommand{\thesubsubsection}{}
 \renewcommand{\theparagraph}{}
@@ -494,3 +494,30 @@
 \newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
 \newcommand{\quatrequart}{\hspace{.25\zw}$\sfrac{4}{4}$}
 
+\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
