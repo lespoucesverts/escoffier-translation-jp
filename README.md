@@ -105,8 +105,8 @@ PDFは適時マージされます。単に組版イメージ確認のためで�
 
 基本的に、TeXという組版プログラム群を使う前提の md ファイルです。そのため、markdown の書式ではないTeX命令の行がしばしばあり、プレビュー状態でも表示されてしまいます。
 
-    \index{そーす@ソース!しょふろわちゃいろ@---・ショーフロワ(茶色)}
-    \index{しょふろわ@ショーフロワ!そーす(ちゃいろ)@ソース・--- (茶色)}
+    \index{そーす@ソース!しょふろわちやいろ@---・ショフロワ(茶色)}
+    \index{しよふろわ@ショフロワ!そーす(ちやいろ)@ソース・--- (茶色)}
     \index{sauce@sauce!chaud-froid brune@--- Chaud-froid brune}
     \index{chaud-froid@chaud-froid!sauce brune@Sauce --- brune}
 
