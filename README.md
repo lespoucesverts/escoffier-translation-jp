@@ -38,7 +38,7 @@
 
 2. Mac の場合は「ターミナル」(アプリケーション>ユーティリティにあります)を開いて、
     
-    cd ~/Documents/Escoffier
+        cd ~/Documents/Escoffier
 
 と打ち込んでください。Escoffierは先程例に出した新たにつくったフォルダ名です
 
@@ -46,9 +46,11 @@
 
 4. この状態でターミナルに戻ります。
 
-    git clone と打って、ペースト(コマンド+V)します。
+        git clone 
+        
+と打って、ペースト(コマンド+V)します。
 
-    git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
+        git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
 
 となったらリターンキーです。
 
@@ -58,19 +60,19 @@
 
 6. これだけだと、「**あなたがフォークした時点での**エスコフィエのリポジトリ」の内容に過ぎません。なので、本家と同期させてやります。ターミナルで
 
-    git remote add upstream https://github.com/lespoucesverts/escoffier-translation-jp.git
+        git remote add upstream https://github.com/lespoucesverts/escoffier-translation-jp.git
 
 と打ってください。これで本家に対してupstreamという名前をつけて「つながった」ことになります。
 
 7. 次回から、作業の前や途中で
 
-    git fetch upstream
+        git fetch upstream
+
+        git checkout master
+
+        git merge upstream/master
     
-    git checkout master
-    
-    git merge upstream/master
-    
-と「おまじない」をすると、本家とリアムタイムで同一の内容がお手元のパソコンにあるリポジトリにコピーされます。ただし、**本家は一日に何度もアップデートしている**ので、やっぱろこの方法はあんまりお勧めできないかも。この先で本家に対して自信をもってプルリクエストできる方以外は、ブラウザで直接このリポジトリをいじってプルリクエストする方法をとりあえず採用したほうがいいでしょう。
+と「おまじない」をすると、本家とリアムタイムで同一の内容がお手元のパソコンにあるリポジトリにコピーされます。ただし、**本家は一日に何度もアップデートしている**ので、やっぱろこの方法はあんまりお勧めできないかも。この先の段階として、本家に対して自信をもってプルリクエストできる方以外は、ブラウザで直接このリポジトリをいじってプルリクエストする方法をとりあえず採用したほうがいいでしょう。
 
 
 このあたり、GithubアプリとかSourceTreeだともっと直感的に出来るはずなんですが……すみません、やったことがないので、あとはググってください。
