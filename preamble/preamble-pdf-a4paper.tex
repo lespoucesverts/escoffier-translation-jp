@@ -45,25 +45,28 @@
 %%%%和文フォント設定
 %\usepackage[CharacterWidth=AlternateProportional,sourcehan,bold,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
 %\usepackage[hiragino-pron,bold,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
+%\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[YokoFeatures={JFM=prop,PKana=On},ipaex,bold,jis,jis2004,expert,deluxe]{luatexja-preset}
 %\usepackage[yu-osx,bold]{myluatexja-preset}
 %\usepackage[moga-mogo-ex,bold]{myluatexja-preset}
 
 \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
    \setmainjfont[%
-%   YokoFeatures={JFM=prop,PKana=On},
-% %   CharacterWidth=AlternateProportional,
-% % %       Kerning=On,
+%   YokoFeatures={JFM=prop,PKana=On},%
+%    CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%
+%       Kerning=On,%
          BoldFont={ MoboGoB },%
          ItalicFont={ MoboGoB },%
          BoldItalicFont={ MoboGoExB }%
 %         ]{ MogaHMin }
           ]{ IPAExMincho }
-     \setsansjfont[%
-%        YokoFeatures={JFM=prop,PKana=On},
-% %        CharacterWidth=AlternateProportional,
-% % %       Kerning=On,
+%         ]{ IPAmjMincho }
+    \setsansjfont[%
+%        YokoFeatures={JFM=prop,PKana=On},%
+%         CharacterWidth=AlternateProportional,%
+%         CharacterWidth=Proportional,
+%         Kerning=On,
          BoldFont={ MoboGoB },%
          ItalicFont={ MoboGoB },%
          BoldItalicFont={ MoboGoExB }%
@@ -244,7 +247,7 @@
 %\setlength{\skip\footins}{4mm plus 2mm}
 %\usepackage{footnpag}
 \renewcommand\@makefntext[1]{%
-  \advance\leftskip 1.5\zw
+  \advance\leftskip 0\zw
   \parindent 1\zw
   \noindent
   \llap{\@thefnmark\hskip0.5\zw}#1}
