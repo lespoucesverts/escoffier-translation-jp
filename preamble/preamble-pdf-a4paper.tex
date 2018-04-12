@@ -51,10 +51,11 @@
 %\usepackage[moga-mogo-ex,bold]{myluatexja-preset}
 
 \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-   \setmainjfont[%
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
 %   YokoFeatures={JFM=prop,PKana=On},%
 %    CharacterWidth=AlternateProportional,%
-%    CharacterWidth=Proportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
 %       Kerning=On,%
          BoldFont={ MoboGoB },%
          ItalicFont={ MoboGoB },%
@@ -65,7 +66,7 @@
     \setsansjfont[%
 %        YokoFeatures={JFM=prop,PKana=On},%
 %         CharacterWidth=AlternateProportional,%
-%         CharacterWidth=Proportional,
+%         CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
 %         Kerning=On,
          BoldFont={ MoboGoB },%
          ItalicFont={ MoboGoB },%
@@ -90,15 +91,16 @@
 %\usepackage[osfI,scaled=1.0]{garamondx}
 %\usepackage{tgheros,tgcursor}
 %\usepackage[garamondx]{newtxmath}
-\usepackage{xfrac}
 
 \usepackage{layout}
 
-%% レイアウト調整(A4Paper,13Q,onside,escoffierltjsbook.cls) 
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
 %%
 \setlength{\hoffset}{0\zw}
-\setlength{\oddsidemargin}{0\zw}
+\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
 \setlength{\evensidemargin}{\oddsidemargin}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
 \setlength{\fullwidth}{45\zw}
 \setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
 %\setlength{\fullwidth}{159mm}
