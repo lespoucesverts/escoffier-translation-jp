@@ -526,3 +526,19 @@
     \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
     ##1}}}%
 \makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
