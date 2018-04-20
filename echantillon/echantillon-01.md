@@ -3,7 +3,7 @@
 
 # エスコフィエの新解釈 --- 参考例 ---
 
-## 前菜
+## 前菜 {#les-hors-d-oeuvres}
 
 #### ブシェ {#bouchees}
 
@@ -216,9 +216,19 @@ $\frac{3}{4}$ Lを軽い[コンソメ](#consomme-blanc-simple)1 Lにさいの目
 -----------------------
 
 
-## 魚料理
+## 魚料理 {#les-poissons}
 
-#### 舌びらめ・デュグレレ Sole Dugréré (p. 336)
+#### 舌びらめ・デュグレレ {#sole-duglere}
+
+\frsub{Sole Dugléré}
+
+\index{sole@sole!duglere@--- Dugléré}
+\index{duglere@Dugléré!sole@sole ---}
+\index{したひらめ@舌びらめ!てゆくれれ@--- ・デュグレレ}
+\index{てゆくれれ@デュグレレ!したひらめ@舌びらめ・---}
+\index{そーる@ソール ⇒ 舌びらめ!てゆくれれ@---・デュグレレ}
+
+
 
 #### サーモンのクリビヤック Coulibiac de Saumon (pp.301-303)
 
