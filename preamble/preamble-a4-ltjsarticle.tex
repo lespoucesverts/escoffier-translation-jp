@@ -136,86 +136,86 @@
 \newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
 
 
-\renewcommand{\chapter}{%
-  \if@openleft\cleardoublepage\else
-  \if@openright\cleardoublepage\else\clearpage\fi\fi
-  \plainifnotempty % 元: \thispagestyle{plain}
-  \global\@topnum\z@
-  \if@english \@afterindentfalse \else \@afterindenttrue \fi
-  \secdef
-    {\@omit@numberfalse\@chapter}%
-    {\@omit@numbertrue\@schapter}}
-\def\@chapter[#1]#2{%
-  \ifnum \c@secnumdepth >\m@ne
-    \if@mainmatter
-      \refstepcounter{chapter}%
-      \typeout{\@chapapp\thechapter\@chappos}%
-      \addcontentsline{toc}{chapter}%
-        {\protect\numberline
-        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
-        {\@chapapp\thechapter\@chappos}%
-        #1}%
-    \else\addcontentsline{toc}{chapter}{#1}\fi
-  \else
-    \addcontentsline{toc}{chapter}{#1}%
-  \fi
-  \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
-  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
-  \if@twocolumn
-    \@topnewpage[\@makechapterhead{#2}]%
-  \else
-    \@makechapterhead{#2}%
-    \@afterheading
-  \fi}
-\def\@makechapterhead#1{%
-  \vspace*{0\Cvs}% 欧文は50pt
-  {\parindent \z@ \centering \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-        \huge\headfont \@chapapp\thechapter\@chappos%変更
-        \par\nobreak
-        \vskip \Cvs % 欧文は20pt
-      \fi
-    \fi
-    \interlinepenalty\@M
-    \huge \headfont #1\par\nobreak
-    \vskip 1\Cvs}} % 欧文は40pt%変更
+% \renewcommand{\chapter}{%
+%   \if@openleft\cleardoublepage\else
+%   \if@openright\cleardoublepage\else\clearpage\fi\fi
+%   \plainifnotempty % 元: \thispagestyle{plain}
+%   \global\@topnum\z@
+%   \if@english \@afterindentfalse \else \@afterindenttrue \fi
+%   \secdef
+%     {\@omit@numberfalse\@chapter}%
+%     {\@omit@numbertrue\@schapter}}
+% \def\@chapter[#1]#2{%
+%   \ifnum \c@secnumdepth >\m@ne
+%     \if@mainmatter
+%       \refstepcounter{chapter}%
+%       \typeout{\@chapapp\thechapter\@chappos}%
+%       \addcontentsline{toc}{chapter}%
+%         {\protect\numberline
+%         % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+%         {\@chapapp\thechapter\@chappos}%
+%         #1}%
+%     \else\addcontentsline{toc}{chapter}{#1}\fi
+%   \else
+%     \addcontentsline{toc}{chapter}{#1}%
+%   \fi
+%   \chaptermark{#1}%
+%   \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+%   \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+%   \if@twocolumn
+%     \@topnewpage[\@makechapterhead{#2}]%
+%   \else
+%     \@makechapterhead{#2}%
+%     \@afterheading
+%   \fi}
+% \def\@makechapterhead#1{%
+%   \vspace*{0\Cvs}% 欧文は50pt
+%   {\parindent \z@ \centering \normalfont
+%     \ifnum \c@secnumdepth >\m@ne
+%       \if@mainmatter
+%         \huge\headfont \@chapapp\thechapter\@chappos%変更
+%         \par\nobreak
+%         \vskip \Cvs % 欧文は20pt
+%       \fi
+%     \fi
+%     \interlinepenalty\@M
+%     \huge \headfont #1\par\nobreak
+%     \vskip 1\Cvs}} % 欧文は40pt%変更
 
-\renewcommand{\section}{%
-    \if@slide\clearpage\fi
-    \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-    {\normalfont\Large\headfont\bfseries\centering}}%変更
+% \renewcommand{\section}{%
+%     \if@slide\clearpage\fi
+%     \@startsection{section}{1}{\z@}%
+%     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+%     % {.5\Cvs \@plus.3\Cdp}% 後アキ
+%     {.5\Cvs}
+%     {\normalfont\Large\headfont\bfseries\centering}}%変更
 
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-    {\normalfont\large\headfont\bfseries\centering}} %変更
-
-
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-    {.25\Cvs \@plus.5\Cdp \@minus.5\Cdp}%変更
-    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
-    {\normalfont\medlarge\headfont\leftskip -1\zw}}
-
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
-    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-    {1sp}%後アキ
-    {\normalfont\normalsize\headfont}}
-\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
-    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+% \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+%     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+%     % {.5\Cvs \@plus.3\Cdp}% 後アキ
+%     {.5\Cvs}
+%     {\normalfont\large\headfont\bfseries\centering}} %変更
 
 
+% \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+%     {.25\Cvs \@plus.5\Cdp \@minus.5\Cdp}%変更
+%     {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+%     {\normalfont\medlarge\headfont\leftskip -1\zw}}
 
-\newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}}
+% \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+%     {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+%     % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+%     {1sp}%後アキ
+%     {\normalfont\normalsize\headfont}}
+% \renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+%     {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+%     {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
 
-\newcommand{\frsecb}[1]{\vspace*{-1\zw}\begin{center}\hspace{1\zw}\normalfont\headfont\large\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}}
+
+
+\newcommand{\frsec}[1]{\normalfont\hspace*{1\zw}\headfont\Large\scshape#1\normalfont\normalsize\vspace{0.5\zw}}
+
+\newcommand{\frsecb}[1]{\hspace{1\zw}\normalfont\headfont\large\scshape#1\normalfont\normalsize\vspace{0.5\zw}}
 
 %\newcounter{frsub}[subsubsection]
 %\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
@@ -228,7 +228,7 @@
 %\renewcommand{\thefrsub}{6}
 %\let\frsub\paragraph
 
-\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
 \newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
 
 %\newcommand{\frsub}[1]{\vskip -.8ex\hskip -1\zw\textbf{#1}\leftskip0pt}
@@ -273,7 +273,7 @@
 %subsubsectionに連番をつける
 %\usepackage{remreset}
 
-\renewcommand{\thechapter}{}
+%\renewcommand{\thechapter}{}
 \renewcommand{\thesection}{\hskip-1\zw}
 \renewcommand{\thesubsection}{}
 \renewcommand{\thesubsubsection}{}
@@ -286,10 +286,10 @@
 %\newcounter{rnumber}
 %\renewcommand{\thernumber}{\refstepcounter{rnumber} }
 
-\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
-\renewcommand{\postpartname}{\if@english\else {}\fi}
-\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
-\renewcommand{\postchaptername}{\if@english\else {}\fi}
+%\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+%\renewcommand{\postpartname}{\if@english\else {}\fi}
+%\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+%\renewcommand{\postchaptername}{\if@english\else {}\fi}
 \renewcommand{\presectionname}{}%  第
 \renewcommand{\postsectionname}{}% 節
 
