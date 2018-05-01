@@ -13,3 +13,4 @@ package/**/*.ltjruby
 !*.cls
 !*.png
 !*.jpg
+!*.docx
