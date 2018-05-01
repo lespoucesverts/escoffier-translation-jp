@@ -1,7 +1,9 @@
 # エスコフィエ『料理の手引き』全注解　作業用リポジトリ #
 
 -----
+Github 超初心者むけにパソコンのWEBブラウザで作業に参加する方法をまとめました。「協力はしたいけれどどうすればいいかわからない」という方はリンク先の[WEBブラウザでファイルの下準備、下訳、編集、校正に参加する方法](Docs/commit-via-web-browser.md)をご覧ください。
 
+----
 # [急募! 原稿下準備ボランティア](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
 
 [リンク先 PETITES-ANNONCES.md をご覧ください](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
