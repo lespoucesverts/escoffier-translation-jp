@@ -14,4 +14,4 @@ package/**/*.ltjruby
 !*.png
 !*.jpg
 !*.docx
-!*.el
+!*/inits/*.el
