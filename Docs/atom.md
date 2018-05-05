@@ -103,7 +103,7 @@ Macの場合は、最初に書いてあるように [homebrew](https://brew.sh/)
 
 と打って、ペースト(コマンド+V)します。
 
-    git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
+    git clone https://github.com/youraccountongithub/escoffier-translation-jp.git
 
 となったらリターンキーです。youraccountongithub のところはご自分のアカウント名が入ります。
 
