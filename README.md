@@ -45,8 +45,8 @@
 1. まず、自分のパソコンの適当なディレクトリ(たとえばMacなら「書類」のなかにEscoffierとでも)フォルダを作ります。
 
 2. Mac の場合は「ターミナル」(アプリケーション>ユーティリティにあります)を開いて、
-    
-        cd ~/Documents/Escoffier
+
+    cd ~/Documents/Escoffier
 
 と打ち込んでください。Escoffierは先程例に出した新たにつくったフォルダ名です
 
@@ -54,11 +54,11 @@
 
 4. この状態でターミナルに戻ります。
 
-        git clone
-        
+    git clone
+
 と打って、ペースト(コマンド+V)します。
 
-        git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
+    git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
 
 となったらリターンキーです。
 
@@ -68,15 +68,15 @@
 
 6. これだけだと、「**あなたがフォークした時点での**エスコフィエのリポジトリ」の内容に過ぎません。なので、本家と同期させてやります。ターミナルで
 
-        git remote add upstream https://github.com/lespoucesverts/escoffier-translation-jp.git
+    git remote add upstream https://github.com/lespoucesverts/escoffier-translation-jp.git
 
 と打ってください。これで本家に対してupstreamという名前をつけて「つながった」ことになります。
 
-7. 次回から、作業の前や途中で
+7. 次回から、作業の前や途中でターミナルに
 
-        git fetch upstream
-        git checkout master
-        git merge upstream/master
+    git fetch upstream
+    git checkout master
+    git merge upstream/master
 
 と「おまじない」3つ入力をすると、本家とリアムタイムで同一の内容がお手元のパソコンにあるリポジトリにコピーされます。ただし、**本家は一日に何度もアップデートしている**ので、やっぱりこの方法はあんまりお勧めできないかも。この先の段階として、本家に対して自信をもってプルリクエストできる方以外は、ブラウザで直接このリポジトリをいじってプルリクエストする方法をとりあえず採用したほうがいいでしょう。
 
@@ -156,12 +156,12 @@ PDFは適時マージされます。単に組版イメージ確認のためで�
 あらたに注釈を追加する場合、すでにある番号とダブってしまうとエラーの原因になりますので、
 
     本文[^15]本文本文[^15bis]本文本文本文
-	本文本文本文。
-	
-	[^15]: すでにある注釈だけどここは変更[](20180129○○変更)注釈文の続き
-	
-	[^15bis]: あらたに追加した注釈
-	
+    本文本文本文。
+
+    [^15]: すでにある注釈だけどここは変更[](20180129○○変更)注釈文の続き
+
+    [^15bis]: あらたに追加した注釈
+
 のように、直前の注釈番号にbisをつけてください。すでに直前のものにbisがついている場合は、bis2、bis3のようにして、かならず番号がダブらないようご注意ください。また、注釈は対象の段落の直後がわかりやすくて便利です。
 
 #### TeX命令文が含まれています ###
