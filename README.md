@@ -64,7 +64,7 @@
 
     git clone https://github.com:youraccountongithub/escoffier-translation-jp.git
 
-となったらリターンキーです。youraccountongithub 
+となったらリターンキーです。youraccountongithub のところはご自分のアカウント名が入ります。
 
 場合によってはしばらく待たされます。
 
