@@ -31,7 +31,7 @@ Github 謹製のエディタ Atom は操作方法もそこそこわかりやす�
 
 Atom とは別に、分数表記を Markdown Preview Plus で見られるようにするには pandoc というプログラムをインストールする必要があります
 http://pandoc.org/
-からご使いのOSに対応したものをDLしてインストールしてください。
+からお使いのOSに対応したものをDLしてインストールしてください。
 
 ![](img/atom-002.png)
 
