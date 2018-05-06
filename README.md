@@ -14,6 +14,10 @@
 
 ----
 
+## [パソコン中・上級者向けに、Emacs, pandoc, Lualatex を使う PDF 組版について書きはじめました](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/Docs/emacs.md)
+
+
+----
 ## [急募! 原稿下準備ボランティア](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
 
 [リンク先 PETITES-ANNONCES.md をご覧ください](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/PETITES-ANNONCES.md)
