@@ -28,7 +28,7 @@
 ### おすすめ日本語入力 SKK
 
 * Mac 用 [Aquaskk](https://github.com/codefirst/aquaskk/releases)
-* Windows 用 [corvuskk](https://github.com/nathancorvussolis/corvusskk)
+* Windows 用 [corvuskk](https://github.com/nathancorvussolis/corvusskk)
 * Ubuntu 用 ibus-skk ……Ubuntuで apt install を使ってインストール可能
 
 「連文節変換」とか「予測変換」なんて機能はいっさいなし。漢字にしたい語句を打つときに 最初の文字だけshift キーと同時押しでローマ字入力してスペースキーを押してその語句を変換するというまことに単純明快な入力方式。とはいえ、設定次第では「予測変換」も「送りかな」もちゃんと使えるので、慣れると一般的な連文節変換の3倍以上早く変換できるようになります。
