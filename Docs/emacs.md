@@ -108,6 +108,8 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 
 します。
 
+### まずは OS 標準の日本語入力でいいから見た目をどうにかする
+
 最初の設定ファイルを入れます。といっても、ゼロから作るのも面倒でしょうから、いまさっきパソコンに DL したリポジトリの Docs/Emacs/dotemacs-first/ というディレクトリ（フォルダ）にある init.el を Finder のドラッグ&ドロップで .emacs.d フォルダに入れます。あるいはターミナルで
 
     $ cd ~/Documents/escoffier-translation-jp/Docs/Emacs/dotemacs-first
@@ -115,3 +117,76 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
     $ cp ./init.el ~/.emacs.d/
 
 としてもいいでしょう。
+
+#### init-loader のインストール
+
+設定をすべて init.el に書いてもいいんですが、長く使っていると、わけがわからない長大な設定ファイルになりがちです。それを「整理」するために、init-loader というパッケージをインストールします。
+
+このとき、Emacs 特有のキー操作をおこなう必要があります。通常は
+
+    M-x package-install
+    
+と表現されるものです。Mac の場合、 M = Esc です。つまり、Escを1回押してから、小文字の x を押します。そうするとウインドウの一番下の行に、
+
+    M-x
+    
+と表示されるので、続けて
+
+    M-x pac
+    
+くらいまで打って、スペースを押してみてください。
+
+    M-x package-
+    
+まで「補完」されます。続けて i + スペース を押すと最下行の上にいくつか「候補」が出ます。いまはインストールをしたいので、ns を続けてまたスペースを押すと
+    
+    M-x package-install
+    
+となります。ここでリターンキーを押してください。最下行の文字列が消えます。ここにインストールしたいパッケージ名を入れます。今回はまず init-loader を入れたいわけですから
+
+    init-loader
+    
+と入力してリターンキーを押します。そうすると勝手に init-loader というパッケージがインストールされます。英語で「終わったよ」みたいな表示が出たら、先ほどコピーした init.el ファイルを emacs で開きます。これは File メニューからでもいいのですが、
+
+    C-x C-f 
+    
+とするのが Emacs 本来の流儀です。C は Ctrl キーの意味です。Ctrl キーを**押しながら** x f と続けて打ちます。するとまさ最下部（この部分は「ミニバッファ」と呼ばれています）に
+
+    Find file:
+    
+と出ますので、それに続けて
+
+    Find file: ~/.emacs.d/init.el
+    
+としてください。init.el ファイルが開かれます。
+
+    (setq package-archives
+
+    '(("gnu" . "http://elpa.gnu.org/packages/")
+
+    ("melpa" . "http://melpa.org/packages/")))
+
+    ;;        ("org" . "http://orgmode.org/elpa/")))
+    
+    (package-initialize)
+    
+となっていると思います。この下に
+
+    (init-loader-load)
+
+と全部半角英文字で書き込んでください。
+
+
+### いよいよ見た目をなんとかする
+
+Finder あるいはファイルマネージャで .emacs.d フォルダの中に、inits という名前のフォルダを作ってください。その中に、escoffier-translation-jp/Docs/dotemacs-first/inits/ の中にある 00_Appearance.el というファイルをコピーしてください。やりかたは init.el のときとおなじです。
+
+#### Solarized テーマのインストール
+
+デフォルトでもそこそこ使えるテーマ（見た目の設定、特に配色）はあるんですが、僕がいつも使っている Solarized というテーマを入れておきましょう。先程コピーした 00_Appearance.el には Solarized に合わせた他の設定も書き込んでありますので。
+
+さて、テーマもパッケージのひとつです。先程はいきなりパッケージ名を指定してインストールしましたが、一覧を見ながら、という方法もあります。
+
+    M-x package-list-packages
+    
+とするとインストール可能なパッケージの一覧が表示されます。    
