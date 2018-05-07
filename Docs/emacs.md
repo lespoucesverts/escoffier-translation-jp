@@ -12,30 +12,21 @@
 
 ## 目次
 
-* [推奨環境](#environment)  
-* [必要なアプリ、フォント](#apps-fonts)
-    * [おすすめ日本語入力 SKK](#invitation-to-skk)
-    * [pandoc](#invitation-to-pandoc)
-    * [LaTeX](#invitation-to-latex)
-* [Emacs をインストールする](#installing-emacs)
-    * [MacOS](#installing-emacs-on-mac)
-    * [Windows](#installing-emacs-on-windows)
-    * [Ubuntu](#installing-emacs-on-ubuntu)
-* [Emacs の見た目を何とかする](#customizing-appearance-emacs)   
-    * [まずは OS 標準の日本語入力でいいから見た目をどうにかする](#first-dotemacs-setting)
-    * [init-loader のインストール](#init-loader)
-    * [Solarized テーマのインストール](#installing-solarized-theme)
-    * [その他のパッケージのインストール](#installing-essential-packages)
-* [エディタの流儀](#how-to-use-emacs)
-    * [キーボード達人への道](#tips-to-typing)
-    
-## 推奨環境 {#environment}
+* [推奨環境](#推奨環境)
+* [必要なアプリ、フォント](#必要なアプリ、フォント)
+* [Emacs をインストールする](#Emacs をインストールする)
+* [Emacs の見た目を何とかする](#Emacs の見た目を何とかする)
+* [エディタの流儀](#エディタの流儀)
+* [キーボード達人への道](#キーボード達人への道)
+
+
+## 推奨環境
 
 * Macintosh ……現行の25.3 は OS 10.9 以降だったと思いますので、それ以前の OS のままの古い Mac の場合はバージョン 24.3 あたりを使えばだいたい問題ないと思います。
 * Ubuntu Linux ……フォント設定のところが変わります。
 * Windows …… 説明できません。ごめんなさい。
 
-## 必要なアプリ、フォント {#apps-fonts}
+## 必要なアプリ、フォント
 
 * Emacs ……各OSに対応したものがあります。
 * pandoc
@@ -43,7 +34,7 @@
 * MoboMogaフォント
 * Lualatex, luatexja を含む TeX 一式
 
-### おすすめ日本語入力 SKK {#invitation-to-skk}
+### おすすめ日本語入力 SKK
 
 * Mac 用 [Aquaskk](https://github.com/codefirst/aquaskk/releases)
 * Windows 用 [corvuskk](https://github.com/nathancorvussolis/corvusskk)
@@ -64,7 +55,7 @@
 対応しているフォーマットは入力側が、このプロジェクトで使っている Pandoc Extended Markdown の他いろいろ、出力側も TeX, PDF, docx, html, epub などものすごくたくさんの種類があります。
 
 
-### LaTeX {#invitation-to-latex}
+### LaTeX
 
 Markdown 書式の原稿から、今回のプロジェクトで作っているようなレイアウトのPDFと索引、目次、文献一覧などを**自動で**組版するために使うプログラム群です。各OS用があり、おなじ LaTeX でもいろんな種類があります。この「全注解」プロジェクトでは LuaLatex というのを使っています。
 
@@ -73,9 +64,9 @@ Markdown 書式の原稿から、今回のプロジェクトで作っている�
 Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしまうのが簡単でしょう。Basic TeX といって「最小構成」でインストールして必要なパッケージを追加で入れていくことも可能です（僕はその方式です）が、初心者には何が必要なパッケージなのかわからないことも多いようなので、とにかく一式、といっても 2 GB くらいでフリーのフォントなどもインストール出来ちゃいます。
 
 
-## Emacs をインストールする {#installing-emacs}
+## Emacs をインストールする
 
-### MacOS {#installing-emacs-on-mac}
+### MacOSの場合
 
 [https://emacsformacosx.com/](https://emacsformacosx.com/)から DL してください。古い OS の場合は、Other Versions の 24.3 あたりを DL する必要があるかも知れません。dmg ファイルなのでダブルクリックして解凍、出てきたウインドウの中の Emacs.app を Application フォルダにドラッグ&ドロップするだけです。
 
@@ -83,7 +74,7 @@ Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしま�
 
 また、それでもうまくいかない場合は、[Emacs.app](https://www.muskmelon.jp/?page_id=79)を参考にしてください。
 
-### Windows {#installing-emacs-on-windows}
+### Windowsの場合
 
 すみません、僕は Windows マシンを使っていないので、[このブログ](http://minejima.jp/blog/2017/11/05/emacs-25-3をwindows10にインストール/)とか[こちらのブログ記事](https://notchained.hatenablog.com/entry/2017/10/10/084933)などを参考にしてください。
 
@@ -92,7 +83,7 @@ Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしま�
 Ubuntu ソフトウエアセンターで Emacs を検索して、インストール出来ます。というか、フルインストールだと既に入っているかも知れません。
 
 
-## Emacs の見た目をなんとかする {#customizing-appearance-emacs}
+## Emacs の見た目をなんとかする
 
 まずは初期状態のダサいというか野暮ったい見た目をどうにかしてやらないといけませんね。所詮は「文房具」とはいえ、見た目が悪くちゃ愛着なんて持てるわけがありませんから。
 
@@ -126,7 +117,7 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 
 します。
 
-### まずは OS 標準の日本語入力でいいから見た目をどうにかする {#first-dotemacs-setting}
+### まずは OS 標準の日本語入力でいいから見た目をどうにかする
 
 最初の設定ファイルを入れます。といっても、ゼロから作るのも面倒でしょうから、いまさっきパソコンに DL したリポジトリの Docs/Emacs/dotemacs-first/ というディレクトリ（フォルダ）にある init.el を Finder のドラッグ&ドロップで .emacs.d フォルダに入れます。あるいはターミナルで
 
@@ -202,7 +193,7 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 Finder あるいはファイルマネージャで .emacs.d フォルダの中に、inits という名前のフォルダを作ってください。ここに設定ファイルを入れていきます。
 
 
-### Solarized テーマのインストール {#installing-solarized-theme}
+### Solarized テーマのインストール
 
 では、その中に、escoffier-translation-jp/Docs/dotemacs-first/inits/ の中にある 00_Appearance.el というファイルをコピーしてください。やりかたは init.el のときとおなじです。（とりあえず Mac 用の設定ファイルだけアップロードしておきます。 Windows や Linux ではフォントの指定が変わります）。
 
@@ -222,25 +213,25 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 
 ![](img/emacs-003.png)
 
-### その他のパッケージのインストール {#installing-essential-packages}
+### その他のパッケージのインストール
 
 やりかたは上述のとおりです。以下のパッケージをインストールしてから、dotemacs-first フォルダの中身（どれも .el という拡張子で終わっています）を .emacs.d/inits/ にコピーします。番号が飛んでいるのは気にしないでください。いまは「とりあえず使えるようにする」段階です。
 
-* markdown-mode……これは必須でしょうね  
-* auc-tex……これも必須  
-* popwin……これはなくてもまぁどうということもないかも  
-* undo-tree……Undoを可視化してくれる  
-* undohist……Undoをやたらたくさん出来るようになる  
-* tabbar……ブラウザのタブみたいにバッファ（ファイル）を複数開いている状態がわかりやすくなる  
-* sequential-command……Emacsでは、もともとC-aで行の先頭にカーソルを合わせるんですが、C-a C-aでファイルの先頭に、C-a C-a C-aでもとの場所に。C-eは行末へカーソル移動なのがC-e C-eでファイル末尾に、同様に3回でもとの場所に戻る、というものすごく便利な小道具です    
-* pandoc-mode……これを使うのが主目的、絶対必須  
-* package-utils……なくても？  
-* neotree……Atomみたくサイドに作業フォルダの中身を表示  
-* hlinum……カーソルのある行番号をさりげなく反転表示  
-* helm……ファイルのオープンや履歴の表示、便利  
-* exec-path-from-shell……pandoc-modeに必要  
-* auctex-latexmk……これも必須  
-* all-the-icons……neotreeの表示をすごく良くしてくれる。アイコンのDLに時間がかかるのが難点  
+* markdown-mode……これは必須でしょうね
+* auc-tex……これも必須
+* popwin……これはなくてもまぁどうということもないかも
+* undo-tree……Undoを可視化してくれる
+* undohist……Undoをやたらたくさん出来るようになる
+* tabbar……ブラウザのタブみたいにバッファ（ファイル）を複数開いている状態がわかりやすくなる
+* sequential-command……Emacsでは、もともとC-aで行の先頭にカーソルを合わせるんですが、C-a C-aでファイルの先頭に、C-a C-a C-aでもとの場所に。C-eは行末へカーソル移動なのがC-e C-eでファイル末尾に、同様に3回でもとの場所に戻る、というものすごく便利な小道具です
+* pandoc-mode……これを使うのが主目的、絶対必須
+* package-utils……なくても？
+* neotree……Atomみたくサイドに作業フォルダの中身を表示
+* hlinum……カーソルのある行番号をさりげなく反転表示
+* helm……ファイルのオープンや履歴の表示、便利
+* exec-path-from-shell……pandoc-modeに必要
+* auctex-latexmk……これも必須
+* all-the-icons……neotreeの表示をすごく良くしてくれる。アイコンのDLに時間がかかるのが難点
 
 「え、こんなに!？」と思うかも知れませんが、そもそも Emacs 本体は DL 時に60 MB あるかないかの、いまどきとしてはとってもシンプルなアプリです。M-x package-install で、ちゃちゃっと入れちゃえば、今回は僕の設定ファイル付きだから簡単です。
 
@@ -249,7 +240,7 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 とりあえずこれだけパッケージを入れておけば、何とか使える状態になります。それぞれのパッケージについてはググれば日本語の解説がいろいろ見つかると思います。これで原稿ファイル （.md)を開いていろいろためしてみてください。
 
 
-## エディタの流儀 {#how-to-use-emacs}
+## エディタの流儀
 
 皆さん、文字列をコピーしたりペーストするときに「選択」をしますよね。どういう方法をしていますか？ それから、カーソルの移動はどうしていますか？
 
@@ -259,36 +250,36 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 
 Emacs の場合はほとんどを「Ctrl+何かのキー」でやることが多いです。
 
-* C-f……先へ進む(forward)  
-* C-b……前に戻る(back)  
-* C-n……次の行(next)  
-* C-p……前の行(previous)  
-* C-a……行の先頭  
-* C-e……行の末尾(end)  
+* C-f……先へ進む(forward)
+* C-b……前に戻る(back)
+* C-n……次の行(next)
+* C-p……前の行(previous)
+* C-a……行の先頭
+* C-e……行の末尾(end)
 
 という具合で、比較的憶えやすいと思います。文章の選択は
 
 * C-space
-    
+
 1回で Mark set といって、そこから C-f とか C-n などを使ってカーソルを移動させると選択範囲が決まります。1行まるごとだったら、C-a か C-e で行の端に行って、そこで C-space して、その逆の端へ移動すれば1行まるごと選択です。
 
-* C-w……カット  
-* M-w……コピー  
+* C-w……カット
+* M-w……コピー
 * C-y……ペースト(yankというらしいです)
 
 さて、M-w を Esc w の順に押してもいいんですが、ちょっとホームポジションが崩れちゃいます。で、僕の設定では option キーも同時押しなら M キーと同じように機能する設定にしてあります。だいたいのキーボード配列には右側にも option キーがありますよね、それを使うわけです。そんなに大きくポジションが崩れるわけじゃないから便利です。
 
 あとは、
 
-* C-d……カーソルの置かれている文字を消す(delete)  
-* C-k……カーソルの置かれている文字から行末までをカットする（消すわけじゃないんです。キルといってカットと同じことをしていますから、C-y でペーストできます）  
-* C-v……次の画面へ（画面単位で一瞬でスクロールします。ブラウザでspaceを押して見るのと同じような感じです）  
-* M-v……前の画面へ（フラウザによってはShift+spaceで出来ますが、上への画面単位のスクロールです）  
-* C-l……画面へカーソルのある行の表示を移動（カーソルの置かれた文字の場所はそのまま、上にスクロールを一瞬でやるような感じ）  
+* C-d……カーソルの置かれている文字を消す(delete)
+* C-k……カーソルの置かれている文字から行末までをカットする（消すわけじゃないんです。キルといってカットと同じことをしていますから、C-y でペーストできます）
+* C-v……次の画面へ（画面単位で一瞬でスクロールします。ブラウザでspaceを押して見るのと同じような感じです）
+* M-v……前の画面へ（フラウザによってはShift+spaceで出来ますが、上への画面単位のスクロールです）
+* C-l……画面へカーソルのある行の表示を移動（カーソルの置かれた文字の場所はそのまま、上にスクロールを一瞬でやるような感じ）
 
 くらいを憶えておくと、とりあえず「ホームポジション」から手を大きく離さずに操作出来ると思います。
 
-### キーボード達人への道 {#tips-to-typing}
+## キーボード達人への道
 
 **ブラインドタッチで早く打てるようになるには、とにかく「ホームポジション」つまりキーボードの f に左手人差し指、j に右手人差し指がある状態です**。なるべくマウスとかトラックパッドに頼らずにカーソルの移動とコピペが出来るようになること、そのときに**手元は見ずに画面を見るようにすること**、が上達のポイントです。
 
