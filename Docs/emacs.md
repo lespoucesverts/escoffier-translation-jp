@@ -125,61 +125,68 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 このとき、Emacs 特有のキー操作をおこなう必要があります。通常は
 
     M-x package-install
-    
+
 と表現されるものです。Mac の場合、 M = Esc です。つまり、Escを1回押してから、小文字の x を押します。そうするとウインドウの一番下の行に、
 
     M-x
-    
+
 と表示されるので、続けて
 
     M-x pac
-    
+
 くらいまで打って、スペースを押してみてください。
 
     M-x package-
-    
+
 まで「補完」されます。続けて i + スペース を押すと最下行の上にいくつか「候補」が出ます。いまはインストールをしたいので、ns を続けてまたスペースを押すと
-    
+
     M-x package-install
-    
-となります。ここでリターンキーを押してください。最下行の文字列が消えます。ここにインストールしたいパッケージ名を入れます。今回はまず init-loader を入れたいわけですから
+
+となります。ここでリターンキーを押してください。なにやら表示されて、
+
+    Install Package:
+
+と出ると思います。この後にインストールしたいパッケージ名を入れます。今回はまず init-loader を入れたいわけですから
+
 
     init-loader
-    
-と入力してリターンキーを押します。そうすると勝手に init-loader というパッケージがインストールされます。英語で「終わったよ」みたいな表示が出たら、先ほどコピーした init.el ファイルを emacs で開きます。これは File メニューからでもいいのですが、
 
-    C-x C-f 
-    
+と入力してリターンキーを押します。そうすると勝手に init-loader というパッケージがインストールされます。英語で Done「終わったよ」みたいな表示が出たら、先ほどコピーした init.el ファイルを emacs で開きます。これは File メニューからでもいいのですが、
+
+    C-x C-f
+
 とするのが Emacs 本来の流儀です。C は Ctrl キーの意味です。Ctrl キーを**押しながら** x f と続けて打ちます。するとまさ最下部（この部分は「ミニバッファ」と呼ばれています）に
 
     Find file:
-    
+
 と出ますので、それに続けて
 
     Find file: ~/.emacs.d/init.el
-    
+
 としてください。init.el ファイルが開かれます。
 
-    (setq package-archives
+    (setq package-archives  
+    '(("gnu" . "http://elpa.gnu.org/packages/")  
+    ("melpa" . "http://melpa.org/packages/")))  
+    ;;        ("org" . "http://orgmode.org/elpa/")))  
+    (package-initialize)  
+    ;;(init-loader-load)
 
-    '(("gnu" . "http://elpa.gnu.org/packages/")
+となっていると思います。このすぐ下に（custom-set-variables なんちゃらという記述があります。ここで
 
-    ("melpa" . "http://melpa.org/packages/")))
+    ;;(init-loader-load)
 
-    ;;        ("org" . "http://orgmode.org/elpa/")))
-    
-    (package-initialize)
-    
-となっていると思います。この下に
+の最初にあるセミコロン2つを消してください。セミコロンは Emacs の設定ファイル（Emacs Lisp というプログラム言語）の「コメント」を意味しています。つまり、ある行でセミコロンの後の文字列は**機能しない**ということです。パッケージをインストールする前に設定が読みこまれちゃ具合が悪いのでコメント行にしてあったわけです。
 
-    (init-loader-load)
+    （init-loader-load)
 
-と全部半角英文字で書き込んでください。
+という行になればOKです。この init-loader というのは設定ファイルを分割してわかりやすく整理するためのものです。分割したものをまとめて入れておかないと整理がつきませんから、
 
+Finder あるいはファイルマネージャで .emacs.d フォルダの中に、inits という名前のフォルダを作ってください。ここに設定ファイルを入れていきます。
 
 ### いよいよ見た目をなんとかする
 
-Finder あるいはファイルマネージャで .emacs.d フォルダの中に、inits という名前のフォルダを作ってください。その中に、escoffier-translation-jp/Docs/dotemacs-first/inits/ の中にある 00_Appearance.el というファイルをコピーしてください。やりかたは init.el のときとおなじです。
+では、その中に、escoffier-translation-jp/Docs/dotemacs-first/inits/ の中にある 00_Appearance.el というファイルをコピーしてください。やりかたは init.el のときとおなじです。（とりあえず Mac 用の設定ファイルだけアップロードしておきます。 Windows や Linux ではフォントの指定が変わります）。
 
 #### Solarized テーマのインストール
 
@@ -188,5 +195,32 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 さて、テーマもパッケージのひとつです。先程はいきなりパッケージ名を指定してインストールしましたが、一覧を見ながら、という方法もあります。
 
     M-x package-list-packages
-    
-とするとインストール可能なパッケージの一覧が表示されます。    
+
+とするとインストール可能なパッケージの一覧が表示されます。スクロールしていくと、solarized-theme というのが見つかると思います。その行にカーソルを合わせて i と押してください。左端に I の文字が付きます。yes or no と聞かれますので、もちろん yes と打ちます。次に x を押すとインストールが実行されます。Operation finished と出たらインストール完了です。
+
+いったん Emacs を再起動させましょう。終了は C-x C-c です。つまりCtrlキーを押しながら x c と続けて押します。
+
+ではもういちど、Emacs をダブルクリックして起動させてみましょう。どうですか? 見た目は変わりましたか?
+
+### その他のパッケージのインストール
+
+やりかたは上述のとおりです。以下のパッケージをインストールしてから、dotemacs-first フォルダの中身（どれも .el という拡張子で終わっています）を .emacs.d/inits/ にコピーします。番号が飛んでいるのは気にしないでください。いまは「とりあえず使えるようにする」段階です。
+
+* markdown-mode  
+* auc-tex  
+* popwin  
+* undo-tree  
+* undohist  
+* tabbar  
+* sequential-command  
+* pandoc-mode  
+* package-utils  
+* neotree  
+* hlinum  
+* helm  
+* exec-path-from-shell  
+* auctex-latexmk  
+* all-the-icons  
+
+
+とりあえずこれだけパッケージを入れておけば、何とか使える状態になります。それぞれのパッケージについてはググれば日本語の解説がいろいろ見つかると思います。これで原稿ファイル （.md)を開いていろいろためしてみてください。
