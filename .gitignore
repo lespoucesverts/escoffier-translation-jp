@@ -14,4 +14,4 @@ package/**/*.ltjruby
 !*.png
 !*.jpg
 !*.docx
-!*/dotemacs-first/*.el
+!*.el
