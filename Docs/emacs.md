@@ -208,23 +208,23 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 
 やりかたは上述のとおりです。以下のパッケージをインストールしてから、dotemacs-first フォルダの中身（どれも .el という拡張子で終わっています）を .emacs.d/inits/ にコピーします。番号が飛んでいるのは気にしないでください。いまは「とりあえず使えるようにする」段階です。
 
-* markdown-mode  
-* auc-tex  
-* popwin  
-* undo-tree  
-* undohist  
-* tabbar  
-* sequential-command  
-* pandoc-mode  
-* package-utils  
-* neotree  
-* hlinum  
-* helm  
-* exec-path-from-shell  
-* auctex-latexmk  
-* all-the-icons  
+* markdown-mode……これは必須でしょうね  
+* auc-tex……これも必須  
+* popwin……これはなくてもまぁどうということもないかも  
+* undo-tree……Undoを可視化してくれる  
+* undohist……Undoをやたらたくさん出来るようになる  
+* tabbar……ブラウザのタブみたいにバッファ（ファイル）を複数開いている状態がわかりやすくなる  
+* sequential-command……Emacsでは、もともとC-aで行の先頭にカーソルを合わせるんですが、C-a C-aでファイルの先頭に、C-a C-a C-aでもとの場所に。C-eは行末へカーソル移動なのがC-e C-eでファイル末尾に、同様に3回でもとの場所に戻る、というものすごく便利な小道具です    
+* pandoc-mode……これを使うのが主目的、絶対必須  
+* package-utils……なくても？  
+* neotree……Atomみたくサイドに作業フォルダの中身を表示  
+* hlinum……カーソルのある行番号をさりげなく反転表示  
+* helm……ファイルのオープンや履歴の表示、便利  
+* exec-path-from-shell……pandoc-modeに必要  
+* auctex-latexmk……これも必須  
+* all-the-icons……neotreeの表示をすごく良くしてくれる。アイコンのDLに時間がかかるのが難点  
 
-
+「え、こんなに!？」と思うかも知れませんが、そもそも Emacs 本体は DL 時に60 MB あるかないかの、いまどきとしてはとってもシンプルなアプリです。M-x package-install で、ちゃちゃっと入れちゃえば、今回は僕の設定ファイル付きだから簡単です。
 
 パッケージをインストールして、設定ファイルをinitsフォルダにコピーしたら、またEmacsを再起動してください。
 
