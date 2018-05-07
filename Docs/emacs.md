@@ -10,13 +10,32 @@
 
 ![](img/emacs-002.png)
 
-## 推奨環境
+## 目次
+
+* [推奨環境](#environment)  
+* [必要なアプリ、フォント](#apps-fonts)
+    * [おすすめ日本語入力 SKK](#invitation-to-skk)
+    * [pandoc](#invitation-to-pandoc)
+    * [LaTeX](#invitation-to-latex)
+* [Emacs をインストールする](#installing-emacs)
+    * [MacOS](#installing-emacs-on-mac)
+    * [Windows](#installing-emacs-on-windows)
+    * [Ubuntu](#installing-emacs-on-ubuntu)
+* [Emacs の見た目を何とかする](#customizing-appearance-emacs)   
+    * [まずは OS 標準の日本語入力でいいから見た目をどうにかする](#first-dotemacs-setting)
+    * [init-loader のインストール](#init-loader)
+    * [Solarized テーマのインストール](#installing-solarized-theme)
+    * [その他のパッケージのインストール](#installing-essential-packages)
+* [エディタの流儀](#how-to-use-emacs)
+    * [キーボード達人への道](#tips-to-typing)
+    
+## 推奨環境 {#environment}
 
 * Macintosh ……現行の25.3 は OS 10.9 以降だったと思いますので、それ以前の OS のままの古い Mac の場合はバージョン 24.3 あたりを使えばだいたい問題ないと思います。
 * Ubuntu Linux ……フォント設定のところが変わります。
 * Windows …… 説明できません。ごめんなさい。
 
-## 必要なアプリ、フォント
+## 必要なアプリ、フォント {#apps-fonts}
 
 * Emacs ……各OSに対応したものがあります。
 * pandoc
@@ -24,7 +43,7 @@
 * MoboMogaフォント
 * Lualatex, luatexja を含む TeX 一式
 
-### おすすめ日本語入力 SKK
+### おすすめ日本語入力 SKK {#invitation-to-skk}
 
 * Mac 用 [Aquaskk](https://github.com/codefirst/aquaskk/releases)
 * Windows 用 [corvuskk](https://github.com/nathancorvussolis/corvusskk)
@@ -38,14 +57,14 @@
 
 これも慣れると手放せなくなるプログラムです。
 
-### pandoc
+### pandoc {#invitation-to-pandoc}
 
 文書形式変換プログラムです。http://pandoc.org/ から各OS用のものが DL 出来ます。コマンドライン（つまり「ターミナル」にコマンドを入力して使う）プログラムです。が、いちいちコマンドを入力するのも面倒、という場合に Emacs のパッケージ pandoc-mode を使います。そうすればコマンドを覚えていなくても、メニューから選択して実行できますし、慣れればショートカットキー操作でほんの3ストロークくらいで文書変換が可能になります。
 
 対応しているフォーマットは入力側が、このプロジェクトで使っている Pandoc Extended Markdown の他いろいろ、出力側も TeX, PDF, docx, html, epub などものすごくたくさんの種類があります。
 
 
-### LaTeX
+### LaTeX {#invitation-to-latex}
 
 Markdown 書式の原稿から、今回のプロジェクトで作っているようなレイアウトのPDFと索引、目次、文献一覧などを**自動で**組版するために使うプログラム群です。各OS用があり、おなじ LaTeX でもいろんな種類があります。この「全注解」プロジェクトでは LuaLatex というのを使っています。
 
@@ -54,9 +73,9 @@ Markdown 書式の原稿から、今回のプロジェクトで作っている�
 Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしまうのが簡単でしょう。Basic TeX といって「最小構成」でインストールして必要なパッケージを追加で入れていくことも可能です（僕はその方式です）が、初心者には何が必要なパッケージなのかわからないことも多いようなので、とにかく一式、といっても 2 GB くらいでフリーのフォントなどもインストール出来ちゃいます。
 
 
-## Emacs をインストールする
+## Emacs をインストールする {#installing-emacs}
 
-### MacOS
+### MacOS {#installing-emacs-on-mac}
 
 [https://emacsformacosx.com/](https://emacsformacosx.com/)から DL してください。古い OS の場合は、Other Versions の 24.3 あたりを DL する必要があるかも知れません。dmg ファイルなのでダブルクリックして解凍、出てきたウインドウの中の Emacs.app を Application フォルダにドラッグ&ドロップするだけです。
 
@@ -64,22 +83,22 @@ Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしま�
 
 また、それでもうまくいかない場合は、[Emacs.app](https://www.muskmelon.jp/?page_id=79)を参考にしてください。
 
-### Windows
+### Windows {#installing-emacs-on-windows}
 
 すみません、僕は Windows マシンを使っていないので、[このブログ](http://minejima.jp/blog/2017/11/05/emacs-25-3をwindows10にインストール/)とか[こちらのブログ記事](https://notchained.hatenablog.com/entry/2017/10/10/084933)などを参考にしてください。
 
-### Ubuntu
+### Ubuntu {#installing-emacs-on-ubuntu}
 
 Ubuntu ソフトウエアセンターで Emacs を検索して、インストール出来ます。というか、フルインストールだと既に入っているかも知れません。
 
 
-## Emacs の見た目をなんとかする
+## Emacs の見た目をなんとかする {#customizing-appearance-emacs}
 
 まずは初期状態のダサいというか野暮ったい見た目をどうにかしてやらないといけませんね。所詮は「文房具」とはいえ、見た目が悪くちゃ愛着なんて持てるわけがありませんから。
 
 でも、ここから先は Mac と Ubuntu の説明しか出来ません。Windows の方はググってください。
 
-まず、「素」の状態でいったん起動しちゃった場合は「隠しファイル」として .emacs というのが作られている可能性があります。Mac なら Finder 、Window は何て呼ぶのか知りません、Ubuntu なら「ファイルマネージャ」の設定で「隠しファイルを表示」させてください。あるいは「ターミナル」「端末」を開いで
+まず、「素」の状態でいったん起動しちゃった場合は「隠しファイル」として .emacs というのが作られている可能性があります。Mac なら Finder 、Window は何て呼ぶのか知りません、Ubuntu なら「ファイルマネージャ」の設定で「隠しファイルを表示」させてください。あるいは「ターミナル」「端末」を開いて
 
     $ cd
 
@@ -107,7 +126,7 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 
 します。
 
-### まずは OS 標準の日本語入力でいいから見た目をどうにかする
+### まずは OS 標準の日本語入力でいいから見た目をどうにかする {#first-dotemacs-setting}
 
 最初の設定ファイルを入れます。といっても、ゼロから作るのも面倒でしょうから、いまさっきパソコンに DL したリポジトリの Docs/Emacs/dotemacs-first/ というディレクトリ（フォルダ）にある init.el を Finder のドラッグ&ドロップで .emacs.d フォルダに入れます。あるいはターミナルで
 
@@ -117,7 +136,7 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 
 としてもいいでしょう。
 
-#### init-loader のインストール
+###  init-loader のインストール {#init-loader}
 
 設定をすべて init.el に書いてもいいんですが、長く使っていると、わけがわからない長大な設定ファイルになりがちです。それを「整理」するために、init-loader というパッケージをインストールします。
 
@@ -182,11 +201,12 @@ Ubuntu ソフトウエアセンターで Emacs を検索して、インストー
 
 Finder あるいはファイルマネージャで .emacs.d フォルダの中に、inits という名前のフォルダを作ってください。ここに設定ファイルを入れていきます。
 
-### いよいよ見た目をなんとかする
+
+### Solarized テーマのインストール {#installing-solarized-theme}
 
 では、その中に、escoffier-translation-jp/Docs/dotemacs-first/inits/ の中にある 00_Appearance.el というファイルをコピーしてください。やりかたは init.el のときとおなじです。（とりあえず Mac 用の設定ファイルだけアップロードしておきます。 Windows や Linux ではフォントの指定が変わります）。
 
-#### Solarized テーマのインストール
+
 
 デフォルトでもそこそこ使えるテーマ（見た目の設定、特に配色）はあるんですが、僕がいつも使っている Solarized というテーマを入れておきましょう。先程コピーした 00_Appearance.el には Solarized に合わせた他の設定も書き込んでありますので。
 
@@ -202,7 +222,7 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 
 ![](img/emacs-003.png)
 
-### その他のパッケージのインストール
+### その他のパッケージのインストール {#installing-essential-packages}
 
 やりかたは上述のとおりです。以下のパッケージをインストールしてから、dotemacs-first フォルダの中身（どれも .el という拡張子で終わっています）を .emacs.d/inits/ にコピーします。番号が飛んでいるのは気にしないでください。いまは「とりあえず使えるようにする」段階です。
 
@@ -229,7 +249,7 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 とりあえずこれだけパッケージを入れておけば、何とか使える状態になります。それぞれのパッケージについてはググれば日本語の解説がいろいろ見つかると思います。これで原稿ファイル （.md)を開いていろいろためしてみてください。
 
 
-## エディタの流儀
+## エディタの流儀 {#how-to-use-emacs}
 
 皆さん、文字列をコピーしたりペーストするときに「選択」をしますよね。どういう方法をしていますか？ それから、カーソルの移動はどうしていますか？
 
@@ -267,6 +287,8 @@ Emacs の場合はほとんどを「Ctrl+何かのキー」でやることが多
 * C-l……画面へカーソルのある行の表示を移動（カーソルの置かれた文字の場所はそのまま、上にスクロールを一瞬でやるような感じ）  
 
 くらいを憶えておくと、とりあえず「ホームポジション」から手を大きく離さずに操作出来ると思います。
+
+### キーボード達人への道 {#tips-to-typing}
 
 **ブラインドタッチで早く打てるようになるには、とにかく「ホームポジション」つまりキーボードの f に左手人差し指、j に右手人差し指がある状態です**。なるべくマウスとかトラックパッドに頼らずにカーソルの移動とコピペが出来るようになること、そのときに**手元は見ずに画面を見るようにすること**、が上達のポイントです。
 
