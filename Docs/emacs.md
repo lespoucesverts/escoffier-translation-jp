@@ -53,3 +53,65 @@ Markdown 書式の原稿から、今回のプロジェクトで作っている�
 詳しくは「[TeX-Wiki（日本語）](https://texwiki.texjp.org/)」にいろいろ情報が出ています。
 
 Mac の場合は [TeXLive](https://www.tug.org/mactex/)を一式入れてしまうのが簡単でしょう。Basic TeX といって「最小構成」でインストールして必要なパッケージを追加で入れていくことも可能です（僕はその方式です）が、初心者には何が必要なパッケージなのかわからないことも多いようなので、とにかく一式、といっても 2 GB くらいでフリーのフォントなどもインストール出来ちゃいます。
+
+
+## Emacs をインストールする
+
+### MacOS
+
+[https://emacsformacosx.com/](https://emacsformacosx.com/)から DL してください。古い OS の場合は、Other Versions の 24.3 あたりを DL する必要があるかも知れません。dmg ファイルなのでダブルクリックして解凍、出てきたウインドウの中の Emacs.app を Application フォルダにドラッグ&ドロップするだけです。
+
+初めて Emacs を使う場合には、他のサードパーティー製のアプリと同様に、「許可」をしてやる必要があるかも知れません(右クリック>開く)。
+
+また、それでもうまくいかない場合は、[Emacs.app](https://www.muskmelon.jp/?page_id=79)を参考にしてください。
+
+### Windows
+
+すみません、僕は Windows マシンを使っていないので、[このブログ](http://minejima.jp/blog/2017/11/05/emacs-25-3をwindows10にインストール/)とか[こちらのブログ記事](https://notchained.hatenablog.com/entry/2017/10/10/084933)などを参考にしてください。
+
+### Ubuntu
+
+Ubuntu ソフトウエアセンターで Emacs を検索して、インストール出来ます。というか、フルインストールだと既に入っているかも知れません。
+
+
+## Emacs の見た目をなんとかする
+
+まずは初期状態のダサいというか野暮ったい見た目をどうにかしてやらないといけませんね。所詮は「文房具」とはいえ、見た目が悪くちゃ愛着なんて持てるわけがありませんから。
+
+でも、ここから先は Mac と Ubuntu の説明しか出来ません。Windows の方はググってください。
+
+まず、「素」の状態でいったん起動しちゃった場合は「隠しファイル」として .emacs というのが作られている可能性があります。Mac なら Finder 、Window は何て呼ぶのか知りません、Ubuntu なら「ファイルマネージャ」の設定で「隠しファイルを表示」させてください。あるいは「ターミナル」「端末」を開いで
+
+    $ cd
+
+    $ ls -a
+
+で、.emacs というファイルがあったら
+
+    $ rm .emacs
+
+と打ち込んでください。このファイルが消去されます。ついでに
+
+    $ mkdir .emacs.d
+
+としてください。.emacs.d という「隠しフォルダ」を作ります。ここに設定ファイルを入れていくことになります。Mac の Finder や Ubuntu のファイルマネージャでも同じことは出来るはずです。どちらでもお好みの方法でやってください。
+
+ここでちょっと楽をするために、このリポジトリ全体をお手元のパソコンのハードディスクにクローンしましょう。Github のアカウントは作っておいてください。で、まずはブラウザで[https://github.com/lespoucesverts/escoffier-translation-jp](https://github.com/lespoucesverts/escoffier-translation-jp)にアクセスして右上の Fork というボタンを押します。すると、ご自分のアカウントページに escoffier-translation-jp リポジトリがコピーされます。これを右上緑のボタン Clone or download を押して、Open in Desktop あるいは Download Zip するか、Mac の場合ならターミナルで
+
+    $ cd ~/Documents/
+
+    $ mkdir github
+
+    $ cd github
+
+    $ git clone https://github.com/YOURACCOUNTINGITHUB/escoffier-translation-jp.git
+
+します。
+
+最初の設定ファイルを入れます。といっても、ゼロから作るのも面倒でしょうから、いまさっきパソコンに DL したリポジトリの Docs/Emacs/dotemacs-first/ というディレクトリ（フォルダ）にある init.el を Finder のドラッグ&ドロップで .emacs.d フォルダに入れます。あるいはターミナルで
+
+    $ cd ~/Documents/escoffier-translation-jp/Docs/Emacs/dotemacs-first
+
+    $ cp ./init.el ~/.emacs.d/
+
+としてもいいでしょう。
