@@ -20,7 +20,6 @@
 
 * Emacs ……各OSに対応したものがあります。
 * pandoc
-* LuaLatex, luatexja
 * IPAフォント
 * MoboMogaフォント
 * Lualatex, luatexja を含む TeX 一式
