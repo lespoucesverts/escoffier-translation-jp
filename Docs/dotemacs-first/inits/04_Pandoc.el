@@ -8,5 +8,3 @@
 
 (setq markdown-command 
       "pandoc -f markdown -t html -s --mathjax --highlight-style=pygments")
-
-(define-key markdown-mode-map (kbd "C-c C-p") #'command)
