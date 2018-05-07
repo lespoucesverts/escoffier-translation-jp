@@ -309,7 +309,7 @@ Emacs の場合はほとんどを「Ctrl+何かのキー」でやることが多
 
     M-x package-install ddskk
     
-で入れちゃいます。その後、dotoemacs-skk/01_SKK.el を他のパッケージ設定ファイルと同様に ~/.emacs.d/inits に入れてやります。ターミナルを使うなア
+で入れちゃいます。その後、dotoemacs-skk/01_SKK.el を他のパッケージ設定ファイルと同様に ~/.emacs.d/inits に入れてやります。ターミナルを使うなら
 
     cd ~/Documents/github/escoffier-translation-jp/Docs/dotemacs-skk/01_SKK.el ~/.emacs.d/inits/
     
