@@ -241,6 +241,7 @@ Finder あるいはファイルマネージャで .emacs.d フォルダの中に
 * auctex-latexmk……これも必須
 * all-the-icons……neotreeの表示をすごく良くしてくれる。アイコンのDLに時間がかかるのが難点
 * auto-save-buffer-enhnanced……指定したの秒間隔で自動保存（いまの設定は30秒)）
+* find-file-in-project……これを入れておくと上のneotreeが便利になる
 
 「え、こんなに!？」と思うかも知れませんが、そもそも Emacs 本体は DL 時に60 MB あるかないかの、いまどきとしてはとってもシンプルなアプリです。M-x package-install で、ちゃちゃっと入れちゃえば、今回は僕の設定ファイル付きだから簡単です。
 
