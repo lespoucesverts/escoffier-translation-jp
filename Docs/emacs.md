@@ -355,29 +355,39 @@ OS によってさまざまな方法があります。ディスク容量に余�
 
 #### Smaller Install
 
-ディスク容量を節約するために、必要最小限（とはいわないまでも）のパッケージをインストールします。
+ディスク容量を節約するために、必要最小限（とはいわないまでも）のパッケージをインストールします。フツーの pkg インストーラです。
 
-[Smaller Download](http://www.tug.org/mactex/morepackages.html)のページから **BasicTeX.pkg** を DL してインストールします。でも、これだけじゃ日本語はどうにもなりせんから、以下のパッケージを追加インストールします。GUI でやりたい場合は [TeXLive Utility](http://amaxwell.github.io/tlutility/)をインストールします。ターミナルからでよければ
+![](imag/emacs-006.png)
 
-    $ sudo tlmgt update --self --all  
+![](imag/emacs0007.png)
+
+[Smaller Download](http://www.tug.org/mactex/morepackages.html)のページから **BasicTeX.pkg** を DL してインストールします。でも、これだけじゃ日本語はどうにもなりせんから、以下のパッケージを追加インストールします。GUI でやりたい場合は [TeXLive Utility](http://amaxwell.github.io/tlutility/)をインストールします。
+
+足りないパッケージをインストールした後ですが、TeXLivu Utility の画像です。
+
+![](emacs-008.png)
+
+ターミナルからでよければ
+
+    $ sudo tlmgr update --self --all  
     $ sudo tlmgr install パッケージ名
     
-とします。    
+とします。パッケージ名は続けて複数入力してまとめてインストール可能です。    
 
 * collection-langjapanese
 * collection-luatex
-* luatexja
-* cjk > darwin
-* cjk-gs-integrate-macos……これはいらないかも……
+* luatexja……collection-langjapaneseに入ってたかも
+* cjk > darwin……いらないかも
+* cjk-gs-integrate-macos……これはいらないかも
 * ctable
 * biber
 * bibtex
 * lualatex-math
-* libertine
-* libertinegc
-* libertinus
-* footmisc
-* umoline
+* libertine……Linux Libertine フォント。今回の欧文はこれがメイン。
+* libertinegc……キリル文字フォント、『料理の手引き』は案外キリル文字が出てくるので必要
+* libertinus……Libertineと対応すす数学フォント。分数は「数式」扱いです
+* footmisc……脚注用
+* umoline……下線用
 * latexmk
 
 じつのところ、Lualatex で日本語を扱かうだけならこんなにいらないんですけど、どうもパッケージの依存関係だかの都合でこれだけ入れることになっちゃっています。GUI の TeXLive Utility だと依存関係のおかげでもっと入れられてることになってるみたいです。
