@@ -352,3 +352,41 @@ Emacs の場合はほとんどを「Ctrl+何かのキー」でやることが多
 OS によってさまざまな方法があります。ディスク容量に余裕のある Mac の場合は、[https://www.tug.org/mactex/](https://www.tug.org/mactex/)から MacTeX Download. しちゃってください。Smaller Download はディスク容量と時間の節約にはなりますが、きっと後で大変苦労するんじゃないかと思うのでお勧めはしません。それに、このプロジェクトでは、基本的には入れとくだけですから。と思っていたら、もう TeXLive2018がリリースされちゃってたんですね。僕は例によって Smaller Download しますので、後日そのプロセスを説明しましょう。
 
 ![](img/emacs-005.png)
+
+#### Smaller Install
+
+ディスク容量を節約するために、必要最小限（とはいわないまでも）のパッケージをインストールします。
+
+[Smaller Download](http://www.tug.org/mactex/morepackages.html)のページから **BasicTeX.pkg** を DL してインストールします。でも、これだけじゃ日本語はどうにもなりせんから、以下のパッケージを追加インストールします。GUI でやりたい場合は [TeXLive Utility](http://amaxwell.github.io/tlutility/)をインストールします。ターミナルからでよければ
+
+    $ sudo tlmgt update --self --all  
+    $ sudo tlmgr install パッケージ名
+    
+とします。    
+
+* collection-langjapanese
+* collection-luatex
+* luatexja
+* cjk > darwin
+* cjk-gs-integrate-macos……これは
+* ctable
+* biber
+* bibtex
+* lualatex-math
+* libertine
+* libertinegc
+* libertinus
+* footmisc
+* umoline
+* latexmk
+
+じつのところ、Lualatex で日本語を扱かうだけならこんなにいらないんですけど、どうもパッケージの依存関係だかの都合でこれだけ入れることになっちゃっています。GUI の TeXLive Utility だと依存関係のおかげでもっと入れられてることになってるみたいです。
+
+また、Emacs の AucTeX から呼び出して LaTeX > PDF の処理をするのに latexmk というプログラムを呼びだしています。このため、ホームディレクトリに .latexmkrc という設定ファイルを置いてやる必要があります。このリポジトリの Docs/home/dot.latexmkrc というファイルを置いていますので、これをご自分のホームディレクトリに設置して、名前を .latexmkrc にしてください。ターミナルでやる場合は
+    $ mv ~/Documents/github/escoffier-translation-jp/Docs/home/dot.latexmkrc ~/.latexmkrc
+    
+となります。    
+
+#### Luajitlatex
+
+LuaLaTeX は他の日本語対応の TeX 処理系と比較すると、はっきりいって**遅い**です。Lua というインタプリタ言語を使っているせいだそうで、それを高速化するのが Luajit というLua言語エンジンです。その LuajitをLaTeXでも使えるように出来るわけですが、このへんは責任を持てない部分もあるので、[TeXWikiの記事](https://texwiki.texjp.org/?LuajitTeX)などを参考にセットアップしてください。
