@@ -3,6 +3,7 @@
 
 *.pandoc
 package/**/*.pandoc
+*/**/*.pandoc
 *.ltjruby
 package/**/*.ltjruby
 *.*
