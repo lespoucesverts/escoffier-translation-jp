@@ -277,5 +277,9 @@ PDFは適時マージされます。単に組版イメージ確認のためで�
 
 ※ フランス語見出し\frasub{Nom de recette} にどうしても注をつける場合はLaTeXの注の方式なら大丈夫です。\frasub{Nom\protect\footnote{Voici une note} de recette} のようになります。原稿の可読性が大きく下がるので、出来るだけ日本語部分にMarkdown書式で注をつけるようにしましょう。
 
-<br /><br /><br />
+  
+  
+  
+  
+  
 ©Manabu GOTO 2018 All Rigths Reserved
