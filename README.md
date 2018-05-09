@@ -14,7 +14,7 @@
 
 ----
 
-## [パソコン中・上級者向けに、Emacs, pandoc, Lualatex を使う PDF 組版について書きはじめました](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/Docs/emacs.md)
+## [パソコン中・上級者向けに、Emacs, pandoc, Lualatex を使う PDF 組版について書きました](https://github.com/lespoucesverts/escoffier-translation-jp/blob/master/Docs/emacs.md)
 
 
 ----
