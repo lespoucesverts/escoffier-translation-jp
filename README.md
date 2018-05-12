@@ -177,15 +177,15 @@ PDFは適時マージされます。単に組版イメージ確認のためで�
 
 ### 見出しの階層 ###
 
-    1. # 章(ソース、ガルニチュール etc）= chapter
-    1. ## 節（基本ソース、茶色い派生ソース etc.）= section
-    1. \frsec{section en fr} 節のフランス語表記。注をここにはつけない。上の\#\# の節につける。
-    1. ### 小節 = subsection
-    1. \frsecb{subsection-b en fr} 小節のフランス語表記(節よりやや小さい文字サイズを使用)。注も上の日本語部分につけること。
-    1. #### レシピ名
-    1. \frsub{recette en fr} レシピ名のフランス語表記。これも注は不可。
-    1. ##### 予備
-    1. ###### 原注ほか
+    # 章(ソース、ガルニチュール etc）= chapter
+    ## 節（基本ソース、茶色い派生ソース etc.）= section
+    \frsec{section en fr} 節のフランス語表記。注をここにはつけない。上の\#\# の節につける。
+    ### 小節 = subsection
+    \frsecb{subsection-b en fr} 小節のフランス語表記(節よりやや小さい文字サイズを使用)。注も上の日本語部分につけること。
+    #### レシピ名
+    \frsub{recette en fr} レシピ名のフランス語表記。これも注は不可。
+    ##### 予備
+    ###### 原注ほか
 
 ※ フランス語見出し、たとえば ``\frsub{Nom de recette}`` にどうしても注をつける場合はLaTeXの注の方式なら大丈夫です。``\frasub{Nom\protect\footnote{Voici une note} de recette}`` のようになります。原稿の可読性が大きく下がるので、出来るだけ日本語部分にMarkdown書式で注をつけるようにしましょう。
 
