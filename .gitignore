@@ -8,6 +8,7 @@ package/**/*.pandoc
 package/**/*.ltjruby
 *.*
 
+!*.wiki/
 !*.md
 !*.pdf
 !*.tex
