@@ -9,6 +9,9 @@ package/**/*.ltjruby
 *.*
 
 !*.wiki/
+!*.wiki/*.md
+!*.wiki/*.png
+!*.wiki/*.el
 !*.md
 !*.pdf
 !*.tex
