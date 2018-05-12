@@ -1,0 +1,7 @@
+(require 'popwin)
+;;(setq display-buffer-function 'popwin:display-buffer)
+;; (setq popwin:special-display-config '(("*compilatoin*" :noselect t)
+;;                                       ("helm" :regexp t :height 0.7)
+;;                                       ("output" :regexp t :height 0.2)
+;;                                         ))
+(popwin-mode 1)
