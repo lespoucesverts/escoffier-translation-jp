@@ -435,14 +435,33 @@
 \usepackage{makeidx}
 \makeindex
 
+%%%%% Reference Page Numbers
+\newcommand{\pref}[1]{[p.\pageref{#1}]}
+%\newcommand{\pref}[1]{}
 
-\usepackage[unicode=true]{hyperref}
+\usepackage[unicode=true,hyperfootnotes=false]{hyperref}
+\makeatletter
+\AtBeginDocument{%
+  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}
+  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+}
+\makeatother
+\let\myhyperlink\hyperlink
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}[p.\getpagerefnumber{#1}{}]}
 %\usepackage{pxjahyper}
 \hypersetup{breaklinks=true,%
              bookmarks=true,%
              pdfauthor={五島　学},%
              pdftitle={エスコフィエ『料理の手引き』全注解},%
-             colorlinks=true,%
+             colorlinks=false%true,%
+             %colorlinks=true,%
              citecolor=blue,%
              urlcolor=cyan,%
              linkcolor=magenta,%
@@ -469,16 +488,7 @@
 \setlength{\UnderlineDepth}{2pt}
 \let\ul\Underline
 
-\newcommand{\maeaki}{}
-%\newcommand{\maeaki}{\vspace{0.125\zw}}
-%\newcommand{\maeaki}{\vspace{0.7\zw}}
-%\newcommand{\maeaki}{\vspace{2.0\zw}}
-%\newcommand{\maeaki}{\vspace{1.1\zw}}
-%\newcommand{\maeaki}{\vspace{1.5\zw}}
-%\newcommand{\maeaki}{\vspace{1.75\zw}}
-%\newcommand{\maeaki}{\vspace{1.0mm}}                     
-%\newcommand{\maeaki}{\vspace{2.2\zw}}
-%\newcommand{\maeaki}{\vspace{-.25mm}}
+\newcommand{\maeaki}{}%使用しないので無効化
 
 %%分数の表記
 \usepackage{xfrac}
