@@ -1,11 +1,38 @@
 \documentclass[twoside,14Q,a4paper,openany]{ltjsbook}
 
 \usepackage{amsmath}
+  \let\equation\gather
+  \let\endequation\endgather
 \usepackage{amssymb}
 \usepackage[no-math]{fontspec}
 \usepackage{geometry}
 \usepackage{luaotfload}
 \usepackage{graphicx}
+
+\usepackage{setspace}
+
+
+%%%%%%%%% hyperref %%%%%%%%%%%%%
+\usepackage[unicode=true,hyperfootnotes=false ]{hyperref}
+\hypersetup{hyperindex=true,%
+             breaklinks=true,%
+             bookmarks=true,%
+             pdfauthor={五島　学},%
+             pdftitle={エスコフィエ『料理の手引き』全注解},%
+             %colorlinks=false%true,%
+             colorlinks=true,%
+             citecolor=blue,%
+             urlcolor=cyan,%
+             linkcolor=magenta,%
+             bookmarksdepth=subsubsection,%
+             pdfborder={0 0 0},%
+             hyperfootnotes=false,%
+             plainpages=false,
+             }
+\urlstyle{same}
+
+
+
 
 %% 欧文フォント設定
 % Libertine/Biolinum
@@ -116,8 +143,7 @@
 
 %\usepackage{fancyhdr}
 
-\usepackage{setspace}
-\setstretch{1.0}
+
 
 
 
@@ -238,7 +264,22 @@
 %          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
 %          \@dottedtocline{5}{\@tempdima}{6.5\zw}}
 
+
+%%%%%%%%%レシピ本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
+
 \makeatother
+
 
 %%% 脚注番号のページ毎のリセットと脚注位置の調整
 \makeatletter
@@ -320,16 +361,6 @@
 
 
 
-%レシピ本文
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-% \setlength{\columnwidth}{24\zw}
-%本文ヨリ小%\small
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-%本文やや小%\medsmall
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
-%本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
 
 
 
@@ -391,7 +422,7 @@
 
 \makeatletter
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
-    \if@twocolumn
+  \if@twocolumn
       \onecolumn\@restonecolfalse
     \else
       \clearpage\@restonecoltrue
@@ -424,73 +455,73 @@
       \if@restonecol\onecolumn\fi
     \else
       \end{multicols}
-    \fi
-    \clearpage
-  }
+      \fi
+      \clearpage
+    }
 \makeatother
 
 
+%%%% 本文中の参照ページ番号表示 %%%%%%%
 
-%\renewcommand{\ldots}{…}
-\usepackage{makeidx}
-\makeindex
-
-%%%%% Reference Page Numbers
-\newcommand{\pref}[1]{[p.\pageref{#1}]}
-%\newcommand{\pref}[1]{}
-
-\usepackage[unicode=true,hyperfootnotes=false]{hyperref}
 \makeatletter
+
 \AtBeginDocument{%
   \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}
   \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
-
 \let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
 \def\Hy@EveryPageAnchor{%
     \begingroup
     \hypersetup{pdfview=Fit}%
     \orig@Hy@EveryPageAnchor
     \endgroup
-}
-\makeatother
+  }
+
+
+
+
 \let\myhyperlink\hyperlink
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}[p.\getpagerefnumber{#1}{}]}
-%\usepackage{pxjahyper}
-\hypersetup{breaklinks=true,%
-             bookmarks=true,%
-             pdfauthor={五島　学},%
-             pdftitle={エスコフィエ『料理の手引き』全注解},%
-             colorlinks=false%true,%
-             %colorlinks=true,%
-             citecolor=blue,%
-             urlcolor=cyan,%
-             linkcolor=magenta,%
-             bookmarksdepth=subsubsection,%
-             pdfborder={0 0 0}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}
+
+\def\@@wrindex#1|#2|#3\\{%
+   \if@filesw
+     \ifx\\#2\\%
+       \protected@write\@indexfile{}{%
+         \string\indexentry{#1#2}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
+%        \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
+         }%
+        \else
+          \HyInd@@@wrindex{#1}#2\\%
+        \fi
+      \fi
+      \endgroup
+      \@esphack
+    }%
+\makeatother
 
 
-% \hypersetup{
-%     pdfborderstyle={/S/U/W 1}, % underline links instead of boxes
-%     linkbordercolor=red,       % color of internal links
-%     citebordercolor=green,     % color of links to bibliography
-%     filebordercolor=magenta,   % color of file links
-%     urlbordercolor=cyan        % color of external links
-% }
 
-\urlstyle{same}
-%\renewcommand*{\label}[1]{\hypertarget{#1}{}}
-%\renewcommand{\hyperlink}[2]{\hyperref[#1]{#2}}
+%%%%% Obsolete Reference Page Numbers 
 
+%\newcommand{\pref}[1]{[p.\pageref{#1}]}
+%\newcommand{\pref}[1]{}
+
+
+
+
+%%%%インデックス準備
+\usepackage{makeidx}
+\makeindex
+
+%%%% pandoc が三点リーダーを勝手に変える対策
 \renewcommand{\ldots}{\noindent…}
-%\usepackage{udline}
-% \usepackage{ulem}
+%%%%%下線
 \usepackage{umoline}
 \setlength{\UnderlineDepth}{2pt}
 \let\ul\Underline
 
 \newcommand{\maeaki}{}%使用しないので無効化
 
-%%分数の表記
+%%分数の表記Obsolete
 \usepackage{xfrac}
 \let\frac\sfrac
 \newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
@@ -549,4 +580,4 @@
   }%
   \stepcounter{page}%
 }{}{}
-\makeatother
+\makeatother 

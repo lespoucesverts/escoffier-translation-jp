@@ -11,7 +11,7 @@
 %
 %%%% 3. フォントの設定をいじらない場合はMoboMogaフォントをインストールしてください。
 %%%% http://yozvox.web.fc2.com/l82A882B782B782DF8374834883938367.html
-%
+% 
 %%%% 4. Macの場合は自分のホームディレクトリに .latexmkrcというファイルを作成します。
 %%%% https://texwiki.texjp.org/?Latexmk
 %%%% を参考にしてください(コピペで大丈夫だと思います)
@@ -19,13 +19,13 @@
 %%%% 5. 上記サイトにあるようにLuaLaTeXを使いますので、ターミナル(macの
 %%%% 場合)を開いて、このファイルのあるディレクトリに移動し
 %
-%%%%     latexmk -gg -pdflua escoffier-le-guide-culinaire.tex
+%%%% latexmk -gg -pdflua escoffier-le-guide-culinaire.tex
 %
 %%%% と打ち込むと、あとは勝手にPDFを生成してくれる(はず)です。質問など
 %%%% は、たとえ僕が存命中でも、元気であっても、いっさいおうけできません。
 %%%% すべて自己責任でお願いします。
 %
-%%%% あとは改訳するもよし、版面設定を変更するもよし、好きになさってくだ
+%%%% あとは改訳するもよし、版面設定を変更すもよし、好きになさってくだ
 %%%% さい。知識と能力さえあれば、さして時間もかからずに、お好みのものが
 %%%% 出来るでしょう。ちなみに注釈なしバージョンを作るには、この下の
 %% \renewcommand{\footnote}[1]{}%注釈なしバージョンを作るにはこの行頭の%を消す
@@ -61,11 +61,12 @@
 %%% Important! 文書開始%
 \begin{document}
 
+\frontmatter
 %%% 扉 %%%
 \maketitle
 %%% 序文開始
 %\layout%レイアウト数値確認用
-\frontmatter
+
 
 % 企画本参考例
 %\input{echantillon/echantillon-01}
@@ -74,9 +75,14 @@
 \input{00-avant-propos/00-avant-propos}
 
 %%% 本文開始
-\mainmatter%%%%%本文開始
-% \layout%レイアウト数値確認用
+\mainmatter
 
+
+%%%%% 本文開始
+% \layout%レイアウト数値確認用
+%\makeatletter
+%\set\@mainmatter=\true
+%\makeatother
 %%%原稿ファイル読み込み
 %
 
@@ -109,12 +115,13 @@
 %\input{15-glaces/15-00}
 
 
+\appendix
 
-
-
-\backmatter
 %%%索引ページ出力
-{\printindex}
+\backmatter
+
+\printindex
+
 
 %%% Important! 文書終了%
 \end{document}
