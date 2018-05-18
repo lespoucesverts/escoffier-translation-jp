@@ -19,8 +19,8 @@
              bookmarks=true,%
              pdfauthor={五島　学},%
              pdftitle={エスコフィエ『料理の手引き』全注解},%
-             %colorlinks=false%true,%
-             colorlinks=true,%
+             colorlinks=false%true,%
+             %colorlinks=true,%
              citecolor=blue,%
              urlcolor=cyan,%
              linkcolor=magenta,%
@@ -477,16 +477,13 @@
   }
 
 
-
-
 \let\myhyperlink\hyperlink
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}
-
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }
 \def\@@wrindex#1|#2|#3\\{%
    \if@filesw
-     \ifx\\#2\\%
-       \protected@write\@indexfile{}{%
-         \string\indexentry{#1#2}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
+   \ifx\\#2\\%
+     \protected@write\@indexfile{}{%
+         \string\indexentry{#1|}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
 %        \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
          }%
         \else
