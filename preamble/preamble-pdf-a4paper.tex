@@ -482,20 +482,20 @@
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
 
 
-\def\@@wrindex#1|#2|#3\\{%
- \if@filesw
- \ifx\\#2\\%
-  \protected@write\@indexfile{}{% 
-    %\string\indexentry{#1}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
-    \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
-        }%
-        \else
-          \HyInd@@@wrindex{#1}#2\\%
-        \fi
-      \fi
-      \endgroup
-      \@esphack
-    }
+% \def\@@wrindex#1|#2|#3\\{%
+%  \if@filesw
+%  \ifx\\#2\\%
+%   \protected@write\@indexfile{}{% 
+%     %\string\indexentry{#1}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
+%     \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
+%         }%
+%         \else
+%           \HyInd@@@wrindex{#1}#2\\%
+%         \fi
+%       \fi
+%       \endgroup
+%       \@esphack
+%     }
 
 \makeatother
 
