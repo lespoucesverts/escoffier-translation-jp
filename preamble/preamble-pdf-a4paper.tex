@@ -13,14 +13,15 @@
 
 
 %%%%%%%%% hyperref %%%%%%%%%%%%%
-\usepackage[unicode=true,hyperfootnotes=false ]{hyperref}
-\hypersetup{hyperindex=true,%
+\usepackage{refcount}
+\usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+\hypersetup{hyperindex=false,%
              breaklinks=true,%
              bookmarks=true,%
              pdfauthor={五島　学},%
              pdftitle={エスコフィエ『料理の手引き』全注解},%
-             colorlinks=false%true,%
-             %colorlinks=true,%
+             %colorlinks=false%true,%
+             colorlinks=true,%
              citecolor=blue,%
              urlcolor=cyan,%
              linkcolor=magenta,%
@@ -465,9 +466,9 @@
 
 \makeatletter
 
-\AtBeginDocument{%
-  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}
-  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
 \let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
 \def\Hy@EveryPageAnchor{%
     \begingroup
@@ -475,24 +476,27 @@
     \orig@Hy@EveryPageAnchor
     \endgroup
   }
+\usepackage{etoolbox}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
 
 
-\let\myhyperlink\hyperlink
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }
 \def\@@wrindex#1|#2|#3\\{%
-   \if@filesw
-   \ifx\\#2\\%
-     \protected@write\@indexfile{}{%
-         \string\indexentry{#1|}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
-%        \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
-         }%
+ \if@filesw
+ \ifx\\#2\\%
+  \protected@write\@indexfile{}{% 
+    %\string\indexentry{#1}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
+    \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
+        }%
         \else
           \HyInd@@@wrindex{#1}#2\\%
         \fi
       \fi
       \endgroup
       \@esphack
-    }%
+    }
+
 \makeatother
 
 
@@ -507,7 +511,10 @@
 
 %%%%インデックス準備
 \usepackage{makeidx}
+
 \makeindex
+
+
 
 %%%% pandoc が三点リーダーを勝手に変える対策
 \renewcommand{\ldots}{\noindent…}
