@@ -279,6 +279,9 @@
 %本文ナミ(無指定)
 \newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
 
+%%% 本文
+\renewenvironment{description}{}{}
+
 \makeatother
 
 
@@ -476,8 +479,13 @@
     \orig@Hy@EveryPageAnchor
     \endgroup
   }
-\usepackage{etoolbox}
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
   \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{description}{%
 \let\myhyperlink\hyperlink%
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
 
