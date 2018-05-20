@@ -266,11 +266,13 @@
 %          \@dottedtocline{5}{\@tempdima}{6.5\zw}}
 
 
-%%%%%%%%%レシピ本文%%%%%%%%%%%%
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
 \usepackage{multicol}
 \setlength{\columnsep}{3\zw}
 
-
+%%% 本文
+\newenvironment{Main}{}{}
+%%% レシピ
 % \setlength{\columnwidth}{24\zw}
 %本文ヨリ小%\small
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
@@ -279,8 +281,6 @@
 %本文ナミ(無指定)
 \newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
 
-%%% 本文
-\renewenvironment{description}{}{}
 
 \makeatother
 
@@ -485,7 +485,7 @@
   \AtBeginEnvironment{recette}{%
 \let\myhyperlink\hyperlink%
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{description}{%
+  \AtBeginEnvironment{Main}{%
 \let\myhyperlink\hyperlink%
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
 
