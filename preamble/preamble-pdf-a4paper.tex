@@ -219,12 +219,13 @@
     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
     % {.5\Cvs \@plus.3\Cdp}% 後アキ
     {.5\Cvs}
-    {\normalfont\large\headfont\bfseries\centering}} %変更
-
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
 
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
     {.25\Cvs \@plus.5\Cdp \@minus.5\Cdp}%変更
     {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
     {\normalfont\medlarge\headfont\leftskip -1\zw}}
 
 \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
@@ -238,9 +239,15 @@
 
 
 
-\newcommand{\frsec}[1]{\vspace*{-1\zw}\begin{center}\normalfont\headfont\Large\setstretch{0.8}\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-\newcommand{\frsecb}[1]{\vspace*{-1\zw}\begin{center}\normalfont\headfont\large\setstretch{0.8}\scshape#1\normalfont\normalsize\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
 
 %\newcounter{frsub}[subsubsection]
 %\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
@@ -481,10 +488,10 @@
   }
   \usepackage{etoolbox}
 \if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}{\footnotesize [p.\getpagerefnumber{#1}{}] }}}
   \AtBeginEnvironment{recette}{%
 \let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}{\footnotesize [p.\getpagerefnumber{#1}{}] }}}
   \AtBeginEnvironment{Main}{%
 \let\myhyperlink\hyperlink%
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
@@ -592,4 +599,7 @@
   }%
   \stepcounter{page}%
 }{}{}
-\makeatother 
+\makeatother
+
+
+%\usepackage{vgrid}% here only to help visualize the problem
