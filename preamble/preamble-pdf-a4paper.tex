@@ -79,26 +79,26 @@
 \newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
 %%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
 \setmainjfont[%
-%   YokoFeatures={JFM=prop,PKana=On},%
-%    CharacterWidth=AlternateProportional,%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
 %    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
-%       Kerning=On,%
-         BoldFont={ MoboGoB },%
-         ItalicFont={ MoboGoB },%
-         BoldItalicFont={ MoboGoExB }%
-%         ]{ MogaHMin }
-          ]{ IPAExMincho }
-%         ]{ IPAmjMincho }
-    \setsansjfont[%
-%        YokoFeatures={JFM=prop,PKana=On},%
-%         CharacterWidth=AlternateProportional,%
-%         CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
-%         Kerning=On,
-         BoldFont={ MoboGoB },%
-         ItalicFont={ MoboGoB },%
-         BoldItalicFont={ MoboGoExB }%
-         % ]{ MoboGo}
-          ]{ IPAExGothic }
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
 % %  %%%% 和文仮名プロプーショナルここまで
 % %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
 
@@ -137,7 +137,21 @@
 \setlength{\voffset}{-17mm}
 \setlength{\textheight}{265mm}
 \setlength{\parskip}{0pt}
-%\setlength{\parindent}{0pt}
+\setlength{\parindent}{0pt}
+
+%%%% b5j%%%%%%
+% \setlength{\hoffset}{-10mm}
+% \setlength{\oddsidemargin}{0mm}
+% \setlength{\evensidemargin}{0mm}
+% %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
+% \setlength{\fullwidth}{145mm}
+% \setlength{\textwidth}{145mm}
+% \setlength{\marginparsep}{0pt}
+% \setlength{\marginparwidth}{0pt}
+% \setlength{\footskip}{0pt}
+% \setlength{\voffset}{-10mm}
+% \setlength{\textheight}{225mm}
+% \setlength{\parskip}{0pt}
 %%%ベースライン調整
 %\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
 
@@ -159,7 +173,6 @@
 \newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
 \newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
 \newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
-
 
 \renewcommand{\chapter}{%
   \if@openleft\cleardoublepage\else
@@ -223,7 +236,8 @@
     {\normalfont\large\headfont\centering}} %変更
 
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-    {.25\Cvs \@plus.5\Cdp \@minus.5\Cdp}%変更
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
     {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
     % {\normalfont\medlarge\headfont\leftskip -1\zw}}
     {\normalfont\medlarge\headfont\leftskip -1\zw}}
@@ -286,13 +300,15 @@
 %本文やや小%\medsmall
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
 %本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}}
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
 
 
 \makeatother
 
 
 %%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
 \makeatletter
 
 \usepackage[bottom,perpage,stable]{footmisc}%
@@ -488,13 +504,13 @@
   }
   \usepackage{etoolbox}
 \if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}{\footnotesize [p.\getpagerefnumber{#1}{}] }}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
   \AtBeginEnvironment{recette}{%
 \let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2}{\footnotesize [p.\getpagerefnumber{#1}{}] }}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
   \AtBeginEnvironment{Main}{%
 \let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
 
 
 % \def\@@wrindex#1|#2|#3\\{%
@@ -539,7 +555,7 @@
 \let\ul\Underline
 
 \newcommand{\maeaki}{}%使用しないので無効化
-
+\newcommand{\atoaki}{\vspace{1.25mm}}
 %%分数の表記Obsolete
 \usepackage{xfrac}
 \let\frac\sfrac
