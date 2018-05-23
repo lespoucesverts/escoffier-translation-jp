@@ -1,4 +1,4 @@
-\input{../preamble/preamble-a4-ltjsarticle.tex}
+
 
 
 ### フォワグラの温製料理 {#preparations-chaudes-du-foie-gras}
