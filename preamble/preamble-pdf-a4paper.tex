@@ -20,8 +20,8 @@
              bookmarks=true,%
              pdfauthor={五島　学},%
              pdftitle={エスコフィエ『料理の手引き』全注解},%
-             %colorlinks=false%true,%
-             colorlinks=true,%
+             colorlinks=false%true,%
+             %colorlinks=true,%
              citecolor=blue,%
              urlcolor=cyan,%
              linkcolor=magenta,%
@@ -504,13 +504,21 @@
   }
   \usepackage{etoolbox}
 \if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
   \AtBeginEnvironment{recette}{%
 \let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
   \AtBeginEnvironment{Main}{%
 \let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}]}}
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+% \if@mainmatter{\let\myhyperlink\hyperlink%
+% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
+%   \AtBeginEnvironment{recette}{%
+% \let\myhyperlink\hyperlink%
+% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
+%   \AtBeginEnvironment{Main}{%
+% \let\myhyperlink\hyperlink%
+% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
 
 
 % \def\@@wrindex#1|#2|#3\\{%
