@@ -251,7 +251,10 @@
     {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
     {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
 
-
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
 
 \newcommand{\frsec}[1]{\vspace*{-2ex}%
  \begin{center}\normalfont\headfont\large\setstretch{0.8}
@@ -312,7 +315,7 @@
 \makeatletter
 
 \usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 2mm}
+%\setlength{\skip\footins}{4mm plus 4mm}
 %\usepackage{footnpag}
 \renewcommand\@makefntext[1]{%
   \advance\leftskip 0\zw
