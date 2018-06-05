@@ -1,4 +1,4 @@
-%%
+%
 %% This is file `escoffierltjsbook.cls',
 %% generated with the docstrip utility.
 %%

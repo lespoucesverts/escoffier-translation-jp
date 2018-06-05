@@ -452,16 +452,15 @@
 
 %%%%インデックス準備
 
-\usepackage{makeidx}
+%\usepackage{makeidx}
 \usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{adx}{and}{ソース名から料理を検索する}
 \makeindex
-
-\newindex{src}{idx1}{ind1}{ソース別料理索引} 
-
-
-\makeatletter
+ 
+ \makeatletter
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
-  \if@twocolumn
+    \if@twocolumn
       \onecolumn\@restonecolfalse
     \else
       \clearpage\@restonecoltrue
@@ -469,23 +468,23 @@
     \columnseprule.4pt \columnsep 2\zw
     \ifx\multicols\@undefined
       \twocolumn[\@makeschapterhead{\indexname}%
-      \addcontentsline{toc}{chapter}{\indexname}]%変更点
+      \addcontentsline{toc}{chapter}{\indexname}]%
     \else
-      \ifdim\textwidth<\fullwidth
+      \ifdim\textwidth=\fullwidth
         \setlength{\evensidemargin}{\oddsidemargin}
         \setlength{\textwidth}{\fullwidth}
         \setlength{\linewidth}{\fullwidth}
-        \begin{multicols}{3}[\chapter*{\indexname}
-	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
       \else
-        \begin{multicols}{3}[\chapter*{\indexname}
-	\addcontentsline{toc}{chapter}{\indexname}]%変更点%
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
       \fi
     \fi
-    \@mkboth{\indexname}{\indexname}%
+    \@mkboth{\indexname}{}%
     \plainifnotempty % \thispagestyle{plain}
     \parindent\z@
-    \parskip\z@ \@plus .3\p@\relax
+    \parskip\z@ \@plus .3\jsc@mpt\relax
     \let\item\@idxitem
     \raggedright
     \footnotesize\narrowbaselines
@@ -494,10 +493,10 @@
       \if@restonecol\onecolumn\fi
     \else
       \end{multicols}
-      \fi
-      \clearpage
-    }
-\makeatother
+    \fi
+    \clearpage
+  }
+ \makeatother
 
 
 %%%% 本文中の参照ページ番号表示 %%%%%%%
