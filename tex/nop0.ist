@@ -1,0 +1,6 @@
+%group_skip "\bigskip"
+lethead_flag 1
+letter_head 2
+symhead_positive "記号"
+lethead_prefix "\n\\hfill{\\bfseries ---"
+lethead_suffix "---}\\hfill\\hfill\\hfill\\hfill\\par\\nobreak"

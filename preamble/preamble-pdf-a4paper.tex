@@ -450,6 +450,15 @@
 
 
 
+%%%%インデックス準備
+
+\usepackage{makeidx}
+\usepackage{index}
+\makeindex
+
+\newindex{src}{idx1}{ind1}{ソース別料理索引} 
+
+
 \makeatletter
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
   \if@twocolumn
@@ -551,10 +560,6 @@
 
 
 
-%%%%インデックス準備
-\usepackage{makeidx}
-
-\makeindex
 
 
 
