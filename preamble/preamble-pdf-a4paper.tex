@@ -349,12 +349,12 @@
 \renewcommand{\theparagraph}{}
 
 
-%\makeatletter
-%\@removefromreset{subsubsection}{subsection}
-%\def\thesubsubsection{\arabic{subsubsection}.}
-%\newcounter{rnumber}
-%\renewcommand{\thernumber}{\refstepcounter{rnumber} }
-
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+% \makeatother
 \renewcommand{\prepartname}{\if@english Part~\else {}\fi}
 \renewcommand{\postpartname}{\if@english\else {}\fi}
 \renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
@@ -631,6 +631,27 @@
   \stepcounter{page}%
 }{}{}
 \makeatother
-
-
 %\usepackage{vgrid}% here only to help visualize the problem
+
+
+\makeatletter
+\def\srcEspagnole#1#2#3#4{%
+  \index[src]{espagnole@Espagnole!{#1}@{#2}}
+  \index[src]{えすはによる@エスパニョル!{#3}@{#4}}}
+
+\def\srcEspagnoleMaigre#1#2#3#4{%
+  \index[src]{espagnole maigre@Espagnole maigre!{#1}@{#2}}%
+  \index[src]{えすはによるさかな@エスパニョル（魚料理用）!{#3}@{#4}}}
+
+\def\srcDemiGlace#1#2#3#4{%
+  \index[src]{demi-glace@Demi-glace!{#1}@{#2}}%
+  \index[src]{とうみくらす@ドゥミグラス!{#3}@{#4}}}
+
+\def\srcJusDeVeauLie#1#2#3#4{%
+  \index[src]{jus veau lie@Jus de veau lié!{#1}@{#2}}%
+  \index[src]{とろみをつけたこうしのしゆ@とろみを付けた仔牛のジュ!{#3}@{#4}}}
+
+
+
+
+\makeatother
