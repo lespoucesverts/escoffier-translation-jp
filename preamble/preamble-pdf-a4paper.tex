@@ -455,7 +455,7 @@
 %\usepackage{makeidx}
 \usepackage{index}
 %\usepackage[useindex]{splitidx}
-\newindex{src}{adx}{and}{ソース名から料理を探す}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
 \makeindex
  
  \makeatletter
@@ -635,7 +635,7 @@
 
 %\input{preamble/sources-index}%ソース名からの逆引きインデックス用コマンド
 
-\makeatlette
+\makeatletter
 
 %%%%%%基本ソース
 
@@ -655,52 +655,53 @@
   \index[src]{jus veau lie@Jus de veau lié!{#1}@{#2}}%
   \index[src]{とろみをつけたこうしのしゆ@とろみを付けた仔牛のジュ!{#3}@{#4}}}
 
-def\srcVeoute#1#2#3#4{%
+\def\srcVeoute#1#2#3#4{%
   \index[src]{veloute@Velouté!{#1}@{#2}}%
   \index[src]{うるて@ヴルテ!{#3}@{#4}}}
 
-def\srcVeouteDeVolaille#1#2#3#4{%
+\def\srcVeouteDeVolaille#1#2#3#4{%
   \index[src]{veloute de volaille@Velouté de volaille!{#1}@{#2}}%
   \index[src]{とりのうるて@鶏のヴルテ!{#3}@{#4}}}
 
-def\srcVeouteDePoisson#1#2#3#4{%
+\def\srcVeouteDePoisson#1#2#3#4{%
   \index[src]{veloute de poisson@Velouté de poisson!{#1}@{#2}}%
   \index[src]{さかなのうるて@魚のヴルテ!{#3}@{#4}}}
 
-def\srcAllemande#1#2#3#4{%
+\def\srcAllemande#1#2#3#4{%
   \index[src]{allemande@Allemande!{#1}@{#2}}%
   \index[src]{あるまんと@アルマンド!{#3}@{#4}}}
 
-def\srcSupreme#1#2#3#4{%
+\def\srcSupreme#1#2#3#4{%
   \index[src]{supreme@Suprême!{#1}@{#2}}%
   \index[src]{しゆふれーむ@シュプレーム!{#3}@{#4}}}
 
-def\srcTomate#1#2#3#4{%
+\def\srcTomate#1#2#3#4{%
   \index[src]{tomate@Tomate!{#1}@{#2}}%
   \index[src]{とまと@トマト!{#3}@{#4}}}
 
 %%%%%%%%ブラウン系の派生ソース
 
-def\srcBigarade#1#2#3#4{%
+\def\srcBigarade#1#2#3#4{%
   \index[src]{bigarade@Bigarade!{#1}@{#2}}%
   \index[src]{ひからーと@ビガラード!{#3}@{#4}}}
 
-def\srcBordelaise#1#2#3#4{%
+\def\srcBordelaise#1#2#3#4{%
   \index[src]{bordelaise@Bordelaise!{#1}@{#2}}%
   \index[src]{ほるとーふう@ボルドー風!{#1}@{#2}}}
 
-def\srcBourguignonne#1#2#3#4{%
+\def\srcBourguignonne#1#2#3#4{%
   \index[src]{bourguignonne@Bourguignonne!{#1}@{#2}}%
   \index[src]{ふるこーにゆふう@ブルゴーニュ風!{#3}@{#4}}}
 
-def\srcBretonne#1#2#3#4{%
+\def\srcBretonne#1#2#3#4{%
   \index[src]{bretonne@Bretonne!{#1}@{#2}}%
   \index[src]{ふるたーにゆふう@ブルターニュ風!{#3}@{#4}}}
 
-def\srcCerises#1#2#3#4{%
+\def\srcCerises#1#2#3#4{%
   \index[src]{cerises@Cerises (aux)!{#1}@{#2}}%
   \index[src]{すりーす@スリーズ!{#3}@{#4}}}
 
 
 
 \makeatother
+

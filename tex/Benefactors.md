@@ -41,4 +41,6 @@ UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 
 ※ 原稿のバージョン管理等は [**Github のリポジトリ lespoucesverts/escoffier-translation-jp**](https://github.com/lespoucesverts/escoffier-translation-jp)で行なっています。協力者常時募集中です。どうかご参加ください。
 
-※ ご支援は[**レ プゥス ヴェール les pouces verts のサイト**](https://lespoucesverts.org/archives/7042)からお願いします。
+※ ご支援の方法については[**レ プゥス ヴェール les pouces verts のサイト**](https://lespoucesverts.org/archives/7042) https://lespoucesverts.org にてご案内しております。
+
+\normalsize
