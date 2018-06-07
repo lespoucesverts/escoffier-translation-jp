@@ -16,9 +16,9 @@
 \vspace{1\zw}
 
 Sin Masui、[](20180524-23h,2x,novelsoundsmail@gmail.com)
-**河井健司**、[](20180525-0h14,10x,20180605-11h42,10x,kwibeng@gmail.com)
+[**河井健司**](http://www.undecesjours.com/)、[](20180525-0h14,10x,20180605-11h42,10x,kwibeng@gmail.com)
 Yuya HASHIMOTO、[](20180525-1h40,2x,hashimo0910@gmail.com)
-**善塔一幸(La Maison Courtine)**、[](20180525-8h56,10x,kazuyukizento120@docomo.ne.jp)
+[**善塔一幸(La Maison Courtine)**](http://www.courtine.jp/)、[](20180525-8h56,10x,kazuyukizento120@docomo.ne.jp)
 藤井智大(フランス料理店　ミルエテ)、[](20180525-10h07,1x,apple19761019@yahoo.co.jp)
 kojima mio、[](20180525-12h23,1x,teeeeshow@yahoo.co.jp)
 春野 裕征、[](20180528-2h41,1x,amanojack.v-o-v@i.softbank.jp)
@@ -27,3 +27,18 @@ RYUUTA SAWAI、[](20180530-2h57.1x,rs.ajtk.zz@i.softbank.jp)
 山下拓也、[](20180605-11h04,5x,FB:Takuya Yamashita)
 UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 石幡乾、[](201806060-6h24,1x,zonek.gentile.bonheur.ken05@gmail.com)
+
+
+
+
+
+
+\vfill
+
+\small
+
+※ Facebook のグループ[**「エスコフィエ『料理の手引き』全注解」を完成させたい**](https://www.facebook.com/groups/1548833425201180/)も、よろしかったらご参加ください（太字部分がリンクになっています）。
+
+※ 原稿のバージョン管理等は [**Github のリポジトリ lespoucesverts/escoffier-translation-jp**](https://github.com/lespoucesverts/escoffier-translation-jp)で行なっています。協力者常時募集中です。どうかご参加ください。
+
+※ ご支援は[**レ プゥス ヴェール les pouces verts のサイト**](https://lespoucesverts.org/archives/7042)からお願いします。
