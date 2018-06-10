@@ -1,5 +1,4 @@
-%\input{preamble/sources-index}%ソース名からの逆引きインデックス用コマンド
-
+\newcommand{\hoge}{}
 \makeatletter
 
 %%%%%%基本ソース
@@ -620,6 +619,23 @@
 
 %%%%イギリス風ソース（温製）
 
+\def\srcCranberriesSauce#1#2#3#4{%
+  \index[src]{airelles@Airelles (aux)(Cramberries-Sauce)!{#1}@{#2}}%
+  \index[src]{くらんへりー@クランベリー!{#3}@{#4}}}
+
+\def\srcAlbert#1#2#3#4{%
+  \index[src]{albert@Albert (Albert-Sauce)!{#1}@{#2}}%
+  \index[src]{あるはーと@アルバート!{#3}@{#4}}}
+
+\def\srcAromates#1#2#3#4{%
+  \index[src]{aromates@Aromates (aux)(Aromatic-Sauce)!{#1}@{#2}}%
+  \index[src]{あろまていつく@アロマティック!{#3}@{#4}}}
+
 
 
 \makeatother
+
+
+%% Local Variables:
+%% TeX-engine: luatex
+%% End:
