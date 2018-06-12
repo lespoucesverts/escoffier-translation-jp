@@ -1,4 +1,4 @@
-%%% Preamble読み込み
+ %%% Preamble読み込み
 \input{../preamble/preamble-pdf-a4paper.tex}
 \input{../preamble/sauces-index-def}%ソース名からの逆引きインデックス用コマンド
 %\renewcommand{\footnote}[1]{}%単に注釈なしバージョンを作るにはこの行頭の%を消す
@@ -23,13 +23,14 @@
 
 %%% 扉 %%%
 \maketitle
-% 空白ページ
+
 
 % % 原稿ファイル読み込み
 \newpage
 \include{Benefactors}
 \newpage
 
+%空白ページ
 \newpage
 \thispagestyle{empty}
 　%←全角スペース
@@ -42,15 +43,19 @@
 
 %%% 序文開始
 %\layout%レイアウト数値確認用
+%%%%Hston Blumenthal
+\input{../00-avant-propos/heston}
 
-
-% 企画本参考例
+%
+%企画本参考例
 % \input{echantillon/echantillon-01}
 %\input{Realisation-contemporaine/kitano}
 %\input{Realisation-contemporaine/yamamoto}
 
 
 \frontmatter
+
+
 
 \input{../00-avant-propos/00-avant-propos}
 
