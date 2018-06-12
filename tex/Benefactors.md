@@ -28,6 +28,7 @@ RYUUTA SAWAI、[](20180530-2h57.1x,rs.ajtk.zz@i.softbank.jp)
 UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 石幡乾、[](201806060-6h24,1x,zonek.gentile.bonheur.ken05@gmail.com)
 **山尾圭輔**、[](20180612-10h27,20x,yamaokeisuke@hotmail.com)
+手島 純也、[](20180612-19h19,1x,junchef1975@yahoo.co.jp)
 
 
 
