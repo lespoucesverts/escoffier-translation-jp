@@ -1,0 +1,143 @@
+ %%% Preamble読み込み
+\input{../preamble/preamble-epub.tex}
+\input{../preamble/sauces-index-def}%ソース名からの逆引きインデックス用コマンド
+%\renewcommand{\footnote}[1]{}%単に注釈なしバージョンを作るにはこの行頭の%を消す
+%
+%%%%以下、TeXにくわしくない方は触らないことをおすすめします。
+% \input{preamble-pdf/preamble-pdf-octavo.tex}%初版、第二版原書とほぼ同じ判型。ただし調整が必要
+% \input{preamble/preamble-pdf-without-notes-a4.tex}%脚注なしバージョン、ただし調整が必要
+% \input{preamble/preamble-pdf-with-footnote-1col-a4.tex}%1段組みバージョン、ただし調整が必要
+%
+%
+%
+%
+%%% Important!%%%%%%% 文書開始%%%
+
+%%%info%%%
+\title{\Huge{オーギュスト・エスコフィエ}\\\HUGE{『料理の手引き』全注解}}
+\author{\huge{五 島　学}}
+%%%%
+%%% Important! 文書開始%
+\begin{document}
+\flushbottom
+
+%%% 扉 %%%
+\maketitle
+
+
+% % 原稿ファイル読み込み
+\newpage
+\include{Benefactors}
+\newpage
+
+%空白ページ
+\newpage
+\thispagestyle{empty}
+　%←全角スペース
+\newpage
+\newpage
+\thispagestyle{empty}
+　%←全角スペース
+\newpage
+
+
+%%% 序文開始
+%\layout%レイアウト数値確認用
+%%%%Hston Blumenthal
+\input{../00-avant-propos/heston}
+
+%
+%企画本参考例
+% \input{echantillon/echantillon-01}
+%\input{Realisation-contemporaine/kitano}
+%\input{Realisation-contemporaine/yamamoto}
+
+
+\frontmatter
+
+
+
+\input{../00-avant-propos/00-avant-propos}
+
+%%% 本文開始
+\mainmatter
+
+
+%%%%% 本文開始
+% \layout%レイアウト数値確認用
+%\makeatletter
+%\set\@mainmatter=\true
+%\makeatother
+%%%原稿ファイル読み込み
+%
+
+%%% Chapitre I. Saucesa
+%\input{../01-sauces/01-00}
+
+%%% Chapitre II. Garnitures
+%\input{../02-garnitures/02-00}
+
+%%% Chapitre III. Potages
+%\input{03-potages/03-00}
+
+
+%%% Chapitre IV. Hors-d'oeuvres
+%%%\input{04-hors-d-oeuvres/06-00}
+
+%%% Chapitre V. OEufs
+%%%\input{05-oeufs/06-00}
+
+
+%%% Chapitre VI. Poissons
+%\input{06-poissons/06-00}
+
+%%% Chapitre VII. Relevés et Entrées
+%\input{07-releves-et-entrees/07-00}
+
+
+
+
+
+%%% Chapitre XIII Legumes
+%\input{../13-legumes/13-00}
+
+
+%
+
+
+
+
+
+
+
+
+
+
+
+
+%\input{15-glaces/15-00}
+
+
+
+
+
+
+\appendix
+
+%%%索引ページ出力
+\backmatter
+
+\renewcommand{\indexname}{ソース名から料理を探す}
+
+\printindex[src][ソース名から料理を探す]
+
+\renewcommand{\indexname}{総索引}
+\printindex
+
+%%% Important! 文書終了%
+\end{document}
+
+
+%% Local Variables:
+%% TeX-engine: luatex
+%% End:

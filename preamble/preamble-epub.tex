@@ -1,0 +1,167 @@
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+
+\newcommand{\frchap}[1]{#1}
+
+\newcommand{\frsec}[1]{#1}
+\newcommand{\frsecb}[1]{#1}
+\newcommand{\frsub}[1]{#1}
+%\
+\makeatother
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+
+
+
+%%% 本文
+\newenvironment{Main}{}{}
+\newenvironment{recette}{}{}
+
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+%\makeatletter
+% \@addtoreset{footnote}{page}
+% \makeatother
+%\usepackage{dblfnote}
+%\usepackage[bottom,perpage]{footmisc}
+
+\makeatother
+
+%subsubsectionに連番をつける
+%\usepackage{remreset}
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+% \makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+
+\let\cite=\autocite
+
+% % % % 
+\date{}
+
+
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+%%%%%下線
+\usepackage{umoline}
+\setlength{\UnderlineDepth}{2pt}
+\let\ul\Underline
+
+\newcommand{\maeaki}{}%使用しないので無効化
+\newcommand{\atoaki}{\vspace{1.25mm}}
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+\newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
+\newcommand{\untiers}{\hspace{.25\zw}$\sfrac{1}{3}$}
+\newcommand{\deuxtiers}{\hspace{.25\zw}$\sfrac{2}{3}$}
+\newcommand{\unquart}{\hspace{.25\zw}$\sfrac{1}{4}$}
+\newcommand{\troisquarts}{\hspace{.25\zw}$\sfrac{3}{4}$}
+\newcommand{\quatrequatrieme}{\hspace{.25\zw}$\sfrac{4}{4$}}
+\newcommand{\uncinquieme}{\hspace{.25\zw}$\sfrac{1}{5}$}
+\newcommand{\deuxcinquiemes}{\hspace{.25\zw}$\sfrac{2}{5}$}
+\newcommand{\troiscinquiemes}{\hspace{.25\zw}$\sfrac{3}{5}$}
+\newcommand{\quatrecinquiemes}{\hspace{.25\zw}$\sfrac{4}{5}$}
+\newcommand{\unsixieme}{\hspace{.25\zw}$\sfrac{1}{6}$}
+\newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
+\newcommand{\quatrequart}{\hspace{.25\zw}$\sfrac{4}{4}$}
+
+\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+%\usepackage{vgrid}% here only to help visualize the problem
+
+
