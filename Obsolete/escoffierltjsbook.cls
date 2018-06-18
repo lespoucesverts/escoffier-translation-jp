@@ -1,5 +1,5 @@
-%
-%% This is file `escoffierltjsbook.cls',
+%%
+%% This is file `ltjsbook.cls',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
@@ -11,7 +11,7 @@
 %% For the copyright see the source file.
 %% 
 %% Any modified versions of this file must be renamed
-%% with new filenames distinct from escoffierltjsbook.cls.
+%% with new filenames distinct from ltjsbook.cls.
 %% 
 %% For distribution of the original source see the terms
 %% for copying and modification in the file ltjsclasses.dtx.
@@ -37,9 +37,9 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{escoffierltjsbook}
-  [2018/01/17 escoffierltjsclasses ]
-\def\jsc@clsname{escoffierltjsbook}
+\ProvidesClass{ltjsbook}
+  [2017/09/19 ltjsclasses ]
+\def\jsc@clsname{ltjsbook}
 \RequirePackage{luatexja}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -86,9 +86,6 @@
 \DeclareOption{b5var}{%
   \setlength\paperheight {230mm}%
   \setlength\paperwidth  {182mm}}
-  \DeclareOption{b6var}{%
-  \setlength\paperheight {182mm}%
-  \setlength\paperwidth  {118mm}}
 \DeclareOption{letterpaper}{%
   \setlength\paperheight {11in}%
   \setlength\paperwidth  {8.5in}}
@@ -98,25 +95,6 @@
 \DeclareOption{executivepaper}{%
   \setlength\paperheight {10.5in}%
   \setlength\paperwidth  {7.25in}}
-\DeclareOption{kiku}{%
-  \setlength\paperheight {218mm}%
-  \setlength\paperwidth  {152mm}}
-\DeclareOption{kikulong}{%
-  \setlength\paperheight {227mm}%
-  \setlength\paperwidth  {152mm}}
-\DeclareOption{shiroku}{%
-  \setlength\paperheight {188mm}%
-  \setlength\paperwidth  {127mm}}
-\DeclareOption{octavo}{%
-  \setlength\paperheight {221mm}%
-  \setlength\paperwidth  {142mm}}  
-\DeclareOption{americanoctavo}{%
-  \setlength\paperheight {228mm}%
-  \setlength\paperwidth  {153mm}}
-\DeclareOption{kikubai}{%
-  \setlength\paperheight {304mm}%
-  \setlength\paperwidth  {218mm}}
-
 \newif\if@landscape
 \@landscapefalse
 \DeclareOption{landscape}{\@landscapetrue}
@@ -136,12 +114,7 @@
 \DeclareOption{30pt}{\def\jsc@magscale{2.986}}
 \DeclareOption{36pt}{\def\jsc@magscale{3.583}}
 \DeclareOption{43pt}{\def\jsc@magscale{4.300}}
-\DeclareOption{8Q} {\def\jsc@magscale{0.6153846}}% 1pt*8Q/13Q
-\DeclareOption{9Q} {\def\jsc@magscale{0.692307}}% 1pt*9Q/13Q
-\DeclareOption{10Q} {\def\jsc@magscale{0.76923}}% 1pt*10Q/13Q
-\DeclareOption{11Q} {\def\jsc@magscale{0.84615}}% 1pt*11Q/13Q
 \DeclareOption{12Q} {\def\jsc@magscale{0.923}}% 1pt*12Q/13Q
-\DeclareOption{13Q} {\def\jsc@magscale{1.0}}% 1pt*13Q/13Q
 \DeclareOption{14Q} {\def\jsc@magscale{1.077}}% 1pt*14Q/13Q
 \DeclareOption{10ptj}{\def\jsc@magscale{1.085}}% 1pt*10bp/13Q
 \DeclareOption{10.5ptj}{\def\jsc@magscale{1.139}}
@@ -413,9 +386,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \if@slide
       \ltjsetxkanjiskip .1em
     \else
-       \ltjsetxkanjiskip .25\zw
-%      \ltjsetxkanjiskip .15em plus .10em minus .06em   
-%      \ltjsetxkanjiskip .25em plus .15em minus .06em %original
+      \ltjsetxkanjiskip .25em plus .15em minus .06em
     \fi
   \fi}
 \def\jsc@setfontsize#1#2#3{%
@@ -461,10 +432,8 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \setbox0=\box\voidb@x
 \newcommand{\small}{%
   \ltj@@ifnarrowbaselines
-    {\jsc@setfontsize\small\@ixpt{11}}%original
-    {\jsc@setfontsize\small\@ixpt{13}}%original
-   %  {\jsc@setfontsize\small{9.090909}{11}}%
-   %  {\jsc@setfontsize\small{9.090909}{13}}%
+    {\jsc@setfontsize\small\@ixpt{11}}%
+    {\jsc@setfontsize\small\@ixpt{13}}%
   \abovedisplayskip 9\jsc@mpt \@plus3\jsc@mpt \@minus4\jsc@mpt
   \abovedisplayshortskip  \z@ \@plus3\jsc@mpt
   \belowdisplayskip \abovedisplayskip
@@ -490,11 +459,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \if@twocolumn
   \newcommand{\large}{\jsc@setfontsize\large\@xiipt{\n@baseline}}
 \else
-  \newcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
-%  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
+  \newcommand{\large}{\jsc@setfontsize\large\@xiipt{17}}
+%  \newcommand{\large}{\jsc@setfontsize\large\@xipt{17}}
 \fi
-\newcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
-%\newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
+\newcommand{\Large}{\jsc@setfontsize\Large\@xivpt{21}}
 \newcommand{\LARGE}{\jsc@setfontsize\LARGE\@xviipt{25}}
 \newcommand{\huge}{\jsc@setfontsize\huge\@xxpt{28}}
 \newcommand{\Huge}{\jsc@setfontsize\Huge\@xxvpt{33}}
@@ -514,12 +482,9 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \else
   \setlength\parindent{1\zw}
 \fi
-%\@lowpenalty   51%original
-%\@medpenalty  151%original
-%\@highpenalty 301%original
-\@lowpenalty  0
-\@medpenalty 51
-\@highpenalty 151
+\@lowpenalty   51
+\@medpenalty  151
+\@highpenalty 301
 \setlength\topskip{1.38\zh}%% from 10\jsc@mpt (2016-08-17)
 \if@slide
   \setlength\headheight{0\jsc@mpt}
@@ -671,7 +636,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \hbox to \fullwidth{\textbf{\thepage}\hfil}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{%
-    \hbox to \fullwidth{\hfil\normalfont{\thepage}}\hss}}
+    \hbox to \fullwidth{\hfil\textbf{\thepage}}\hss}}
 \if@report \let\ps@plain\ps@plainfoot \else \let\ps@plain\ps@plainhead \fi
 \newif\if@omit@number
 \def\ps@headings{%
@@ -680,11 +645,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \def\@evenhead{%
     \if@mparswitch \hss \fi
     \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-%      \textbf{\thepage}\hfil\leftmark}}%
-       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+        \textbf{\thepage}\hfil\leftmark}}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+        {\if@twoside\rightmark\else\leftmark\fi}\hfil\textbf{\thepage}}}\hss}%
   \let\@mkboth\markboth
   \def\chaptermark##1{\markboth{%
     \ifnum \c@secnumdepth >\m@ne
@@ -703,7 +667,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \let\@oddfoot\@empty\let\@evenfoot\@empty
   \def\@evenhead{%
     \if@mparswitch \hss \fi%
-    \hbox to \fullwidth{\thepage\hfil\scshape{\leftmark}}%
+    \hbox to \fullwidth{\thepage\hfil\leftmark}%
     \if@mparswitch\else \hss \fi}%
   \def\@oddhead{%
     \hbox to \fullwidth{\rightmark\hfil\thepage}\hss}%
@@ -1049,7 +1013,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
    {\parindent \z@ \centering \normalfont                                
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter
-        \Huge\headfont\scshape \@chapapp\thechapter\@chappos
+        \Huge\headfont \@chapapp\thechapter\@chappos
 %         \Large\headfont \@chapapp\thechapter\@chappos%変更
         \par\nobreak
 %        \vskip \Cvs % 欧文は20pt
@@ -1058,7 +1022,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \fi
     \interlinepenalty\@M
 %    \Huge \headfont #1\par\nobreak
-     \LARGE \headfont\scshape #1\par\nobreak%変更
+     \LARGE \headfont #1\par\nobreak%変更
 %    \vskip 3\Cvs}} % 欧文は40pt
      \vskip 1\Cvs}} %変更
 \def\@schapter#1{%
@@ -1074,7 +1038,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   {\parindent \z@ \centering
     \normalfont
     \interlinepenalty\@M
-    \Huge \headfont\scshape #1\par\nobreak
+    \Huge \headfont #1\par\nobreak
 %     \LARGE \headfont #1\par\nobreak%変更
     \vskip 3\Cvs}} % 欧文は40pt
 \if@twocolumn
@@ -1086,13 +1050,11 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
   \newcommand{\section}{%
     \if@slide\clearpage\fi
     \@startsection{section}{1}{\z@}%
-%    {1\zw \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-%    {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {1.7\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
 %    {\z@}
-%   {.125\Cvs \@plus.3\Cdp}% 後アキ
-%   {0\Cvs \@plus.0\Cdp}% 後アキ
-    {2\zw}{1\zw}%前アキ後アキ
-    {\normalfont\Large\headfont\centering}}%raggedrightから変更
+%    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {0\Cvs \@plus.0\Cdp}% 後アキ
+    {\normalfont\Large\headfont\scshape\centering}}%raggedrightから変更
 %    {\normalfont\LARGE\headfont\raggedright}}
 \fi
 \if@twocolumn
@@ -1102,12 +1064,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
 \else
   \newcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
 %     {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-%     {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+     {\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
 %     {1.7\Cvs \@plus1.7\Cdp}% 後アキ
-%     {1\Cvs \@plus.5\Cdp}%
-      {.5\zw}%前アキ
-      {0pt}%後アキ
-    {\normalfont\large\headfont\centering}}%largeから変更
+     {1\Cvs \@plus.5\Cdp}%
+    {\normalfont\large\headfont\scshape\centering}}%largeから変更
 \fi
 \if@twocolumn
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
@@ -1115,47 +1075,36 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\normalsize\headfont}}%normalsizeから変更
 \else
   \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-%  {0\Cvs \@plus.125\Cdp \@minus0\Cdp}%前アキ
-%  {1.25mm \@plus0.25mm \@minus1.25mm}%前アキ
- %   {1sp \@plus.125\Cdp \@minus1sp}%前アキ
-%   {\z@}%前アキ
-   {0.5\zw}%前アキ
-    % {1sp}%前アキ
-%   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%前アキ
- %   {0pt \@plus.25\zw \@minus0pt}%前アキ
-  %  {-.25\Cvs \@plus -.01 \@minus -0}%後アキ
-  % {0\Cvs \@plus.0\Cdp}%後アキ
-    {0pt}%後アキ
-    % {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.25\zw\fi}%%改行せず1\zwのアキ
-%     {\normalfont\normalsize\headfont}}
-   {\normalfont\fourteenq\headfont\leftskip -1\zw}}
- %  {\normalfont\large\subheadfont\raggedright\vskip-.2\zw}}
+%    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+%   {\z@}%
+%   {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    {0\zw}%前アキ
+    {0\zw}%後アキ
+   %{0\Cvs \@plus.0\Cdp}%
+   {\normalfont\normalsize\headfont\raggedright}}
 %    {\normalfont\normalsize\itshape\hskip 2.5\zw}}
 \fi
 \newcommand{\jsParagraphMark}{■}
 \if@twocolumn
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
 %    {\z@}{\if@slide .4\Cvs \else -1\zw\fi}% 改行せず 1\zw のアキ
-  %   {0\Cvs \@plus.0\Cdp \@minus.5\Cdp}%前アキoriginal
+  %   {0\Cvs \@plus.0\Cdp \@minus.5\Cdp}%前アキ
  %    {\Cvs \@plus.5\Cdp \@minus.5\Cdp}%前アキ
-     {.5\Cvs \@plus-.5\Cdp \@minus-.5\Cdp}%前アキ  
-     {1sp}%後アキ
+     {-1\zw}%前アキ  
+     {0.5\zw}%後アキ
 %     {.5\Cvs \@plus.5\Cdp}%後アキ
 %    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
-     {\normalfont\normalsize\headfont}}
-%      {\normalfont\small\headfont\hskip -1\zw}}
+     {\normalfont\small\headfont}}
 \else
   \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-%    {0\Cvs \@plus.0\Cdp \@minus.0Cdp}%
-%    {.1sp \@plus -1ex \@minus -1ex}%
-     {0pt}%
+%    {0\Cvs \@plus.0\Cdp \@minus.2\Cdp}%
+ %   {\Cvs \@plus.0\Cdp \@minus.5\Cdp}%
 %    {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-%     {\@minus5ex}%前アキ
-     {0\zw}%後アキ     
-%    {.5\Cvs \@plus.0\Cdp}%
-    {\normalfont\normalsize\headfont}}%normalsizeから変更
-%     {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
-%     {\normalfont\small\headfont\vskip -1ex}}
+     {1\zw}%前アキ
+     {0.5\zw}%後アキ     
+%    {.5\Cvs \@plus.5\Cdp}%
+%    {\normalfont\normalsize\headfont\jsParagraphMark}}%normalsizeから変更
+    {\normalfont\normalsize\headfont\hskip .1\zw}}%normalsizeから変更
 \fi
 \if@twocolumn
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
@@ -1163,10 +1112,10 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     {\normalfont\small\headfont}}%normalsizeから変更
 \else
   \newcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.25\zw\fi}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}%
 %    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else 0\zw\fi}%
-    {\normalfont\normalsize\headfont}}
-%    {\normalfont\normalsize\itshape\hskip 1\zw}}
+    {\normalfont\small\headfont}}
+%    {\normalfont\normalsize\itshape\hskip 2\zw}}
 \fi
 \if@slide
   \setlength\leftmargini{1\zw}
@@ -1245,7 +1194,7 @@ option, since LuaTeX does not support \string\mag\MessageBreak in pdf output}%
     \labelsep=1\zw
     \advance \labelwidth by -\labelsep
     \let \makelabel=\descriptionlabel}}{\endlist}
-\newcommand*\descriptionlabel[1]{\normalfont\headfont\scshape #1\hfil}
+\newcommand*\descriptionlabel[1]{\normalfont\headfont #1\hfil}
 \newenvironment{abstract}{%
   \begin{list}{}{%
     \listparindent=1\zw

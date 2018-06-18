@@ -1,11 +1,19 @@
-% エスコフィエ『料理の手引き』全注解
-% 五 島　学
+---
+title: エスコフィエ『料理の手引き』全注解
+author: 五 島　学
+pandoc-latex-environment:
+  Main: [main]
+  recette: [recette]
+---
+
+
 
 \setlength{\parindent}{1\zw}
 
 
 \vspace*{4\zw}
 
+<div class="main">
 
 ## ヘストン・ブルメンタールによる英訳第5版への序文 {#preface-heston-blumenthal}
 
@@ -93,3 +101,5 @@
     メリケーヌ](#garniture-americaine)および各訳注参照。
 
 [^2]: [「第二版序文」とりわけp.vii]{#la-simplicite}参照。
+
+</div>
