@@ -1,19 +1,525 @@
-y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
-\href{未、その他修正}{} \href{未、原稿最終校正}{}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[14Q,a4paperpaper,]{ltjsbook}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={エスコフィエ『料理の手引き』全注解},
+            pdfauthor={五 島　学},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{エスコフィエ『料理の手引き』全注解}
+\author{五 島　学}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
+\usepackage{setspace}
+
+
+% %%%%%%%%% hyperref %%%%%%%%%%%%%
+% \usepackage{refcount}
+% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+% \hypersetup{hyperindex=false,%
+%              breaklinks=true,%
+%              bookmarks=true,%
+%              pdfauthor={五島　学},%
+%              pdftitle={エスコフィエ『料理の手引き』全注解},%
+%              colorlinks=false%true,%
+%              %colorlinks=true,%
+%              citecolor=blue,%
+%              urlcolor=cyan,%
+%              linkcolor=magenta,%
+%              bookmarksdepth=subsubsection,%
+%              pdfborder={0 0 0},%
+%              hyperfootnotes=false,%
+%              plainpages=false,
+%              }
+% \urlstyle{same}
+
+
+
+
+
+%% 欧文フォント設定
+% Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+     
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{Main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{Main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%文字サイズ、見出しなどの再定義
+\makeatletter
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\makeatother
+
+\newenvironment{frchapenv}{\vspace*{-2ex}\begin{center}\normalfont\headfont%
+    \LARGE\setstretch{0.8}\normalfont\normalsize\scshape%
+    }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecenv}{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\normalfont\normalsize\scshape%
+}{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\normalfont\normalsize\scshape%
+}{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecenv}{\vspace*{-2ex}%
+  \begin{center}\normalfont\headfont\large\setstretch{0.8}\normalfont\normalsize\scshape}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+\makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+\include{sauces-index-def.tex}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
+\setlength{\evensidemargin}{\oddsidemargin}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{45\zw}
+\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{265mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+
+
+
+
+
+\begin{document}
+\maketitle
+
+\begin{Main}
 
 \hypertarget{grandes-sauces-de-base}{%
 \section{基本ソース}\label{grandes-sauces-de-base}}
 
-\frsec{Grandes Sauces de Base}
-\begin{recette}
+\begin{frsecenv}
+
+Grandes Sauces de Base
+
+\end{frsecenv}
+
 \index{そーす@ソース!きほん@\textbf{基本---}|(}
 \index{sauce@sauce!grandes@\textbf{Grandes ---s de Base}|(}
+
+\end{Main}
+
+\begin{recette}
 
 \hypertarget{sauce-espagnole}{%
 \subsubsection[ソース・エスパニョル]{\texorpdfstring{ソース・エスパニョル\footnote{本節冒頭では、ルーがスペインの料理人によってもたらされ、その結果としてソース・エスパニョルが作られるようになったと読める記述があるが、これはむしろ誤りと考えるべき。エスパニョル
   espagnol(e)は「スペイン（風）の」意だが、スペイン料理起源というわけでもない。スペインを想起させるトマトを使うから、あるいは、ソースが茶褐色なのがムーア系スペイン人を想起させるから、など定説はない。カレーム『19世紀フランス料理』第3巻に収められたソース・エスパニョルの作り方は、フォンをとるところから始まり4ページにわたって詳細なものとなっている（pp.8-11）。その中で、肉を入れた鍋に少量のブイヨンを注いで煮詰めることを繰り返す。ここまでは18世紀の料理書で一般的な手法であるが、その後に大量のブイヨンを注いだ後、いきなり強火にかけるのではなく、弱火で加熱していくやり方を「スペイン式の方法」と述べている。カレームにおいては、これがソースの名称の根拠のひとつになっていると考えていいだろう。もちろん、ソース・エスパニョルという名称のソースはカレーム以前からあり、1806年刊のヴィアール『帝国料理の本』にもカレームのレシピより簡単だが、ほぼ同様のものが基本ソースとして収録されている。また、それ以前にもソース・エスパニョルに類する名称のソースはあったが、たとえば1739年刊ムノン『新料理研究』第2巻にある「スペイン風ソース」はかなり趣きが異なる（コリアンダーひと把みを加えるのが特徴的）。同じ料理名でも時代や料理書の著者によってまったく違う料理になっていることは、食文化史において珍しいことではない。また、とりわけ料理名に地名、国名が冠されているものの中には根拠や由来のはっきりしないものも多い。いずれにしても、本書のソース・エスパニョルの源流は19世紀初頭のヴィアールあたりからと考えられる。ソース・エスパニョルは19世紀を通して普及し、茶色いソースの代表的な存在となった。こんにちでもフォンドヴォーをベースとしたソースは、ルーでとろみ付けこそしないが、仔牛の骨などから出るコラーゲンによるとろみを利用したもので、仕上がりの色合いや、ごく標準的ともいえる風味付けの方法などが引継がれ続けている調理現場も少なくない。もっとも、上述のように本書では「茶色いルー」を使うところに「エスパニョル」であることの理由を見い出そうとしていると解釈される。}}{ソース・エスパニョル}}\label{sauce-espagnole}}
 
-\frsub{Sauce espagnole}
+\begin{frsubenv}
+
+Sauce espagnole
+
+\end{frsubenv}
 
 \index{そーす@ソース!えすはによる@---・エスパニョル}
 \index{えすはによる@エスパニョル!そーす@ソース・---}
@@ -64,10 +570,8 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
   Lを注ぎ足す。さらに2時間、微沸騰の状態を保ちながら煮込む。その後、陶製の鍋に移し、ゆっくり混ぜながら冷ます。
 \item
   翌日、再び厚手の片手鍋に移してから、フォン2 Lとトマトピュレ1
-  Lまたは同等の生のトマトつまり2 kgを加える。\\
-  トマトピュレを用いる場合は、あらかじめオーブンでほとんど茶色になるまで焼いておくといい。そうするとトマトピュレの酸味を抜くことが出来る。\\
-  そうすればソースを澄ませる作業が楽になるし、ソースの色合いも温かそうで美しいものになる。\\
-  ソースをヘラか泡立て器で混ぜながら強火で沸騰させる。弱火にして1時間微沸騰の状態を保つ。最後に、表面に浮いている不純物を、細心の注意を払いながら徹底的に取り除く。布で漉し、完全に冷めるまで、ゆっくり混ぜ続けること\footnote{この、ヘラなどでゆっくり混ぜながら冷ます作業を
+  Lまたは同等の生のトマトつまり2
+  kgを加える。トマトピュレを用いる場合は、あらかじめオーブンでほとんど茶色になるまで焼いておくといい。そうするとトマトピュレの酸味を抜くことが出来る。そうすればソースを澄ませる作業が楽になるし、ソースの色合いも温かそうで美しいものになる。ソースをヘラか泡立て器で混ぜながら強火で沸騰させる。弱火にして1時間微沸騰の状態を保つ。最後に、表面に浮いている不純物を、細心の注意を払いながら徹底的に取り除く。布で漉し、完全に冷めるまで、ゆっくり混ぜ続けること\footnote{この、ヘラなどでゆっくり混ぜながら冷ます作業を
     vanner
     （ヴァネ）すると呼ぶが、日本の調理現場ではあまり用いられていない。}。
 \end{enumerate}
@@ -84,7 +588,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \hypertarget{sauce-espagnole-maigre}{%
 \subsubsection[魚料理用ソース・エスパニョル]{\texorpdfstring{魚料理用ソース・エスパニョル\footnote{フランス語のソース名にあるmaigre（メーグル）はこの場合、一般的に「魚用、魚料理用」と訳すが、厳密には「小斉の際の料理用」となろう。小斉とは、カトリックで古くから特定の期間、曜日に肉類を断つ食事をする宗教的食習慣。日本の「お精進」とニュアンスは近いが、小斉においては忌避されるのは鳥獣肉のみであり、魚介や乳製品はいいとされた。こじつけのように、水鳥は水のものだから魚介扱いであり、またイルカも魚類として扱われていた。小斉が行なわれるのは復活祭の前46日間（四旬節、逆に言えばカーニバルの最終日マルディグラの翌日から46日）と、週に一度（多くの場合は金曜）であった。合計すると小斉が行なわれるのは年間100日近くもあり、中世から18世紀の料理人たちは小斉の宴席に供する料理に工夫を凝らしていた。この習慣は19世紀になるとだんだん廃れていき、エスコフィエの時代には、料理人に対して小斉のための料理を要求することは少なくなっていった。}}{魚料理用ソース・エスパニョル}}\label{sauce-espagnole-maigre}}
 
-\frsub{Sauce espagnole maigre}
+\begin{frsubenv}
+
+Sauce espagnole maigre
+
+\end{frsubenv}
 
 \index{そーす@ソース!えすはによるるさかな@---・エスパニョル (魚料理用)}
 \index{えすはによる@エスパニョル!そーすさかなよう@ソース・--- (魚料理用)}
@@ -132,7 +640,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \hypertarget{sauce-demi-glace}{%
 \subsubsection[ソース・ドゥミグラス]{\texorpdfstring{ソース・ドゥミグラス\footnote{日本の洋食などで一般的な「デミグラス」あるいは「ドミグラス」」とはかなり異なった仕上りのソースであることに注意。ソース・エスパニョルの仕上げにあたって、徹底的に不純物を取り除くことを何度も強調しているのは、透き通った茶色がかった色合いの、なめらかなソースを目指すからであり、それをさらに徹底させるということは、透明度、なめらかさの面でさらに上を目指すということを意味するからだ。ちなみに、アメリカに本社のあるメーカーの「デミグラスソース」の缶詰はもっぱら日本で販売されている製品であり、ヨーロッパおよびアメリカでは同一ブランドに該当する商品は存在しないようだ。}}{ソース・ドゥミグラス}}\label{sauce-demi-glace}}
 
-\frsub{Sauce demi-glace}
+\begin{frsubenv}
+
+Sauce demi-glace
+
+\end{frsubenv}
 
 \index{そーす@ソース!とうみくらす@---・ドゥミグラス}
 \index{とうみくらす@ドゥミグラス!そーす@ソース・---}
@@ -155,7 +667,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \hypertarget{jus-de-veau-lie}{%
 \subsubsection{とろみを付けた仔牛のジュ}\label{jus-de-veau-lie}}
 
-\frsub{Jus de veau lié}
+\begin{frsubenv}
+
+Jus de veau lié
+
+\end{frsubenv}
 
 \index{しゆ@ジュ!こうしのしゆ@仔牛の---(とろみを付けた)}
 \index{そーす@ソース!とろみをつけたこうしのしゆ@とろみを付けた仔牛のジュ}
@@ -193,7 +709,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \subsubsection[ヴルテ（標準的な白いソース）]{\texorpdfstring{ヴルテ\footnote{velouté
   （ヴルテ）原義は「ビロードのように柔らかな、なめらかな」。日本ではベシャメルソースと混同されやすいが、内容がまったく異なるソースなので注意。}（標準的な白いソース）}{ヴルテ（標準的な白いソース）}}\label{veloute}}
 
-\frsub{Velouté, ou sauce blanche graisse}
+\begin{frsubenv}
+
+Velouté, ou sauce blanche graisse
+
+\end{frsubenv}
 
 \index{うるて@ヴルテ!ひようひゆんてきなそーすうるて@標準的なソース・---}
 \index{そーす@ソース!うるてひようひゆん@ヴルテ（標準的な）}
@@ -225,7 +745,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \hypertarget{veloute-de-volaille}{%
 \subsubsection{鶏のヴルテ}\label{veloute-de-volaille}}
 
-\frsub{Velouté de volaille}
+\begin{frsubenv}
+
+Velouté de volaille
+
+\end{frsubenv}
 
 \index{うるて@ヴルテ!とりのうるて@鶏の---（ヴルテドヴォライユ）}
 \index{そーす@ソース!うるてとり@ヴルテ（鶏）}
@@ -244,7 +768,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \hypertarget{veloute-de-poisson}{%
 \subsubsection{魚料理用ヴルテ}\label{veloute-de-poisson}}
 
-\frsub{Velouté de poisson}
+\begin{frsubenv}
+
+Velouté de poisson
+
+\end{frsubenv}
 
 \index{うるて@ヴルテ!さかなうるて@魚料理用---}
 \index{そーす@ソース!うるてさかな@ヴルテ(魚料理用)}
@@ -263,7 +791,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \subsubsection[ソース・アルマンド（パリ風ソース）]{\texorpdfstring{ソース・アルマンド（パリ風ソース\footnote{原書では「パリ風ソース（元ソース・アルマンド）」となっているが、後述のように、こんにちでもソース・アルマンドの名称のほうが一般的であるため、ここではSauce
   Parisienneの「訳語」としてソース・アルマンドをあてることとした。}）}{ソース・アルマンド（パリ風ソース）}}\label{sauce-allemande}}
 
-\frsub{Sauce parisienne (ex-Allemande)}
+\begin{frsubenv}
+
+Sauce parisienne (ex-Allemande)
+
+\end{frsubenv}
 
 \index{そーす@ソース!ぱりふう@パリ風--- ⇒ ---・アルマンド}
 \index{はりふう@パリ風!そーす@---ソース ⇒ ---・アルマンド}
@@ -316,7 +848,11 @@ y\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
 \subsubsection[ソース・シュプレーム]{\texorpdfstring{ソース・シュプレーム\footnote{suprême
   原義は「至高の」だが、料理においてはしばしば鶏や鴨の胸肉、白身魚のフィレなどを意味する。また、このソースのように、とくに意味もなくこの名を料理につけられているケースも多い。}}{ソース・シュプレーム}}\label{sauce-supreme}}
 
-\frsub{Sauce supême}
+\begin{frsubenv}
+
+Sauce supême
+
+\end{frsubenv}
 
 \index{そーす@ソース!そーすしゆふれーむ@---・シュプレーム}
 \index{しゆふれーむ@シュプレーム!そーす@ソース・---}
@@ -351,7 +887,11 @@ gを加えてゆっくり混ぜながら冷ますと、丁度最初のヴルテ�
 \subsubsection[ベシャメルソース]{\texorpdfstring{ベシャメルソース\footnote{17世紀にルイ14世のメートルドテルを務めたこともあるルイ・ベシャメイユLouis
   Béchameil（1630〜1703）の名が冠されているこのソースは、彼自身の創案あるいは彼に仕えていた料理人によるものという説もあったが真偽は疑わしい。17世紀頃の成立であることは確かだが、おそらくは古くからあったソースを改良したものに過ぎず、また、19世紀前半のカレームのレシピはヴルテを煮詰め、卵黄と煮詰めた生クリームでとろみを付けるというものだった。同様に1867年刊グフェ『料理の本』のレシピも、炒めた仔牛肉と野菜に小麦粉を振りかけてからブイヨン注ぎ、これを煮詰め、漉してから生クリームを加えるというものだった。}}{ベシャメルソース}}\label{sauce-bechamel}}
 
-\frsub{Sauce Béchamel}
+\begin{frsubenv}
+
+Sauce Béchamel
+
+\end{frsubenv}
 
 \index{そーす@ソース!へしやめる@ベシャメル---}
 \index{へしやめる@ベシャメル!そーす@---ソース}
@@ -381,7 +921,11 @@ gを加えてゆっくり混ぜながら冷ますと、丁度最初のヴルテ�
 \hypertarget{sauce-tomate}{%
 \subsubsection{トマトソース}\label{sauce-tomate}}
 
-\frsub{Sauce tomate}
+\begin{frsubenv}
+
+Sauce tomate
+
+\end{frsubenv}
 
 \index{そーす@ソース!とまとそーす@トマト---}
 \index{とまと@トマト!ソース@---ソース}
@@ -417,4 +961,7 @@ gを加えてゆっくり混ぜながら冷ますと、丁度最初のヴルテ�
 
 \index{そーす@ソース!きほん@\textbf{基本---}|)}
 \index{sauce@sauce!grandes@\textbf{Grandes ---s de Base}|)}
+
 \end{recette}
+
+\end{document}

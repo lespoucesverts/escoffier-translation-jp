@@ -1,48 +1,7 @@
-%%
-% Copyright (c) 2018, Pascal Wagler;  
-% Copyright (c) 2014--2018, John MacFarlane
-% 
-% All rights reserved.
-% 
-% Redistribution and use in source and binary forms, with or without 
-% modification, are permitted provided that the following conditions 
-% are met:
-% 
-% - Redistributions of source code must retain the above copyright 
-% notice, this list of conditions and the following disclaimer.
-% 
-% - Redistributions in binary form must reproduce the above copyright 
-% notice, this list of conditions and the following disclaimer in the 
-% documentation and/or other materials provided with the distribution.
-% 
-% - Neither the name of John MacFarlane nor the names of other 
-% contributors may be used to endorse or promote products derived 
-% from this software without specific prior written permission.
-% 
-% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
-% INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-% POSSIBILITY OF SUCH DAMAGE.
-%%
-
-%%
-% For usage information and examples visit the GitHub page of this template:
-% https://github.com/Wandmalfarbe/pandoc-latex-template
-%%
-
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{svgnames*,table}{xcolor}
 %
-\documentclass[14Q,a4paperpaper,,tablecaptionabove]{scrartcl}
+\documentclass[14Q,a4paperpaper,]{ltjsbook}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -70,12 +29,9 @@
 }
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={エスコフィエ『料理の手引き』全注解},
-            pdfauthor={五 島　学},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -90,225 +46,82 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-% Make use of float-package and set default placement for figures to H
-\usepackage{float}
-\floatplacement{figure}{H}
-
-
-\title{エスコフィエ『料理の手引き』全注解}
-\author{五 島　学}
-\date{}
-
-
-
-
-
-%%
-%% added
-%%
-
-%
-% No language specified? take American English.
-%
-
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,main=english]{babel}
-\else
-    % See issue https://github.com/reutenauer/polyglossia/issues/127
-  \renewcommand*\familydefault{\sfdefault}
-    % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{japanese}
-\fi
-
-
-%
-% colors
-%
-\usepackage[]{xcolor}
-
-%
-% listing colors
-%
-\definecolor{listing-background}{HTML}{F7F7F7}
-\definecolor{listing-rule}{HTML}{B3B2B3}
-\definecolor{listing-numbers}{HTML}{B3B2B3}
-\definecolor{listing-text-color}{HTML}{000000}
-\definecolor{listing-keyword}{HTML}{435489}
-\definecolor{listing-identifier}{HTML}{435489}
-\definecolor{listing-string}{HTML}{00999A}
-\definecolor{listing-comment}{HTML}{8E8E8E}
-\definecolor{listing-javadoc-comment}{HTML}{006CA9}
-
-%\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
-%\definecolor{listing-rule}{HTML}{B3B2B3}
-%\definecolor{listing-numbers}{HTML}{B3B2B3}
-%\definecolor{listing-text-color}{HTML}{000000}
-%\definecolor{listing-keyword}{HTML}{D8006B}
-%\definecolor{listing-identifier}{HTML}{000000}
-%\definecolor{listing-string}{HTML}{006CA9}
-%\definecolor{listing-comment}{rgb}{0.25,0.5,0.35}
-%\definecolor{listing-javadoc-comment}{HTML}{006CA9}
-
-%
-% for the background color of the title page
-%
-
-%
-% TOC depth and 
-% section numbering depth
-%
-\setcounter{tocdepth}{3}
-
-%
-% line spacing
-%
-\usepackage{setspace}
-\setstretch{1.2}
-
-%
-% break urls
-%
-\PassOptionsToPackage{hyphens}{url}
-
-%
-% When using babel or polyglossia with biblatex, loading csquotes is recommended 
-% to ensure that quoted texts are typeset according to the rules of your main language.
-%
-\usepackage{csquotes}
-
-%
-% captions
-%
-\definecolor{caption-color}{HTML}{777777}
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=raggedright]{caption}
-\setcapindent{0em}
-\captionsetup[longtable]{position=above}
-
-%
-% blockquote
-%
-\definecolor{blockquote-border}{RGB}{221,221,221}
-\definecolor{blockquote-text}{RGB}{119,119,119}
-\usepackage{mdframed}
-\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
-\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
-\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
-
-%
-% Source Sans Pro as the de­fault font fam­ily
-% Source Code Pro for monospace text
-%
-% 'default' option sets the default 
-% font family to Source Sans Pro, not \sfdefault.
-%
-\usepackage[default]{sourcesanspro}
-\usepackage{sourcecodepro}
-
-%
-% heading color
-%
-\definecolor{heading-color}{RGB}{40,40,40}
-\addtokomafont{section}{\color{heading-color}}
-% When using the classes report, scrreprt, book, 
-% scrbook or memoir, uncomment the following line.
-%\addtokomafont{chapter}{\color{heading-color}}
-
-%
-% variables for title and author
-%
-\usepackage{titling}
-\title{エスコフィエ『料理の手引き』全注解}
-\author{五 島　学}
-
-%
-% tables
-%
-
-%
-% remove paragraph indention
-%
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-
-%
-%
-% Listings
-%
-%
-
-
-%
-% header and footer
-%
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\lhead{エスコフィエ『料理の手引き』全注解}
-\chead{}
-\rhead{}
-\lfoot{五 島　学}
-\cfoot{}
-\rfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-
-%%
-%% end added
-%%
-%% begin added by MGOTO
-
-\newcommand{\frchap}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-\newcommand{\frsec}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\large\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-  
-\newcommand{\frsecb}[1]{\vspace*{-2ex}%
-\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
-  \hspace{1em}\scshape#1\normalfont\normalsize%
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-
-\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
-\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
-
-\newenvironment{Main}{}{}
-
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
-
+% set default figure placement to htbp
 \makeatletter
-
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 4mm}
-%\usepackage{footnpag}
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 0\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
-\let\footnotes@ve=\footnote
-\def\footnote{\inhibitglue\footnotes@ve}
-\let\footnotemarks@ve=\footnotemark
-%\def\footnotemark{\inhibitglue\footnotemarks@ve}
-\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
-%\makeatletter
-% \@addtoreset{footnote}{page}
-% \makeatother
-%\usepackage{dblfnote}
-%\usepackage[bottom,perpage]{footmisc}
-
+\def\fps@figure{htbp}
 \makeatother
+
+
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
+\usepackage{setspace}
+
+
+% %%%%%%%%% hyperref %%%%%%%%%%%%%
+% \usepackage{refcount}
+% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+% \hypersetup{hyperindex=false,%
+%              breaklinks=true,%
+%              bookmarks=true,%
+%              pdfauthor={五島　学},%
+%              pdftitle={エスコフィエ『料理の手引き』全注解},%
+%              colorlinks=false%true,%
+%              %colorlinks=true,%
+%              citecolor=blue,%
+%              urlcolor=cyan,%
+%              linkcolor=magenta,%
+%              bookmarksdepth=subsubsection,%
+%              pdfborder={0 0 0},%
+%              hyperfootnotes=false,%
+%              plainpages=false,
+%              }
+% \urlstyle{same}
+
+
+
+
+
+%% 欧文フォント設定
+% Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+     
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
 
 %リスト環境
 \def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
@@ -336,22 +149,327 @@
   \let\@listvi\@listii
 \makeatother
 
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{Main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{Main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%文字サイズ、見出しなどの再定義
+\makeatletter
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\makeatother
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+\makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+\include{sauces-index-def.tex}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
+\setlength{\evensidemargin}{\oddsidemargin}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{45\zw}
+\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{265mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+
+
+
+
+
 \begin{document}
 
-%%
-%% begin titlepage
-%%
-
-
-%%
-%% end titlepage
-%%
-
-
-{
-\setcounter{tocdepth}{2}
-\tableofcontents
-}
 \hypertarget{petites-sauces-blanches}{%
 \section{ホワイト系の派生ソース}\label{petites-sauces-blanches}}
 
@@ -365,7 +483,7 @@
   Louis-Gabriel Suchet, duc d'Albufera
   (1770〜1826）のこと。スペイン戦役の際にそれまでの軍功を称えられ、ナポレオンが1812年にアルビュフェラ公爵位を新設して授けた。帝政期の英雄のひとりであり、アルビュフェラおよびスーシェの名を冠した料理がいくつかある。1814年に帝政が崩壊した後も軍務、政務に携わり、最終的にフランス貴族院議員の地位を得た。アルビュフェラ公爵位については、1815年7月24日の勅令においてに正式に抹消されている。このソースの特徴は赤ピーマン（パプリカ）を加熱してなめらかにすり潰し、バターに練り込んだものを使う点にあるが、どのような経緯でこのソースに赤ピーマンを用いるようになったのかは不明。ただし、このソースを合わせる\protect\hyperlink{poularde-albufera}{「肥鶏　アルビュフェラ」}は詰め物（ファルス）に米を用いるが、アルビュフェラは湖の周辺の湿地帯で米の生産がおこなわれているという点では一応の関連性が認められよう。なお、アルビュフェラはバレンシアの湖とそこに形成された潟であり、現在はバレンシア州のアルブフェーラ自然公園となっている。}}{ソース・アルビュフェラ}}\label{sauce-albufera}}
 
-\frsub{Sauce Albuféra}
+Sauce Albuféra
 
 \index{そーす@ソース!あるひゆふえら@---・アルビュフェラ}
 \index{あるひゆふえら@アルビュフェラ!そーす@ソース・---}
@@ -759,7 +877,7 @@ Lあたり大さじ4 杯のケイパーを提供直前に加える。
 \atoaki{}
 
 \hypertarget{sauce-cardinal}{%
-\subsubsection[ソース・カルディナル]{\texorpdfstring{ソース・カルディナル\footnote{カトリックの\ruby{枢機卿}{すうききよう}（カルディナル）の衣が伝統的に赤いものであること、およびオマールが「海の枢機卿」と呼ばれることに由来。}}{ソース・カルディナル}}\label{sauce-cardinal}}
+\subsubsection[ソース・カルディナル]{\texorpdfstring{ソース・カルディナル\footnote{カトリックの\ruby{すうききよう}{枢機卿}（カルディナル）の衣が伝統的に赤いものであること、およびオマールが「海の枢機卿」と呼ばれることに由来。}}{ソース・カルディナル}}\label{sauce-cardinal}}
 
 \frsub{Sauce Cardinal}
 
@@ -944,7 +1062,7 @@ dLを沸かし、セルフイユとエストラゴン、刻んだシブレット
 最初に示したとおりの分量で\protect\hyperlink{sauce-chaud-froid-blanche-ordinaire}{標準的なソース・ショフロワ}を作り、煮詰めながら、上記の香草を煎じた液体を少しずつ混ぜ込む。この段階で1
 Lになるまで煮詰めておくこと。
 
-\protect\hyperlink{}{ほうれんそうから採った緑の色素}をソースに加え、\ul{ほんのり薄い緑色}にする。
+\protect\hyperlink{}{ほうれんそうから採った緑の色素}をソースに加え、\textbf{ほんのり薄い緑色}にする。
 
 この色素を加える際にはよく注意して、上で示したとおりの色合いになるよう少しずつ投入すること。
 
@@ -1155,14 +1273,13 @@ dLの温めた牛乳で溶いて作る。それを布で強く絞って漉して
 \index[src]{diplomate@Diplomate}
 \index[src]{ていふろまつと@ディプロマット}
 
-\ruby{既}{すで}に仕上げでおいた\protect\hyperlink{sauce-normande}{ノルマンディ風ソース}1
+あらかじめ仕上げでおいた\protect\hyperlink{sauce-normande}{ノルマンディ風ソース}1
 Lに、\protect\hyperlink{beurre-de-homard}{オマールバター}75 gを加える。
 
 さいの目に切ったオマールの尾の身大さじ2杯と同様にさいの目に切ったトリュフ大さじ1杯を加えて仕上げる。
 
 \ldots{}\ldots{}大きな魚一尾まるごとの\footnote{relevé
-  （ルルヴェ）。17世紀〜19世紀前半ににスタイルとして完成したフランス式サービスでは、豪華な装飾を施した飾り台（socleソークル）に載せられ、皿の周囲を飾るようにガルニチュールが配され（borduresボルデュール）、主役である大きな塊肉や魚まるごと1尾の料理にはしばしば飾り串（hâteletアトレ）が刺してある、きわめて壮麗な大皿料理が置かれた。なお『料理の手引き』ではこうした仕立てについては時代に
-  \ruby{似}{そぐ}わないものとして、ごく簡潔にしか説明されていないが、初版、第二版に付属している献立表、および第三版以降独立して出版された『メニューの本』にはルルヴェの語はしばしば見られる。}料理用。
+  （ルルヴェ）。17世紀〜19世紀前半ににスタイルとして完成したフランス式サービスでは、豪華な装飾を施した飾り台（socleソークル）に載せられ、皿の周囲を飾るようにガルニチュールが配され（borduresボルデュール）、主役である大きな塊肉や魚まるごと1尾の料理にはしばしば飾り串（hâteletアトレ）が刺してある、きわめて壮麗な大皿料理が置かれた。なお『料理の手引き』ではこうした仕立てについては時代に\ruby{似}{そぐ}わないものとして、ごく簡潔にしか説明されていないが、初版、第二版に付属している献立表、および第三版以降独立して出版された『メニューの本』にはルルヴェの語はしばしば見られる。}料理用。
 
 \atoaki{}
 
@@ -1447,7 +1564,8 @@ gと\protect\hyperlink{}{クルヴェットバター}60 gを加えて仕上げ�
 \atoaki{}
 
 \hypertarget{sauce-laguipiere}{%
-\subsubsection[ソース・ラギピエール]{\texorpdfstring{ソース・ラギピエール\footnote{18世紀末〜19世紀初頭にかけて活躍したフランスを代表する料理人の名（？〜1812）。はじめコンデ公に仕え、革命時にコンデ公の亡命にも随行したが、後にフランスに帰国し、ナポレオン\ruby{麾下}{きか}に入った。ナポレオン自身は食に無頓着であったが、直接的にはミュラ元帥のもとで料理長として活躍した。タレーランに仕えていたアントナン・カレームは2年程の期間であったが、ラギピエールとともに宴席の仕事に携わり、生涯を通して師と仰ぐ程に尊敬してやまなかった。当然だが料理においてカレームはラギピエールから大きく影響を受け、そのことを後年、数冊の自著で明記している。ラギピエール自身はミュラ元帥に従ってロシア戦線に赴き、その撤退の途中、極寒の地で凍死した。カレームは1828年刊『パリ風の料理』の冒頭2ページを「ラギピエールの想い出に」と題し、とても力強い文体でその死を悼んだ。}}{ソース・ラギピエール}}\label{sauce-laguipiere}}
+\subsubsection[ソース・ラギピエール]{\texorpdfstring{ソース・ラギピエール\footnote{18世紀末〜19世紀初頭にかけて活躍したフランスを代表する料理人の名（？〜1812）。はじめコンデ公に仕え、革命時にコンデ公の亡命にも随行したが、後にフランスに帰国し、ナポレオン\ruby{麾下}{きか}に入った。ナポレオン自身は食に無頓着であったが、直接的にはミュラ元帥のもとで料理長として活躍した。タレーランに仕えていたアントナン・カレームは
+  2年程の期間であったが、ラギピエールとともに宴席の仕事に携わり、生涯を通して師と仰ぐ程に尊敬してやまなかった。当然だが料理においてカレームはラギピエールから大きく影響を受け、そのことを後年、数冊の自著で明記している。ラギピエール自身はミュラ元帥に従ってロシア戦線に赴き、その撤退の途中、極寒の地で凍死した。カレームは1828年刊『パリ風の料理』の冒頭2ページを「ラギピエールの想い出に」と題し、とても力強い文体でその死を悼んだ。}}{ソース・ラギピエール}}\label{sauce-laguipiere}}
 
 \frsub{Sauce Laguipière}
 
@@ -1467,13 +1585,10 @@ Lに、レモン1個の搾り汁と\protect\hyperlink{glace-de-poisson}{魚の�
 \hypertarget{nota-sauce-laguipiere}{%
 \subparagraph{【原注】}\label{nota-sauce-laguipiere}}
 
-カレームが考案したこのソースのレシピに、本書で加えた変更点はただ1箇所のみ、\protect\hyperlink{glace-de-volaille}{鶏のグラス}ではなく魚のグラスに代えたことだけだ。さらに言うと、このソースはカレームによって「ソース・オ・ブール　ラギピエール風」と名付けられたものだ\footnote{カレームの未完の大著『19世紀フランス料理』第3巻に、このソースのレシピが掲載されている。少し長くなるが引用すると「ラグー用片手鍋に、
-  \ul{魚料理用グランドソース}の章で示したソース・オ・ブールをレードル
-  1杯入れる。ここに上等のコンソメ大さじ1杯か鶏のグラス少々を加える。塩1つまみ、ナツメグ少々、良質のヴィネガーまたはレモン果汁適量を加える。数秒間煮立たせ、上等なバターをたっぷり加えてから供する。(中略)ソースに火を通してからバターを加えるというこの方法によって、なめらかな口あたりで、油っぽくならない仕上がりになる。だからこそ私はこのソース・オ・ブールをグランドソースに分類しなかったのだし、バターを加える派生ソースにおいてこれは重要なことだからだ。それは魚料理用ソースについても同様のことだ(pp.117-118)」。このレシピにおいて、カレームの表現には矛盾がある。「魚用グランドソースの章で示した」とあるのに「グランドソースに分類しなかった」となっていることだ。実際、ソース・オ・ブールそれ自体はこの「ラギピエール風」の直前にある。さて、このソースが「ラギピエール風」であることの理由だが、同じ巻の「魚料理用ソース・エスパニョル」の説明の冒頭において、ラギピエールから聞いた話として、四旬節の期間（小斉=肉断ちをする慣習がカトリックに根強くあった）に、魚料理用のソースにコンソメや仔牛のブロンドのジュを混ぜている修道士料理人がいたの、と述べている。それなら美味しくて当然だろう、とカレームが問うと、ラギピエールは「そうやって作った料理は、通常の肉を食べていい時の料理とは違うものであり、かといって肉断ちの料理でもない、まさに中間のものだ。その判定は天のみぞ知るところだろう。結局のところ、修道士たちは元気に暮していたのだから、それは正しかったのだよ」と煙に巻いたという。カトリックの習慣としての小斉=肉断ちのための魚料理用ソースに、肉由来である鶏のグラスもしくはコンソメを加えるというところが、ラギピエール風と名付けた
-  \ruby{所以}{ゆえん}であり、まさにこれこそがソース・ラギピエールの重要なポイントと考えられる。『料理の手引き』においてこのレシピを担当した執筆者はこのエピソードを読んでいなかったのだろうか？
-  あるいは何らかの誤解ゆえに改変をしたのか、ラギピエール風の\ruby{所以}{ゆ
-  えん}である鶏のグラス、コンソメを用いるべきところを、魚のグラスに代えてしまい、このソース名の由来を換骨奪胎してしまう結果となっている。本書の初版において、原注がその文体から、エスコフィエの手になるものか、あるいは聞き書きしたコメントであることはほぼ明らかなので、なぜエスコフィエがこの点を見逃したか、あるいは許容したのかは非常に興味深い。ところで、カレームが、バターを仕上げの際に加えるということ、いわゆるブールモンテmonter
-  au
+カレームが考案したこのソースのレシピに、本書で加えた変更点はただ1箇所のみ、\protect\hyperlink{glace-de-volaille}{鶏のグラス}ではなく魚のグラスに代えたことだけだ。さらに言うと、このソースはカレームによって「ソース・オ・ブール　ラギピエール風」と名付けられたものだ\footnote{カレームの未完の大著『19世紀フランス料理』第3巻に、このソースのレシピが掲載されている。少し長くなるが引用すると「ラグー用片手鍋に、魚料理用グランドソースの章で示したソース・オ・ブールをレードル1杯入れる。ここに上等のコンソメ大さじ1杯か鶏のグラス少々を加える。塩1
+  つまみ、ナツメグ少々、良質のヴィネガーまたはレモン果汁適量を加える。数秒間煮立たせ、上等なバターをたっぷり加えてから供する。(中略)ソースに火を通してからバターを加えるというこの方法によって、なめらかな口あたりで、油っぽくならない仕上がりになる。だからこそ私はこのソース・オ・ブールをグランドソースに分類しなかったのだし、バターを加える派生ソースにおいてこれは重要なことだからだ。それは魚料理用ソースについても同様のことだ(pp.117-118)」。このレシピにおいて、カレームの表現には矛盾がある。「魚用グランドソースの章で示した」とあるのに「グランドソースに分類しなかった」となっていることだ。実際、ソース・オ・ブールそれ自体はこの「ラギピエール風」の直前にある。さて、このソースが「ラギピエール風」であることの理由だが、同じ巻の「魚料理用ソース・エスパニョル」の説明の冒頭において、ラギピエールから聞いた話として、四旬節の期間（小斉=肉断ちをする慣習がカトリックに根強くあった）に、魚料理用のソースにコンソメや仔牛のブロンドのジュを混ぜている修道士料理人がいたの、と述べている。それなら美味しくて当然だろう、とカレームが問うと、ラギピエールは「そうやって作った料理は、通常の肉を食べていい時の料理とは違うものであり、かといって肉断ちの料理でもない、まさに中間のものだ。その判定は天のみぞ知るところだろう。結局のところ、修道士たちは元気に暮していたのだから、それは正しかったのだよ」と煙に巻いたという。カトリックの習慣としての小斉=肉断ちのための魚料理用ソースに、肉由来である鶏のグラスもしくはコンソメを加えるというところが、ラギピエール風と名付けた\ruby{所以}{ゆえん}であり、まさにこれこそがソース・ラギピエールの重要なポイントと考えられる。『料理の手引き』においてこのレシピを担当した執筆者はこのエピソードを読んでいなかったのだろうか？
+  あるいは何らかの誤解ゆえに改変をしたのか、ラギピエール風という名称が象徴している、鶏のグラス、コンソメを用いるべきところを、魚のグラスに代えてしまい、このソース名の由来を換骨奪胎してしまう結果となっている。本書の初版において、原注がその文体から、エスコフィエの手になるものか、あるいは聞き書きしたコメントであることはほぼ明らかなので、なぜエスコフィエがこの点を見逃したか、あるいは許容したのかは非常に興味深い。ところで、カレームが、バターを仕上げの際に加えるということ、いわゆるブールモンテ
+  monter au
   beurreによってソースの口あたりをなめらかなものにし、色艶をよくするということをことさらに言及しているの点もまた、注目に値すべきだろう。}。
 
 \atoaki{}
