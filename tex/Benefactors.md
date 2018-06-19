@@ -1,6 +1,18 @@
+---
+title: エスコフィエ『料理の手引き』全注解
+author:
+- 五 島　学
+- （協力）河井 健司
+- （協力）春野 裕征
+pandoc-latex-environment:
+    main: [main]
+    recette: [recette]
+    frsubenv: [frsubenv]
+    frsecenv: [frsecenv]
+    frsecbenv: [frsecbenv]
+    frchapenv: [frchapenv]
+---
 
-% エスコフィエ『料理の手引き』全注解
-% 五 島　学
 
 
 

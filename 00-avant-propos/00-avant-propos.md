@@ -1,9 +1,16 @@
 ---
 title: エスコフィエ『料理の手引き』全注解
-author: 五 島　学
+author:
+- 五 島　学
+- （協力）河井 健司
+- （協力）春野 裕征
 pandoc-latex-environment:
-  Main: [main]
-  recette: [recette]
+    main: [main]
+    recette: [recette]
+    frsubenv: [frsubenv]
+    frsecenv: [frsecenv]
+    frsecbenv: [frsecbenv]
+    frchapenv: [frchapenv]
 ---
 
 
@@ -16,11 +23,11 @@ pandoc-latex-environment:
 
 
 
-
+<div class="main">
 
 # 序 {#avant-propos}
 
-<div class="main">
+
 
 \fifteenq
 \setstretch{1.3}
