@@ -1,10 +1,19 @@
 ---
 title: エスコフィエ『料理の手引き』全注解
-author: 五 島　学
+subtitle: ヘストン・ブルメンタールによる英訳第5版への序文
+author:
+- 五 島　学
+- （協力）河井 健司
+- （協力）春野 裕征
 pandoc-latex-environment:
-  Main: [main]
-  recette: [recette]
+    main: [main]
+    recette: [recette]
+    frsubenv: [frsubenv]
+    frsecenv: [frsecenv]
+    frsecbenv: [frsecbenv]
+    frchapenv: [frchapenv]
 ---
+
 
 
 
