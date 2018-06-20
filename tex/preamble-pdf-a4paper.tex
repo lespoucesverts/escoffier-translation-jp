@@ -1,3 +1,4 @@
+\documentclass[twoside,14Q,a4paper,openany]{ltjsbook}
 
 \usepackage{amsmath}
   \let\equation\gather
@@ -276,8 +277,26 @@
 %          \@dottedtocline{7}{\@tempdima}{6.5\zw}}
 %\renewcommand{\thefrsub}{6}
 %\let\frsub\paragraph
+\newenvironment{frchapenv}{\vspace*{-2ex}\begin{center}\normalfont\headfont%
+    \LARGE\scshape\setstretch{0.8}%
+    }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
 
-\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
+% \newenvironment{frsecenv}{\vspace*{-2ex}%
+% \begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+%   \hspace{1em}\normalfont\normalsize\scshape%
+% }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\scshape\setstretch{0.8}%
+  \hspace{1em}%
+}{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecenv}{\vspace*{-2ex}%
+  \begin{center}\normalfont\headfont\normalsize\scshape\large\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
 \newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
 
 %\newcommand{\frsub}[1]{\vskip -.8ex\hskip -1\zw\textbf{#1}\leftskip0pt}
@@ -573,19 +592,19 @@
 %%分数の表記Obsolete
 \usepackage{xfrac}
 \let\frac\sfrac
-\newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
-\newcommand{\untiers}{\hspace{.25\zw}$\sfrac{1}{3}$}
-\newcommand{\deuxtiers}{\hspace{.25\zw}$\sfrac{2}{3}$}
-\newcommand{\unquart}{\hspace{.25\zw}$\sfrac{1}{4}$}
-\newcommand{\troisquarts}{\hspace{.25\zw}$\sfrac{3}{4}$}
-\newcommand{\quatrequatrieme}{\hspace{.25\zw}$\sfrac{4}{4$}}
-\newcommand{\uncinquieme}{\hspace{.25\zw}$\sfrac{1}{5}$}
-\newcommand{\deuxcinquiemes}{\hspace{.25\zw}$\sfrac{2}{5}$}
-\newcommand{\troiscinquiemes}{\hspace{.25\zw}$\sfrac{3}{5}$}
- \newcommand{\quatrecinquiemes}{\hspace{.25\zw}$\sfrac{4}{5}$}
-\newcommand{\unsixieme}{\hspace{.25\zw}$\sfrac{1}{6}$}
-\newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
-\newcommand{\quatrequart}{\hspace{.25\zw}$\sfrac{4}{4}$}
+% \newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
+% \newcommand{\untiers}{\hspace{.25\zw}$\sfrac{1}{3}$}
+% \newcommand{\deuxtiers}{\hspace{.25\zw}$\sfrac{2}{3}$}
+% \newcommand{\unquart}{\hspace{.25\zw}$\sfrac{1}{4}$}
+% \newcommand{\troisquarts}{\hspace{.25\zw}$\sfrac{3}{4}$}
+% \newcommand{\quatrequatrieme}{\hspace{.25\zw}$\sfrac{4}{4$}}
+% \newcommand{\uncinquieme}{\hspace{.25\zw}$\sfrac{1}{5}$}
+% \newcommand{\deuxcinquiemes}{\hspace{.25\zw}$\sfrac{2}{5}$}
+% \newcommand{\troiscinquiemes}{\hspace{.25\zw}$\sfrac{3}{5}$}
+% \newcommand{\quatrecinquiemes}{\hspace{.25\zw}$\sfrac{4}{5}$}
+% \newcommand{\unsixieme}{\hspace{.25\zw}$\sfrac{1}{6}$}
+% \newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
+% \newcommand{\quatrequart}{\hspace{.25\zw}$\sfrac{4}{4}$}
 
 \makeatletter
 \def\ps@headings{%
