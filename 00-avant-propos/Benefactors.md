@@ -25,7 +25,7 @@ pandoc-latex-environment:
 
 \small 
 
-**この「エスコフィエ『料理の手引き』全注解」の翻訳および注釈は、下記の皆様からの善意ある資金提供により行なわれています（ご支援順、敬称略）。**
+この「エスコフィエ『料理の手引き』全注解」の翻訳および注釈は、下記の皆様からの善意ある資金提供により行なわれています（ご支援順、敬称略）。
 
 \normalsize
 \vspace{1\zw}
@@ -44,7 +44,7 @@ UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 石幡乾、[](201806060-6h24,1x,zonek.gentile.bonheur.ken05@gmail.com)
 **山尾圭輔**、[](20180612-10h27,20x,yamaokeisuke@hotmail.com)
 手島 純也、[](20180612-19h19,1x,junchef1975@yahoo.co.jp)
-
+[**山本聖司(La Tourelle)**](http://www.tourelle.jp/)、[](20180622,10x,tourelle@tourelle.jp)
 
 
 
@@ -54,7 +54,7 @@ UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 
 ※ Facebook のグループ[**「エスコフィエ『料理の手引き』全注解」を完成させたい**](https://www.facebook.com/groups/1548833425201180/)も、よろしかったらご参加ください（太字部分がリンクになっています）。
 
-※ 原稿のバージョン管理等は [**Github のリポジトリ lespoucesverts/escoffier-translation-jp**](https://github.com/lespoucesverts/escoffier-translation-jp)で行なっています。協力者常時募集中です。どうかご参加ください。
+※ 原稿のバージョン管理等は **Bitbucket のリポジトリ**で行なっています。作業協力者常時募集中です。Bitbucket のアカウントを取得後にご連絡ください。
 
 ※ ご支援の方法については[**レ プゥス ヴェール les pouces verts のサイト**](https://lespoucesverts.org/archives/7042) https://lespoucesverts.org にてご案内しております。
 
