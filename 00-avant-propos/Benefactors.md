@@ -1,10 +1,11 @@
 ---
 title: エスコフィエ『料理の手引き』全注解
-subtitle: 後援者の皆様
+subtitle: ブラウン系の派生ソース
 author:
 - 五 島　学
-- （協力）河井 健司
-- （協力）春野 裕征
+- 河井 健司
+- 春野 裕征
+- 山本 学
 pandoc-latex-environment:
     main: [main]
     recette: [recette]
@@ -12,7 +13,8 @@ pandoc-latex-environment:
     frsecenv: [frsecenv]
     frsecbenv: [frsecbenv]
     frchapenv: [frchapenv]
----
+...
+
 
 
 
@@ -31,7 +33,7 @@ pandoc-latex-environment:
 \vspace{1\zw}
 
 Sin Masui、[](20180524-23h,2x,novelsoundsmail@gmail.com)
-[**河井健司**](http://www.undecesjours.com/)、[](20180525-0h14,10x,20180605-11h42,10x,kwibeng@gmail.com)
+[**河井健司(Un de ces jours)**](http://www.undecesjours.com/)、[](20180525-0h14,10x,20180605-11h42,10x,kwibeng@gmail.com)
 Yuya HASHIMOTO、[](20180525-1h40,2x,hashimo0910@gmail.com)
 [**善塔一幸(La Maison Courtine)**](http://www.courtine.jp/)、[](20180525-8h56,10x,kazuyukizento120@docomo.ne.jp)
 藤井智大(フランス料理店　ミルエテ)、[](20180525-10h07,1x,apple19761019@yahoo.co.jp)
@@ -46,6 +48,7 @@ UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 手島 純也、[](20180612-19h19,1x,junchef1975@yahoo.co.jp)
 [**山本聖司(La Tourelle)**](http://www.tourelle.jp/)、[](20180622,10x,tourelle@tourelle.jp)
 樋口直哉、[](20180622-10h58,1x)
+OYAMA YOSHITAKA、[](20180622-22h50,x2) 
 
 
 \vfill
