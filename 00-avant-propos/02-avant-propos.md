@@ -1,6 +1,5 @@
 ---
 title: エスコフィエ『料理の手引き』全注解
-subtitle: ブラウン系の派生ソース
 author:
 - 五 島　学
 - 河井 健司
@@ -14,7 +13,6 @@ pandoc-latex-environment:
     frsecbenv: [frsecbenv]
     frchapenv: [frchapenv]
 ...
-
 
 
 
