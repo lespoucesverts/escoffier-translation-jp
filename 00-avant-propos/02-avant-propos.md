@@ -1,10 +1,11 @@
 ---
 title: エスコフィエ『料理の手引き』全注解
-subtitle: 序文
+subtitle: ブラウン系の派生ソース
 author:
 - 五 島　学
-- （協力）河井 健司
-- （協力）春野 裕征
+- 河井 健司
+- 春野 裕征
+- 山本 学
 pandoc-latex-environment:
     main: [main]
     recette: [recette]
@@ -12,7 +13,8 @@ pandoc-latex-environment:
     frsecenv: [frsecenv]
     frsecbenv: [frsecbenv]
     frchapenv: [frchapenv]
----
+...
+
 
 
 
