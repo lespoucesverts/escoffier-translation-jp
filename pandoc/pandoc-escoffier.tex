@@ -1,0 +1,854 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+$endif$$if(dir)$$if(latex-dir-rtl)$
+\PassOptionsToPackage{RTLdocument}{bidi}
+$endif$$endif$%
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(beamer)$
+$if(background-image)$
+\usebackgroundtemplate{%
+\includegraphics[width=\paperwidth]{$background-image$}%
+}
+$endif$
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+$for(beameroption)$
+\setbeameroption{$beameroption$}
+$endfor$
+$endif$
+$if(beamerarticle)$
+\usepackage{beamerarticle} % needs to be loaded first
+$endif$
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+$if(mathspec)$
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+$else$
+  \usepackage{unicode-math}
+$endif$
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$for(fontfamilies)$
+  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
+$endfor$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+$if(mathspec)$
+  \ifxetex
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \else
+    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \fi
+$else$
+  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$endif$
+$if(CJKmainfont)$
+  \ifxetex
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+$if(luatexjapresetoptions)$
+  \ifluatex
+    \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
+  \fi
+$endif$
+$if(CJKmainfont)$
+  \ifluatex
+    \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
+    \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+\fi
+$if(beamer)$
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+$if(mainfont)$
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+$endif$
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(indent)$
+$else$
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(colorlinks)$
+\usepackage{xcolor}
+$endif$
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+$if(beamer)$
+\newif\ifbibliography
+$endif$
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$if(beamer)$
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+$endif$
+$endif$
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(beamer)$
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\flushbottom
+$if(section-titles)$
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+$endif$
+$endif$
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(beamer)$
+$else$
+$if(subparagraph)$
+$else$
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+$endif$
+$endif$
+$if(pagestyle)$
+\pagestyle{$pagestyle$}
+$endif$
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+$if(lang)$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
+$if(dir)$
+\ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  \usepackage{bidi}
+\fi
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \TeXXeTstate=1
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newenvironment{RTL}{\beginR}{\endR}
+  \newenvironment{LTR}{\beginL}{\endL}
+\fi
+$endif$
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\providecommand{\subtitle}[1]{}
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\providecommand{\institute}[1]{}
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+$if(beamer)$
+$if(titlegraphic)$
+\titlegraphic{\includegraphics{$titlegraphic$}}
+$endif$
+$if(logo)$
+\logo{\includegraphics{$logo$}}
+$endif$
+$endif$
+%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
+\usepackage{setspace}
+
+
+% %%%%%%%%% hyperref %%%%%%%%%%%%%
+% \usepackage{refcount}
+% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+% \hypersetup{hyperindex=false,%
+%              breaklinks=true,%
+%              bookmarks=true,%
+%              pdfauthor={五島　学},%
+%              pdftitle={エスコフィエ『料理の手引き』全注解},%
+%              colorlinks=false%true,%
+%              %colorlinks=true,%
+%              citecolor=blue,%
+%              urlcolor=cyan,%
+%              linkcolor=magenta,%
+%              bookmarksdepth=subsubsection,%
+%              pdfborder={0 0 0},%
+%              hyperfootnotes=false,%
+%              plainpages=false,
+%              }
+% \urlstyle{same}
+
+
+
+
+
+%% 欧文フォント設定
+% Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+     
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%文字サイズ、見出しなどの再定義
+\makeatletter
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\makeatother
+
+\newenvironment{frchapenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \LARGE\scshape\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+% \newenvironment{frsecenv}{\vspace*{-2ex}%
+% \begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+%   \hspace{1em}\normalfont\normalsize\scshape%
+% }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}
+{\begin{center}\vskip-2\zw\normalfont\headfont%
+    \medlarge\scshape\setstretch{0.8}\hspace{1em}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\newenvironment{frsecenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \normalsize\scshape\large\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+\makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+\include{sauces-index-def}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}
+\setlength{\evensidemargin}{-1\zw}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{47\zw}
+\setlength{\textwidth}{47\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{260mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+
+\input{/Users/manabu/Bitbucket/escoffier-translation-jp/tex/sauces-index-def}
+
+
+
+\begin{document}
+$if(title)$
+$if(beamer)$
+\frame{\titlepage}
+$else$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+$if(beamer)$
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+$else$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$if(beamer)$
+\end{frame}
+$endif$
+
+$endif$
+$endif$
+$if(biblatex)$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\printbibliography[heading=none]
+\end{frame}
+$else$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
