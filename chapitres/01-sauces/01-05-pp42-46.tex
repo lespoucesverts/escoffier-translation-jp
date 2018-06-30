@@ -1,23 +1,518 @@
-エスコフィエ『料理の手引き』全注解 \% 五 島　学
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[14Q,]{ltjsbook}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={エスコフィエ『料理の手引き』全注解},
+            pdfauthor={五 島　学; 河井 健司; 春野 裕征},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
-\href{未、原文対照チェック}{} \href{未、日本語表現校正}{}
-\href{未、その他修正}{} \href{未、原稿最終校正}{}
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 
-\begin{Main}
+
+\title{エスコフィエ『料理の手引き』全注解}
+\author{五 島　学 \and 河井 健司 \and 春野 裕征}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
+\usepackage{setspace}
+
+
+% %%%%%%%%% hyperref %%%%%%%%%%%%%
+% \usepackage{refcount}
+% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+% \hypersetup{hyperindex=false,%
+%              breaklinks=true,%
+%              bookmarks=true,%
+%              pdfauthor={五島　学},%
+%              pdftitle={エスコフィエ『料理の手引き』全注解},%
+%              colorlinks=false%true,%
+%              %colorlinks=true,%
+%              citecolor=blue,%
+%              urlcolor=cyan,%
+%              linkcolor=magenta,%
+%              bookmarksdepth=subsubsection,%
+%              pdfborder={0 0 0},%
+%              hyperfootnotes=false,%
+%              plainpages=false,
+%              }
+% \urlstyle{same}
+
+
+
+
+
+%% 欧文フォント設定
+% Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+     
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%文字サイズ、見出しなどの再定義
+\makeatletter
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\makeatother
+
+\newenvironment{frchapenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \LARGE\scshape\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+% \newenvironment{frsecenv}{\vspace*{-2ex}%
+% \begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+%   \hspace{1em}\normalfont\normalsize\scshape%
+% }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}
+{\begin{center}\vskip-2\zw\normalfont\headfont%
+    \medlarge\scshape\setstretch{0.8}\hspace{1em}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\newenvironment{frsecenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \normalsize\scshape\large\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+\makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+\include{sauces-index-def}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}
+\setlength{\evensidemargin}{-1\zw}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{47\zw}
+\setlength{\textwidth}{47\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{260mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+
+\input{/Users/manabu/Bitbucket/escoffier-translation-jp/tex/sauces-index-def}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{main}
 
 \hypertarget{ux30a4ux30aeux30eaux30b9ux98a8ux30bdux30fcux30b9ux6e29ux88fd24}{%
 \section[イギリス風ソース（温製）]{\texorpdfstring{イギリス風ソース（温製）\footnote{この節では初版で31、第二版は33、第三版と第四版で30のレシピが掲載されている。1907年刊の英語版\emph{A
   Guide to Modern Cookery}でこの節に相当する``Hot English
   Sauces''には10のレシピしか掲載されていない。この大きな数の差をどう解釈するかは意見の分かれるところだろうが、対象読者がフランス人であるかイギリス人であるかという違いを意識し、ニーズに応えるかたちをとったと考えるのが妥当だろう。ただし、あくまでもエスコフィエあるいは共同執筆者の解釈を経た「イギリス風」のソースがほとんどであることは、例えば「\protect\hyperlink{roe-buck-sauce}{ローバックソース}」において\protect\hyperlink{sauce-espagnole}{ソース・エスパニョル}を用いていること、つまりはエスコフィエが構築したソースの体系に組み込まれ得るものであることから判断がつく。}}{イギリス風ソース（温製）}}\label{ux30a4ux30aeux30eaux30b9ux98a8ux30bdux30fcux30b9ux6e29ux88fd24}}
 
-\frsec{Sauces Anglaises Chaudes}
+\begin{frsecenv}
+
+Sauces Anglaises Chaudes
+
+\end{frsecenv}
 
 \index{そーす@ソース!いきりすふうおんせい@イギリス風温製---}
 \index{いきりすふう@イギリス風!そーすおんせい@---ソース（温製）}
 \index{sauce@sauce!anglaises chaudes@---s anglaises chaudes}
 \index{anglais@anglais(e)!sauces chaudes@Sauces ---es chaudes}
 
-\end{Main}
+\end{main}
 
 \begin{recette}
 
@@ -27,7 +522,11 @@
   vitis-idaea
   L.）で、非常によく似た近縁種であり、しばしば混同される。本書でもとくに区別されていない。}}{クランベリーソース}}\label{cranberries-sauce}}
 
-\frsub{Sauce aux Airelles\hspace{1em}\normalfont(\textit{Cranberries-Sauce})}
+\begin{frsubenv}
+
+Sauce aux Airelles\hspace{1em}\normalfont(Cranberries-Sauce)
+
+\end{frsubenv}
 
 \index{そーす@---ソース!くらんへりー@クランベリー---}
 \index{くらんへりー@クランベリー!そーす@---ソース}
@@ -58,7 +557,11 @@ Lの湯で、鍋に蓋をして茹でる。果肉に火が通ったら、湯を�
   Albert
   Blazerの名を冠したもので1930年代に創案されたもの。このソースとはまったく関係がないことに注意。}}{アルバートソース}}\label{albert-sauce}}
 
-\frsub{Sauce Albert\hspace{1em}\normalfont(\textit{Albert-Sauce})}
+\begin{frsubenv}
+
+Sauce Albert\hspace{1em}\normalfont(Albert-Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!あるはーとそーす@アルバートソース}
 \index{そーす@ソース!あるはーと@アルバート---}
@@ -85,7 +588,11 @@ gを加える。強火にかけて煮詰め、木ヘラで圧し絞るように�
 \hypertarget{aromatic-sauce}{%
 \subsubsection{アロマティックソース}\label{aromatic-sauce}}
 
-\frsub{Sauce aux Aromates\hspace{1em}\normalfont(\textit{Aromatic-Sauce})}
+\begin{frsubenv}
+
+Sauce aux Aromates\hspace{1em}\normalfont(Aromatic-Sauce)
+
+\end{frsubenv}
 
 \index{そーす@ソース!あろまていつく@アロマティック---}
 \index{いきりすふう@イギリス風!あろまていつくそーす@アロマティックソース}
@@ -116,7 +623,11 @@ gを入れてとろみを付ける。数分間沸かしてから、レモン
 \hypertarget{butter-sauce}{%
 \subsubsection{バターソース}\label{butter-sauce}}
 
-\frsub{Sauce au Beurre à l'anglaise\hspace{1em}\normalfont(\textit{Butter Sauce})}
+\begin{frsubenv}
+
+Sauce au Beurre à l'anglaise\hspace{1em}\normalfont(Butter Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!はたーそーす@バターソース}
 \index{そーす@ソース!はたー@バター--}
@@ -136,7 +647,11 @@ L。レモンの搾り汁5〜6滴、バター200 g。とろみ付け用の卵黄
 \hypertarget{capers-sauce}{%
 \subsubsection{ケイパーソース}\label{capers-sauce}}
 
-\frsub{Sauce aux Câpres\hspace{1em}\normalfont(\textit{Capers-Sauce})}
+\begin{frsubenv}
+
+Sauce aux Câpres\hspace{1em}\normalfont(Capers-Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!けいはー@ケイパーソース}
 \index{そーす@ソース!けいはー@ケイパー---}
@@ -160,7 +675,11 @@ Lあたり大さじ4杯のケイパーを加えたもの。
 \hypertarget{celery-sauce}{%
 \subsubsection{セロリソース}\label{celery-sauce}}
 
-\frsub{Sauce au Céleri\hspace{1em}\normalfont(\textit{Celery-Sauce})}
+\begin{frsubenv}
+
+Sauce au Céleri\hspace{1em}\normalfont(Celery-Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!せろり@セロリソース}
 \index{そーす@ソース!せろり@セロリ---}
@@ -185,7 +704,11 @@ Lあたり大さじ4杯のケイパーを加えたもの。
 \subsubsection[ローバックソース]{\texorpdfstring{ローバックソース\footnote{roebuck
   英語でノロ鹿のこと。}}{ローバックソース}}\label{roe-buck-sauce}}
 
-\frsub{Sauce Chevreuil\hspace{1em}\normalfont(\textit{Roe-buck Sauce})}
+\begin{frsubenv}
+
+Sauce Chevreuil\hspace{1em}\normalfont(Roe-buck Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ろーはつく@ローバックソース}
 \index{そーす@ソース!ろーはっく@ローバック---}
@@ -218,7 +741,11 @@ dLを注ぎ、15分程弱火にかけて、浮いてくる不純物を取り除�
 \hypertarget{cream-sauce}{%
 \subsubsection{クリームソース}\label{cream-sauce}}
 
-\frsub{Sauce Crème à l'anglaise\hspace{1em}\normalfont(\textit{Cream-Sauce})}
+\begin{frsubenv}
+
+Sauce Crème à l'anglaise\hspace{1em}\normalfont(Cream-Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!くりーむ@クリームソース}
 \index{そーす@ソース!くりーむ@クリーム---}
@@ -246,7 +773,11 @@ dLを加える。
 \hypertarget{shrimps-sauce}{%
 \subsubsection{シュリンプソース}\label{shrimps-sauce}}
 
-\frsub{Sauce Crevettes à l'anglaise\hspace{1em}\normalfont(\textit{Shrimps-Sauce})}
+\begin{frsubenv}
+
+Sauce Crevettes à l'anglaise\hspace{1em}\normalfont(Shrimps-Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!しゆりんふ@シュリンプソース}
 \index{そーす@ソース!しゆりんふ@シュリンプ---}
@@ -270,7 +801,11 @@ gを加える。
 \hypertarget{devilled-sauce}{%
 \subsubsection{デビルソース}\label{devilled-sauce}}
 
-\frsub{Sauce Diable\hspace{1em}\normalfont(\textit{Devilled Sauce})}
+\begin{frsubenv}
+
+Sauce Diable\hspace{1em}\normalfont(Devilled Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!てひるそーす@デビルソース}
 \index{そーす@ソース!てひる@デビル---}
@@ -295,7 +830,11 @@ dLのヴィネガーにエシャロットのみじん切り大さじ1杯強を�
 \hypertarget{scotch-eggs-sauce}{%
 \subsubsection{スコッチエッグソース}\label{scotch-eggs-sauce}}
 
-\frsub{Sauce Ecossaise\hspace{1em}\normalfont(\textit{Scotch eggs Sauce})}
+\begin{frsubenv}
+
+Sauce Ecossaise\hspace{1em}\normalfont(Scotch eggs Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!すこつちえつくそーす@スコッチエッグソース}
 \index{そーす@ソース!すこつとらんといきりすふう@スコッチエッグ---}
@@ -323,7 +862,11 @@ dLで\protect\hyperlink{sauce-bechamel}{ベシャメルソース}を用意する
   de florence（フヌイユ・ド・フロロンス）またはfenouil
   bulbeux（フヌイユビュルブー）と呼ばれる2種がある。本書ではどちらを用いるのか明記されていないことが多いが、一般に、葉を利用するタイプは香りが非常に強く、フローレンスフェンネルの葉も食用可能だが、香りは比較的おとなしい。}}{フェンネルソース}}\label{fennel-sauce}}
 
-\frsub{Sauce au Fenouil\hspace{1em}\normalfont(\textit{Fennel Sauce})}
+\begin{frsubenv}
+
+Sauce au Fenouil\hspace{1em}\normalfont(Fennel Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ふえんねる@フェンネルソース}
 \index{そーす@ソース!ふえんねるいきりすふう@フェンネル---（イギリス風）}
@@ -345,7 +888,11 @@ dLあたり、細かく刻んで下茹でしたフェンネル大さじ1杯を�
 \hypertarget{gooseberry-sauce}{%
 \subsubsection{グーズベリーソース}\label{gooseberry-sauce}}
 
-\frsub{Sauce aux Groseilles\hspace{1em}\normalfont(\textit{Gooseberry Sauce})}
+\begin{frsubenv}
+
+Sauce aux Groseilles\hspace{1em}\normalfont(Gooseberry Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!くーすへりーそーす@グーズベリーソース}
 \index{そーす@ソース!くーすへりーいきりすふう@グーズベリー---}
@@ -366,7 +913,11 @@ dLを加えて火にかける。目の細かい漉し器で裏漉しする。
 \hypertarget{lobster-sauce}{%
 \subsubsection{ロブスターソース}\label{lobster-sauce}}
 
-\frsub{Sauce Homard à l'anglaise\hspace{1em}\normalfont(\textit{Lobster Sauce})}
+\begin{frsubenv}
+
+Sauce Homard à l'anglaise\hspace{1em}\normalfont(Lobster Sauce)
+
+\end{frsubenv}
 
 p\index{いきりすふう@イギリス風!ろふすたーそーす@ロブスターソース}
 \index{そーす@ソース!ろふすたーいきりすふう@ロブスター---}
@@ -389,7 +940,11 @@ gを加える\footnote{ホワイト系派生ソースの節にある\protect\hyp
 \hypertarget{oyster-sauce}{%
 \subsubsection{牡蠣入りソース}\label{oyster-sauce}}
 
-\frsub{Sauce aux Huîtres\hspace{1em}\normalfont(\textit{Oyster Sauce})}
+\begin{frsubenv}
+
+Sauce aux Huîtres\hspace{1em}\normalfont(Oyster Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!かきいりそーす@牡蠣入りソース}
 \index{そーす@ソース!かきいりいきりすふう@牡蠣入り---（イギリス風）}
@@ -415,7 +970,11 @@ cm程度の厚さに切って、ソースに加える。
 \hypertarget{brown-oyster-sauce}{%
 \subsubsection{牡蠣入りブラウンソース}\label{brown-oyster-sauce}}
 
-\frsub{Sauce brune aux Huîtres\hspace{1em}\normalfont(\textit{Brown Oyster Sauce})}
+\begin{frsubenv}
+
+Sauce brune aux Huîtres\hspace{1em}\normalfont(Brown Oyster Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!かきいりふらうんそーす@牡蠣入りブラウンソース}
 \index{そーす@ソース!かきいりふらうんいきりすふう@牡蠣入りブラウン---（イギリス風）}
@@ -437,7 +996,11 @@ dLを使うこと。
 \hypertarget{brown-gravy}{%
 \subsubsection{ブラウングレイヴィー}\label{brown-gravy}}
 
-\frsub{Jus coloré\hspace{1em}\normalfont(\textit{Brown Gravy})}
+\begin{frsubenv}
+
+Jus coloré\hspace{1em}\normalfont(Brown Gravy)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ふらうんくれいういー@ブラウングレイビヴィー}
 \index{そーす@ソース!ふらうんくれいういー@ブラウングレイヴィー（イギリス風）}
@@ -464,7 +1027,11 @@ dLに、ローストの肉汁2 dLとケチャップ\footnote{ここではマッ�
 \hypertarget{eggs-sauce}{%
 \subsubsection{エッグソース}\label{eggs-sauce}}
 
-\frsub{Sauce aux OEufs à l'anglaise\hspace{1em}\normalfont(\textit{Eggs Sauce})}
+\begin{frsubenv}
+
+Sauce aux OEufs à l'anglaise\hspace{1em}\normalfont(Eggs Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!えつくそーす@エッグソース}
 \index{そーす@ソース!えつくそーす@エッグ---}
@@ -472,7 +1039,7 @@ dLに、ローストの肉汁2 dLとケチャップ\footnote{ここではマッ�
 \index{sauce@sauce!oeufs anglaise@--- aux OEufs à l'anglaise (Eggs Sauce)}
 \index{oeuf@oeuf!sauce anglaise@Sauce aux ---s à l'anglaise (Eggs Sauce)}
 \index{anglais@anglais(e)!sauce oeufs@Sauce aux OEufs à l'---e (Eggs Sauce)}
-\index[src]{oeufs anglaise@OEufs à l'anglaise (aux)(Egg Sauce)}\%
+\index[src]{oeufs anglaise@OEufs à l'anglaise (aux)(Egg Sauce)}
 \index[src]{えつくそーす@エッグ（イギリス風）}
 
 小麦粉60 gとバター30
@@ -492,7 +1059,12 @@ Lで溶く。塩、白こしょう、ナツメグ少々で味を調える。火�
 \hypertarget{eggs-and-butter-sauce}{%
 \subsubsection{エッグアンドバターソース}\label{eggs-and-butter-sauce}}
 
-\frsub{Sauce aux OEufs au beurre à l'anglaise\hspace{1em}\normalfont(\textit{Eggs and Butter Sauce})}
+\begin{frsubenv}
+
+Sauce aux OEufs au beurre à l'anglaise\hspace{1em}\normalfont(Eggs and
+Butter Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!えつくあんとはたーそーす@エッグアンドバターソース}
 \index{そーす@ソース!えつくあんとはたーそーす@エッグアンドバターソース}
@@ -515,7 +1087,11 @@ Lで溶く。塩、白こしょう、ナツメグ少々で味を調える。火�
 \hypertarget{onions-sauce}{%
 \subsubsection{オニオンソース}\label{onions-sauce}}
 
-\frsub{Sauce aux Oignons\hspace{1em}\normalfont(\textit{Onions Sauce})}
+\begin{frsubenv}
+
+Sauce aux Oignons\hspace{1em}\normalfont(Onions Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!おにおんそーす@オニオンソース}
 \index{そーす@ソース!おにおんそーす@オニオンソース（イギリス風）}
@@ -546,7 +1122,11 @@ gで\protect\hyperlink{roux-blanc}{白いルー}を作る。これを玉ねぎ�
 \hypertarget{bread-sauce}{%
 \subsubsection{ブレッドソース}\label{bread-sauce}}
 
-\frsub{Sauce au Pain\hspace{1em}\normalfont(\textit{Bread Sauce})}
+\begin{frsubenv}
+
+Sauce au Pain\hspace{1em}\normalfont(Bread Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ふれつとそーす@ブレッドソース}
 \index{そーす@ソース!ふれつとそーす@ブレッドソース}
@@ -576,7 +1156,11 @@ dLを加えて仕上げる。
 \hypertarget{fried-bread-sauce}{%
 \subsubsection{フライドブレッドソース}\label{fried-bread-sauce}}
 
-\frsub{Sauce au Pain frit\hspace{1em}\normalfont(\textit{Fried bread Sauce})}
+\begin{frsubenv}
+
+Sauce au Pain frit\hspace{1em}\normalfont(Fried bread Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ふらいとふれつとそーす@フライドブレッドソース}
 \index{そーす@ソース!ふらいとふれつとそーす@フライドブレッドソース}
@@ -603,7 +1187,11 @@ gを揚げておく。提供直前に、揚げたパンをコンソメに入れ�
 \hypertarget{perseley-sauce}{%
 \subsubsection{パセリソース}\label{perseley-sauce}}
 
-\frsub{Sauce Persil\hspace{1em}\normalfont(\textit{Persley Sauce})}
+\begin{frsubenv}
+
+Sauce Persil\hspace{1em}\normalfont(Persley Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!はせりそーす@パセリソース}
 \index{そーす@ソース!はせりそーす@パセリソース}
@@ -629,7 +1217,11 @@ dLを加える。みじん切りして下茹でした\footnote{blanchir
 \hypertarget{ux9b5aux6599ux7406ux7528ux30d1ux30bbux30eaux30bdux30fcux30b945bis}{%
 \subsubsection[魚料理用パセリソース]{\texorpdfstring{魚料理用パセリソース\footnote{このソースは第二版から。英語名は付されていない。}}{魚料理用パセリソース}}\label{ux9b5aux6599ux7406ux7528ux30d1ux30bbux30eaux30bdux30fcux30b945bis}}
 
-\frsub{Sauce Persil pour Poissons}
+\begin{frsubenv}
+
+Sauce Persil pour Poissons
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!はせりそーすさかなりようりよう@パセリソース（魚料理用）}
 \index{そーす@ソース!さかなりようりようはせりそーす@魚料理用パセリソース}
@@ -652,7 +1244,11 @@ Lでのばす。クールブイヨンはパセリの香りをしっかり効か�
 \hypertarget{apple-sauce}{%
 \subsubsection{アップルソース}\label{apple-sauce}}
 
-\frsub{Sauce aux pommes\hspace{1em}\normalfont(\textit{Apple Sauce})}
+\begin{frsubenv}
+
+Sauce aux pommes\hspace{1em}\normalfont(Apple Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!あつふるそーす@アップルソース}
 \index{そーす@ソース!あつふるそーす@アップルソース}
@@ -682,7 +1278,11 @@ Lでのばす。クールブイヨンはパセリの香りをしっかり効か�
 \hypertarget{porto-wine-sauce}{%
 \subsubsection{ポートワインソース}\label{porto-wine-sauce}}
 
-\frsub{Sauce au Porto\hspace{1em}\normalfont(\textit{Porto Wine Sauce})}
+\begin{frsubenv}
+
+Sauce au Porto\hspace{1em}\normalfont(Porto Wine Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ほーとわいんそーす@ポートワインソース}
 \index{そーす@ソース!ほーとわいんそーす@ポートワインソース}
@@ -715,7 +1315,11 @@ dLを加える。
 \hypertarget{horse-radish-sauce}{%
 \subsubsection{ホースラディッシュソース}\label{horse-radish-sauce}}
 
-\frsub{Sauce Raifort chaude\hspace{1em}\normalfont(\textit{Horse radish Sauce})}
+\begin{frsubenv}
+
+Sauce Raifort chaude\hspace{1em}\normalfont(Horse radish Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!ほーすらていつしゆそーす@ホースラディッシュソース}
 \index{そーす@ソース!ほーすらていつしゆそーす@ホースラディッシュソース}
@@ -734,7 +1338,11 @@ dLを加える。
 \subsubsection[リフォームソース]{\texorpdfstring{リフォームソース\footnote{19世紀ロンドンの会員制クラブ、リフォームでフランス人料理長アレクシス・ソワイエが考案したソース。このような場合、Reformを固有名詞扱いとして英語のままとするのが現代のフランス語における考え方だが、
   20世紀初頭にはまだ、固有名詞さえもフランス語的に言い換えることがごく普通であった。}}{リフォームソース}}\label{reform-sauce}}
 
-\frsub{Sauce Réforme\hspace{1em}\normalfont(\textit{Reform Sauce})}
+\begin{frsubenv}
+
+Sauce Réforme\hspace{1em}\normalfont(Reform Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!りふおーむそーす@リフォームソース}
 \index{そーす@ソース!りふおーむそーす@リフォームソース}
@@ -758,7 +1366,11 @@ gおよび赤く漬けた牛舌肉 \footnote{langue écarlate ラングエカル
 \hypertarget{sage-and-onions-sauce}{%
 \subsubsection{セージと玉ねぎのソース}\label{sage-and-onions-sauce}}
 
-\frsub{Sauce Sauge et Oignons\hspace{1em}\normalfont(\textit{Sage and onions Sauce})}
+\begin{frsubenv}
+
+Sauce Sauge et Oignons\hspace{1em}\normalfont(Sage and onions Sauce)
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!せーしとたまねきのそーす@セージと玉ねぎのソース}
 \index{そーす@ソース!せーしとたまねきのそーす@セージと玉ねぎのソース}
@@ -793,7 +1405,11 @@ gを牛乳に浸してから圧しつぶして水分を抜く。これを玉ね�
   Yorkshire
   Sauceだったことと、「仔鴨とハムに合わせる」だったのが第二版で現在とまったく同じになることのみ）、原注もない。1907年版の英語版にも掲載されていないが、1903年アメリカ、シカゴで刊行された『\href{https://archive.org/details/stewardshandbook00whitiala}{スチュワードハンドブック}』のソースの項目のなかに、「ヨークシャーソース\ldots{}\ldots{}ハム用のオレンジソース。エスパニョル、カラント（=グロゼイユ）ゼリー、ポートワイン、オレンジジュース、茹でて千切りにしたオレンジの外皮」(p.434)とあり、エスコフィエの『料理の手引き』初版当時には既にアメリカで知られているソースであったことがわかる。ただしイギリスのヨークシャー州とどのような関係あるいはソース名の由来があるのかは不明。}}{ヨークシャーソース}}\label{sauce-yorkshire}}
 
-\frsub{Sauce Yorkshire}
+\begin{frsubenv}
+
+Sauce Yorkshire
+
+\end{frsubenv}
 
 \index{いきりすふう@イギリス風!よーくしやーそーす@ヨークシャーソース}
 \index{そーす@ソース!よーくしやーそーす@ヨークシャーソース}
@@ -814,3 +1430,5 @@ gを牛乳に浸してから圧しつぶして水分を抜く。これを玉ね�
 \ldots{}\ldots{}仔鴨のローストやブレゼ、およびハムのブレゼに添える。
 
 \end{recette}
+
+\end{document}

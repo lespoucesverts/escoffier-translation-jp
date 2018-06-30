@@ -2,15 +2,33 @@
 
 La cuisson inspirée des légumes « à la grecque »　調理法は「ア・ラ・グレック」（ギリシャ風の野菜）から着想
 
-#### 
+#### アーティチョーク・ギリシア風（オードブル p.189）{#artichauts-a-la-grecque}
+
+<div class="frsubenv">Artichauts à la grecque (Hors d'oeuvre)</div>
+
+ごく小さな、まだ内部に繊毛が出来ていないサイズのアーティチョークを選ぶ。
+外側の固い花萼をナイフでむき、上部を切り落す。下茹でして冷水にさらす。
+これを沸かしたマリナードに投入していく。マリナードは……
+
+アーティチョーク15〜20個の場合、水1 L、油 1 $\frac{1}{2}$ dL、塩 10 g、
+レモン果汁 3 個分。
+
+さらに、フェンネル、セロリ、コリアンダー、粒こしょう、タイム、ローリエ
+の葉を、それぞれの香りの強さに応じて量を調整して加え、風味を付ける。
+
+アーティチョークに柔らかく火が通ったら、取り出してバットなどに並べ、マ
+リナードを注いでそのまま冷ます。氷の上に置いてよく冷やして、マリナード
+を添えて供する。
+
+
+
 
 La sauce dérivée de la « sauce Tartare »　ソースは「タルタルソース」から応用 
 
 
 #### タルタルソース[^54]  {#sauce-tartare}
 
-\frsub{Sauce Tartare}
-
+<div class="frsubenv">Sauce Tartare</div>
 
 
 \index{たるたる@タルタル!そーすれいせい@---ソース（冷製）}
@@ -65,7 +83,7 @@ La sauce dérivée de la « sauce Tartare »　ソースは「タルタルソー
 
 #### トマトソース  {#sauce-tomate}
 
-\frsub{Sauce tomate}
+<div class="frsubenv">Sauce tomate</div>
 
 \index{そーす@ソース!とまとそーす@トマト---}
 \index{とまと@トマト!ソース@---ソース}
@@ -124,7 +142,7 @@ La sauce dérivée de la « sauce Tartare »　ソースは「タルタルソー
 
 #### オマール・アラフランセーズ {#homard-a-la-francaise}
 
-\frsub{Homard à la Française}
+<div class="frsubenv">Homard à la Française</div>
 
 オマール海老は筒切り[^55]にする。バター50 gを熱したソテー鍋にこれを入
 れ、塩、こしょう、カイエンヌ[^56]ごく少量で味付けする。
@@ -174,13 +192,25 @@ gを入れてソースを仕上げる。ソースはオマールにかけて供�
 
 ### ◆LE VEAU 　仔牛の料理
 
-#### ・Les sucs dérivés du « veau sauté à la paysanne »　「仔牛のア・ラ・ペイザンヌ」から応用したシュック
+ ・Les sucs dérivés du « veau sauté à la paysanne »　「仔牛のア・ラ・ペイザンヌ」から応用したシュック
+
+#### 仔牛の骨付き背肉のココット焼き・ペイザーヌ p.466 {#cote-de-veau-en-cocotte-a-la-paysanne}
+
+<div class="frsubenv">Côte de veau en Cocotte à la Paysanne</div>
+
+
+仔牛の骨付き背肉は、バターを熱したココット鍋で、あらかじめ拍子木に切っ
+て下茹でしておいた塩漬豚ばら肉とともにソテーする。その周囲に、バターで
+いい具合に焼き色を付けた小玉ねぎ4個、1 cm四方の薄切りにした[^66]じゃが
+いも 100 gを入れる。蓋をして弱火で蒸し焼き状にして火を通し、ココット鍋
+のまま供する。
+
 
 #### ・Une émulsion veau-foin inspirée de la « blanquette de veau »　「仔牛のブランケット」から着想して、藁を使った仔牛のエミュルジョン
 
 #### 仔牛のブランケット・クラシック {#blanquette-de-veau-a-l-ancienne}
 
-\frsub{Blanquette de veau à l'Ancienne}
+<div class="frsubenv">Blanquette de veau à l'Ancienne</div>
 
 ブランケットには、仔牛のばら肉、肩肉、肩ロースなどの部位を用いる。
 
@@ -228,3 +258,6 @@ gを入れてソースを仕上げる。ソースはオマールにかけて供�
     かけて出演した「料理の魔法のテクニック」Arts et magie de la
     cuisineにおいて、鶏のフリカセの回でこの方法を実際に画面に示した。
     このとき、煮汁は完全な沸騰状態だった。
+
+[^66]: en paysanne （オンペイザーヌ）。田舎風、農民風の意だが、料理に
+    おいては野菜などの切り方として決まった用語として用いられる。

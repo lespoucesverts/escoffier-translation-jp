@@ -1,489 +1,31 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[14Q,a4paperpaper,]{ltjsbook}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
-\hypersetup{
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
-
-\date{}
-%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
-\usepackage{setspace}
-
-
-% %%%%%%%%% hyperref %%%%%%%%%%%%%
-% \usepackage{refcount}
-% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
-% \hypersetup{hyperindex=false,%
-%              breaklinks=true,%
-%              bookmarks=true,%
-%              pdfauthor={五島　学},%
-%              pdftitle={エスコフィエ『料理の手引き』全注解},%
-%              colorlinks=false%true,%
-%              %colorlinks=true,%
-%              citecolor=blue,%
-%              urlcolor=cyan,%
-%              linkcolor=magenta,%
-%              bookmarksdepth=subsubsection,%
-%              pdfborder={0 0 0},%
-%              hyperfootnotes=false,%
-%              plainpages=false,
-%              }
-% \urlstyle{same}
-
-
-
-
-
-%% 欧文フォント設定
-% Libertine/Biolinum
-\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
-\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
-%\usepackage{libertine}
-\usepackage{unicode-math}
-\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
-\usepackage{luatexja}
-\usepackage{luatexja-fontspec}
-%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
-%\ltjsetparameter{jacharrange={-2, +8}}
-\usepackage{luatexja-ruby}
-
-\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
-\setmainjfont[%
-     %YokoFeatures={JFM=prop,PKana=On},%
-     %CharacterWidth=AlternateProportional,%
-%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
-     %Kerning=On,%
-     BoldFont={ MoboGoB },%
-     ItalicFont={ MoboGoB },%
-     BoldItalicFont={ MoboGoExB }%
-     % ]{ MogaHMin }
-     ]{ IPAExMincho }
-     % ]{ IPAmjMincho }
-\setsansjfont[%
-     %YokoFeatures={JFM=prop,PKana=On},%
-     %CharacterWidth=AlternateProportional,%
-     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
-     %Kerning=On,
-     BoldFont={ MoboGoB },%
-     ItalicFont={ MoboGoB },%
-     BoldItalicFont={ MoboGoExB }%
-     % ]{ MoboGo}
-     ]{ IPAExGothic }
-     % %  %%%% 和文仮名プロプーショナルここまで
-
-     
-\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
-\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
-
-%リスト環境
-\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
-
-\makeatletter
-  \parsep   = 0pt
-  \labelsep = .5\zw
-  \def\@listi{%
-     \leftmargin = 0pt \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt%\baselineskip
-     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
-     \partopsep  = 0pt \itemsep       = 0pt
-     \itemindent = -.5\zw \listparindent = 0\zw}
-  \let\@listI\@listi
-  \@listi
-  \def\@listii{%
-     \leftmargin = 1.8\zw \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
-     \itemindent = 0pt \listparindent = 1\zw}
-  \let\@listiii\@listii
-  \let\@listiv\@listii
-  \let\@listv\@listii
-  \let\@listvi\@listii
-\makeatother
-
-%%%%インデックス準備
-%\usepackage{makeidx}
-\usepackage{index}
-%\usepackage[useindex]{splitidx}
-\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-\makeindex
- 
- \makeatletter
-\renewenvironment{theindex}{% 索引を3段組で出力する環境
-    \if@twocolumn
-      \onecolumn\@restonecolfalse
-    \else
-      \clearpage\@restonecoltrue
-    \fi
-    \columnseprule.4pt \columnsep 2\zw
-    \ifx\multicols\@undefined
-      \twocolumn[\@makeschapterhead{\indexname}%
-      \addcontentsline{toc}{chapter}{\indexname}]%
-    \else
-      \ifdim\textwidth=\fullwidth
-        \setlength{\evensidemargin}{\oddsidemargin}
-        \setlength{\textwidth}{\fullwidth}
-        \setlength{\linewidth}{\fullwidth}
-        \begin{multicols}{3}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \else
-        \begin{multicols}{2}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \fi
-    \fi
-    \@mkboth{\indexname}{}%
-    \plainifnotempty % \thispagestyle{plain}
-    \parindent\z@
-    \parskip\z@ \@plus .3\jsc@mpt\relax
-    \let\item\@idxitem
-    \raggedright
-    \footnotesize\narrowbaselines
-  }{
-    \ifx\multicols\@undefined
-      \if@restonecol\onecolumn\fi
-    \else
-      \end{multicols}
-    \fi
-    \clearpage
-  }
- \makeatother
-
-
-%%%% 本文中の参照ページ番号表示 %%%%%%%
-
-\makeatletter
-
-%\AtBeginDocument{%
-%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
-%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
-\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
-\def\Hy@EveryPageAnchor{%
-    \begingroup
-    \hypersetup{pdfview=Fit}%
-    \orig@Hy@EveryPageAnchor
-    \endgroup
-  }
-  \usepackage{etoolbox}
-\if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{recette}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{Main}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-
-
-%%%% pandoc が三点リーダーを勝手に変える対策
-\renewcommand{\ldots}{\noindent…}
-
-%%% 脚注番号のページ毎のリセットと脚注位置の調整
-%\renewcommand{\footnotesize}{\small}
-
-\makeatletter
-
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 4mm}
-%\usepackage{footnpag}
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 0\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
-\let\footnotes@ve=\footnote
-\def\footnote{\inhibitglue\footnotes@ve}
-\let\footnotemarks@ve=\footnotemark
-%\def\footnotemark{\inhibitglue\footnotemarks@ve}
-\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
-
-%%%%%%%%%レシピと本文%%%%%%%%%%%%
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-
-%%% 本文
-\newenvironment{Main}{}{}
-%%% レシピ
-% \setlength{\columnwidth}{24\zw}
-%本文ヨリ小%\small
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-%本文やや小%\medsmall
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
-%本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
-
-%文字サイズ、見出しなどの再定義
-\makeatletter
-%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
-%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
-
-\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
-\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
-\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
-\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
-\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
-\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
-\makeatletter
-\renewcommand{\chapter}{%
-  \if@openleft\cleardoublepage\else
-  \if@openright\cleardoublepage\else\clearpage\fi\fi
-  \plainifnotempty % 元: \thispagestyle{plain}
-  \global\@topnum\z@
-  \if@english \@afterindentfalse \else \@afterindenttrue \fi
-  \secdef
-    {\@omit@numberfalse\@chapter}%
-    {\@omit@numbertrue\@schapter}}
-\def\@chapter[#1]#2{%
-  \ifnum \c@secnumdepth >\m@ne
-    \if@mainmatter
-      \refstepcounter{chapter}%
-      \typeout{\@chapapp\thechapter\@chappos}%
-      \addcontentsline{toc}{chapter}%
-        {\protect\numberline
-        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
-        {\@chapapp\thechapter\@chappos}%
-        #1}%
-    \else\addcontentsline{toc}{chapter}{#1}\fi
-  \else
-    \addcontentsline{toc}{chapter}{#1}%
-  \fi
-  \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
-  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
-  \if@twocolumn
-    \@topnewpage[\@makechapterhead{#2}]%
-  \else
-    \@makechapterhead{#2}%
-    \@afterheading
-  \fi}
-\def\@makechapterhead#1{%
-  \vspace*{0\Cvs}% 欧文は50pt
-  {\parindent \z@ \centering \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-        \huge\headfont \@chapapp\thechapter\@chappos%変更
-        \par\nobreak
-        \vskip \Cvs % 欧文は20pt
-      \fi
-    \fi
-    \interlinepenalty\@M
-    \huge \headfont #1\par\nobreak
-    \vskip 1\Cvs}} % 欧文は40pt%変更
-
-\renewcommand{\section}{%
-    \if@slide\clearpage\fi
-    \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-    {\normalfont\Large\headfont\bfseries\centering}}%変更
-
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-  %  {\normalfont\large\headfont\bfseries\centering}} %変更
-    {\normalfont\large\headfont\centering}} %変更
-
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
-    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
-    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
-    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
-    {\normalfont\medlarge\headfont\leftskip -1\zw}}
-
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
-    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-    {1sp}%後アキ
-    {\normalfont\normalsize\headfont}}
-\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
-    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
-
-\newcommand{\frchap}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-\newcommand{\frsec}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\large\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-  
-\newcommand{\frsecb}[1]{\vspace*{-2ex}%
-\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
-  \hspace{1em}\scshape#1\normalfont\normalsize%
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-\makeatother
-
-\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
-
-\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
-
-
-\renewcommand{\thechapter}{}
-\renewcommand{\thesection}{\hskip-1\zw}
-\renewcommand{\thesubsection}{}
-\renewcommand{\thesubsubsection}{}
-\renewcommand{\theparagraph}{}
-
-
-% \makeatletter
-% \@removefromreset{subsubsection}{subsection}
-% \def\thesubsubsection{\arabic{subsubsection}.}
-% \newcounter{rnumber}
-% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
-\makeatother
-\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
-\renewcommand{\postpartname}{\if@english\else {}\fi}
-\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
-\renewcommand{\postchaptername}{\if@english\else {}\fi}
-\renewcommand{\presectionname}{}%  第
-\renewcommand{\postsectionname}{}% 節
-
-%\makeatletter
-\def\ps@headings{%
-  \let\@oddfoot\@empty
-  \let\@evenfoot\@empty
-  \def\@evenhead{%
-    \if@mparswitch \hss \fi
-    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-%      \textbf{\thepage}\hfil\leftmark}}%
-       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
-    \if@mparswitch\else \hss \fi}%
-  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
-  \let\@mkboth\markboth
-  \def\chaptermark##1{\markboth{%
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-        \if@omit@number\else
-          \@chapapp\thechapter\@chappos\hskip1\zw
-        \fi
-      \fi
-    \fi
-    ##1}{}}%
-  \def\sectionmark##1{\markright{%
-%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
-    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
-    ##1}}}%
-\makeatother
-
-\makeatletter
-%%%%%%%% Lua GC
-\patchcmd\@outputpage{\stepcounter{page}}{%
-  \directlua{%
-	if jit then
-      local k = collectgarbage("count")
-      if k>900000 then 
-        collectgarbage("collect")
-        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
-      end
-	end
-  }%
-  \stepcounter{page}%
-}{}{}
-\makeatother
-
-\include{sauces-index-def.tex}
-
-%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
-%%
-\setlength{\hoffset}{0\zw}
-\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
-\setlength{\evensidemargin}{\oddsidemargin}
-% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
-%\setlength{\evensidemargin}{0pt}%
-\setlength{\fullwidth}{45\zw}
-\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
-%\setlength{\fullwidth}{159mm}
-%\setlength{\textwidth}{159mm}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{0pt}
-\setlength{\footskip}{0pt}
-\setlength{\voffset}{-17mm}
-\setlength{\textheight}{265mm}
-\setlength{\parskip}{0pt}
-\setlength{\parindent}{0pt}
-
-\newcommand{\atoaki}{\vspace{1.25mm}}
-
-%%分数の表記Obsolete
-\usepackage{xfrac}
-\let\frac\sfrac
-
-
-
-
-
-\begin{document}
+\begin{main}
 
 \hypertarget{petites-sauces-blanches}{%
 \section{ホワイト系の派生ソース}\label{petites-sauces-blanches}}
 
-\frsec{Petites Sauces Blanches, Composées et de Réductions}
+\begin{frsecenv}
+
+Petites Sauces Blanches, Composées et de Réductions
+
+\end{frsecenv}
 
 \index{そーす@ソース!ほわいとはせい@ホワイト系の派生---|(}
 \index{sauce@sauce!petites blanches composees@Petites ---s Blanches Composées|(}
 
+\end{main}
+
+\begin{recette}
+
 \hypertarget{sauce-albufera}{%
 \subsubsection[ソース・アルビュフェラ]{\texorpdfstring{ソース・アルビュフェラ\footnote{ナポレオン軍の元帥、ルイ・ガブリエル・スーシェ
   Louis-Gabriel Suchet, duc d'Albufera
-  (1770〜1826）のこと。スペイン戦役の際にそれまでの軍功を称えられ、ナポレオンが1812年にアルビュフェラ公爵位を新設して授けた。帝政期の英雄のひとりであり、アルビュフェラおよびスーシェの名を冠した料理がいくつかある。1814年に帝政が崩壊した後も軍務、政務に携わり、最終的にフランス貴族院議員の地位を得た。アルビュフェラ公爵位については、1815年7月24日の勅令においてに正式に抹消されている。このソースの特徴は赤ピーマン（パプリカ）を加熱してなめらかにすり潰し、バターに練り込んだものを使う点にあるが、どのような経緯でこのソースに赤ピーマンを用いるようになったのかは不明。ただし、このソースを合わせる\protect\hyperlink{poularde-albufera}{「肥鶏　アルビュフェラ」}は詰め物（ファルス）に米を用いるが、アルビュフェラは湖の周辺の湿地帯で米の生産がおこなわれているという点では一応の関連性が認められよう。なお、アルビュフェラはバレンシアの湖とそこに形成された潟であり、現在はバレンシア州のアルブフェーラ自然公園となっている。}}{ソース・アルビュフェラ}}\label{sauce-albufera}}
+  (1770〜1826）のこと。スペイン戦役の際にそれまでの軍功を称えられ、ナポレオンが1812年にアルビュフェラ公爵位を新設して授けた。帝政期の英雄のひとりであり、アルビュフェラおよびスーシェの名を冠した料理がいくつかある。1814年に帝政が崩壊した後も軍務、政務に携わり、最終的にフランス貴族院議員の地位を得た。アルビュフェラ公爵位については、1815年7月24日の勅令においてに正式に抹消されている。このソースの特徴は赤ピーマン（パプリカ）を加熱してなめらかにすり潰し、バターに練り込んだものを使う点にあるが、どのような経緯でこのソースに赤ピーマンを用いるようになったのかは不明。ただし、このソースを合わせる\protect\hyperlink{poularde-albufera}{肥鶏・アルビュフェラ}は詰め物（ファルス）に米を用いるが、アルビュフェラは湖の周辺の湿地帯で米の生産がおこなわれているという点では一応の関連性が認められよう。なお、アルビュフェラはバレンシアの湖とそこに形成された潟であり、現在はバレンシア州のアルブフェーラ自然公園となっている。}}{ソース・アルビュフェラ}}\label{sauce-albufera}}
+
+\begin{frsubenv}
 
 Sauce Albuféra
+
+\end{frsubenv}
 
 \index{そーす@ソース!あるひゆふえら@---・アルビュフェラ}
 \index{あるひゆふえら@アルビュフェラ!そーす@ソース・---}
@@ -496,25 +38,29 @@ Lあたりに、溶かしたブロンド色の\protect\hyperlink{glace-de-viande
 dLと、標準的な分量比率で作った\protect\hyperlink{beurre-de-pimentos}{赤ピーマンバター}50
 gを加える。
 
-\ldots{}\ldots{}鶏など家禽のポシェ\footnote{ポシェは通常、沸騰させない程度の温度で茹でること、だが、ここで想定しているのは丸鶏をポシェしたもの。つまりは「仕立て」であり、前の注で触れた\protect\hyperlink{poularde-albufera}{「肥鶏　アルビュフェラ」}がこれに相当する。「仕立て」としての鶏のポシェは通常、中抜きした部分に詰め物（ファルス）をして手羽を脚を畳むようにしてまとめて糸で縫い（brider
-  ブリデ）、さらに豚背脂のシートで包んでちょうどいい大きさの鍋に入れて、あらかじめ用意しておいた\protect\hyperlink{fonds-blanc}{白いフォン})
-  が鶏にかぶる程度まで注ぐ。鍋を火にかけていったん沸騰したら、火を弱めるかオーブンに入れて、蓋をしてポシェの温度すなわち微沸騰を保つようにして加熱する。詳しくは\protect\hyperlink{les-poches}{第7章肉料理「ポシェ」の項}参照。}またはブレゼ\footnote{ポシェと同様に丸鶏をブレゼという「仕立て」に調理したものを想定しているので注意。肉料理の「仕立て」としてのブレゼについては\protect\hyperlink{les-braisages-de-viandes-blanches}{第7章肉料理「ブレゼ」の白身肉のブレゼ}参照。}にソースとして添える。
+\ldots{}\ldots{}鶏など家禽のポシェ\footnote{ポシェは通常、沸騰させない程度の温度で茹でること、だが、ここで想定しているのは丸鶏をポシェしたもの。つまりは「仕立て」であり、前の注で触れた\protect\hyperlink{poularde-albufera}{肥鶏・アルビュフェラ}がこれに相当する。「仕立て」としての鶏のポシェは通常、中抜きした部分に詰め物（ファルス）をして手羽を脚を畳むようにしてまとめて糸で縫い（brider
+  ブリデ）、さらに豚背脂のシートで包んでちょうどいい大きさの鍋に入れて、あらかじめ用意しておいた\protect\hyperlink{fonds-blanc}{白いフォン})が鶏にかぶる程度まで注ぐ。鍋を火にかけていったん沸騰したら、火を弱めるかオーブンに入れて、蓋をしてポシェの温度すなわち微沸騰を保つようにして加熱する。詳しくは\protect\hyperlink{les-poches}{肉料理「ポシェ」の項}参照。}またはブレゼ\footnote{ポシェと同様に丸鶏をブレゼという「仕立て」に調理したものを想定しているので注意。肉料理の「仕立て」としてのブレゼについては\protect\hyperlink{les-braisages-de-viandes-blanches}{肉料理「ブレゼ」の白身肉のブレゼ}参照。}にソースとして添える。
 
 \atoaki{}
 
 \hypertarget{sauce-americaine}{%
 \subsubsection[ソース・アメリケーヌ]{\texorpdfstring{ソース・アメリケーヌ\footnote{オマール・アメリケーヌという料理の由来は諸説あるが、19世紀フランスの料理人ピエール・フレス
   Pierre Fraysse
-  がアメリカで働いた後にパリで1853年に開いたレストラン「シェ・ピーターズ」でこの料理名で提供したというのが定説。ただし、1853年以前にレストラン「ボヌフォワ」に「ラングドック産オマール　ソース・アメリケーヌ添え」というメニューあり、フレスはその料理に改変を加えたか、名前だけをシンプルに「アメリケーヌ」とした程度という説もある。かつては、オマールの主産地のひとつブルターニュ地方を意味する古い形容詞
+  がアメリカで働いた後にパリで1853年に開いたレストランシェ・ピーターズでこの料理名で提供したというのが定説。ただし、1853年以前にレストランボヌフォワにはラングドック産オマール・ソース・アメリケーヌ添えというメニューあり、フレスはその料理に改変を加えたか、名前だけをシンプルに「アメリケーヌ」とした程度という説もある。かつては、オマールの主産地のひとつブルターニュ地方を意味する古い形容詞
   armoricain(e)
-  アルモリカン、アルモリケーヌの音が変化した料理名だと主張されることもあったが、
-  19世紀には南仏産が中心であったトマトを用いる点で矛盾が生じてしまう。いずれにしても、この料理名がフレスの店シェ・ピーターズを基点として広く知られるようになったことは事実。1867年のグフェ『料理の本』にはソース・エスパニョルをベースに白ワインとトマトで作るオマール・アメリケーヌのレシピが掲載されているので、比較的短期間で広まった料理なのは確か。また、オマールではないが、その20年程前に遡ってカレーム『19世紀フランス料理』には、「海亀のポタージュ　アメリカ風」Potage
-  de tortue à
-  l'américaineおよびその派生型「海亀のソース　アメリカ風」のレシピが掲載されている。レシピに先立って、カレームは「アメリカでも海亀のポタージュは本書のイギリス風海亀のポタージュと同様に、つまりロンドン風に調理するという。ところが、ボストンとニューヨークで暮したことのある人々から、アメリカ人は海亀のポタージュにうなぎのフィレを加えることを伝え聞いた。当然ながらイギリス風の海亀のポタージュとは異なる味わいのものとなる(t.1,
-  pp.289-290」と述べている。ここではソースのほうの概要を見ておこう。皮を剥いた小さめのうなぎを筒切りにする。これをラグー鍋に入れてシャンパーニュを注ぐ。洗ったアンチョビのフィレとにんんく、玉ねぎ、薄切りにしたマッシュルーム、タイム、バジル、ローリエの葉、ローズマリー、マジョラム、サリエット、メース少々、粗く砕いたこしょう、カイエンヌ少々を加える。弱火にかけて煮込み、煮詰めていく。これを布で絞り漉す。ここにコンソメとソース・エスパニョルを加え、再度火にかけていい具合になるまで煮詰める。シャンパーニュをグラス\(\frac{1}{2}\)杯加えて布で漉す。提供直前にバター少々と鶏のグラス、レモン果汁を加える(t.3,
+  アルモリカン、アルモリケーヌの音が変化した料理名だと主張されることもあったが、19世紀には南仏産が中心であったトマトを用いる点で矛盾が生じてしまう。いずれにしても、この料理名がフレスの店シェ・ピーターズを基点として広く知られるようになったことは事実。1867年のグフェ『料理の本』にはソース・エスパニョルをベースに白ワインとトマトで作るオマール・アメリケーヌのレシピが掲載されているので、比較的短期間で広まった料理なのは確か。また、オマールではないが、その20年程前に遡ってカレーム『19世紀フランス料理』には、海亀のポタージュ・アメリカ風
+  Potage de tortue à
+  l'américaineおよびその派生型として、海亀のソース・アメリカ風」のレシピが掲載されている。レシピに先立って、カレームは「アメリカでも海亀のポタージュは本書のイギリス風海亀のポタージュと同様に、つまりロンドン風に調理するという。ところが、ボストンとニューヨークで暮したことのある人々から、アメリカ人は海亀のポタージュにうなぎのフィレを加えることを伝え聞いた。当然ながらイギリス風の海亀のポタージュとは異なる味わいのものとなる(t.1,
+  pp.289-290」と述べている。ここではソースのほうの概要を見ておこう。皮を剥いた小さめのうなぎを筒切りにする。これをラグー鍋に入れてシャンパーニュを注ぐ。洗ったアンチョビのフィレとにんんく、玉ねぎ、薄切りにしたマッシュルーム、タイム、バジル、ローリエの葉、ローズマリー、マジョラム、サリエット、メース少々、粗く砕いたこしょう、カイエンヌ少々を加える。弱火にかけて煮込み、煮詰めていく。これを布で絞り漉す。ここにコンソメとソース・エスパニョルを加え、再度火にかけていい具合になるまで煮詰める。シャンパーニュをグラス
+  \(\frac{1}{2}\)
+  杯加えて布で漉す。提供直前にバター少々と鶏のグラス、レモン果汁を加える(t.3,
   pp.81-82)、というもの。}}{ソース・アメリケーヌ}}\label{sauce-americaine}}
 
-\frsub{Sauce Américaine}
+\begin{frsubenv}
+
+Sauce Américaine
+
+\end{frsubenv}
 
 \index{そーす@ソース!あめりけーぬ@---・アメリケーヌ}
 \index{あめりかん@アメリカン/アメリケーヌ!そーす@ソース・アメリケーヌ}
@@ -538,7 +84,11 @@ cm程度の輪切りにし\footnote{escalopper
 \hypertarget{sauce-anchois}{%
 \subsubsection{アンチョビソース}\label{sauce-anchois}}
 
-\frsub{Sauce Anchois}
+\begin{frsubenv}
+
+Sauce Anchois
+
+\end{frsubenv}
 
 \index{そーす@ソース!あんちよひ@アンチョビ---}
 \index{あんちよひ@アンチョビ!そーす@---ソース}
@@ -562,7 +112,11 @@ gを洗い、よく水気を絞ってから小さなさいの目に切ったの�
   à
   l'Auroreとして、ベシャメルソースに煮詰めた仔牛のブロンドとマッシュルームの茹で汁、トマトソースを添加して、スライスしたマッシュルームを加えるというレシピが掲載されている(p.57)。初期のロシア式サービスにおいては、客に料理を最初に見せてまわり、その後に切り分けて供するという方式であったために、おそらくヴィアールの「ソース・アローロール」では一瞬で失なわれてしまったであろう美しさのポイントが、このようにソース色合いそのものに代えたことで、最後の食べ手の分を取り分けるまで美しさを維持できるようになった、つまりは初期のロシア式サービスの欠点を補うものとなったと考えられよう。なお、19世紀はトマトが食材として急激に普及、流行した時代であったこともこのソースの変化と関係があると思われる。}}{ソース・オーロール}}\label{sauce-aurore}}
 
-\frsub{Sauce Aurore}
+\begin{frsubenv}
+
+Sauce Aurore
+
+\end{frsubenv}
 
 \index{そーす@ソース!おーろーる@---・オーロール}
 \index{おーろーる@オーロール!そーす@ソース・---}
@@ -581,7 +135,11 @@ gを洗い、よく水気を絞ってから小さなさいの目に切ったの�
 \hypertarget{sauce-aurore-maigre}{%
 \subsubsection{魚料理用ソース・オーロール}\label{sauce-aurore-maigre}}
 
-\frsub{Sauce Aurore maigre}
+\begin{frsubenv}
+
+Sauce Aurore maigre
+
+\end{frsubenv}
 
 \index{そーす@ソース!おーろーるさかなよう@魚料理用---・オーロール}
 \index{おーろーる@オーロール!そーすさかな@魚料理用ソース・---}
@@ -600,7 +158,11 @@ Lあたりバター125 gを加えて仕上げる。
 \hypertarget{sauce-bavaroise}{%
 \subsubsection{バイエルン風ソース}\label{sauce-bavaroise}}
 
-\frsub{Sauce Bavaroise}
+\begin{frsubenv}
+
+Sauce Bavaroise
+
+\end{frsubenv}
 
 \index{そーす@ソース!はいえるんふう@バイエルン風---}
 \index{はいえるんふう@バイエルン風!そーす@---ソース}
@@ -636,7 +198,11 @@ gと泡立てた生クリーム大さじ2杯、さいの目に切ったエクル
   19世紀パリ郊外のレストランPavillon Henri
   IV（日本語に訳すと「アンリ4世亭」となろうか）が店名に掲げているアンリ4世がベアルヌのポー生まれであることにちなんで命名したソース名というのが定説。}}{ソース・ベアルネーズ}}\label{sauce-bearnaise}}
 
-\frsub{Sauce Béarnaise}
+\begin{frsubenv}
+
+Sauce Béarnaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!へあるねーす@---・ベアルネーズ}
 \index{へあるぬふう@ベアルヌ風!そーす@ソース・---}
@@ -672,7 +238,11 @@ gを加えて軽くホイップしながらなめらかになるよう混ぜる�
 \subsubsection[トマト入りソース・ベアルネーズ/ソース・ショロン]{\texorpdfstring{トマト入りソース・ベアルネーズ/ソース・ショロン\footnote{19世紀後半、パリで有名レストラン「ヴォワザン」の料理長を務めたアレクサンドル・ショロン
   Alexandre Choron （1837〜1924）。自ら考案し、命名したという。}}{トマト入りソース・ベアルネーズ/ソース・ショロン}}\label{sauce-bearnaise-tomatee}}
 
-\frsub{Sauce Béarnaise tomatée, dite Sauce Choron}
+\begin{frsubenv}
+
+Sauce Béarnaise tomatée, dite Sauce Choron
+
+\end{frsubenv}
 
 \index{そーす@ソース!へあるねーすとまといり@トマト入り---・ベアルネーズ}
 \index{へあるぬふう@ベアルヌ風!そーすとまといり@トマト入りソース・ベアルネーズ}
@@ -696,7 +266,11 @@ gを加えて軽くホイップしながらなめらかになるよう混ぜる�
 \hypertarget{sauce-bearnaise-glace-de-viande}{%
 \subsubsection[グラスドヴィアンド入りソース・ベアルネーズ/ソース・フォイヨ/ソース・ヴァロワ]{\texorpdfstring{グラスドヴィアンド入りソース・ベアルネーズ/ソース・フォイヨ/ソース・ヴァロワ\footnote{ソース・フォイヨの名称は、19世紀〜20世紀初頭にパリにあったレストランおよびそのオーナーシェフの名によるもの。このソースを使った「仔牛の背肉・フォイヨ」がスペシャリテだったという。ソース・ヴァロワについては、ヴァロワ王家およびヴァロワ公爵であったルイ・フィリップ（7月王政期のフランス国王。在位1830〜1848）にちなんだ名称。前出のフォイヨはレストランを開く以前、ルイ・フィリップに仕えていた。}}{グラスドヴィアンド入りソース・ベアルネーズ/ソース・フォイヨ/ソース・ヴァロワ}}\label{sauce-bearnaise-glace-de-viande}}
 
-\frsub{Sauce Béarnaise à la glace de viande, dite Foyot, ou Valois}
+\begin{frsubenv}
+
+Sauce Béarnaise à la glace de viande, dite Foyot, ou Valois
+
+\end{frsubenv}
 
 \index{へあるぬふう@ベアルヌ風!そーすくらすとういあんといり@グラスドヴィアンド入りソース・ベアルネーズ}
 \index{そーす@ソース!へあるねーすくらすとういあんといり@---・ベアルネーズ(グラス・ド・ヴィアンド入り)}
@@ -724,7 +298,11 @@ dLを少しずつ加えて仕上げる。
 \hypertarget{sauce-bercy}{%
 \subsubsection[ソース・ベルシー]{\texorpdfstring{ソース・ベルシー\footnote{パリ東部、セーヌ川左岸にある地名。かつては荷揚げ港があり、19世紀には小さなレストランが多く店を構えていたという。}}{ソース・ベルシー}}\label{sauce-bercy}}
 
-\frsub{Sauce Bercy}
+\begin{frsubenv}
+
+Sauce Bercy
+
+\end{frsubenv}
 
 \index{そーす@ソース!へるしー@---・ベルシー}
 \index{へるしー@ベルシー!そーす@ソース・---}
@@ -749,7 +327,11 @@ gとパセリのみじん切り大さじ1杯を加えて仕上げる。
   bâtard
   も同じ語だが、細いバゲットと太いドゥーリーヴルの「中間」の太さとだからというのが通説。}}{ソース・オ・ブール /ソース・バタルド}}\label{sauce-au-beurre}}
 
-\frsub{Sauce au Beurre, dite Sauce Bâtarde}
+\begin{frsubenv}
+
+Sauce au Beurre, dite Sauce Bâtarde
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふーる@---・オ・ブール}
 \index{はたー@バター!そーす@ソース・オ・ブール}
@@ -783,7 +365,11 @@ dLを一気に注ぎ、泡立て器で勢いよく混ぜ合わせる。とろみ
 \hypertarget{sauce-bonnefoy}{%
 \subsubsection[ソース・ボヌフォワ/白ワインで作るボルドー風ソース]{\texorpdfstring{ソース・ボヌフォワ/白ワインで作るボルドー風ソース\footnote{ソース・ボヌフォワの名称は、19世紀中頃にあったレストランの名による。このレストランで考案されたソースだという説もある。}}{ソース・ボヌフォワ/白ワインで作るボルドー風ソース}}\label{sauce-bonnefoy}}
 
-\frsub{Sauce Bonnefoy, ou Sauce Bordelaise au vin blanc}
+\begin{frsubenv}
+
+Sauce Bonnefoy, ou Sauce Bordelaise au vin blanc
+
+\end{frsubenv}
 
 \index{ほぬふおわ@ボヌフォワ!そーす@ソース・---}
 \index{そーす@ソース!ほぬふおわ@---・ボヌフォワ}
@@ -808,7 +394,11 @@ dLを一気に注ぎ、泡立て器で勢いよく混ぜ合わせる。とろみ
 \hypertarget{sauce-bretonne-blanche}{%
 \subsubsection{ブルターニュ風ソース}\label{sauce-bretonne-blanche}}
 
-\frsub{Sauce Bretonne}
+\begin{frsubenv}
+
+Sauce Bretonne
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふるたーにゆふうしろ@ブルターニュ風---（ホワイト系）}
 \index{ふるたーにゆふう@ブルターニュ風!そーすしろ@---ソース（ホワイト系）}
@@ -833,7 +423,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-canotiere}{%
 \subsubsection[ソース・カノティエール]{\texorpdfstring{ソース・カノティエール\footnote{小舟の漕ぎ手、の意。}}{ソース・カノティエール}}\label{sauce-canotiere}}
 
-\frsub{Sauce Canotière}
+\begin{frsubenv}
+
+Sauce Canotière
+
+\end{frsubenv}
 
 \index{そーす@ソース!かのていえーる@---・カノティエール}
 \index{かのていえーる@カノティエール!そーす@ソース・---}
@@ -861,7 +455,11 @@ gとカイエンヌごく少量を加えて仕上げる。
 \hypertarget{sauce-aux-capres}{%
 \subsubsection{ケイパー入りソース}\label{sauce-aux-capres}}
 
-\frsub{Sauce aux Câpres}
+\begin{frsubenv}
+
+Sauce aux Câpres
+
+\end{frsubenv}
 
 \index{そーす@ソース!けいはー@ケイパー入り---}
 \index{けいはー@ケイパー!そーす@---入りソース}
@@ -879,7 +477,11 @@ Lあたり大さじ4 杯のケイパーを提供直前に加える。
 \hypertarget{sauce-cardinal}{%
 \subsubsection[ソース・カルディナル]{\texorpdfstring{ソース・カルディナル\footnote{カトリックの\ruby{すうききよう}{枢機卿}（カルディナル）の衣が伝統的に赤いものであること、およびオマールが「海の枢機卿」と呼ばれることに由来。}}{ソース・カルディナル}}\label{sauce-cardinal}}
 
-\frsub{Sauce Cardinal}
+\begin{frsubenv}
+
+Sauce Cardinal
+
+\end{frsubenv}
 
 \index{そーす@ソース!かるていなる@---・カルディナル}
 \index{かるていなる@カルディナル!そーす@ソース・---}
@@ -901,7 +503,11 @@ dL加える。（2）生クリーム 1 \(\frac{1}{2}\) dLを加える。
 \hypertarget{sauce-aux-champignons-blanche}{%
 \subsubsection{マッシュルーム入りソース}\label{sauce-aux-champignons-blanche}}
 
-\frsub{Sauce aux Champignons}
+\begin{frsubenv}
+
+Sauce aux Champignons
+
+\end{frsubenv}
 
 \index{そーす@ソース!まつしゆるーむしろ@マッシュルーム---（ホワイト系）}
 \index{まつしゆるーむ@マッシュルーム!そーすしろ@---ソース（ホワイト系）}
@@ -924,7 +530,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-chantilly}{%
 \subsubsection[ソース・シャンティイ]{\texorpdfstring{ソース・シャンティイ\footnote{料理および製菓では生クリームをホイップしたクレーム・シャンティイが有名だが、元来はパリ北方に位置する町の名。ここのシャンティイ城で17世紀に、歴史上主要なメートルドテルのひとりヴァテルが自害した事件は有名で小説化、映画化もされた。}}{ソース・シャンティイ}}\label{sauce-chantilly}}
 
-\frsub{Sauce Chantilly}
+\begin{frsubenv}
+
+Sauce Chantilly
+
+\end{frsubenv}
 
 \index{そーす@ソース!しやんていい@---・シャンティイ}
 \index{しやんていい@シャンティイ!そーす@ソース・---}
@@ -948,7 +558,11 @@ gを加えて仕上げる。
   Chateaubriandの綴り、第二版はChâteaubriantであり、第三版は
   Châteaubrian\textbf{d}という奇妙な綴りとなっている。}}{ソース・シャトーブリヤン}}\label{sauce-chateaubriand}}
 
-\frsub{Sauce Chateaubriand}
+\begin{frsubenv}
+
+Sauce Chateaubriand
+
+\end{frsubenv}
 
 \index{そーす@ソース!しゃとーふりやん@---・シャトーブリヤン}
 \index{しやとーふりやん@シャトーブリヤン! そーす@ソース・---}
@@ -974,7 +588,11 @@ gと細かく刻んだエストラゴン小さじ \(\frac{1}{2}\)杯を加えて
 \hypertarget{sauce-chaud-froid-blanche-ordinaire}{%
 \subsubsection{白いソース・ショフロワ（標準）}\label{sauce-chaud-froid-blanche-ordinaire}}
 
-\frsub{Sauce Chaud-froid blanche ordinaire}
+\begin{frsubenv}
+
+Sauce Chaud-froid blanche ordinaire
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわしろ@白い---・ショフロワ（標準）}
 \index{しよふろわ@ショフロワ!そーすしろ@白いソース---（標準）}
@@ -1001,7 +619,11 @@ dL。
 \hypertarget{sauce-chaud-froid-blonde}{%
 \subsubsection{ブロンドのソース・ショフロワ}\label{sauce-chaud-froid-blonde}}
 
-\frsub{Sauce Chaud-froid blonde}
+\begin{frsubenv}
+
+Sauce Chaud-froid blonde
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわふろんと@ブロンドの---・ショフロワ}
 \index{しよふろわ@ショフロワ!そーすふろんと@ブロンドのソース---}
@@ -1017,7 +639,11 @@ dL。
 \hypertarget{sauce-chaud-froid-aurore}{%
 \subsubsection[ソース・ショフロワ・オーロール]{\texorpdfstring{ソース・ショフロワ・オーロール\footnote{夜明け、曙光の意。}}{ソース・ショフロワ・オーロール}}\label{sauce-chaud-froid-aurore}}
 
-\frsub{Sauce Chaud-froid Aurore}
+\begin{frsubenv}
+
+Sauce Chaud-froid Aurore
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわおーろーる@---・ショフロワ・オーロール}
 \index{しよふろわ@ショフロワ!そーすおーろーる@ソース・---・オーロール}
@@ -1045,7 +671,11 @@ gを少量のコンソメで煎じた\footnote{infuser
 \hypertarget{sauce-choud-froid-vert-pre}{%
 \subsubsection[ソース・ショフロワ・ヴェールプレ]{\texorpdfstring{ソース・ショフロワ・ヴェールプレ\footnote{緑の野原、草原、の意。}}{ソース・ショフロワ・ヴェールプレ}}\label{sauce-choud-froid-vert-pre}}
 
-\frsub{Sauce Chaud-froid au Vert-pré}
+\begin{frsubenv}
+
+Sauce Chaud-froid au Vert-pré
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわうえーるふれ@---・ショフロワ・ヴェールプレ}
 \index{しよふろわ@ショフロワ!そーすうえーるふれ@ソース・---・ヴェールプレ}
@@ -1083,7 +713,11 @@ Lになるまで煮詰めておくこと。
 \hypertarget{sauce-chaud-froid-maigre}{%
 \subsubsection{魚料理用ソース・ショフロワ}\label{sauce-chaud-froid-maigre}}
 
-\frsub{Sauce Chaud-froid maigre}
+\begin{frsubenv}
+
+Sauce Chaud-froid maigre
+
+\end{frsubenv}
 
 \index{そーす@ソース!さかなりようりようしよふろわ@魚料理用---・ショフロワ}
 \index{しよふろわ@ショフロワ!さかなりようりようそーす@魚料理用ソース---}
@@ -1107,7 +741,11 @@ Lになるまで煮詰めておくこと。
   1847）の劇『ディアーヌ・ド・シヴリ』\emph{Diane de Chivry}
   (1838年)あるいは1897年に新聞「フィガロ」に掲載されたエルネスト・カペンデュの小説『ビビタパン』の登場人物名Chivryにちなんだか、あるいはまったく別の人物の名を冠したものかは不明。}}{ソース・シヴリ}}\label{sacue-chivry}}
 
-\frsub{Sauce Chivry}
+\begin{frsubenv}
+
+Sauce Chivry
+
+\end{frsubenv}
 
 \index{そーす@ソース!しうり@---・シヴリ}
 \index{しうり@シヴリ!そーす@ソース・---}
@@ -1136,7 +774,11 @@ gを加えて仕上げる（\protect\hyperlink{beurres-composes}{合わせバタ
 \hypertarget{sauce-choron}{%
 \subsubsection{ソース・ショロン}\label{sauce-choron}}
 
-\frsub{Sauce Choron}
+\begin{frsubenv}
+
+Sauce Choron
+
+\end{frsubenv}
 
 \protect\hyperlink{sauce-bearnaise-tomatee}{トマト入りソース・ベアルネーズ}参照。
 
@@ -1145,7 +787,11 @@ gを加えて仕上げる（\protect\hyperlink{beurres-composes}{合わせバタ
 \hypertarget{sauce-creme}{%
 \subsubsection{ソース・クレーム}\label{sauce-creme}}
 
-\frsub{Sauce à la Crème}
+\begin{frsubenv}
+
+Sauce à la Crème
+
+\end{frsubenv}
 
 \index{そーす@ソース!くれーむ@---・クレーム}
 \index{くりーむ@クリーム!そーす@ソース・クレーム}
@@ -1169,7 +815,11 @@ dLを加えて、ヘラで混ぜながら強火で、全体量の\(\frac{3}{4}\)
   roses（クルヴェット・ローズ）。美味しい。ちなみに日本でよく食べられているブラックタイガーはフランス語にするとcrevette
   géante tigréeと言う。}}{ソース・クルヴェット}}\label{sauce-aux-crevettes}}
 
-\frsub{Sauce aux Crevettes}
+\begin{frsubenv}
+
+Sauce aux Crevettes
+
+\end{frsubenv}
 
 \index{そーす@ソース!くるうえつと@---・クルヴェット}
 \index{くるうえつと@クルヴェット!そーす@ソース・---}
@@ -1195,7 +845,11 @@ gを加える。殻を剥いたクルヴェットの尾の身大さじ3杯を加
 \hypertarget{sauce-currie}{%
 \subsubsection{カレーソース}\label{sauce-currie}}
 
-\frsub{Sauce Currie}
+\begin{frsubenv}
+
+Sauce Currie
+
+\end{frsubenv}
 
 \index{そーす@ソース!かれー@カレー---}
 \index{かれー@カレー!そーす@---ソース}
@@ -1229,7 +883,11 @@ Lを注ぐ。沸騰したら、弱火にして約45分煮る。軽く押し絞�
 \hypertarget{sauce-currie-indienne}{%
 \subsubsection{インド風カレーソース}\label{sauce-currie-indienne}}
 
-\frsub{Sauce Currie à l'Indienne}
+\begin{frsubenv}
+
+Sauce Currie à l'Indienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!いんとふうかれー@インドカレー---}
 \index{かれー@カレー!そーすいんとふう@インド---ソース}
@@ -1264,7 +922,11 @@ dLの温めた牛乳で溶いて作る。それを布で強く絞って漉して
 \hypertarget{sauce-diplomate}{%
 \subsubsection[ソース・ディプロマット]{\texorpdfstring{ソース・ディプロマット\footnote{外交官風、の意。繊細で豪華な仕立ての料理に付けられる名称。}}{ソース・ディプロマット}}\label{sauce-diplomate}}
 
-\frsub{Sauce Diplomate}
+\begin{frsubenv}
+
+Sauce Diplomate
+
+\end{frsubenv}
 
 \index{そーす@ソース!ていふろまつと@---・ディプロマット}
 \index{ていふろまつと@ディプロマット!そーす@ソース・---}
@@ -1286,7 +948,11 @@ Lに、\protect\hyperlink{beurre-de-homard}{オマールバター}75 gを加え�
 \hypertarget{sauce-ecossaise}{%
 \subsubsection{スコットランド風ソース}\label{sauce-ecossaise}}
 
-\frsub{Sauce Ecossaise}
+\begin{frsubenv}
+
+Sauce Ecossaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!すこつとらんとふう@スコットランド風---}
 \index{すこつとらんとふう@スコットランド風!そーす@---ソース}
@@ -1308,7 +974,11 @@ dL。
 \hypertarget{sauce-estragon-blanche}{%
 \subsubsection[ソース・エストラゴン]{\texorpdfstring{ソース・エストラゴン\footnote{ヨモギ科のハーブ。詳しくは茶色い派生ソースの\protect\hyperlink{sauce-chasseur}{ソース・シャスール}訳注参照。}}{ソース・エストラゴン}}\label{sauce-estragon-blanche}}
 
-\frsub{Sauce Estragon}
+\begin{frsubenv}
+
+Sauce Estragon
+
+\end{frsubenv}
 
 \index{そーす@ソース!えすとらこんしろ@---・エストラゴン（ホワイト系）}
 \index{えすとらこん@エストラゴン!そーすしろ@ソース・--- （ホワイト系）}
@@ -1328,7 +998,11 @@ Lに混ぜ込む。どちらのヴルテを使うから、合わせる料理に�
 \hypertarget{sauce-aux-fines-herbes-blanche}{%
 \subsubsection{香草ソース}\label{sauce-aux-fines-herbes-blanche}}
 
-\frsub{Sauce aux Fines Herbes}
+\begin{frsubenv}
+
+Sauce aux Fines Herbes
+
+\end{frsubenv}
 
 \index{そーす@ソース!こうそうしろ@香草---（ホワイト系）}
 \index{こうそう@香草!そーすしろ@---ソース（ホワイト系）}
@@ -1353,7 +1027,11 @@ gと、パセリ、セルフイユ、エストラゴンのみじん切りを大�
 \hypertarget{sauce-foyot}{%
 \subsubsection{ソース・フォイヨ}\label{sauce-foyot}}
 
-\frsub{Sauce Foyot}
+\begin{frsubenv}
+
+Sauce Foyot
+
+\end{frsubenv}
 
 ⇒
 \protect\hyperlink{sauce-bearnaise-glace-de-viande}{グラスドヴィアンド入りソース・ベアルネーズ}参照。
@@ -1368,7 +1046,11 @@ gと、パセリ、セルフイユ、エストラゴンのみじん切りを大�
   à
   maquereauグロゼイヤマクロー（maquereauは鯖の意。日本では英語経由のグーズベリーまたはグースベリーの名称でも呼ばれることが多い。単に西洋すぐりとも呼ぶ）という比較的大粒で薄く縞模様の入る種類もある。これは通常は緑色だが、まれに紫色になる変種もあるという。いずれもフランスでは料理や菓子作りによく用いられる。}}{ソース・グロゼイユ}}\label{sauce-groseilles}}
 
-\frsub{Sauce Groseilles}
+\begin{frsubenv}
+
+Sauce Groseilles
+
+\end{frsubenv}
 
 \index{そーす@ソース!くろせいゆ@---・グロゼイユ}
 \index{くろせいゆ@グロゼイユ!そーす@ソース・---}
@@ -1401,7 +1083,11 @@ dLを加え、よく混ぜる。
   blancheというレシピにおいて、このオランデーズソースの原型ともいうべきものが示されている。アスパラガスは固めに塩茹でする。「新鮮なバター、卵黄、塩、ナツメグ、ヴィネガー少々をよくかき混ぜる。ソースが滑らかになったら、アスパラガスに添えて供する(p.238)」。簡潔な記述だが、これがオランデーズソースの原型であることは間違いないだろう。おそらくはラ・ヴァレーヌ以前から存在していた可能性も否定できない。なお植物油を用いたマヨネーズが文献上で確認されるのが18世紀以降で、19世紀初頭から爆発的に流行し、広まったもの。また、マヨネーズについては、現代ヨーロッパにおいても卵黄ではなく全卵を用いて作るほうが多数を占めている点が異なることに注意。なお、オランデーズとは「オランダ風」の意だが、なぜこの名称となったのかについては不明な点が多い。また、2007年版の『ラルース・ガストロノミック』では、オランデーズソースを作る際には温度に注意することと、よくメッキされた銅鍋かステンレス製の鍋を用いる必要があり、アルミ製の鍋だと緑色に変色する可能性があることに注意を促している
   (p.455)。}}{オランデーズソース}}\label{sauce-hollandaise}}
 
-\frsub{Sauce Hollandaise}
+\begin{frsubenv}
+
+Sauce Hollandaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!おらんてーす@オランデーズ---}
 \index{おらんてーす@オランデーズ!そーす@---ソース}
@@ -1434,7 +1120,11 @@ dLを加え、よく混ぜる。
 \hypertarget{sauce-homard}{%
 \subsubsection{ソース・オマール}\label{sauce-homard}}
 
-\frsub{Sauce Homard}
+\begin{frsubenv}
+
+Sauce Homard
+
+\end{frsubenv}
 
 \index{そーす@ソース!おまーる@---・オマール}
 \index{おまーる@オマール!そーす@ソース・---}
@@ -1460,7 +1150,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-hongroise}{%
 \subsubsection[ハンガリー風ソース]{\texorpdfstring{ハンガリー風ソース\footnote{原書でも用いられている語paprikaパプリカはハンガリー語。唐辛子、ピーマンの仲間であり、16世紀以降17世紀にヨーロッパ全土に広まり、その土地ごとの風土に合わせて品種が多様化した。パプリカはとりわけ辛味成分をほとんど含んでいないのが特徴。ただし、ハンガリーの食文化において大きな役割を果すようになったのは19世紀以降になってからと言われている。}}{ハンガリー風ソース}}\label{sauce-hongroise}}
 
-\frsub{Sauce Hongroise}
+\begin{frsubenv}
+
+Sauce Hongroise
+
+\end{frsubenv}
 
 \index{そーす@ソース!はんかりーふう@ハンガリー風---}
 \index{はんかりーふう@ハンガリー風!そーす@---ソース}
@@ -1487,7 +1181,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-aux-huitres}{%
 \subsubsection{牡蠣入りソース}\label{sauce-aux-huitres}}
 
-\frsub{Sauce aux Huîtres}
+\begin{frsubenv}
+
+Sauce aux Huîtres
+
+\end{frsubenv}
 
 \index{そーす@ソース!かきいり@牡蠣入り---}
 \index{かき@牡蠣!そーす@牡蠣入りソース}
@@ -1504,7 +1202,11 @@ gを加えて仕上げる。
 \hypertarget{sauceindienne}{%
 \subsubsection{インド風ソース}\label{sauceindienne}}
 
-\frsub{Sauce Indienne}
+\begin{frsubenv}
+
+Sauce Indienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!いんとふう@インド風---}
 \index{いんとふう@インド風!そーす@---ソース}
@@ -1519,7 +1221,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-ivoire}{%
 \subsubsection[ソース・イヴォワール]{\texorpdfstring{ソース・イヴォワール\footnote{象牙、の意。}}{ソース・イヴォワール}}\label{sauce-ivoire}}
 
-\frsub{Sauce Ivoire}
+\begin{frsubenv}
+
+Sauce Ivoire
+
+\end{frsubenv}
 
 \index{そーす@ソース!いうおわーる@---・イヴォワール}
 \index{いうおわーる@イヴォワール!そーす@ソース・---}
@@ -1538,7 +1244,11 @@ Lに、ブロンド色の\protect\hyperlink{glace-de-viande}{グラスドヴィ�
 \hypertarget{sauce-joinville}{%
 \subsubsection[ソース・ジョワンヴィル]{\texorpdfstring{ソース・ジョワンヴィル\footnote{19世紀、7月王政期の国王ルイ・フィリップの第3子、フランソワ・ドルレアン・ジョワンヴィル海軍大将（1818〜1900）のこと。エクルヴィスとクルヴェットを用いた料理に彼の名が冠されたものがいくつかある。}}{ソース・ジョワンヴィル}}\label{sauce-joinville}}
 
-\frsub{Sauce Joinville}
+\begin{frsubenv}
+
+Sauce Joinville
+
+\end{frsubenv}
 
 \index{しよわんういる@ジョワンヴィル!そーす@ソース・---}
 \index{そーす@ソース!しよわんういる@---・ジョワンヴィル}
@@ -1567,7 +1277,11 @@ gと\protect\hyperlink{}{クルヴェットバター}60 gを加えて仕上げ�
 \subsubsection[ソース・ラギピエール]{\texorpdfstring{ソース・ラギピエール\footnote{18世紀末〜19世紀初頭にかけて活躍したフランスを代表する料理人の名（？〜1812）。はじめコンデ公に仕え、革命時にコンデ公の亡命にも随行したが、後にフランスに帰国し、ナポレオン\ruby{麾下}{きか}に入った。ナポレオン自身は食に無頓着であったが、直接的にはミュラ元帥のもとで料理長として活躍した。タレーランに仕えていたアントナン・カレームは
   2年程の期間であったが、ラギピエールとともに宴席の仕事に携わり、生涯を通して師と仰ぐ程に尊敬してやまなかった。当然だが料理においてカレームはラギピエールから大きく影響を受け、そのことを後年、数冊の自著で明記している。ラギピエール自身はミュラ元帥に従ってロシア戦線に赴き、その撤退の途中、極寒の地で凍死した。カレームは1828年刊『パリ風の料理』の冒頭2ページを「ラギピエールの想い出に」と題し、とても力強い文体でその死を悼んだ。}}{ソース・ラギピエール}}\label{sauce-laguipiere}}
 
-\frsub{Sauce Laguipière}
+\begin{frsubenv}
+
+Sauce Laguipière
+
+\end{frsubenv}
 
 \index{らきひえーる@ラギピエール!そーす@ソース・---}
 \index{そーす@ソース!らきひえーる@---・ラギピエール}
@@ -1585,7 +1299,7 @@ Lに、レモン1個の搾り汁と\protect\hyperlink{glace-de-poisson}{魚の�
 \hypertarget{nota-sauce-laguipiere}{%
 \subparagraph{【原注】}\label{nota-sauce-laguipiere}}
 
-カレームが考案したこのソースのレシピに、本書で加えた変更点はただ1箇所のみ、\protect\hyperlink{glace-de-volaille}{鶏のグラス}ではなく魚のグラスに代えたことだけだ。さらに言うと、このソースはカレームによって「ソース・オ・ブール　ラギピエール風」と名付けられたものだ\footnote{カレームの未完の大著『19世紀フランス料理』第3巻に、このソースのレシピが掲載されている。少し長くなるが引用すると「ラグー用片手鍋に、魚料理用グランドソースの章で示したソース・オ・ブールをレードル1杯入れる。ここに上等のコンソメ大さじ1杯か鶏のグラス少々を加える。塩1
+カレームが考案したこのソースのレシピに、本書で加えた変更点はただ1箇所のみ、\protect\hyperlink{glace-de-volaille}{鶏のグラス}ではなく魚のグラスに代えたことだけだ。さらに言うと、このソースはカレームによってソース・オ・ブール・ラギピエール風と名付けられたものだ\footnote{カレームの未完の大著『19世紀フランス料理』第3巻に、このソースのレシピが掲載されている。少し長くなるが引用すると「ラグー用片手鍋に、魚料理用グランドソースの章で示したソース・オ・ブールをレードル1杯入れる。ここに上等のコンソメ大さじ1杯か鶏のグラス少々を加える。塩1
   つまみ、ナツメグ少々、良質のヴィネガーまたはレモン果汁適量を加える。数秒間煮立たせ、上等なバターをたっぷり加えてから供する。(中略)ソースに火を通してからバターを加えるというこの方法によって、なめらかな口あたりで、油っぽくならない仕上がりになる。だからこそ私はこのソース・オ・ブールをグランドソースに分類しなかったのだし、バターを加える派生ソースにおいてこれは重要なことだからだ。それは魚料理用ソースについても同様のことだ(pp.117-118)」。このレシピにおいて、カレームの表現には矛盾がある。「魚用グランドソースの章で示した」とあるのに「グランドソースに分類しなかった」となっていることだ。実際、ソース・オ・ブールそれ自体はこの「ラギピエール風」の直前にある。さて、このソースが「ラギピエール風」であることの理由だが、同じ巻の「魚料理用ソース・エスパニョル」の説明の冒頭において、ラギピエールから聞いた話として、四旬節の期間（小斉=肉断ちをする慣習がカトリックに根強くあった）に、魚料理用のソースにコンソメや仔牛のブロンドのジュを混ぜている修道士料理人がいたの、と述べている。それなら美味しくて当然だろう、とカレームが問うと、ラギピエールは「そうやって作った料理は、通常の肉を食べていい時の料理とは違うものであり、かといって肉断ちの料理でもない、まさに中間のものだ。その判定は天のみぞ知るところだろう。結局のところ、修道士たちは元気に暮していたのだから、それは正しかったのだよ」と煙に巻いたという。カトリックの習慣としての小斉=肉断ちのための魚料理用ソースに、肉由来である鶏のグラスもしくはコンソメを加えるというところが、ラギピエール風と名付けた\ruby{所以}{ゆえん}であり、まさにこれこそがソース・ラギピエールの重要なポイントと考えられる。『料理の手引き』においてこのレシピを担当した執筆者はこのエピソードを読んでいなかったのだろうか？
   あるいは何らかの誤解ゆえに改変をしたのか、ラギピエール風という名称が象徴している、鶏のグラス、コンソメを用いるべきところを、魚のグラスに代えてしまい、このソース名の由来を換骨奪胎してしまう結果となっている。本書の初版において、原注がその文体から、エスコフィエの手になるものか、あるいは聞き書きしたコメントであることはほぼ明らかなので、なぜエスコフィエがこの点を見逃したか、あるいは許容したのかは非常に興味深い。ところで、カレームが、バターを仕上げの際に加えるということ、いわゆるブールモンテ
   monter au
@@ -1596,7 +1310,11 @@ Lに、レモン1個の搾り汁と\protect\hyperlink{glace-de-poisson}{魚の�
 \hypertarget{sauce-livonienne}{%
 \subsubsection[リヴォニア風ソース]{\texorpdfstring{リヴォニア風ソース\footnote{現在のラトビア東北部からエストニア南部にかけての古い地域名、いわゆるバルト三国の一地域と捉えていい。本書執筆時にはロシア帝国の一部となっていた。なお、料理名に冠される地名のうちの少からずのものに明確な由来のないのと同様に、このソースについても名称の由来は不明。}}{リヴォニア風ソース}}\label{sauce-livonienne}}
 
-\frsub{Sauce Livonienne}
+\begin{frsubenv}
+
+Sauce Livonienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!りうおにあふう@リヴォニア風---}
 \index{りうおにあふう@リヴォニア風!そーす@---ソース}
@@ -1621,13 +1339,17 @@ mmの細さのトリュフの千切りと粗く刻んだパセリを加える。
 \subsubsection[マルタ風ソース]{\texorpdfstring{マルタ風ソース\footnote{シチリアの南方に位置するマルタ島を中心とした国、マルタはオレンジをはじめとした柑橘類の産地であり、とりわけ19世紀にはマルタ産のブラッドオレンジが人気であった。一例としてバルザックの小説『二人の若妻の手記』において、つわりに苦しむ妻のために夫がマルセイユの街で「マルタ産、ポルトガル産、コルシカ産のオレンジを買い求めた」
   (p.312)と書かれている。}}{マルタ風ソース}}\label{sauce-maltaise}}
 
-\frsub{Sauce Maltaise}
+\begin{frsubenv}
+
+Sauce Maltaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!まるたふう@マルタ風---}
 \index{まるたふう@マルタ風!そーす@---ソース}
 \index{maltais@maltais(e)!sauce@Sauce ---e}
-\textbackslash{}index\{sauce@sauce!maltaise@-\/-\/- Maltaise
-\index[src]{maltaise@maltaise} \index[src]{まるたふう@マルタ風}
+\index{sauce@sauce!maltaise@--- Maltaise} \index[src]{maltaise@maltaise}
+\index[src]{まるたふう@マルタ風}
 
 前述のとおりに、\protect\hyperlink{sauce-hollandaise}{ソース・オランデーズ}を作り、提供直前に、\textbf{ブラッドオレンジ}2個の搾り汁を加える。ブラッドオレンジを用いないとこのソースは成立しないので注意。オレンジの皮の表面をおろしたもの\footnote{zeste
   ゼスト。} 1つまみを加えて仕上げる。
@@ -1641,7 +1363,11 @@ mmの細さのトリュフの千切りと粗く刻んだパセリを加える。
   \textless{} mare
   ラテン語「海」から派生した語。貝や魚を白ワインで煮た料理にも付けられる名称。}}{ソース・マリニエール}}\label{sauce-mariniere}}
 
-\frsub{Sauce Marinière}
+\begin{frsubenv}
+
+Sauce Marinière
+
+\end{frsubenv}
 
 \index{まりにえーる@マリニエール!そーす@ソース・---}
 \index{そーす@ソース!まりにえーる@---・マリニエール}
@@ -1658,7 +1384,11 @@ mmの細さのトリュフの千切りと粗く刻んだパセリを加える。
 \hypertarget{sauce-matelote-blanche}{%
 \subsubsection[白いソース・マトロット]{\texorpdfstring{白いソース・マトロット\footnote{水夫風、船員風、の意。}}{白いソース・マトロット}}\label{sauce-matelote-blanche}}
 
-\frsub{Sauce Matelote blanche}
+\begin{frsubenv}
+
+Sauce Matelote blanche
+
+\end{frsubenv}
 
 \index{そーす@ソース!まとろつとしろ@白い---・マトロット}
 \index{まとろつと@マトロット!そーすしろ@白いソース・---}
@@ -1687,7 +1417,11 @@ dLを加える。数分間煮立たせる。布で漉し、バター150 gを加�
 \hypertarget{sauce-mornay}{%
 \subsubsection[ソース・モルネー]{\texorpdfstring{ソース・モルネー\footnote{19世紀中頃にパリのレストラン、デュランの料理長ジョゼフ・ヴォワロンが創案したと言われている。モルネーは人名だが、具体的に誰を指しているかについては諸説ある。}}{ソース・モルネー}}\label{sauce-mornay}}
 
-\frsub{Sauce Mornay}
+\begin{frsubenv}
+
+Sauce Mornay
+
+\end{frsubenv}
 
 \index{もるねー@モルネー!そーす@---ソース}
 \index{そーす@ソース!もるねー@---・モルネー}
@@ -1721,7 +1455,11 @@ gを加えて仕上げる\footnote{monter au beurre
   crème
   Chantilly（クレーム・シャンティイ）を加えるところから。\protect\hyperlink{sauce-chantilly}{ソース・シャンティイ}訳注も参照。}}{ソース・ムスリーヌ/ソース・シャンティイ}}\label{sauce-mousseline}}
 
-\frsub{Sauce Mousseline, dite Sauce Chantilly}
+\begin{frsubenv}
+
+Sauce Mousseline, dite Sauce Chantilly
+
+\end{frsubenv}
 
 \index{むすりーぬ@ムスリーヌ!そーす@ソース・---}
 \index{そーす@ソース!むすりーぬ@---・ムスリーヌ}
@@ -1747,7 +1485,11 @@ gを加えて仕上げる\footnote{monter au beurre
 \subsubsection[ソース・ムスーズ]{\texorpdfstring{ソース・ムスーズ\footnote{細かく泡立った、の意。なお、シャンパーニュのようなvin
   mousseux ヴァン・ムスー（発泡ワイン）のムスーは同じ語の男性形.}}{ソース・ムスーズ}}\label{sauce-mousseuse}}
 
-\frsub{Sauce Mousseuse}
+\begin{frsubenv}
+
+Sauce Mousseuse
+
+\end{frsubenv}
 
 \index{むすー@ムスー（ズ）!そーす@ソース・ムスーズ}
 \index{そーす@ソース!むすーす@---・ムスーズ}
@@ -1770,7 +1512,11 @@ gを入れる。塩8 gを加え、泡立て器でしっかり混ぜながら、�
 \hypertarget{sauce-moutarde}{%
 \subsubsection[ソース・ムタルド]{\texorpdfstring{ソース・ムタルド\footnote{マスタードのこと。マスタードソースと呼んでもいいが、アメリカ風の印象を与えるかも知れない。}}{ソース・ムタルド}}\label{sauce-moutarde}}
 
-\frsub{Sauce Moutarde}
+\begin{frsubenv}
+
+Sauce Moutarde
+
+\end{frsubenv}
 
 \index{そーす@ソース!むたると@---・ムタルド}
 \index{むたると@ムタルド（マスタード）!そーす@ソース・ムタルド}
@@ -1791,7 +1537,11 @@ gを入れる。塩8 gを加え、泡立て器でしっかり混ぜながら、�
 \hypertarget{sauce-nantua}{%
 \subsubsection[ソース・ナンチュア]{\texorpdfstring{ソース・ナンチュア\footnote{ローヌ・アルプ地方にあるナンチュア湖でエクルヴィスが穫れることに由来したソース名。エクルヴィスについて詳しくは\protect\hyperlink{sauce-bavaroise}{バイエルン風ソース}訳注参照。}}{ソース・ナンチュア}}\label{sauce-nantua}}
 
-\frsub{Sauce Nantua}
+\begin{frsubenv}
+
+Sauce Nantua
+
+\end{frsubenv}
 
 \index{そーす@ソース!なんちゆあ@---・ナンチュア}
 \index{なんちゆあ@ナンチュア!そーす@ソース・---}
@@ -1815,7 +1565,11 @@ gと、小さめのエクルヴィスの尾の身\footnote{しっかり下茹で
 \hypertarget{sauce-new-burg-avec-le-homard-cru}{%
 \subsubsection[活けオマールで作るソース・ニューバーグ]{\texorpdfstring{活けオマールで作るソース・ニューバーグ\footnote{ここでは英語由来のソース名のため英語風にカタカナ書きしたが、フランスでは「ニュブール」のように発音されることも多い。}}{活けオマールで作るソース・ニューバーグ}}\label{sauce-new-burg-avec-le-homard-cru}}
 
-\frsub{Sauce New-burg avec le homard cru}
+\begin{frsubenv}
+
+Sauce New-burg avec le homard cru
+
+\end{frsubenv}
 
 \index{そーす@ソース!にゆーはーくいけおまーる@活けオマールを使う---・ニューバーグ}
 \index{にゆーはーく@ニューバーグ!そーすいけおまーる@活けオマールを使うソース・---}
@@ -1851,7 +1605,11 @@ dLを注ぐ。弱火で25分間煮る。
 \hypertarget{sauce-new-burg-avec-le-homard-cuit}{%
 \subsubsection[茹でたオマールで作るソース・ニューバーグ]{\texorpdfstring{茹でたオマールで作るソース・ニューバーグ\footnote{このソースの元となった料理「オマール・ニューバーグ」は、19世紀後半にニューヨークのレストラン、デルモニコーズで常連客のアイデアをもとにフランス出身の料理長シャルル・ラノフェール（チャールズ・レンフォーファー）が完成させたと言われており、そのレシピがラノフェールの著書\href{https://archive.org/details/epicureancomplet00ranhrich}{『ジ・エピキュリアン』}（英語）に掲載されている(p.411)。現在もデルモニコーズのスペシャリテ。なお、これらソースのレシピは第二版で追加されたが、もとの料理は初版から収録されている。}}{茹でたオマールで作るソース・ニューバーグ}}\label{sauce-new-burg-avec-le-homard-cuit}}
 
-\frsub{Sauce New-burg avec le homard cuit}
+\begin{frsubenv}
+
+Sauce New-burg avec le homard cuit
+
+\end{frsubenv}
 
 \index{そーす@ソース!にゆーはーくゆてたおまーる@茹でたオマールを使う---・ニューバーグ}
 \index{にゆーはーく@ニューバーグ!そーすゆてたおまーる@茹でたオマールを使うソース・---}
@@ -1885,7 +1643,11 @@ dLと卵黄3個を溶いたものを注ぎ、火から外して、ゆっくり�
 \hypertarget{sauce-noisette}{%
 \subsubsection[ソース・ノワゼット]{\texorpdfstring{ソース・ノワゼット\footnote{ヘーゼルナッツ、はしばみの実。}}{ソース・ノワゼット}}\label{sauce-noisette}}
 
-\frsub{Sauce Noisette}
+\begin{frsubenv}
+
+Sauce Noisette
+
+\end{frsubenv}
 
 \index{そーす@ソース!へーせるなっつ@---・ノワゼット}
 \index{へーせるなつつ@ヘーゼルナッツ!そーす@ソース・ノワゼット}
@@ -1905,7 +1667,11 @@ gを加える。
 \hypertarget{sauce-normande}{%
 \subsubsection{ノルマンディ風ソース}\label{sauce-normande}}
 
-\frsub{Sauce Normande}
+\begin{frsubenv}
+
+Sauce Normande
+
+\end{frsubenv}
 
 \index{そーす@ソース!のるまんてふう@ノルマンディ風---}
 \index{のるまんていふう@ノルマンディ風!そーす@---ソース}
@@ -1942,7 +1708,11 @@ dLとバター125 gを加える。
   orient
   オリヨン（東方）は、具体的にいうと北アフリカの一部、アラビア半島、西アジアくらいまでを指すのが一般的。その意味では、カレー粉を加えたことで「オリエント風」と称するのは、当時のフランス人にとって、理解できなくもないだろうが実感は伴わなかった可能性がある。フランス人にとっての「オリエント」である北アフリカやトルコといった地域の食文化は19世紀にはかなりフランスに伝わっていたからだ。こういった文化的なイメージのずれは、エスコフィエ本人が料理長としてのキャリアの大半をイギリスで過ごしたこととも関係があると思われる。つまり、フランス人にとっての「オリエント」とインドという植民地を持つイギリス人の「オリエント」は同じ言葉であっても、想起される具体的な内容が違うということである。}}{オリエント風ソース}}\label{sauce-orientale}}
 
-\frsub{Sauce Orientale}
+\begin{frsubenv}
+
+Sauce Orientale
+
+\end{frsubenv}
 
 \index{そーす@ソース!おりえんとふう@オリエント風---}
 \index{おりえんとふう@オリエント風!そーす@---ソース}
@@ -1964,7 +1734,11 @@ dLとバター125 gを加える。
 \hypertarget{sauce-paloise}{%
 \subsubsection[ポー風ソース]{\texorpdfstring{ポー風ソース\footnote{ポーは15世紀以来、ベアルヌ地方の中心都市。}}{ポー風ソース}}\label{sauce-paloise}}
 
-\frsub{Sauce paloise}
+\begin{frsubenv}
+
+Sauce paloise
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほーふう@ポー風---}
 \index{ほーふう@ポー風!そーす@---ソース}
@@ -1988,9 +1762,14 @@ dLとバター125 gを加える。
 \atoaki{}
 
 \hypertarget{sauce-poulette}{%
-\subsubsection{ソース・プレット}\label{sauce-poulette}}
+\subsubsection[ソース・プレット]{\texorpdfstring{ソース・プレット\footnote{ひな鶏、の意。かつて鶏のフリカセがこのソースと同様の作り方であったためこの名称になったという説もある。「鶏のフリカセ」として文献上もっとも古いもののひとつ、ラ・ヴァレーヌ『フランス料理の本』（1651
+  年）のレシピでは、掃除をして切り分けた鶏をブイヨンで完全に火が通るまで煮た後に、鶏の水気をきってフライパンに油脂を熱してこんがりと焼き（これがfricasserフリカセの原義。色よく焼く、の意だったのが、最終的に料理として仕立てられる際には当時流行のラグーとなったことから意味が変化していった)、レシピには明記されていないがブイヨンあるいは他の液体を注いで、パセリやシブール（葱の一種）を加えて調味し、溶いた卵黄でとろみを付ける、というものだった(p.47)。だがこのソース名の由来は、1758年刊マラン『コモス神の贈り物』第2巻にある「肥鶏の手羽、プレット風」にあると思われる。これは、バターで手羽の表面を焼き、豚背脂に包んでローストする。これと下茹でした仔牛肉とマッシュルーム、ブーケガルニを加えて、小麦粉を振りかけ、ブイヨンを注ぐ。仔牛肉に火が通るまで弱火で煮込み、漉し器で漉し、塩少々を加える。そこに手羽を戻し入れて弱火でさらに煮込み、卵黄と生クリーム少々を加えてとろみを付ける。パセリのみじん切りとバター少々を加えて仕上げる。供する際には手羽をきれいに並べ、ソースを上からかける。レモン果汁かヴェルジュ（未熟ぶどう果汁）を加える(pp.85-86)、というもの。}}{ソース・プレット}}\label{sauce-poulette}}
 
-\frsub{Sauce Poulette}
+\begin{frsubenv}
+
+Sauce Poulette
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふれつと@---・プレット}
 \index{ふれつと@プレット!そーす@ソース・---}
@@ -2012,7 +1791,11 @@ g、パセリのみじん切り大さじ1杯を加えて仕上げる。
   \textless{} ravigoter
   身体を丈夫にする、元気にさせる、の派生語。香草を主体として酸味を効かせたソース（および煮込み料理）は中世以来あったが、18世紀以降ravigoteという呼び名が一般的となり、19世紀以降はこの表現がしばしば使われるようになった。ソース・ラヴィゴットは冷製と温製の2種がある。なお、ソース・ラヴィゴットのレシピとして最初期のもののひとつ、1755年刊ムノン『宮廷の晩餐』第1巻に掲載されているソース・ラヴィゴットの作り方は、薄切りにしたにんにく、セルフイユ、サラダバーネット、エストラゴン、クレソンアレノワ（オルレアン芹）、シブレットを洗ってから圧し潰し、コップ1杯のコンソメ（=この当時のコンソメはグラスドヴィアンドに近いものであることに注意）に入れて沸騰させないよう1時間以上かけて煎じる。漉し器で押すようにして漉し、ブールマニエ、塩、こしょうで味付けをして火にかけ、レモンの搾り汁で仕上げる、というもの(p.135)。}}{ソース・ラヴィゴット}}\label{sauce-ravigote}}
 
-\frsub{Sauce Ravigote}
+\begin{frsubenv}
+
+Sauce Ravigote
+
+\end{frsubenv}
 
 \index{そーす@ソース!らういこつと@---・ラヴィゴット}
 \index{らういこつと@ラヴィゴット!そーす@ソース・---}
@@ -2041,7 +1824,11 @@ gと、セルフイユ\footnote{cerfeuil チャービル。}とエストラゴ�
 \hypertarget{sauce-regence-pour-poissons}{%
 \subsubsection[魚料理用ソース・レジャンス]{\texorpdfstring{魚料理用ソース・レジャンス\footnote{ソース・レジャンスという名称については「ブラウン系の派生ソース」の\protect\hyperlink{sauce-regence}{ソース・レジャンス}訳注参照。}}{魚料理用ソース・レジャンス}}\label{sauce-regence-pour-poissons}}
 
-\frsub{Sauce Régence pour Poissons, et garnitures de Poissons}
+\begin{frsubenv}
+
+Sauce Régence pour Poissons, et garnitures de Poissons
+
+\end{frsubenv}
 
 \index{そーす@ソース!れしやんすさかなよう@魚料理用---・レジャンス}
 \index{れしやんす@レジャンス!そーすさかなよう@魚料理用ソース・---}
@@ -2065,7 +1852,11 @@ dLを加える。
 \subsubsection[鶏料理のガルニチュール用ソース・レジャンス]{\texorpdfstring{鶏料理のガルニチュール用ソース・レジャンス\footnote{わかりやすい例としては、後述の\protect\hyperlink{garniture-regence}{ガルニチュール・レジャンス
   B}参照。}}{鶏料理のガルニチュール用ソース・レジャンス}}\label{sauce-regence-pour-garnitures-de-volaille}}
 
-\frsub{Sauce Régence pour garnitures de Volaille}
+\begin{frsubenv}
+
+Sauce Régence pour garnitures de Volaille
+
+\end{frsubenv}
 
 \index{そーす@ソース!れしやんすとりりようりのかるにてゆーるよう@鶏料理のガルニチュール用---・レジャンス}
 \index{れしやんす@レジャンス!そーすとりりようりののかるにてゅーるよう@鶏料理のガルニチュール用ソース・---}
@@ -2085,7 +1876,11 @@ dLを加え、布で漉す。トリュフエッセンス大さじ1杯を加え�
 \hypertarget{sauce-riche}{%
 \subsubsection[ソース・リッシュ]{\texorpdfstring{ソース・リッシュ\footnote{リッチな、裕福な、の意。ソース・ディプロマットがそもそも豪華な料理に合わせるものであり、さらにトリュフを足すことでより一層「リッチ」なものにした、ということ。}}{ソース・リッシュ}}\label{sauce-riche}}
 
-\frsub{Sauce Riche}
+\begin{frsubenv}
+
+Sauce Riche
+
+\end{frsubenv}
 
 \index{そーす@ソース!りつしゆ@---・リッシュ}
 \index{りつしゆ@リッシュ!そーす@ソース・---}
@@ -2106,7 +1901,11 @@ gを加えて仕上げる。
   Pierre Paul Rubens
   ピエール・ポール・リュベンスの表記が定着している、現代フランスでは原語のままの綴り、発音を尊重することが多い。}}{ソース・ルーベンス}}\label{sauce-rubens}}
 
-\frsub{Sauce Rubens}
+\begin{frsubenv}
+
+Sauce Rubens
+
+\end{frsubenv}
 
 \index{そーす@ソース!るーへんす@---・ルーベンス}
 \index{るーへんす@ルーベンス!そーす@ソース・---}
@@ -2134,7 +1933,11 @@ g、アンチョビエッセンス少々を加えて仕上げる。
 \hypertarget{sauce-saint-malo}{%
 \subsubsection[サンマロ風ソース]{\texorpdfstring{サンマロ風ソース\footnote{ブルターニュ地方の港町。観光地として有名であり、バカンスシーズンには多くの人が訪れる。}}{サンマロ風ソース}}\label{sauce-saint-malo}}
 
-\frsub{Sauce Saint-Malo}
+\begin{frsubenv}
+
+Sauce Saint-Malo
+
+\end{frsubenv}
 
 \index{そーす@ソース!さんまろふう@サンマロ風---}
 \index{さんまろふう@サンマロ風!そーす@---ソース}
@@ -2161,7 +1964,11 @@ gと、マスタード大さじ
   p.II 訳注3}
   および\protect\hyperlink{sauce-moscovite}{モスクワ風ソース}訳注参照。}}{ソース・スミターヌ}}\label{sauce-smitane}}
 
-\frsub{Sauce Smitane}
+\begin{frsubenv}
+
+Sauce Smitane
+
+\end{frsubenv}
 
 \index{すみたーぬ@スミターヌ!そーす@ソース・---}
 \index{そーす@ソース!すみたーぬ@---・スミターヌ}
@@ -2190,7 +1997,11 @@ dLを注ぎ、完全に煮詰める。サワークリーム \(\frac{1}{2}\) Lを
 \hypertarget{sauce-solferino}{%
 \subsubsection{ソース・ソルフェリノ}\label{sauce-solferino}}
 
-\frsub{Sauce Solférino}
+\begin{frsubenv}
+
+Sauce Solférino
+
+\end{frsubenv}
 
 \index{そーす@ソース!そるふえりの@---・ソルフェリノ}
 \index{そるふえりの@ソルフェリノ!そーす@ソース・---}
@@ -2223,7 +2034,11 @@ Saint-Cloud ソース・サンクルー\footnote{サンクルーはパリ近郊�
   Marinフランソワ・マラン（生没年不詳）が仕えたシャルル・ド・ロアン・スビーズ元帥のこと。マランは4巻からなる『コモス神の贈り物、あるいは食卓の悦楽』（1739
   年刊）を著した。}}{ソース・スビーズ/玉ねぎのクリ・スビーズ}}\label{sauce-soubise}}
 
-\frsub{Sauce Soubise, ou Coulis d'oignons Soubise}
+\begin{frsubenv}
+
+Sauce Soubise, ou Coulis d'oignons Soubise
+
+\end{frsubenv}
 
 \index{そーす@ソース!すひーす@---・スビーズ}
 \index{すひーす@スビーズ!そーす@ソース・---}
@@ -2283,7 +2098,11 @@ gと生クリーム1 dLを加えて仕上げる。
 \hypertarget{sauce-soubise-tomatee}{%
 \subsubsection{トマト入りソース・スビーズ}\label{sauce-soubise-tomatee}}
 
-\frsub{Sauce Soubise tomatée}
+\begin{frsubenv}
+
+Sauce Soubise tomatée
+
+\end{frsubenv}
 
 \index{そーす@ソース!すひーすとまといり@トマト入り---・スゥビーズ}
 \index{すひーす@スビーズ!そーすとまといり@トマト入りソース・---}
@@ -2302,7 +2121,11 @@ gと生クリーム1 dLを加えて仕上げる。
   正しくはSuchetだが、料理名としては Souchet
   とも綴られる。\protect\hyperlink{sauce-albufera}{ソース・アルビュフェラ}訳注参照。}}{ソース・スーシェ}}\label{sauce-souchet}}
 
-\frsub{Sauce Souchet}
+\begin{frsubenv}
+
+Sauce Souchet
+
+\end{frsubenv}
 
 \index{そーす@ソース!すーしえ@---・スーシェ}
 \index{すーしえ@スーシェ!そーす@ソース・---}
@@ -2335,7 +2158,11 @@ dLになるまで煮詰める。\protect\hyperlink{sauce-vin-blanc}{白ワイン
 \hypertarget{sauce-tyrolienne}{%
 \subsubsection[チロル風ソース]{\texorpdfstring{チロル風ソース\footnote{そもそも\protect\hyperlink{sauce-choron}{ソース・ショロン}をバターではなく植物油を用いて作るものであるから、オーストリアのチロル地方とはまったく関係がない。1848年のイタリア、チロルでのオーストリアに対する反乱を記念した命名だという説もあるが、真偽は不明。ただし、本書の初版からほぼ異同のない内容で収録されているため、それなりに古くから存在しているソースと思われる。}}{チロル風ソース}}\label{sauce-tyrolienne}}
 
-\frsub{Sauce Tyrolienne}
+\begin{frsubenv}
+
+Sauce Tyrolienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!ちろるふう@チロル風---}
 \index{ちろるふう@チロル風!そーす@---ソース}
@@ -2357,7 +2184,11 @@ dLを加えてしっかりと乳化させる。最後に味を調え、カイエ
   à l'ancienne
   は「昔ながらの」という意味ではないと解釈される。ベースとなっているソース・ポワヴラードが古くからあるソースであることからこの名称を付けたのだろう。}}{チロル風ソース・クラシック}}\label{sauce-tyrolienne-ancienne}}
 
-\frsub{Sauce Tyrolienne à l'ancienne}
+\begin{frsubenv}
+
+Sauce Tyrolienne à l'ancienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!ちろるふうくらしつく@チロル風---・クラシック}
 \index{ちろるふう@チロル風!そーす@---ソース・クラシック}
@@ -2374,7 +2205,11 @@ dLを加える。7〜8分間煮て仕上げる。
 \hypertarget{sauce-valois}{%
 \subsubsection{ソース・ヴァロワ}\label{sauce-valois}}
 
-\frsub{Sauce Valois}
+\begin{frsubenv}
+
+Sauce Valois
+
+\end{frsubenv}
 
 \index{うあろわ@ヴァロワ!そーす@ソース・---}
 \index{そーす@ソース!うあろわ@---・ヴァロワ}
@@ -2394,7 +2229,11 @@ dLを加える。7〜8分間煮て仕上げる。
 \hypertarget{sauce-venitienne}{%
 \subsubsection[ヴェネツィア風ソース]{\texorpdfstring{ヴェネツィア風ソース\footnote{ヴェネツィア料理ではさまざまな香草を用いるものがあることから、その影響を受けた、あるいは類似したものにこの名称が付けられることが多い。なお、ヴェネツィアの近く、漁港で有名なキオッジャ近郊は農業がとても盛んで、地場品種の野菜もビーツやカボチャ、ラディッキオにもキオッジャの名が付く品種がある。}}{ヴェネツィア風ソース}}\label{sauce-venitienne}}
 
-\frsub{Sauce Vénitienne}
+\begin{frsubenv}
+
+Sauce Vénitienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!うえねついあふう@ヴェネツィア風---}
 \index{うえねついあふう@ヴェネツィア風!そーす@---ソース}
@@ -2420,7 +2259,11 @@ gと、セルフイユとエストラゴンのみじん切り大さじ1杯を加
   (1798〜1867)。医師であり、文学愛好家、美食家としても有名だった。文芸誌「ルヴュ・ド・パリ」を主宰した後、新聞「ル・コンスティチュショネル」の社主となり、ウージェーヌ・シューの新聞連載小説『彷徨えるユダヤ人』を掲載、大ヒットに導いた。、自宅は文壇サロンのようだったという。主著『パリのとあるブルジョワの回想録』（1853〜
   1955年刊）。}}{ソース・ヴェロン}}\label{sauce-veron}}
 
-\frsub{Sauce Véron}
+\begin{frsubenv}
+
+Sauce Véron
+
+\end{frsubenv}
 
 \index{そーす@ソース!うえろん@---・ヴェロン}
 \index{うえろん@ヴェロン!そーす@ソース・---}
@@ -2438,7 +2281,11 @@ Lを加える。よく混ぜ合わせ、溶かしたブロンド色の\protect\h
 \hypertarget{sauce-villageoise}{%
 \subsubsection[村人風ソース]{\texorpdfstring{村人風ソース\footnote{文字通り「村人風」の意。このソースの他にもこの名称を冠した料理はあるが由来などは不明。}}{村人風ソース}}\label{sauce-villageoise}}
 
-\frsub{Sauce Villageoise}
+\begin{frsubenv}
+
+Sauce Villageoise
+
+\end{frsubenv}
 
 \index{そーす@ソース!むらひとふう@村人風---}
 \index{むらひとふう@村人風!そーす@---ソース}
@@ -2463,7 +2310,11 @@ gを加えて仕上げる。
 \subsubsection[ソース・ヴィルロワ]{\texorpdfstring{ソース・ヴィルロワ\footnote{ルイ15世の養育係を務めたヴィルロワ元帥
   François de Villeroi の名を冠したものとされる。}}{ソース・ヴィルロワ}}\label{sauce-villeroy}}
 
-\frsub{Sauce Villeroy}
+\begin{frsubenv}
+
+Sauce Villeroy
+
+\end{frsubenv}
 
 \index{そーす@ソース!ういるろわ@---・ヴィルロワ}
 \index{ういるろわ@ヴィルロワ!そーす@ソース・---}
@@ -2487,7 +2338,11 @@ Lに、トリュフエッセンス大さじ4
 \hypertarget{sauce-villeroy-soubisee}{%
 \subsubsection{スビーズ入りソース・ヴィルロワ}\label{sauce-villeroy-soubisee}}
 
-\frsub{Sauce Villeroy Soubisée}
+\begin{frsubenv}
+
+Sauce Villeroy Soubisée
+
+\end{frsubenv}
 
 \index{そーす@ソース!ういるろわすひーすいり@スビーズ入り---・ヴィルロワ}
 \index{ういるろわ@ヴィルロワ!そーすすひーすいり@スビーズ入りソース・---}
@@ -2508,7 +2363,11 @@ gのトリュフのみじん切りを加えることもある。
 \hypertarget{sauce-villeroy-tomatee}{%
 \subsubsection{トマト入りソース・ヴィルロワ}\label{sauce-villeroy-tomatee}}
 
-\frsub{Sauce Villeroy tomatée}
+\begin{frsubenv}
+
+Sauce Villeroy tomatée
+
+\end{frsubenv}
 
 \index{そーす@ソース!ういるろわとまといり@トマト入り---・ヴィルロワ}
 \index{ういるろわ@ヴィルロワ!そーすとまといり@トマト入りソース・---}
@@ -2525,7 +2384,11 @@ gのトリュフのみじん切りを加えることもある。
 \hypertarget{sauce-vin-blanc}{%
 \subsubsection{白ワインソース}\label{sauce-vin-blanc}}
 
-\frsub{Sauce vin blanc}
+\begin{frsubenv}
+
+Sauce vin blanc
+
+\end{frsubenv}
 
 \index{そーす@ソース!しろわいん@白ワイン---}
 \index{しろわいん@白ワイン!そーす@---ソース}
@@ -2559,4 +2422,4 @@ gのトリュフのみじん切りを加えることもある。
 
 \index{garniture@Garniture!serie@\textbf{Série des ---s}|)}
 
-\end{document}
+\end{recette}

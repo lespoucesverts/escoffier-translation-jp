@@ -1,4 +1,4 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{unicode=true,pageanchor,colorlinks=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 $if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
@@ -346,12 +346,12 @@ $endif$
 
 
 % %%%%%%%%% hyperref %%%%%%%%%%%%%
-% \usepackage{refcount}
-% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+%\usepackage{refcount}
+%\usepackage[unicode=true,hyperfootnotes=true,pageanchor]{hyperref}
 % \hypersetup{hyperindex=false,%
 %              breaklinks=true,%
 %              bookmarks=true,%
-%              pdfauthor={五島　学},%
+%              pdfauthor={五島　学,河井健司},%
 %              pdftitle={エスコフィエ『料理の手引き』全注解},%
 %              colorlinks=false%true,%
 %              %colorlinks=true,%
@@ -369,7 +369,8 @@ $endif$
 
 
 
-%% 欧文フォント設定 Libertine/Biolinum
+%% 欧文フォント設定
+% Libertine/Biolinum
 \setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
 \setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
 %\usepackage{libertine}
@@ -515,29 +516,32 @@ $endif$
 %%% 脚注番号のページ毎のリセットと脚注位置の調整
 %\renewcommand{\footnotesize}{\small}
 
-\makeatletter
+% \makeatletter
 
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 4mm}
-%\usepackage{footnpag}
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 0\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
+% \usepackage[bottom,perpage,stable]{footmisc}%
+% %\setlength{\skip\footins}{4mm plus 4mm}
+% %\usepackage{footnpag}
+% \renewcommand\@makefntext[1]{%
+%   \advance\leftskip 0\zw
+%   \parindent 1\zw
+%   \noindent
+%   \llap{\@thefnmark\hskip0.5\zw}#1}
 
 
-\let\footnotes@ve=\footnote
-\def\footnote{\inhibitglue\footnotes@ve}
-\let\footnotemarks@ve=\footnotemark
-%\def\footnotemark{\inhibitglue\footnotemarks@ve}
-\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+% \let\footnotes@ve=\footnote
+% \def\footnote{\inhibitglue\footnotes@ve}
+% \let\footnotemarks@ve=\footnotemark
+% %\def\footnotemark{\inhibitglue\footnotemarks@ve}
+% \renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% % %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+% \renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+% \makeatother
 
+\usepackage{endnotes}
+\let\footnote\endnote
 %%%%%%%%%レシピと本文%%%%%%%%%%%%
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
+%\usepackage{multicol}
+%\setlength{\columnsep}{3\zw}
 
 %%% 本文
 \newenvironment{main}{}{}
@@ -548,7 +552,8 @@ $endif$
 %本文やや小%\medsmall
 %\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
 %本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\setlength\topskip{.8\baselineskip}}{\end{spacing}}
+\newenvironment{recette}{}{}
 
 %文字サイズ、見出しなどの再定義
 \makeatletter
@@ -747,24 +752,47 @@ $endif$
 
 %% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
 %%
-\setlength{\hoffset}{0\zw}
-\setlength{\oddsidemargin}{0\zw}
-\setlength{\evensidemargin}{-1\zw}
+% \setlength{\hoffset}{0\zw}
+% \setlength{\oddsidemargin}{0\zw}
+% \setlength{\evensidemargin}{-1\zw}
+% % \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+% %\setlength{\evensidemargin}{0pt}%
+% \setlength{\fullwidth}{47\zw}
+% \setlength{\textwidth}{47\zw}%%ltjsclassesのみ有効
+% %\setlength{\fullwidth}{159mm}
+% %\setlength{\textwidth}{159mm}
+% \setlength{\marginparsep}{0pt}
+% \setlength{\marginparwidth}{0pt}
+% \setlength{\footskip}{0pt}
+% \setlength{\voffset}{-17mm}
+% \setlength{\textheight}{260mm}
+% \setlength{\parskip}{0pt}
+% \setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{-1truein}
+\setlength{\oddsidemargin}{5mm}%タブレット前提の中央配置
+\setlength{\evensidemargin}{\oddsidemargin}
 % \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
 %\setlength{\evensidemargin}{0pt}%
-\setlength{\fullwidth}{47\zw}
-\setlength{\textwidth}{47\zw}%%ltjsclassesのみ有効
+\setlength{\paperwidth}{110mm}
+\setlength{\fullwidth}{100mm}
+\setlength{\textwidth}{100mm}%%ltjsclassesのみ有効
 %\setlength{\fullwidth}{159mm}
 %\setlength{\textwidth}{159mm}
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\footskip}{0pt}
-\setlength{\voffset}{-17mm}
-\setlength{\textheight}{260mm}
+\setlength{\voffset}{-1truein}
+\setlength{\paperheight}{200mm}
+\setlength{\textheight}{180mm}
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 
-\newcommand{\atoaki}{\vspace{1.25mm}}
+
 
 %%分数の表記Obsolete
 \usepackage{xfrac}

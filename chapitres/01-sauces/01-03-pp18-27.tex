@@ -1,932 +1,23 @@
-%%
-% Copyright (c) 2018, Pascal Wagler;  
-% Copyright (c) 2014--2018, John MacFarlane
-% 
-% All rights reserved.
-% 
-% Redistribution and use in source and binary forms, with or without 
-% modification, are permitted provided that the following conditions 
-% are met:
-% 
-% - Redistributions of source code must retain the above copyright 
-% notice, this list of conditions and the following disclaimer.
-% 
-% - Redistributions in binary form must reproduce the above copyright 
-% notice, this list of conditions and the following disclaimer in the 
-% documentation and/or other materials provided with the distribution.
-% 
-% - Neither the name of John MacFarlane nor the names of other 
-% contributors may be used to endorse or promote products derived 
-% from this software without specific prior written permission.
-% 
-% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-% "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-% LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-% FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-% COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
-% INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-% BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-% LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-% CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-% POSSIBILITY OF SUCH DAMAGE.
-%%
-
-%%
-% For usage information and examples visit the GitHub page of this template:
-% https://github.com/Wandmalfarbe/pandoc-latex-template
-%%
-
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{svgnames*,table}{xcolor}
-%
-\documentclass[14Q,a4paperpaper,,tablecaptionabove]{scrartcl}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
-\hypersetup{
-            pdftitle={エスコフィエ『料理の手引き』全注解},
-            pdfauthor={五 島　学},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% Make use of float-package and set default placement for figures to H
-\usepackage{float}
-\floatplacement{figure}{H}
-
-\usepackage{amsmath}
-  \let\equation\gather
-  \let\endequation\endgather
-\usepackage{amssymb}
-\usepackage[no-math]{fontspec}
-\usepackage{geometry}
-\usepackage{luaotfload}
-\usepackage{graphicx}
-
-\usepackage{setspace}
-
-
-%%%%%%%%% hyperref %%%%%%%%%%%%%
-\usepackage{refcount}
-\usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
-\hypersetup{hyperindex=false,%
-             breaklinks=true,%
-             bookmarks=true,%
-             pdfauthor={五島　学},%
-             pdftitle={エスコフィエ『料理の手引き』全注解},%
-             colorlinks=false%true,%
-             %colorlinks=true,%
-             citecolor=blue,%
-             urlcolor=cyan,%
-             linkcolor=magenta,%
-             bookmarksdepth=subsubsection,%
-             pdfborder={0 0 0},%
-             hyperfootnotes=false,%
-             plainpages=false,
-             }
-\urlstyle{same}
-
-
-
-
-%% 欧文フォント設定
-% Libertine/Biolinum
-\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
-\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
-%\usepackage{libertine}
-\usepackage{unicode-math}
-\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
-%\unimathsetup{math-style=ISO,bold-style=ISO}
-%\setmathfont{xits-math.otf}
-%\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
-
-
-
-
-%% Garamond
-%\usepackage{ebgaramond-maths}
-%\setmainfont[Ligatures=Historic,Scale=1.1]{EB Garamond}%fontspecによるフォント設定
-
-%\usepackage{qpalatin}%palatino
-
-%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Schola}
-%\setmainfont[Ligatures=Historic,Scale=MatchLowercase]{Tex Gyre Pagella}
-%\setsansfont[Scale=MatchLowercase]{TeX Gyre Heros}  % \sffamily のフォント
-%\setsansfont[Scale=MatchLowercase]{TeX Gyre Adventor}  % \sffamily のフォント
-
-%\setmonofont[Scale=MatchLowercase]{Inconsolata}       % \ttfamily のフォント
-
-%\usepackage[cmintegrals,cmbraces]{newtxmath}%数式フォント
-
-\usepackage{luatexja}
-\usepackage{luatexja-fontspec}
-%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
-%\ltjsetparameter{jacharrange={-2, +8}}
-\usepackage{luatexja-ruby}
-
-%%%%和文フォント設定
-%\usepackage[sourcehan,bold,jis2004,expert,deluxe]{luatexja-preset}%Adobe源ノ明朝、ゴチ
-%\usepackage[hiragino-pron,bold,jis2004,expert,deluxe]{luatexja-preset}
-%\usepackage[yu-osx,expert,jis2004,bold]{luatexja-preset}
-%\usepackage[moga-mogo-ex,bold]{luatexja-preset}
-
-\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
-%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
-\setmainjfont[%
-     %YokoFeatures={JFM=prop,PKana=On},%
-     %CharacterWidth=AlternateProportional,%
-%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
-     %Kerning=On,%
-     BoldFont={ MoboGoB },%
-     ItalicFont={ MoboGoB },%
-     BoldItalicFont={ MoboGoExB }%
-     % ]{ MogaHMin }
-     ]{ IPAExMincho }
-     % ]{ IPAmjMincho }
-\setsansjfont[%
-     %YokoFeatures={JFM=prop,PKana=On},%
-     %CharacterWidth=AlternateProportional,%
-     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
-     %Kerning=On,
-     BoldFont={ MoboGoB },%
-     ItalicFont={ MoboGoB },%
-     BoldItalicFont={ MoboGoExB }%
-     % ]{ MoboGo}
-     ]{ IPAExGothic }
-% %  %%%% 和文仮名プロプーショナルここまで
-% %\ltjsetparameter{jacharrange={-2}}%キリル文字%引数に-3を付けるとギリシア文字も可能になるが、%三点リーダーも欧文化されてしまうので注意%
-
-
-\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
-\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
-%\addfontfeature{Fractions=On}
-
-
-\defaultfontfeatures[\rmfamily]{Scale=1.2}%効いていない様子
-\defaultjfontfeatures{Scale=0.92487}%和文フォントのサイズ調整。デフォルトは 0.962212 倍%ltjsclassesでは不要?
-%\defaultjfontfeatures{Scale=0.962212}
-%\usepackage{libertineotf}%linux libertine font %ギリシア語含む
-%\usepackage[T1]{fontenc}
-%\usepackage[full]{textcomp}
-%\usepackage[osfI,scaled=1.0]{garamondx}
-%\usepackage{tgheros,tgcursor}
-%\usepackage[garamondx]{newtxmath}
-
-\usepackage{layout}
-
-%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
-%%
-\setlength{\hoffset}{0\zw}
-\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
-\setlength{\evensidemargin}{\oddsidemargin}
-% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
-%\setlength{\evensidemargin}{0pt}%
-\setlength{\fullwidth}{45\zw}
-\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
-%\setlength{\fullwidth}{159mm}
-%\setlength{\textwidth}{159mm}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{0pt}
-\setlength{\footskip}{0pt}
-\setlength{\voffset}{-17mm}
-\setlength{\textheight}{265mm}
-\setlength{\parskip}{0pt}
-\setlength{\parindent}{0pt}
-
-%%%% b5j%%%%%%
-% \setlength{\hoffset}{-10mm}
-% \setlength{\oddsidemargin}{0mm}
-% \setlength{\evensidemargin}{0mm}
-% %\setlength{\textwidth}{\fullwidth}%%ltjsclassesのみ有効
-% \setlength{\fullwidth}{145mm}
-% \setlength{\textwidth}{145mm}
-% \setlength{\marginparsep}{0pt}
-% \setlength{\marginparwidth}{0pt}
-% \setlength{\footskip}{0pt}
-% \setlength{\voffset}{-10mm}
-% \setlength{\textheight}{225mm}
-% \setlength{\parskip}{0pt}
-%%%ベースライン調整
-%\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}
-
-
-%\usepackage{fancyhdr}
-
-
-
-
-
-
-%文字サイズ、見出しなどの再定義
-\makeatletter
-%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
-%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
-
-\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
-\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
-\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
-\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
-\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
-\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
-
-\renewcommand{\chapter}{%
-  \if@openleft\cleardoublepage\else
-  \if@openright\cleardoublepage\else\clearpage\fi\fi
-  \plainifnotempty % 元: \thispagestyle{plain}
-  \global\@topnum\z@
-  \if@english \@afterindentfalse \else \@afterindenttrue \fi
-  \secdef
-    {\@omit@numberfalse\@chapter}%
-    {\@omit@numbertrue\@schapter}}
-\def\@chapter[#1]#2{%
-  \ifnum \c@secnumdepth >\m@ne
-    \if@mainmatter
-      \refstepcounter{chapter}%
-      \typeout{\@chapapp\thechapter\@chappos}%
-      \addcontentsline{toc}{chapter}%
-        {\protect\numberline
-        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
-        {\@chapapp\thechapter\@chappos}%
-        #1}%
-    \else\addcontentsline{toc}{chapter}{#1}\fi
-  \else
-    \addcontentsline{toc}{chapter}{#1}%
-  \fi
-  \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
-  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
-  \if@twocolumn
-    \@topnewpage[\@makechapterhead{#2}]%
-  \else
-    \@makechapterhead{#2}%
-    \@afterheading
-  \fi}
-\def\@makechapterhead#1{%
-  \vspace*{0\Cvs}% 欧文は50pt
-  {\parindent \z@ \centering \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-        \huge\headfont \@chapapp\thechapter\@chappos%変更
-        \par\nobreak
-        \vskip \Cvs % 欧文は20pt
-      \fi
-    \fi
-    \interlinepenalty\@M
-    \huge \headfont #1\par\nobreak
-    \vskip 1\Cvs}} % 欧文は40pt%変更
-
-\renewcommand{\section}{%
-    \if@slide\clearpage\fi
-    \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-    {\normalfont\Large\headfont\bfseries\centering}}%変更
-
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    % {.5\Cvs \@plus.3\Cdp}% 後アキ
-    {.5\Cvs}
-  %  {\normalfont\large\headfont\bfseries\centering}} %変更
-    {\normalfont\large\headfont\centering}} %変更
-
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
-    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
-    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
-    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
-    {\normalfont\medlarge\headfont\leftskip -1\zw}}
-
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
-    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
-    {1sp}%後アキ
-    {\normalfont\normalsize\headfont}}
-\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
-    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
-    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
-
-\newcommand{\frchap}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-\newcommand{\frsec}[1]{\vspace*{-2ex}%
- \begin{center}\normalfont\headfont\large\setstretch{0.8}
- \scshape#1\normalfont\normalsize
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-  
-\newcommand{\frsecb}[1]{\vspace*{-2ex}%
-\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
-  \hspace{1em}\scshape#1\normalfont\normalsize%
-\end{center}\vspace{0.5\zw}\setstretch{1.0}}
-
-%\newcounter{frsub}[subsubsection]
-%\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
-%  {1sp}{1sp}%
-%  {\normalfont\normalsize\bfseries\baselineskip-.8ex\leftskip-1\zw}}
-%\let\frsubmark\@gobble
-%\newcommand*{\l@frsub}{%
-%          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
-%          \@dottedtocline{7}{\@tempdima}{6.5\zw}}
-%\renewcommand{\thefrsub}{6}
-%\let\frsub\paragraph
-
-\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}}
-\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
-
-%\newcommand{\frsub}[1]{\vskip -.8ex\hskip -1\zw\textbf{#1}\leftskip0pt}
-%\newcommand{\frsub}{\@startsection{frsub}{6}{\z@}%
-%   {-1\zw}% 改行せず 1\zw のアキ
-%   {-1\zw}%後アキ     
-%   {\normalfont\normalsize\bfseries\leftskip -1\zw\baselineskip -.5ex}}%normalsizeから変更
-%\newcommand*{\l@frsub}{%
-%          \@tempdima\jsc@tocl@width \advance\@tempdima 16.183\zw
-%          \@dottedtocline{5}{\@tempdima}{6.5\zw}}
-
-
-%%%%%%%%%レシピと本文%%%%%%%%%%%%
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-
-%%% 本文
-\newenvironment{Main}{}{}
-%%% レシピ
-% \setlength{\columnwidth}{24\zw}
-%本文ヨリ小%\small
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-%本文やや小%\medsmall
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
-%本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
-
-
-\makeatother
-
-
-%%% 脚注番号のページ毎のリセットと脚注位置の調整
-%\renewcommand{\footnotesize}{\small}
-
-\makeatletter
-
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 4mm}
-%\usepackage{footnpag}
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 0\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
-\let\footnotes@ve=\footnote
-\def\footnote{\inhibitglue\footnotes@ve}
-\let\footnotemarks@ve=\footnotemark
-%\def\footnotemark{\inhibitglue\footnotemarks@ve}
-\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
-%\makeatletter
-% \@addtoreset{footnote}{page}
-% \makeatother
-%\usepackage{dblfnote}
-%\usepackage[bottom,perpage]{footmisc}
-
-\makeatother
-
-%subsubsectionに連番をつける
-%\usepackage{remreset}
-
-\renewcommand{\thechapter}{}
-\renewcommand{\thesection}{\hskip-1\zw}
-\renewcommand{\thesubsection}{}
-\renewcommand{\thesubsubsection}{}
-\renewcommand{\theparagraph}{}
-
-
-% \makeatletter
-% \@removefromreset{subsubsection}{subsection}
-% \def\thesubsubsection{\arabic{subsubsection}.}
-% \newcounter{rnumber}
-% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
-% \makeatother
-\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
-\renewcommand{\postpartname}{\if@english\else {}\fi}
-\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
-\renewcommand{\postchaptername}{\if@english\else {}\fi}
-\renewcommand{\presectionname}{}%  第
-\renewcommand{\postsectionname}{}% 節
-
-%リスト環境
-\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
-
-\makeatletter
-  \parsep   = 0pt
-  \labelsep = .5\zw
-  \def\@listi{%
-     \leftmargin = 0pt \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt%\baselineskip
-     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
-     \partopsep  = 0pt \itemsep       = 0pt
-     \itemindent = -.5\zw \listparindent = 0\zw}
-  \let\@listI\@listi
-  \@listi
-  \def\@listii{%
-     \leftmargin = 1.8\zw \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
-     \itemindent = 0pt \listparindent = 1\zw}
-  \let\@listiii\@listii
-  \let\@listiv\@listii
-  \let\@listv\@listii
-  \let\@listvi\@listii
-\makeatother
-
-
-
-
-
-
-
-
-%% %%%%%%行取りマクロ
-% \makeatletter
-% \ifx\Cht\undefined
-%  \newdimen\Cht\newdimen\Cdp
-%  \setbox0\hbox{\char\jis"2121}\Cht=\ht0\Cdp=\dp0\fi
-% \catcode`@=11
-% \long\def\linespace#1#2{\par\noindent
-%   \dimen@=\baselineskip
-%   \multiply\dimen@ #1\advance\dimen@-\baselineskip
-%   \advance\dimen@-\Cht\advance\dimen@\Cdp
-%   \setbox0\vbox{\noindent #2}%
-%   \advance\dimen@\ht0\advance\dimen@-\dp0%
-%   \vtop to\z@{\hbox{\vrule width\z@ height\Cht depth\z@
-%    \raise-.5\dimen@\hbox{\box0}}\vss}%
-%   \dimen@=\baselineskip
-%   \multiply\dimen@ #1\advance\dimen@-2\baselineskip
-%   \par\nobreak\vskip\dimen@
-%   \hbox{\vrule width\z@ height\Cht depth\z@}\vskip\z@}
-% \catcode`@=12
-% \setlength{\parskip}{0pt}
-% \setlength{\topskip}{\Cht}
-% \setlength{\textheight}{43\baselineskip}
-% \addtolength{\textheight}{1\zh}
-% \makeatother
- 
-%%%%%%%%%%%%失敗%%%%%%%%%%%%
-%\let\formule\subsubsection
-%\renewcommand{\subsubsection}[1]{\linespace{1}{\formule#1}}
-%%%%%%%%%%%%失敗%%%%%%%%%%%%
-
-
-
-
-
-
-% % PDF/X-1a
-%  \usepackage[x-1a]{pdfx}
-%  \Keywords{pdfTeX\sep PDF/X-1a\sep PDF/A-b}
-%  \Title{「エスコフィエ『料理の手引き』全注解」}
-%  \Author{五 島　学}
-%  \Org{TeX Users Group}
-%  \pdfcompresslevel=0
-% \usepackage[cmyk]{xcolor}
-
-%biblatex
-%\usepackage[notes,strict,backend=biber,autolang=other,%
-%                   bibencoding=inputenc,autocite=footnote]{biblatex-chicago}
-%\addbibresource{hist-agri.bib}
-\let\cite=\autocite
-
-% % % % 
-\date{}
-
-
-
-%%%%インデックス準備
-%\usepackage{makeidx}
-\usepackage{index}
-%\usepackage[useindex]{splitidx}
-\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-\makeindex
- 
- \makeatletter
-\renewenvironment{theindex}{% 索引を3段組で出力する環境
-    \if@twocolumn
-      \onecolumn\@restonecolfalse
-    \else
-      \clearpage\@restonecoltrue
-    \fi
-    \columnseprule.4pt \columnsep 2\zw
-    \ifx\multicols\@undefined
-      \twocolumn[\@makeschapterhead{\indexname}%
-      \addcontentsline{toc}{chapter}{\indexname}]%
-    \else
-      \ifdim\textwidth=\fullwidth
-        \setlength{\evensidemargin}{\oddsidemargin}
-        \setlength{\textwidth}{\fullwidth}
-        \setlength{\linewidth}{\fullwidth}
-        \begin{multicols}{3}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \else
-        \begin{multicols}{2}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \fi
-    \fi
-    \@mkboth{\indexname}{}%
-    \plainifnotempty % \thispagestyle{plain}
-    \parindent\z@
-    \parskip\z@ \@plus .3\jsc@mpt\relax
-    \let\item\@idxitem
-    \raggedright
-    \footnotesize\narrowbaselines
-  }{
-    \ifx\multicols\@undefined
-      \if@restonecol\onecolumn\fi
-    \else
-      \end{multicols}
-    \fi
-    \clearpage
-  }
- \makeatother
-
-
-%%%% 本文中の参照ページ番号表示 %%%%%%%
-
-\makeatletter
-
-%\AtBeginDocument{%
-%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
-%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
-\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
-\def\Hy@EveryPageAnchor{%
-    \begingroup
-    \hypersetup{pdfview=Fit}%
-    \orig@Hy@EveryPageAnchor
-    \endgroup
-  }
-  \usepackage{etoolbox}
-\if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{recette}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{Main}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-% \if@mainmatter{\let\myhyperlink\hyperlink%
-% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
-%   \AtBeginEnvironment{recette}{%
-% \let\myhyperlink\hyperlink%
-% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
-%   \AtBeginEnvironment{Main}{%
-% \let\myhyperlink\hyperlink%
-% \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} {\ltjsetparameter{yjabaselineshift=0pt,yalbaselineshift=-.75pt}\footnotesize [p.\getpagerefnumber{#1}{}]}}}
-
-
-% \def\@@wrindex#1|#2|#3\\{%
-%  \if@filesw
-%  \ifx\\#2\\%
-%   \protected@write\@indexfile{}{% 
-%     %\string\indexentry{#1}{\thepage}%%%改変部分。もとは{#1|hyperpage}{\thepage}%
-%     \string\indexentry{#1|hyperpage}{\thepage}%%オリジナル%
-%         }%
-%         \else
-%           \HyInd@@@wrindex{#1}#2\\%
-%         \fi
-%       \fi
-%       \endgroup
-%       \@esphack
-%     }
-
-\makeatother
-
-
-
-%%%%% Obsolete Reference Page Numbers 
-
-%\newcommand{\pref}[1]{[p.\pageref{#1}]}
-%\newcommand{\pref}[1]{}
-
-
-
-
-
-
-
-%%%% pandoc が三点リーダーを勝手に変える対策
-\renewcommand{\ldots}{\noindent…}
-%%%%%下線
-\usepackage{umoline}
-\setlength{\UnderlineDepth}{2pt}
-\let\ul\Underline
-
-\newcommand{\maeaki}{}%使用しないので無効化
-\newcommand{\atoaki}{\vspace{1.25mm}}
-%%分数の表記Obsolete
-\usepackage{xfrac}
-\let\frac\sfrac
-\newcommand{\undemi}{\hspace{.25\zw}$\sfrac{1}{2}$}
-\newcommand{\untiers}{\hspace{.25\zw}$\sfrac{1}{3}$}
-\newcommand{\deuxtiers}{\hspace{.25\zw}$\sfrac{2}{3}$}
-\newcommand{\unquart}{\hspace{.25\zw}$\sfrac{1}{4}$}
-\newcommand{\troisquarts}{\hspace{.25\zw}$\sfrac{3}{4}$}
-\newcommand{\quatrequatrieme}{\hspace{.25\zw}$\sfrac{4}{4$}}
-\newcommand{\uncinquieme}{\hspace{.25\zw}$\sfrac{1}{5}$}
-\newcommand{\deuxcinquiemes}{\hspace{.25\zw}$\sfrac{2}{5}$}
-\newcommand{\troiscinquiemes}{\hspace{.25\zw}$\sfrac{3}{5}$}
-\newcommand{\quatrecinquiemes}{\hspace{.25\zw}$\sfrac{4}{5}$}
-\newcommand{\unsixieme}{\hspace{.25\zw}$\sfrac{1}{6}$}
-\newcommand{\cinqsixiemes}{\hspace{.25\zw}$\sfrac{5}{6}$}
-\newcommand{\quatrequart}{\hspace{.25\zw}$\sfrac{4}{4}$}
-
-\makeatletter
-\def\ps@headings{%
-  \let\@oddfoot\@empty
-  \let\@evenfoot\@empty
-  \def\@evenhead{%
-    \if@mparswitch \hss \fi
-    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-%      \textbf{\thepage}\hfil\leftmark}}%
-       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
-    \if@mparswitch\else \hss \fi}%
-  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
-        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
-  \let\@mkboth\markboth
-  \def\chaptermark##1{\markboth{%
-    \ifnum \c@secnumdepth >\m@ne
-      \if@mainmatter
-        \if@omit@number\else
-          \@chapapp\thechapter\@chappos\hskip1\zw
-        \fi
-      \fi
-    \fi
-    ##1}{}}%
-  \def\sectionmark##1{\markright{%
-%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
-    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
-    ##1}}}%
-\makeatother
-
-\makeatletter
-%%%%%%%% Lua GC
-\patchcmd\@outputpage{\stepcounter{page}}{%
-  \directlua{%
-	if jit then
-      local k = collectgarbage("count")
-      if k>900000 then 
-        collectgarbage("collect")
-        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
-      end
-	end
-  }%
-  \stepcounter{page}%
-}{}{}
-\makeatother
-% \usepackage{vgrid}% here only to help visualize the problem
-
-\include{sauces-index-def.tex}
-
-\title{エスコフィエ『料理の手引き』全注解}
-\author{五 島　学}
-\date{}
-
-
-
-
-
-%%
-%% added
-%%
-
-%
-% No language specified? take American English.
-%
-
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,main=english]{babel}
-\else
-    % See issue https://github.com/reutenauer/polyglossia/issues/127
-  \renewcommand*\familydefault{\sfdefault}
-    % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\fi
-
-
-%
-% colors
-%
-\usepackage[]{xcolor}
-
-%
-% listing colors
-%
-\definecolor{listing-background}{HTML}{F7F7F7}
-\definecolor{listing-rule}{HTML}{B3B2B3}
-\definecolor{listing-numbers}{HTML}{B3B2B3}
-\definecolor{listing-text-color}{HTML}{000000}
-\definecolor{listing-keyword}{HTML}{435489}
-\definecolor{listing-identifier}{HTML}{435489}
-\definecolor{listing-string}{HTML}{00999A}
-\definecolor{listing-comment}{HTML}{8E8E8E}
-\definecolor{listing-javadoc-comment}{HTML}{006CA9}
-
-%\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
-%\definecolor{listing-rule}{HTML}{B3B2B3}
-%\definecolor{listing-numbers}{HTML}{B3B2B3}
-%\definecolor{listing-text-color}{HTML}{000000}
-%\definecolor{listing-keyword}{HTML}{D8006B}
-%\definecolor{listing-identifier}{HTML}{000000}
-%\definecolor{listing-string}{HTML}{006CA9}
-%\definecolor{listing-comment}{rgb}{0.25,0.5,0.35}
-%\definecolor{listing-javadoc-comment}{HTML}{006CA9}
-
-%
-% for the background color of the title page
-%
-
-%
-% TOC depth and 
-% section numbering depth
-%
-\setcounter{tocdepth}{3}
-
-%
-% line spacing
-%
-\usepackage{setspace}
-\setstretch{1.2}
-
-%
-% break urls
-%
-\PassOptionsToPackage{hyphens}{url}
-
-%
-% When using babel or polyglossia with biblatex, loading csquotes is recommended 
-% to ensure that quoted texts are typeset according to the rules of your main language.
-%
-\usepackage{csquotes}
-
-%
-% captions
-%
-\definecolor{caption-color}{HTML}{777777}
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=raggedright]{caption}
-\setcapindent{0em}
-\captionsetup[longtable]{position=above}
-
-%
-% blockquote
-%
-\definecolor{blockquote-border}{RGB}{221,221,221}
-\definecolor{blockquote-text}{RGB}{119,119,119}
-\usepackage{mdframed}
-\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
-\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
-\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
-
-%
-% Source Sans Pro as the de­fault font fam­ily
-% Source Code Pro for monospace text
-%
-% 'default' option sets the default 
-% font family to Source Sans Pro, not \sfdefault.
-%
-\usepackage[default]{sourcesanspro}
-\usepackage{sourcecodepro}
-
-%
-% heading color
-%
-\definecolor{heading-color}{RGB}{40,40,40}
-\addtokomafont{section}{\color{heading-color}}
-% When using the classes report, scrreprt, book, 
-% scrbook or memoir, uncomment the following line.
-%\addtokomafont{chapter}{\color{heading-color}}
-
-%
-% variables for title and author
-%
-\usepackage{titling}
-\title{エスコフィエ『料理の手引き』全注解}
-\author{五 島　学}
-
-%
-% tables
-%
-
-%
-% remove paragraph indention
-%
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-
-%
-%
-% Listings
-%
-%
-
-
-%
-% header and footer
-%
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\lhead{エスコフィエ『料理の手引き』全注解}
-\chead{}
-\rhead{}
-\lfoot{五 島　学}
-\cfoot{}
-\rfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-
-%%
-%% end added
-%%
-
-\begin{document}
-
-%%
-%% begin titlepage
-%%
-
-
-%%
-%% end titlepage
-%%
-
-
-{
-\setcounter{tocdepth}{2}
-\tableofcontents
-}
-\begin{Main}
+\begin{main}
 
 \hypertarget{petites-sauces-brunes-composees}{%
 \section{ブラウン系の派生ソース}\label{petites-sauces-brunes-composees}}
 
-\frsec{Petites Sauces Brunes Composées}
-
 \index{そーす@ソース!ふらうんはせい@\textbf{ブラウン系の派生---}|(}
 \index{sauce@sauce!petites brunes composees@\textbf{Petites ---s Brunes Composées}|(}
 
-\end{Main}
+\end{main}
 
 \begin{recette}
 
 \hypertarget{sauce-bigarade}{%
 \subsubsection[ソース・ビガラード]{\texorpdfstring{ソース・ビガラード\footnote{ビガラードは本来、南フランスで栽培されるビターオレンジの一種。}}{ソース・ビガラード}}\label{sauce-bigarade}}
 
-\frsub{Sauce Bigarade}
+\begin{frsubenv}
+
+Sauce Bigarade
+
+\end{frsubenv}
 
 \index{そーす@ソース!ひからーと@---・ビガラード}
 \index{ひからーと@ビガラード!そーす@ソース・---}
@@ -937,7 +28,7 @@
 \hypertarget{sauce-bigarade-pour-caneton-braise}{%
 \subparagraph{仔鴨のブレゼ用}\label{sauce-bigarade-pour-caneton-braise}}
 
-\ldots{}\ldots{}仔鴨をブレゼ\footnote{料理の仕立てとしてのブレゼはたんに「蒸し煮」することではない。原則的な手順をごく簡単に述べておく。厚めに輪切りにしたにんじんと玉ねぎをバターまたはラードで炒め、ブーケガルニとともに鍋に入れる。表面を色よく焼き固めた肉を、脂身の少ない肉の場合には豚背脂のシートで包んで素材がぴったり入る大きさ鍋に入れ、\protect\hyperlink{fonds-brun}{茶色いフォン}を注ぎ、蓋をしてオーブンに入れ、微沸騰の状態を保つようにして煮込む。火が通ったら肉を取り出し、鍋に残った煮汁でソースを作る。詳細については\protect\hyperlink{releves-et-entrees}{第7章　肉料理}参照。}した際の煮汁を漉してから浮き脂を取り除き\footnote{dégraisser
+\ldots{}\ldots{}仔鴨をブレゼ\footnote{料理の仕立てとしてのブレゼはたんに「蒸し煮」することではない。原則的な手順をごく簡単に述べておく。厚めに輪切りにしたにんじんと玉ねぎをバターまたはラードで炒め、ブーケガルニとともに鍋に入れる。表面を色よく焼き固めた肉を、脂身の少ない肉の場合には豚背脂のシートで包んで素材がぴったり入る大きさ鍋に入れ、\protect\hyperlink{fonds-brun}{茶色いフォン}を注ぎ、蓋をしてオーブンに入れ、微沸騰の状態を保つようにして煮込む。火が通ったら肉を取り出し、鍋に残った煮汁でソースを作る。詳細については\protect\hyperlink{releves-et-entrees}{肉料理}参照。}した際の煮汁を漉してから浮き脂を取り除き\footnote{dégraisser
   デグレセ。}、煮詰める。煮詰まったらさらに目の細かい布で漉し、ソース1
 Lあたりオレンジ4個とレモン1個の搾り汁でのばす。
 
@@ -955,7 +46,11 @@ gに大さじ \(\frac{1}{2}\)
 \hypertarget{sauce-bordelaise}{%
 \subsubsection{ボルドー風ソース}\label{sauce-bordelaise}}
 
-\frsub{Sauce Bordelaise}
+\begin{frsubenv}
+
+Sauce Bordelaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほるとーふう@ボルドー風---}
 \index{ほるとーふう@ボルドー風!そーす@---ソース}
@@ -976,8 +71,7 @@ dLを加えて火にかけ、浮いてくる夾雑物を丁寧に取り除きな
 \ldots{}\ldots{}牛、羊の赤身肉\footnote{原文 viande noire de boucherie
   （ヴィヨンドノワールドブシュリ）逐語訳すれば「肉屋の赤身肉」（noir(e)は黒の意だが肉の場合は赤身肉を指す）だが、一般的に
   viande de boucherie
-  （ヴィヨンドドブシュリ）とだけ言えば、\ul{伝統的に肉屋で扱かわれてき\\た、白身肉を除く畜産精
-  肉のことで、具体的には牛、羊、場合によっては馬も含まれる}（馬肉は食材としてあまり一般的ではないが、専門店がある）。副生物（内臓や足、耳、舌肉など）は含まれない。この場合の「白身肉」とは一般的に乳呑仔牛、乳呑仔羊のことであり、鶏（およびその他の家禽）や豚は別扱いになる。ここでわざわざviande
+  （ヴィヨンドドブシュリ）とだけ言えば、\textbf{伝統的に肉屋で扱かわれてきた、白身肉を除く畜産精肉のことで、具体的には牛、羊、場合によっては馬も含まれる}（馬肉は食材としてあまり一般的ではないが、専門店がある）。副生物（内臓や足、耳、舌肉など）は含まれない。この場合の「白身肉」とは一般的に乳呑仔牛、乳呑仔羊のことであり、鶏（およびその他の家禽）や豚は別扱いになる。ここでわざわざviande
   noire
   赤身肉と表現しているのは、19世紀後半以降、上記のような区分がやや曖昧になったことによるものだろう。以下、本書の訳ではviande
   de boucherieの訳語として「牛、羊肉」をあてることにする。}のグリル用
@@ -992,7 +86,11 @@ dLを加えて火にかけ、浮いてくる夾雑物を丁寧に取り除きな
 \hypertarget{sauce-bourguignonne}{%
 \subsubsection{ブルゴーニュ風ソース}\label{sauce-bourguignonne}}
 
-\frsub{Sauce Bourguignonne}
+\begin{frsubenv}
+
+Sauce Bourguignonne
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふるこーにゆふう@ブルゴーニュ風---}
 \index{ふるこーにゆふう@ブルゴーニュ風!そーす@---ソース}
@@ -1016,7 +114,11 @@ gを溶かし込み、カイエンヌ\footnote{赤唐辛子の粉末だがカイ
 \hypertarget{sauce-bretonne}{%
 \subsubsection{ブルターニュ風ソース}\label{sauce-bretonne}}
 
-\frsub{Sauce Bretonne}
+\begin{frsubenv}
+
+Sauce Bretonne
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふるたーにゆふうふらうんけい@ブルターニュ風---（ブラウン系）}
 \index{ふるたーにゆふう@ブルターニュ風!そーすふらうんけい@---ソース（ブラウン系）}
@@ -1043,7 +145,11 @@ dLおよびトマトソース同量を加える。7〜8分間煮立ててから�
   （スリーズ）
   さくらんぼの意。このレシピではグロゼイユ（すぐり）のジュレを用いるが、古くはさくらんぼを用いていたことからこの名称となったと言われている。}}{ソース・スリーズ}}\label{sauce-aux-cerises}}
 
-\frsub{Sauce aux Cerises}
+\begin{frsubenv}
+
+Sauce aux Cerises
+
+\end{frsubenv}
 
 \index{そーす@ソース!すりーす@---・スリーズ}
 \index{くろせいゆ@グロゼイユ!そーす@ソース!すりーす@---・スリーズ}
@@ -1068,7 +174,11 @@ dLおよびトマトソース同量を加える。7〜8分間煮立ててから�
   キノコ全般を意味する語だが、単独で用いられる場合は champignons de
   Paris（シャンピニョンドパリ）いわゆるマッシュルームを指す。}}{ソース・シャンピニョン}}\label{sauce-aux-champignons}}
 
-\frsub{Sauce aux Champignons}
+\begin{frsubenv}
+
+Sauce aux Champignons
+
+\end{frsubenv}
 
 \index{そーす@ソース!まつしゆるーむ@マッシュルーム ⇒ ---・シャンピニョン}
 \index{まっしゅるーむ@マッシュルーム ⇒ シャンピニョン}
@@ -1090,7 +200,11 @@ gを加えて仕上げる。
 \subsubsection[ソース・シャルキュティエール]{\texorpdfstring{ソース・シャルキュティエール\footnote{シャルキュトリ（豚肉加工業）風、の意。Charcutrieの語源はchar（肉）
   +cuite（調理された）+rie（業）。ハムやソーセージなどと定番の組合せであるマスタードを使う\protect\hyperlink{sauce-robert}{ソース・ロベール}と、おなじく定番のつけ合わせであるコルニション（小さいうちに収穫してヴィネガー漬けにしたきゅうり。専用品種がある）を使うことに由来。}}{ソース・シャルキュティエール}}\label{sauce-charcutiere}}
 
-\frsub{Sauce Charcutière}
+\begin{frsubenv}
+
+Sauce Charcutière
+
+\end{frsubenv}
 
 \index{そーす@ソース!しやるききゆとりふう@シャルキュトリ風 ⇒ ---・シャルキュティエール}
 \index{しやるきゆとりふう@シャルキュトリ風!そーす@---ソース ⇒ ソース・シャルキュティエール}
@@ -1112,7 +226,11 @@ gを加える（\protect\hyperlink{sauce-robert}{ソース・ロベール}参照
 \hypertarget{sauce-chasseur}{%
 \subsubsection[ソース・シャスール]{\texorpdfstring{ソース・シャスール\footnote{狩人風、の意。古くは猟獣肉をすり潰したものを使った料理を指したという説もある。マッシュルームとエシャロット、白ワインを使うのが特徴であり、このソースを使った料理にも「シャスール」の名が付けられる。}}{ソース・シャスール}}\label{sauce-chasseur}}
 
-\frsub{Sauce Chasseur}
+\begin{frsubenv}
+
+Sauce Chasseur
+
+\end{frsubenv}
 
 \index{そーす@ソース!しやすーる@---・シャスール}
 \index{しやすーる@シャスール!そーす@ソース・---}
@@ -1137,7 +255,11 @@ dLを加える。数分間沸騰させたら、バター150 gと、セルフイ�
 \hypertarget{sauce-chasseur-procede-escoffier}{%
 \subsubsection{ソース・シャスール（エスコフィエ流）}\label{sauce-chasseur-procede-escoffier}}
 
-\frsub{Sauce Chasseur (Procédé Escoffier)}
+\begin{frsubenv}
+
+Sauce Chasseur (Procédé Escoffier)
+
+\end{frsubenv}
 
 \index{そーす@ソース!しやすーるえすこふいえ@---・シャスール（エスコフィエ流）}
 \index{しやすーる@シャスール!そーすしゃすーるえすこふぃえ@ソース・---（エスコフィエ流）}
@@ -1160,9 +282,13 @@ dL、\protect\hyperlink{glace-de-viande}{グラスドヴィアンド}大さじ
 \atoaki{}
 
 \hypertarget{sauce-chaud-froid-brune}{%
-\subsubsection[茶色いソース・ショフロワ]{\texorpdfstring{茶色いソース・ショフロワ\footnote{chaud-froid（ショフロワ）はchaudショ「熱い、温かい」とfroidフロワ「冷たい」の合成語で、火を通した肉や魚を冷まし、表面にこのソース・ショフロワを覆うように塗り付け、さらにジュレを覆いかけた料理。料理の発祥については諸説あり、なかでもルイ15世に仕えていた料理長ショフロワChaufroixが考案したという説を支持してなのか、英語ではこの料理をChaufroixと綴ることも多い。Chaud-froidの表記は19世紀後半には文献に見られる。なお、複数形はchauds-froidsと綴る。トリュフの薄切りやエストラゴンなどのハーブその他で表面に華麗な装飾を施すことが19世紀には盛んに行なわれていた。現代でも装飾に凝った仕立てにするケースは多い。}}{茶色いソース・ショフロワ}}\label{sauce-chaud-froid-brune}}
+\subsubsection[茶色いソース・ショフロワ]{\texorpdfstring{茶色いソース・ショフロワ\footnote{chaud-froid（ショフロワ）はchaudショ「熱い、温かい」とfroidフロワ「冷たい」の合成語で、火を通した肉や魚を冷まし、表面にこのソース・ショフロワを覆うように塗り付け、さらにジュレを覆いかけた料理。料理の発祥については諸説あり、なかでもルイ15世に仕えていた料理長ショフロワChaufroixが考案したという説を支持してなのか、英語ではこの料理をChaufroixと綴ることも多い。Chaud-froidの表記は19世紀後半には文献に見られる。なお、複数形はchauds-froidsと綴る。トリュフの薄切りやエストラゴンなどのハーブその他で表面に華麗な装飾を施すことが19世紀には盛んに行なわれていた。現代でも凝った装飾の仕立てするケースは多い。}}{茶色いソース・ショフロワ}}\label{sauce-chaud-froid-brune}}
 
-\frsub{Sauce Chaud-froid brune}
+\begin{frsubenv}
+
+Sauce Chaud-froid brune
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわちやいろ@茶色い---・ショフロワ}
 \index{しよふろわ@ショフロワ!そーすふらうんけい@茶色いソース・---}
@@ -1188,7 +314,11 @@ dLを加える。布で漉し、ショフロワの主素材の表面に塗り付
 \hypertarget{sauce-chaud-froid-brune-pour-canards}{%
 \subsubsection{茶色いソース・ショフロワ（鴨用）}\label{sauce-chaud-froid-brune-pour-canards}}
 
-\frsub{Sauce Chaud-froid brune pour Canards}
+\begin{frsubenv}
+
+Sauce Chaud-froid brune pour Canards
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわちやいと@茶色い---・ショフロワ（鴨用）}
 \index{しよふろわ@ショフロワ!ちやいろいそーすかもよう@茶色いソース・---（鴨用）}
@@ -1209,7 +339,11 @@ dLを用いること。また、上記のレシピよりややしっかり煮詰
 \hypertarget{sauce-chaud-froid-brune-pour-gibier}{%
 \subsubsection{茶色いソース・ショフロワ（ジビエ用）}\label{sauce-chaud-froid-brune-pour-gibier}}
 
-\frsub{Sauce Chaud-froid brune pour Gibier}
+\begin{frsubenv}
+
+Sauce Chaud-froid brune pour Gibier
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわちやいろじびえよう@茶色い---・ショフロワ（ジビエ用）}
 \index{しよふろわ@ショフロワ!そーすしよふろわちやいろじびえよう@茶色いソース・---（ジビエ用）}
@@ -1226,7 +360,11 @@ dLを用いること。
 \hypertarget{sauce-chaud-froid-tomatee}{%
 \subsubsection{トマト入りソース・ショフロワ}\label{sauce-chaud-froid-tomatee}}
 
-\frsub{Sauce Chaud-froid tomatée}
+\begin{frsubenv}
+
+Sauce Chaud-froid tomatée
+
+\end{frsubenv}
 
 \index{そーす@ソース!しよふろわとまといり@トマト入り---・ショフロワ}
 \index{しよふろわ@ショフロワ!そーすちやいろとまといり@トマト入りソース・---}
@@ -1245,7 +383,11 @@ dLのジュレを少しずつ加えていく。全体量が1 L以下になるま
 \hypertarget{sauce-chevreuil}{%
 \subsubsection{ソース・シュヴルイユ}\label{sauce-chevreuil}}
 
-\frsub{Sauce Chevreuil}
+\begin{frsubenv}
+
+Sauce Chevreuil
+
+\end{frsubenv}
 
 \index{しゆうるいゆ@シュヴルイユ!そーす@ソース・---}
 \index{そーす@ソース!しゆうるいゆ@---・シュヴルイユ}
@@ -1278,7 +420,11 @@ dLをスプーン1杯ずつ加えながら煮て、浮き上がってくる不�
 \hypertarget{sauce-colbert}{%
 \subsubsection[ソース・コルベール]{\texorpdfstring{ソース・コルベール\footnote{17世紀の政治家、ジャン・バティスト・コルベール（1619〜1683）の名を冠したもの。}}{ソース・コルベール}}\label{sauce-colbert}}
 
-\frsub{Sauce Colbert}
+\begin{frsubenv}
+
+Sauce Colbert
+
+\end{frsubenv}
 
 \index{そーす@ソース!こるへーる@---・コルベール}
 \index{こるへーる@コルベール!そーす@ソース・---}
@@ -1296,7 +442,11 @@ dLをスプーン1杯ずつ加えながら煮て、浮き上がってくる不�
 \subsubsection[ソース・ディアーブル]{\texorpdfstring{ソース・ディアーブル\footnote{diable
   （ディアーブル）悪魔の意。}}{ソース・ディアーブル}}\label{sauce-diable}}
 
-\frsub{Sauce Diable}
+\begin{frsubenv}
+
+Sauce Diable
+
+\end{frsubenv}
 
 \index{そーす@ソース!ていあーふる@---・ディアーブル}
 \index{ていあーふる@ディアーブル!そーす@ソース・---}
@@ -1326,7 +476,11 @@ dLを加えて数分間煮立たせ、仕上げにカイエンヌの粉末をた
 \hypertarget{sauce-diable-escoffier}{%
 \subsubsection{ソース・ディアーブル・エスコフィエ}\label{sauce-diable-escoffier}}
 
-\frsub{Sauce Diable Escoffier}
+\begin{frsubenv}
+
+Sauce Diable Escoffier
+
+\end{frsubenv}
 
 \index{そーす@ソース!ていあーふるえすこふいえ@---・ディアーブル・エスコフィエ}
 \index{ていあーふる@ディアーブル!そーす@ソース!えすこふいえ@ソース・---・エスコフィエ}
@@ -1344,7 +498,11 @@ dLを加えて数分間煮立たせ、仕上げにカイエンヌの粉末をた
 \hypertarget{sauce-diane}{%
 \subsubsection[ソース・ディアーヌ]{\texorpdfstring{ソース・ディアーヌ\footnote{ローマ神話の女神ディアーナのこと。ギリシア神話のアルテミスに相当し、狩猟、貞潔の女神。また月の女神ルーナ（セレーネー）と同一視された。ここでは大型ジビエ料理用のソースであるから、狩猟の女神という意味合いが強い。}}{ソース・ディアーヌ}}\label{sauce-diane}}
 
-\frsub{Sauce Diane}
+\begin{frsubenv}
+
+Sauce Diane
+
+\end{frsubenv}
 
 \index{そーす@ソース!ていあーぬ@---・ディアーヌ}
 \index{ていあーぬ@ディアーヌ!そーす@ソース・---}
@@ -1363,7 +521,11 @@ dLを泡立てて倍量にする）と、小さな三日月の形にしたトリ
 \hypertarget{sauce-duxelles}{%
 \subsubsection[ソース・デュクセル]{\texorpdfstring{ソース・デュクセル\footnote{\protect\hyperlink{duxelles-seche}{デュクセル・セッシュ}（第2章ガルニチュール）を用いることからこの名称が用いられている。}}{ソース・デュクセル}}\label{sauce-duxelles}}
 
-\frsub{Sauce Duxelles}
+\begin{frsubenv}
+
+Sauce Duxelles
+
+\end{frsubenv}
 
 \index{そーす@ソース!てゆくせる@---・デュクセル}
 \index{てゆくせる@デュクセル!そーす@ソース・---}
@@ -1390,7 +552,11 @@ dL、\protect\hyperlink{duxelles-seche}{デュクセル・セッシュ}大さじ
 \hypertarget{sauce-estragon}{%
 \subsubsection[ソース・エストラゴン]{\texorpdfstring{ソース・エストラゴン\footnote{ヨモギ科のハーブ。\protect\hyperlink{sauce-chasseur}{ソース・シャスール}訳注参照。}}{ソース・エストラゴン}}\label{sauce-estragon}}
 
-\frsub{Sauce Estragon}
+\begin{frsubenv}
+
+Sauce Estragon
+
+\end{frsubenv}
 
 \index{そーす@ソース!えすとらこんちゃいろ@---・エストラゴン（ブラウン系）}
 \index{えすとらこん@エストラゴン!そーすふらうんけい@ソース・---（ブラウン系）}
@@ -1417,7 +583,11 @@ dLの\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグラス}また�
   Milano, Solares, 1967,
   p.57.)。ちなみに焼き菓子のフィナンシエfinancierも同語源だが、何故その名称になったかは不明。}}{ソース・フィナンシエール}}\label{sauce-financiere}}
 
-\frsub{Sauce Financière}
+\begin{frsubenv}
+
+Sauce Financière
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふいなんしえーる@---・フィナンシエール}
 \index{ふいなんしえ@フィナンシエ/フィナンシエール!そーす@ソース・フィナンシエール}
@@ -1445,7 +615,11 @@ dLを加える。布で漉して仕上げる。
   herbes aromatiques
   （エルブザロマティック）、あるいはたんにaromatiques（アロマティック）が一般的。}}{香草ソース}}\label{sauce-aux-fines-herbes}}
 
-\frsub{Sauce aux Fines Herbes}
+\begin{frsubenv}
+
+Sauce aux Fines Herbes
+
+\end{frsubenv}
 
 \index{そーす@ソース!こうそうふらうんけい@香草---（ブラウン系）}
 \index{こうそう@香草!そーすふらうんけい@---ソース（ブラウン系）}
@@ -1470,7 +644,11 @@ dLを加える。仕上げに、煎じるのに使ったのと同じ香草を細
 \hypertarget{sauce-genevoise}{%
 \subsubsection{ジュネーヴ風ソース}\label{sauce-genevoise}}
 
-\frsub{Sauce Genevoise}
+\begin{frsubenv}
+
+Sauce Genevoise
+
+\end{frsubenv}
 
 \index{そーす@ソース!しゆねーうふう@ジュネーヴ風---}
 \index{しゆねーうふう@ジュネーヴ風!そーす@---ソース}
@@ -1522,7 +700,11 @@ gを加えて仕上げる。
   Claude Godard
   d'Aucour（1716〜1795）の名を冠したものと考えられる。なお、底本とした現行版（第四版）では最後がdではなくtとなっているが、初版から第三版にいたるまでdとなっており、現行版は明らかな誤植。}}{ソース・ゴダール}}\label{sauce-godard}}
 
-\frsub{Sauce Godard}
+\begin{frsubenv}
+
+Sauce Godard
+
+\end{frsubenv}
 
 \index{そーす@ソース!こたーる@---・ゴダール}
 \index{こたーる@ゴダール!そーす@ソース・---}
@@ -1537,14 +719,18 @@ dLを加える。弱火に10分かけ、シノワ\footnote{\protect\hyperlink{sa
 
 \(\frac{2}{3}\)量になるまで煮詰め、布で漉す。
 
-\ldots{}\ldots{}\protect\hyperlink{garniture-godard}{ガルニチュール　ゴタール}用。
+\ldots{}\ldots{}\protect\hyperlink{garniture-godard}{ガルニチュール・ゴタール}用。
 
 \atoaki{}
 
 \hypertarget{sauce-grand-veneur}{%
 \subsubsection[ソース・グランヴヌール]{\texorpdfstring{ソース・グランヴヌール\footnote{王家や貴族に仕える狩猟長のことをgrand-veneur（グランヴヌール）と呼ぶ。}}{ソース・グランヴヌール}}\label{sauce-grand-veneur}}
 
-\frsub{Sauce Grand-Veneur}
+\begin{frsubenv}
+
+Sauce Grand-Veneur
+
+\end{frsubenv}
 
 \index{そーす@ソース!くらんうぬーる@---・グランヴヌール}
 \index{くらんうぬーる@グランヴヌール!そーす@ソース・---}
@@ -1563,7 +749,11 @@ dLを加える。弱火に10分かけ、シノワ\footnote{\protect\hyperlink{sa
 \hypertarget{sauce-grand-veneur-procede-escoffier}{%
 \subsubsection{ソース・グランヴヌール（エスコフィエ流）}\label{sauce-grand-veneur-procede-escoffier}}
 
-\frsub{Sauce Grand-Veneur (Procédé Escoffier)}
+\begin{frsubenv}
+
+Sauce Grand-Veneur (Procédé Escoffier)
+
+\end{frsubenv}
 
 \index{そーす@ソース!くらんうぬーるえすこふいえ@---・グランヴヌール（エスコフィエ流）}
 \index{くらんうぬーる@グランヴヌール!そーすえすこふいえ@ソース・---（エスコフィエ流）}
@@ -1584,7 +774,11 @@ Lあたり\protect\hyperlink{gelee-de-groseilles-a}{グロゼイユのジュレ}
 \subsubsection[ソース・グラタン]{\texorpdfstring{ソース・グラタン\footnote{魚のグラタン用ソースだが、グラタンの技術的ポイントについては\protect\hyperlink{gratins}{第
   7章「肉料理」のグタランの項目}参照。}}{ソース・グラタン}}\label{sauce-gratin}}
 
-\frsub{Sauce Gratin}
+\begin{frsubenv}
+
+Sauce Gratin
+
+\end{frsubenv}
 
 \index{そーす@ソース!くらたん@---・グラタン}
 \index{くらたん@グラタン!そーす@ソース・---}
@@ -1607,7 +801,11 @@ dLにエシャロットのみじん切り大さじ1 \(\frac{1}{2}\)
 \hypertarget{sauce-hachee}{%
 \subsubsection[ソース・アシェ]{\texorpdfstring{ソース・アシェ\footnote{細かく刻んだもの、の意。}}{ソース・アシェ}}\label{sauce-hachee}}
 
-\frsub{Sauce Hachée}
+\begin{frsubenv}
+
+Sauce Hachée
+
+\end{frsubenv}
 
 \index{そーす@ソース!あしえ@---・アシェ}
 \index{あしえ@アシェ!そーす@ソース・---}
@@ -1633,7 +831,11 @@ dLを加える。5〜6分煮立たせる。
 \hypertarget{sauce-hachee-maigre}{%
 \subsubsection{魚料理用ソース・アシェ}\label{sauce-hachee-maigre}}
 
-\frsub{Sauce Hachée maigre}
+\begin{frsubenv}
+
+Sauce Hachée maigre
+
+\end{frsubenv}
 
 \index{そーす@ソース!あしえ@魚料理用---・アシェ}
 \index{あしえさかな@アシェ（魚料理用）!そーす@ソース・---}
@@ -1667,7 +869,11 @@ g、または80〜100 gのアンチョヴィバターを加えて仕上げる。
   la hussarde
   は「乱暴に、粗野に」の意味でも用いられるが、料理においてはレフォールを使ったものに名付けられることが多い。}}{ソース・ユサルド}}\label{sauce-hussarde}}
 
-\frsub{Sauce Hussarde}
+\begin{frsubenv}
+
+Sauce Hussarde
+
+\end{frsubenv}
 
 \index{そーす@ソース!ゆさると@---・ユサルド}
 \index{ゆさると@ユサルド!そーす@ソース・---}
@@ -1686,14 +892,18 @@ g、潰したにんにく1片、ブーケガルニを加える。弱火で25〜3
 火にかけて温め、小さなさいの目\footnote{brunoise ブリュノワーズ。}に刻んだハムと、おろしたレフォール
 \footnote{raifort （レフォール）いわゆる西洋わさび、ホースラディッシュ。}少々、パセリのみじん切りをたっぷり1つまみ加えて仕上げる。
 
-\ldots{}\ldots{}牛、羊肉のグリルまたは串を刺してローストしてアントレ\footnote{通常、ローストは料理区分としてアントレに含められることはないが、牛フィレは牛の部位のなかでも比較的小さいものとして、まるごと1本のローストであっても原則的にはアントレに分類される。このソースを用いる「牛フィレ　ユサルド」は牛フィレの塊に串を刺してローストし、ポム・デュシェスとマッシュルームを合わせる。}として供する際に用いる。
+\ldots{}\ldots{}牛、羊肉のグリルまたは串を刺してローストしてアントレ\footnote{通常、ローストは料理区分としてアントレに含められることはないが、牛フィレは牛の部位のなかでも比較的小さいものとして、まるごと1本のローストであっても原則的にはアントレに分類される。このソースを用いる「牛フィレ・ユサルド」は牛フィレの塊に串を刺してローストし、ポム・デュシェスとマッシュルームを合わせる。}として供する際に用いる。
 
 \atoaki{}
 
 \hypertarget{sauce-italienne}{%
 \subsubsection[イタリア風ソース]{\texorpdfstring{イタリア風ソース\footnote{この「イタリア風」には根拠も由来も見出すことが出来ない。地名、国名を料理名に冠した代表例のひとつ。}}{イタリア風ソース}}\label{sauce-italienne}}
 
-\frsub{Sauce Italienne}
+\begin{frsubenv}
+
+Sauce Italienne
+
+\end{frsubenv}
 
 \index{そーす@ソース!いたりあふう@イタリア風---}
 \index{いたりあふう@イタリア風!そーす@---ソース}
@@ -1718,7 +928,11 @@ gを加える。5〜6分間煮る。提供直前に、パセリとセルフイ�
 \hypertarget{jus-lie-estragon}{%
 \subsubsection{とろみを付けたジュ・エストラゴン風味}\label{jus-lie-estragon}}
 
-\frsub{Jus lié à l'Estragon}
+\begin{frsubenv}
+
+Jus lié à l'Estragon
+
+\end{frsubenv}
 
 \index{そーす@ソース!とろみをつけたしゆえすとらこん@とろみを付けたジュエストラゴン風味}
 \index{しゆ@ジュ!とろみをつけたえすとらごん@とろみを付けた---・エストラゴン風味}
@@ -1742,7 +956,11 @@ gでとろみを付ける。
 \hypertarget{jus-lie-tomate}{%
 \subsubsection{とろみを付けたジュ・トマト風味}\label{jus-lie-tomate}}
 
-\frsub{Jus lié tomaté}
+\begin{frsubenv}
+
+Jus lié tomaté
+
+\end{frsubenv}
 
 \index{そーす@ソース!とろみをつけたしゆとまと@とろみを付けたジュ・トマト風味}
 \index{しゆ@ジュ!とろみをつけたとまとふうみ@とろみを付けた---・トマト風味}
@@ -1764,7 +982,11 @@ dLを加え、 \(\frac{4}{5}\)量まで煮詰める。
 \hypertarget{sauce-lyonnaise}{%
 \subsubsection{リヨン風ソース}\label{sauce-lyonnaise}}
 
-\frsub{Sauce Lyonnaise}
+\begin{frsubenv}
+
+Sauce Lyonnaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!りよんふう@リヨン風---}
 \index{りよんふう@リヨン風!そーす@---ソース}
@@ -1789,7 +1011,11 @@ Lを加える。5〜6分かけて表面に浮いてくる不純物を丁寧に�
 \hypertarget{sauce-madere}{%
 \subsubsection{ソース・マデール}\label{sauce-madere}}
 
-\frsub{Sauce Madère}
+\begin{frsubenv}
+
+Sauce Madère
+
+\end{frsubenv}
 
 \index{そーす@ソース!まてーる@---・マデール}
 \index{まてらしゆ@マデイラ酒 ⇒ マデール!そーす@ソース・マデール}
@@ -1807,7 +1033,11 @@ Lあたりマデイラ酒1 dLの割合で加え、普通の濃度にする。
 \subsubsection[ソース・マトロット]{\texorpdfstring{ソース・マトロット\footnote{水夫風、船員風、の意。トゥーレーヌ地方の郷土料理Matelote
   d'anguille（マトロットダンギーユ）うなぎの赤ワイン煮込み、が有名。とはいえ本書にも数種のレシピが収録されているように、赤ワイン煮込みにとどまらず、マトロットの名称を持つ料理は他にも複数存在する。}}{ソース・マトロット}}\label{sauce-matelote}}
 
-\frsub{Sauce Matelote}
+\begin{frsubenv}
+
+Sauce Matelote
+
+\end{frsubenv}
 
 \index{そーす@ソース!まとろつと@---・マトロット}
 \index{まとろつと@マトロット!そーす@ソース・---}
@@ -1829,7 +1059,11 @@ gとごく少量のカイエンヌの粉末を加えて仕上げる。
 \subsubsection[ソース・モワル]{\texorpdfstring{ソース・モワル\footnote{moelle
   骨髄のこと。}}{ソース・モワル}}\label{sauce-moelle}}
 
-\frsub{Sauce Moelle}
+\begin{frsubenv}
+
+Sauce Moelle
+
+\end{frsubenv}
 
 \index{そーす@ソース!もわる@---・モワル}
 \index{こつずい@骨髄 ⇒ モワル!そーすもわる@ソース・モワル}
@@ -1848,7 +1082,11 @@ Lあたり150〜180 gおよび刻んで下茹でしたパセリの葉小さじ1�
 \subsubsection[モスクワ風ソース]{\texorpdfstring{モスクワ風ソース\footnote{moscovite（モスコヴィット）すなわちモスクワ風の名称を持つ料理や菓子は多い。
   18世紀後半から19世紀前半にかけて、ロシアの宮廷や貴族らの間でフランスの食文化が流行し、多くのフランス人料理人が招聘され、彼らはロシア料理のレシピをフランスに持ち帰った。クーリビヤックなどが代表的な例だろう。また、19世紀後半になると、とりわけフランス料理においてもロシア料理からの影響が多く見られるようになる。キャビアとウォトカを食前に愉しむのが流行したのもその時代からである。フランスとロシアの食文化は相互に影響関係にあったと言えよう。}}{モスクワ風ソース}}\label{sauce-moscovite}}
 
-\frsub{Sauce Moscovite}
+\begin{frsubenv}
+
+Sauce Moscovite
+
+\end{frsubenv}
 
 \index{そーす@ソース!もすくわふう@モスクワ風---}
 \index{もすくわふう@モスクワ風!そーす@---ソース}
@@ -1870,7 +1108,11 @@ gを加えて仕上げる。
 \hypertarget{sauce-perigueux}{%
 \subsubsection[ソース・ペリグー]{\texorpdfstring{ソース・ペリグー\footnote{トリュフの産地として有名なペリゴール地方の町の名。}}{ソース・ペリグー}}\label{sauce-perigueux}}
 
-\frsub{Sauce Périgueux}
+\begin{frsubenv}
+
+Sauce Périgueux
+
+\end{frsubenv}
 
 \index{そーす@ソース!へりくー@---・ペリグー}
 \index{へりくー@ペリグー!そーす@ソース・---}
@@ -1890,7 +1132,11 @@ dLと細かく刻んだトリュフ100 gを加える。
 \subsubsection[ソース・ペリグルディーヌ]{\texorpdfstring{ソース・ペリグルディーヌ\footnote{périgourdin(e)
   （ペリグルダン/ペリグルディーヌ）ペリゴール地方風の意。}}{ソース・ペリグルディーヌ}}\label{sauce-perigourdine}}
 
-\frsub{Sauce Périgourdine}
+\begin{frsubenv}
+
+Sauce Périgourdine
+
+\end{frsubenv}
 
 \index{そーす@ソース!へりくるていーぬ@---・ペリグルディーヌ}
 \index{へりこーるふう@ペリゴール風 ⇒ ペリグルダン/ペリグルディーヌ!そーす@ソース・ペリグルディーヌ}
@@ -1909,7 +1155,11 @@ dLと細かく刻んだトリュフ100 gを加える。
   （ピカン、ピカント）
   一般的には唐辛子などが「辛い」の意だが、このソースでは唐辛子の類は使われておらず、むしろ酸味の効いたソースと言えよう。古くからのソース名。}}{ソース・ピカント}}\label{sauce-piquante}}
 
-\frsub{Sauce Piquante}
+\begin{frsubenv}
+
+Sauce Piquante
+
+\end{frsubenv}
 
 \index{そーす@ソース!ひかんと@---・ピカント}
 \index{ひかんと@ピカント!そーす@ソース・---}
@@ -1940,7 +1190,11 @@ dLを加え、浮いてくる不純物を取り除きながら10分間煮る。
   をして弱火でグリルする。薔薇の香りもしくはにんにく風味のヴィネガーを添えて供する、というもの(p.190)。ピエール・ド・リュヌのレシピにおいてソースに相当するものはヴィネガーであり、むしろ味付けでこしょうを効かせているということが料理名の根拠となっているに過ぎない。ちなみに、生食可能な小さなサイズのアーティチョークも古くからポワヴラードと呼ばれている。}
 (標準)}{ソース・ポワヴラード (標準)}}\label{sauce-poivrade}}
 
-\frsub{Sauce Poivrade ordinaire}
+\begin{frsubenv}
+
+Sauce Poivrade ordinaire
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほわうらーと@---・ポワヴラード（標準）}
 \index{ほわうらーと@ポワヴラード!そーす@ソース・---（標準）}
@@ -1970,7 +1224,11 @@ dLを注ぎ、\(\frac{1}{3}\)量になるまで煮詰める。\protect\hyperlink
 \hypertarget{sauce-poivrade-pour-gibier}{%
 \subsubsection{ソース・ポワヴラード（ジビエ用）}\label{sauce-poivrade-pour-gibier}}
 
-\frsub{Sauce Poivrade pour Gibier}
+\begin{frsubenv}
+
+Sauce Poivrade pour Gibier
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほわうらーとしひえ@---・ポワヴラード（ジビエ用）}
 \index{ほわうらーと@ポワヴラード!そーすしひえ@ソース・---（ジビエ用）}
@@ -2013,7 +1271,11 @@ Lになるまで煮詰める。
 \hypertarget{sauce-au-porto}{%
 \subsubsection{ソース・ポルト}\label{sauce-au-porto}}
 
-\frsub{Sauce au Porto}
+\begin{frsubenv}
+
+Sauce au Porto
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほると@---・ポルト}
 \index{ほるとしゆ@ポルト酒 ⇒ ポルト!そーす@ソース・---}
@@ -2028,7 +1290,11 @@ Lになるまで煮詰める。
 \hypertarget{sauce-portugaise}{%
 \subsubsection[ポルトガル風ソース]{\texorpdfstring{ポルトガル風\footnote{日本でもフランス語のままソース・ポルチュゲーズと呼ばれることは多い。フランス料理においてポルトガル風の名称を付けた料理はトマトをベースとしたものがほとんど。ただし、トマトを使うからといってポルトガル風の名が必ず付くというわけではない。}ソース}{ポルトガル風ソース}}\label{sauce-portugaise}}
 
-\frsub{Sauce Portugaise}
+\begin{frsubenv}
+
+Sauce Portugaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!ほるとかるふう@ポルトガル風---}
 \index{ほるとかるふう@ポルトガル風!そーす@---ソース}
@@ -2050,7 +1316,11 @@ gと、つぶしたにんにく1片、塩、こしょうを加える。トマト
 \hypertarget{sauce-provencale}{%
 \subsubsection{プロヴァンス風ソース}\label{sauce-provencale}}
 
-\frsub{Sauce Provençale}
+\begin{frsubenv}
+
+Sauce Provençale
+
+\end{frsubenv}
 
 \index{そーす@ソース!ふろうあんすふう@プロヴァンス風---}
 \index{ふろうあんすふう@プロヴァンス風!そーす@---ソース}
@@ -2075,7 +1345,11 @@ dLの油を熱し、そこにトマトを入れる。塩、こしょう、粉砂
 \hypertarget{sauce-regence}{%
 \subsubsection[ソース・レジャンス]{\texorpdfstring{ソース・レジャンス\footnote{Régence（レジョンス）はこの場合固有名詞としての「摂政時代」を指す。すなわちオルレアン公フィリップがルイ15世の幼少期に摂政を務めていたた時代（1715〜1723年）のこと。オルレアン公は美食家として有名で、とりわけシャンパーニュを好んだという。この時期はフランス宮廷料理の絶頂期でもあった。}}{ソース・レジャンス}}\label{sauce-regence}}
 
-\frsub{Sauce Régence}
+\begin{frsubenv}
+
+Sauce Régence
+
+\end{frsubenv}
 
 \index{そーす@ソース!れしやんす@---・レジャンス}
 \index{れしやんす@レジャンス!そーす@ソース・---}
@@ -2095,9 +1369,13 @@ gを加え、半量になるまで煮詰める。トリュフのシーズンで�
 \atoaki{}
 
 \hypertarget{sauce-robert}{%
-\subsubsection[ソース・ロベール]{\texorpdfstring{ソース・ロベール\footnote{この名称のソースは古くからある。文献で初めて出てくるのは16世紀フランソワ・ラブレーの小説『ガルガンチュアとパンタグリュエル』。その「第四の書」で料理人の名が大量に列挙される章がある。そのうちの多くは架空の人名だが、その中のロベールという料理人がこのソースを考案したと書いている。ただし、具体的にどのようなソースかまでは描写されておらず「うさぎのロースト、鴨、加工していない豚肉、卵のポシェ、塩漬けのメルラン{[}鱈の近縁種{]}、その他まことに多くの料理に欠かせないソース」と書いてあるのみ（第40章）。どんな料理にも合うと書かれてしまうとむしろ特徴を捉え難くなってしまう。いずれにせよ、遅くとも16世紀には「ソース」として成立していたと考えられる。また、17世紀のシャルル・ペロー著『物語集』の「眠れる森の美女」においても、このソース名が登場する一節がある。このように16世紀以降多くの文学作品をはじめとする文献にこのソース名は見られる。レシピとしては、1651年刊ラ・ヴァレーヌ『フランス料理の本』における「豚腰肉　ソース・ロベール添え」がもっとも古いもののひとつだろう。概略は、豚腰肉を、ヴェルジュ{[}未熟ぶどう果汁、中世料理においてよく用いられた{]}とヴィネガー、セージを振り掛けながらローストする。下に置いた脂受け皿に焼いた豚肉から流れ落ちた脂がたまるので、これを使って玉ねぎをこんがり炒める。炒めた玉ねぎの上に豚後ろ身を載せ、豚腰肉をローストする際にかけたのと同じソースをかける。このソースはソースロベールと呼ばれている(p.51)。また、干鱈のソース・ロベール添えの場合は、バターとヴェルジュ少々、マスタードで作るが、ケイパーやシブール{[}葱{]}を加えてもいい(p.202)とあり、同じ名称のソースとは見做しがたい。18世紀以降のソース・ロベールは多かれ少なかれいずれもマスタードを加える点が共通しているので、名称が先にあり、内容が時代とともにはっきりしたものになっていたのだろう。}}{ソース・ロベール}}\label{sauce-robert}}
+\subsubsection[ソース・ロベール]{\texorpdfstring{ソース・ロベール\footnote{この名称のソースは古くからある。文献で初めて出てくるのは16世紀フランソワ・ラブレーの小説『ガルガンチュアとパンタグリュエル』。その「第四の書」で料理人の名が大量に列挙される章がある。そのうちの多くは架空の人名だが、その中のロベールという料理人がこのソースを考案したと書いている。ただし、具体的にどのようなソースかまでは描写されておらず「うさぎのロースト、鴨、加工していない豚肉、卵のポシェ、塩漬けのメルラン{[}鱈の近縁種{]}、その他まことに多くの料理に欠かせないソース」と書いてあるのみ（第40章）。どんな料理にも合うと書かれてしまうとむしろ特徴を捉え難くなってしまう。いずれにせよ、遅くとも16世紀には「ソース」として成立していたと考えられる。また、17世紀のシャルル・ペロー著『物語集』の「眠れる森の美女」においても、このソース名が登場する一節がある。このように16世紀以降多くの文学作品をはじめとする文献にこのソース名は見られる。レシピとしては、1651年刊ラ・ヴァレーヌ『フランス料理の本』における豚腰肉・ソース・ロベール添えがもっとも古いもののひとつだろう。概略は、豚腰肉を、ヴェルジュ（未熟ぶどう果汁、中世料理においてよく用いられた）とヴィネガー、セージを振り掛けながらローストする。下に置いた脂受け皿に焼いた豚肉から流れ落ちた脂がたまるので、これを使って玉ねぎをこんがり炒める。炒めた玉ねぎの上に豚後ろ身を載せ、豚腰肉をローストする際にかけたのと同じソースをかける。このソースはソースロベールと呼ばれている(p.51)。また、干鱈のソース・ロベール添えの場合は、バターとヴェルジュ少々、マスタードで作るが、ケイパーやシブール（≒葱）を加えてもいい(p.202)とあり、同じ名称のソースとは見做しがたい。18世紀以降のソース・ロベールは多かれ少なかれいずれもマスタードを加える点が共通しているので、名称が先にあり、内容が時代とともにはっきりしたものになっていたのだろう。}}{ソース・ロベール}}\label{sauce-robert}}
 
-\frsub{Sauce Robert}
+\begin{frsubenv}
+
+Sauce Robert
+
+\end{frsubenv}
 
 \index{そーす@ソース!ろへーる@---・ロベール}
 \index{ろへーる@ロベール!そーす@ソース・---}
@@ -2120,7 +1398,11 @@ dLを注ぎ、\(\frac{1}{3}\)量になるまで煮詰める。\protect\hyperlink
 \hypertarget{sauce-robert-escoffier}{%
 \subsubsection{ソース・ロベール・エスコフィエ}\label{sauce-robert-escoffier}}
 
-\frsub{Sauce Robert Escoffier}
+\begin{frsubenv}
+
+Sauce Robert Escoffier
+
+\end{frsubenv}
 
 \index{そーす@ソース!ろへーるえすこふいえ@---・ロベール・エスコフィエ}
 \index{ろへーる@ロベール!そーすえすこふいえ@ソース・---・エスコフィエ}
@@ -2140,7 +1422,11 @@ dLを注ぎ、\(\frac{1}{3}\)量になるまで煮詰める。\protect\hyperlink
 \hypertarget{sauce-romaine}{%
 \subsubsection[ローマ風ソース]{\texorpdfstring{ローマ風\footnote{フランス料理における「ローマ風」の名称は「イタリア風」と同様にとくに根拠や由来が見出せないものが多い。このソースの場合は松の実を使うところから、20世紀前半に活躍したイタリアの作曲家レスピーギのローマ三部作のうちの「ローマの松」を想起させるが、残念ながらこの曲が作曲されたのは1924年、つまり本書より後なので関係はない。だが、松の実を採るイタリアカサマツは、アッピア街道の並木などで有名なように、イタリアとりわけローマ近辺において多く見られる（だからこそレスピーギが曲の題材にしたわけだが）。その意味においては、松の実を使っているということがこのソース名の根拠と見ることも不可能ではないだろう。しかしながら、それを証明する文献、史料があるかは不明。}ソース}{ローマ風ソース}}\label{sauce-romaine}}
 
-\frsub{Sauce Romaine}
+\begin{frsubenv}
+
+Sauce Romaine
+
+\end{frsubenv}
 
 \index{そーす@ソース!ろーまふう@ローマ風---}
 \index{ろーまふう@ローマ風!そーす@---ソース}
@@ -2167,7 +1453,11 @@ gを温湯でもどしたものを加えて仕上げる。
 \hypertarget{sauce-rouennaise}{%
 \subsubsection[ルーアン風ソース]{\texorpdfstring{ルーアン風\footnote{ルーアンは野生のcolvertコルヴェール、いわゆる青首鴨を家禽化したルーアン鴨の産地として有名。}ソース}{ルーアン風ソース}}\label{sauce-rouennaise}}
 
-\frsub{Sauce Rouennaise}
+\begin{frsubenv}
+
+Sauce Rouennaise
+
+\end{frsubenv}
 
 \index{そーす@ソース!るーあんふう@ルーアン風---}
 \index{るーあんふう@ルーアン風!そーす@---ソース}
@@ -2197,7 +1487,11 @@ gを温湯でもどしたものを加えて仕上げる。
   とするのが定説のようだが、salmigondisがその意味で用いられるようになったのは19世紀以降と考えられ、それ以前はragoûtラグーと同義と見なされていた。ラグーはその語源的意味が「食欲をそそるもの」であり、17世紀に、それまでポタージュと呼ばれていた煮込み料理についてラグーの名称をつけることが流行した。また、salmigondisの古い語形のひとつsalmigondinは16世紀の小説家フランソワ・ラブレー『ガルガンチュアとパンタグリュエル』の「第四の書」において用いられているが、日本語の「ごった煮」のニュアンスとはかなり違う意味で、美味な料理のひとつとして挙げられている。いずれにしても、salmigondin,
   salmigondisというラグーの別称が、ある時期から鳥類を材料にしたものに限定されるようになったことは確かで、カレームの『19世紀フランス料理』ではsalmisの語で、野鳥などのラグーを呼んでいる。例えば「ベカスのサルミ」「ペルドローのサルミ」など。}}{ソース・サルミ}}\label{sauce-salmis}}
 
-\frsub{Sauce Salmis}
+\begin{frsubenv}
+
+Sauce Salmis
+
+\end{frsubenv}
 
 \index{そーす@ソース!さるみ@---・サルミ}
 \index{さるみ@サルミ!そーす@ソース・---}
@@ -2238,7 +1532,11 @@ dLで薄める。
   （トルチュ）は海亀のこと。古くは海亀料理用のソースだったが、19世紀以降は仔牛の頭肉料理に合わせるのが一般的になった。なお、
   tortu(e)という形容詞があり「曲がりくねった、（性格が）ひねくれた」という同音異義語があるが、このソースの由来とは無関係。}}{ソース・トルチュ}}\label{sauce-tortue}}
 
-\frsub{Sauce Tortue}
+\begin{frsubenv}
+
+Sauce Tortue
+
+\end{frsubenv}
 
 \index{そーす@ソース!とるちゆ@---・トルチュ}
 \index{とるちゆ@トルチュ!そーす@ソース・---}
@@ -2269,7 +1567,11 @@ dLとトリュフエッセンス少々を加え、さらにカイエンヌで風
 \hypertarget{sauce-venaison}{%
 \subsubsection[ソース・ヴネゾン]{\texorpdfstring{ソース・ヴネゾン\footnote{Venaison（ヴネゾン）とはノロ鹿chevreuilや猪sanglierなどの大型ジビエのこと。なおニホンジカやエゾジカはcerf（セール）に分類され、フランス料理の食材としてはあまり高く評価されない傾向がある。}}{ソース・ヴネゾン}}\label{sauce-venaison}}
 
-\frsub{Sauce Venaison}
+\begin{frsubenv}
+
+Sauce Venaison
+
+\end{frsubenv}
 
 \index{そーす@ソース!うねそん@---・ヴネゾン}
 \index{うねそん@ヴネゾン!そーす@ソース・---}
@@ -2292,7 +1594,11 @@ dLで溶いてから加える。
 \hypertarget{sauce-vin-rouge}{%
 \subsubsection{赤ワインソース}\label{sauce-vin-rouge}}
 
-\frsub{Sauce au Vin rouge}
+\begin{frsubenv}
+
+Sauce au Vin rouge
+
+\end{frsubenv}
 
 \index{そーす@ソース!あかわいん@赤ワイン---}
 \index{あかわいん@赤ワイン!そーす@---ソース}
@@ -2326,7 +1632,11 @@ A]{\texorpdfstring{ソース・ザンガラ\footnote{もとの語形はzingaro
   ザンガロ、またはヂンガロ。ジプシー、ボヘミアンの意。料理ではパプリカ粉末やカイエンヌを用いたものに命名されることが多い。}
 A}{ソース・ザンガラ A}}\label{sauce-zingara-a}}
 
-\frsub{Sauce Zingara A}
+\begin{frsubenv}
+
+Sauce Zingara A
+
+\end{frsubenv}
 
 \index{そーす@ソース!さんからa@---・ザンガラ A}
 \index{さんから@ザンガラ!そーすa@ソース・--- A}
@@ -2348,7 +1658,11 @@ gを加える。弱火で5〜6分間煮る。パセリのみじん切り大さ�
 \hypertarget{sauce-zingara-b}{%
 \subsubsection{ソース・ザンガラ B}\label{sauce-zingara-b}}
 
-\frsub{Sauce Zingara B}
+\begin{frsubenv}
+
+Sauce Zingara B
+
+\end{frsubenv}
 
 \index{そーす@ソース!さんからb@---・ザンガラ B}
 \index{さんから@ザンガラ!そーすb@ソース・--- B}
@@ -2376,5 +1690,3 @@ gおよびマッシュルーム 50 g、トリュフ 30 gを加える。
 \index{sauce@sauce!petites brunes composees@\textbf{Petites ---s Brunes Composées}|)}
 
 \end{recette}
-
-\end{document}

@@ -1,34 +1,26 @@
- %%% Preamble読み込み
+% Preamble読み込み
+%
+%\input{preamble-iPhone-pdf}
+%
 \input{preamble-pdf-a4paper}
-%\input{preamble/sauces-index-def}%ソース名からの逆引きインデックス用コマンド
-%\renewcommand{\footnote}[1]{}%単に注釈なしバージョンを作るにはこの行頭の%を消す
-%
-%%%%以下、TeXにくわしくない方は触らないことをおすすめします。
-% \input{preamble-pdf/preamble-pdf-octavo.tex}%初版、第二版原書とほぼ同じ判型。ただし調整が必要
-% \input{preamble/preamble-pdf-without-notes-a4.tex}%脚注なしバージョン、ただし調整が必要
-% \input{preamble/preamble-pdf-with-footnote-1col-a4.tex}%1段組みバージョン、ただし調整が必要
-%
-%
-%
-%
-%%% Important!%%%%%%% 文書開始%%%
+%\input{preamble/sauces-index-def}\%ソース名からの逆引きインデックス用コマンド
 
-%%%info%%%
-\title{\Huge{オーギュスト・エスコフィエ}\\\HUGE{『料理の手引き』全注解}}
-\author{\huge{五 島　学}}
-%%%%
-%%% Important! 文書開始%
+\title{\Large{オーギュスト・エスコフィエ}\\\LARGE{『料理の手引き』全注解}}
+\author{\large{五 島　学（責任編集・訳・注釈）\\河井 健司（訳・注釈）\\ほか}}
+
+
+
 \begin{document}
-\flushbottom
+
 
 %%% 扉 %%%
 \maketitle
-
-
-% % 原稿ファイル読み込み
-\newpage
-\include{Benefactors}
-\newpage
+%
+%
+%%  原稿ファイル読み込
+%\newpage
+\include{/Users/manabu/Bitbucket/escoffier-translation-jp/chapitres/00-avant-propos/00-benefactors}
+%\newpage
 
 %空白ページ
 \newpage
@@ -43,21 +35,21 @@
 
 %%% 序文開始
 %\layout%レイアウト数値確認用
-%%%%Hston Blumenthal
-\input{../00-avant-propos/heston}
+%%%%hston blumenthal
+\input{/Users/manabu/Bitbucket/escoffier-translation-jp/chapitres/00-avant-propos/01-heston}
 
 %
 %企画本参考例
 % \input{echantillon/echantillon-01}
-%\input{Realisation-contemporaine/kitano}
-%\input{Realisation-contemporaine/yamamoto}
-%\include{../Realisation-contemporaine/wakisaka}
+%\input{realisation-contemporaine/kitano}
+%\input{realisation-contemporaine/yamamoto}
+%\include{../realisation-contemporaine/wakisaka}
 
 \frontmatter
 
 
 
-\input{../00-avant-propos/00-avant-propos}
+\input{/Users/manabu/Bitbucket/escoffier-translation-jpchapitres/00-avant-propos/02-avant-propos}
 
 %%% 本文開始
 \mainmatter
@@ -71,36 +63,39 @@
 %%%原稿ファイル読み込み
 %
 
-%%% Chapitre I. Saucesa
-\input{../01-sauces/01-00}
+%%% chapitre i. saucesa
+\input{/Users/manabu/Bitbucket/escoffier-translation-jp/chapitres/01-sauces/01-00}
 
-%%% Chapitre II. Garnitures
-\input{../02-garnitures/02-00}
+%%% chapitre ii. garnitures
+%\input{../02-garnitures/02-00}
 
-%%% Chapitre III. Potages
-%\input{03-potages/03-00}
+%%% chapitre iii. potages
+%\input{03-potages/03-00} 
 
 
-%%% Chapitre IV. Hors-d'oeuvres
+%%% chapitre iv. hors-d'oeuvres
 %%%\input{04-hors-d-oeuvres/06-00}
 
-%%% Chapitre V. OEufs
+%%% chapitre v. oeufs
 %%%\input{05-oeufs/06-00}
 
 
-%%% Chapitre VI. Poissons
+%%% chapitre vi. poissons
 %\input{06-poissons/06-00}
 
-%%% Chapitre VII. Relevés et Entrées
+%%% chapitre vii. relevés et entrées
 %\input{07-releves-et-entrees/07-00}
 
 
 
 
 
-%%% Chapitre XIII Legumes
-\input{../13-legumes/13-00}
-
+%%% chapitre xiii legumes
+%\input{../chapitres/13-legumes/13-00}
+\input{../chapitres/13-legumes/13-01-pp726-727}
+\input{../chapitres/13-legumes/13-02-pp728-730}
+%\input{../chapitres/13-legumes/13-01-pp730-732}
+%\input{../chapitres/13-legumes/13-01-pp726-727}
 
 %
 
@@ -120,12 +115,18 @@
 
 
 
-
-
+\newpage
+\begingroup
+\parindent 0pt
+\parskip 2ex
+\def\enotesize{\normalsize}
+\theendnotes
+\endgroup
 
 \appendix
 
-%%%索引ページ出力
+%%% 索引ページ出力
+
 \backmatter
 
 \renewcommand{\indexname}{ソース名から料理を探す}
@@ -138,6 +139,6 @@
 %%% Important! 文書終了%
 \end{document}
 
-%% Local Variables:
+%%% Local Variables:
 %% TeX-engine: luatex
 %% End:
