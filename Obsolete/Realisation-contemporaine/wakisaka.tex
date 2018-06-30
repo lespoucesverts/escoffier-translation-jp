@@ -1,0 +1,771 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[14Q,a4paperpaper,]{ltjsbook}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={エスコフィエの再解釈},
+            pdfauthor={五 島　学　訳},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{エスコフィエの再解釈}
+\providecommand{\subtitle}[1]{}
+\subtitle{脇坂氏担当分}
+\author{五 島　学　訳}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%% added by mgoto
+\usepackage{setspace}
+
+
+% %%%%%%%%% hyperref %%%%%%%%%%%%%
+% \usepackage{refcount}
+% \usepackage[unicode=true,hyperfootnotes=false,pageanchor]{hyperref}
+% \hypersetup{hyperindex=false,%
+%              breaklinks=true,%
+%              bookmarks=true,%
+%              pdfauthor={五島　学},%
+%              pdftitle={エスコフィエ『料理の手引き』全注解},%
+%              colorlinks=false%true,%
+%              %colorlinks=true,%
+%              citecolor=blue,%
+%              urlcolor=cyan,%
+%              linkcolor=magenta,%
+%              bookmarksdepth=subsubsection,%
+%              pdfborder={0 0 0},%
+%              hyperfootnotes=false,%
+%              plainpages=false,
+%              }
+% \urlstyle{same}
+
+
+
+
+
+%% 欧文フォント設定
+% Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+%\usepackage{libertine}
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+     
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%文字サイズ、見出しなどの再定義
+\makeatletter
+%\renewcommand{\large}{\jsc@setfontsize\large\@xipt{14}}
+%\renewcommand{\Large}{\jsc@setfontsize\Large{13}{15}}
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newcommand{\frchap}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\LARGE\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newcommand{\frsec}[1]{\vspace*{-2ex}%
+ \begin{center}\normalfont\headfont\large\setstretch{0.8}
+ \scshape#1\normalfont\normalsize
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+  
+\newcommand{\frsecb}[1]{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+  \hspace{1em}\scshape#1\normalfont\normalsize%
+\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+\makeatother
+
+\newenvironment{frchapenv}{\vspace*{-2ex}\begin{center}\normalfont\headfont%
+    \LARGE\scshape\setstretch{0.8}%
+    }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+% \newenvironment{frsecenv}{\vspace*{-2ex}%
+% \begin{center}\normalfont\headfont\medlarge\setstretch{0.8}%
+%   \hspace{1em}\normalfont\normalsize\scshape%
+% }{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}{\vspace*{-2ex}%
+\begin{center}\normalfont\headfont\medlarge\scshape\setstretch{0.8}%
+  \hspace{1em}%
+}{\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecenv}{\vspace*{-2ex}%
+  \begin{center}\normalfont\headfont\normalsize\scshape\large\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}{\end{spacing}\normalfont\normalsize\setlength{\leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\newcommand{\frsub}[1]{\begin{frsubenv}#1\end{frsubenv}\par\vspace{1.1\zw}}
+
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+
+% \makeatletter
+% \@removefromreset{subsubsection}{subsection}
+% \def\thesubsubsection{\arabic{subsubsection}.}
+% \newcounter{rnumber}
+% \renewcommand{\thernumber}{\refstepcounter{rnumber} }
+\makeatother
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+%\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+\include{sauces-index-def.tex}
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}%タブレット前提の中央配置
+\setlength{\evensidemargin}{\oddsidemargin}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{45\zw}
+\setlength{\textwidth}{45\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{265mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記Obsolete
+\usepackage{xfrac}
+\let\frac\sfrac
+
+
+
+
+
+\begin{document}
+\maketitle
+
+\begin{main}
+
+\hypertarget{hachis}{%
+\subsection{アシ}\label{hachis}}
+
+\begin{frsecbenv}
+
+Hachis
+
+\end{frsecbenv}
+
+料理において「アシ」を字句どおりに、つまり「ミンチ状に細かく刻んだ肉」という意味で理解してはいけない。「アシ」とは\protect\hyperlink{salpicons-divers}{サルピコン}の一種だ。
+
+アシは\protect\hyperlink{eminces}{エマンセ}\footnote{牛のアロワイヨー（腰肉の塊）、サーロイン、フィレなどのローストあるいはブレゼで供した残りを薄くスライスして、別途、料理として仕立て直すもの。}の扱いに準じる。その理由もエマンセと同じである。アシに用いる肉がローストしたものであるときは、決してソースの中で煮立てないこと。
+
+アシは通常、熱い\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグラス}であえる。その割合は、アシにした肉
+1 ㎏に対して2 \(\frac{1}{2}\) dLとすること。 (p.459)
+
+\end{main}
+
+\begin{recette}
+
+\hypertarget{hachis-parmentier}{%
+\subsubsection[アシ・パルマンティエ]{\texorpdfstring{アシ・パルマンティエ\footnote{アントワーヌ・オギュスタン・パルモンティエ（1737〜1813）、18世紀まであまりフランスでは省みられることのなかったじゃがいもの普及に尽力し、大きな功績をあげたことで知られる農学者。このため、じゃがいもを使用した料理にパルマンティエの名が冠せられたものがいくつもある。ちなみに、じゃがいもが普及するにつれて、中世以来、でんぷん質野菜として好まれていたパースニップ（フランス語
+  panais
+  パネ）の生産量が19世紀には著しく低下することになる。これは、パースニップの方が単位面積あたりの収量が低く、栽培期間も長期にわたるという事情も関係したのだろう。『料理の手引き』においては香味野菜としての位置付けが主となっている。}}{アシ・パルマンティエ}}\label{hachis-parmentier}}
+
+\begin{frsubenv}
+
+Hachis Parmentier
+
+\end{frsubenv}
+
+\index{hachis@hachisl!parmentier@--- Parmentier}
+\index{parmentier@Parmentier!hachisl@Hachis ---}
+\index{pommes de terre@pommes de terrel!Hachis Parmentier}
+\index{あし@アシ!はるまんていえ@---・パルマンティエ}
+\index{はるまんていえ@パルマンティエ!あし@アシ・パルマンティエ}
+\index{しやかいも@じゃがいも!はるまんていえ@アシ・パルマンティエ}
+
+大ぶりのじゃがいも（オランド種\footnote{じゃがいもの品種名。かつてはグラタン等に好んで用いられたが、古い品種のため現代では営利栽培されることは少ない。2007年版『ラルース・ガストロノミック』では、じゃがいもの主要品種としてリストアップされていないが、フィリップ・ヴィルモラン『じゃがいもの品種一覧』第3版（1902年）によると、現代日本のメークインと非常に近い品種として分類されている(p.22)。じゃがいもは基本的に種子ではなく種芋から栽培するため、長い年月を経て日本の気候風土になじみ調理特性や味に若干の変化はあるだろうが、日本で入手可能なじゃがいも品種のなかではオランド種にもっとも近いと考えていいだろう。なお、日本では植物検疫により生のじゃがいもの輸入が禁じられているため、この品種に限らず、ヨーロッパ産のじゃがいもは冷凍および加熱製品しか国内では利用できない。}）はオーヴンで火を通す。上部を切りとって別に取り置く。中身をくり抜く。くり抜いたじゃがいもの中身をフォークでつぶし、これを、\protect\hyperlink{pommes-de-terre-macaire}{じゃがいものマケール}と同様に、バターでソテーする。
+
+ソテーしたじゃがいものを以下と混ぜあわせる\ldots{}\ldots{}じゃがいもと同量の、細かいさいの目に切った牛肉。バターで炒めた玉ねぎのみじん切り大さじ3杯。パセリのみじん切り1つまみ。ヴィネガー少々。
+
+くり抜いたじゃがいもの外側を器にして、上で混ぜたものを詰める。布で漉した\protect\hyperlink{sauce-lyonnaise}{リヨン風ソース}を何度も上からかけてやり、詰め物にたっぷり浸み込ませる。
+
+取り置いてあったじゃがいもの上部で蓋をする。天板に並べ、オーブンで10分焼く。
+
+オーヴンから取り出したらすぐに、じゃがいもをナフキンの上にに盛って供する。
+
+\hypertarget{pommes-de-terre-macaire}{%
+\subsubsection{じゃがいものマケール}\label{pommes-de-terre-macaire}}
+
+\begin{frsubenv}
+
+Pommes de terre Macaire
+
+\end{frsubenv}
+
+\index{pommes de terre@pommes de terre!macaire@--- Macaire}
+\index{macairel@Macaire!pommes de terre@Pommes de terre ---}
+\index{しやかいも@じゃがいも!まけーる@---のマケール}
+\index{まけーる@マケール!しやかいも@じゃがいもの---}
+
+オランダ種のじゃがいもはオーヴンで火を通す。火が通ったらすぐに中身をくり抜いて平鍋に入れる。塩、こしょうで調味し、フォークで潰す。じゃがいもの中身1kgあたりバター200gを加えてしっかり混ぜる。
+
+これをガレットのように平たい円形に伸ばして、澄ましバターを熱したフライパンで、両面をこんがり焼く。(p.764)
+
+\hypertarget{sauce-lyonnaise}{%
+\subsubsection{リヨン風ソース}\label{sauce-lyonnaise}}
+
+\begin{frsubenv}
+
+Sauce Lyonnaise
+
+\end{frsubenv}
+
+\index{そーす@ソース!りよんふう@リヨン風---}
+\index{りよんふう@リヨン風!そーす@---ソース}
+\index{sauce@sauce!lyonnaise@--- Lyonnaise}
+\index{liyonnais@lyonnais(e)!sauce lyonnaise@Sauce ---e}
+
+中位の大きさの玉ねぎ3個をみじん切りにし、バターでじっくり、ごく弱火でブロンド色になるまで炒める。白ワイン2
+dLとヴィネガー2 dLを注ぐ。
+\(\frac{1}{3}\)量まで煮詰め、\protect\hyperlink{sauce-demi-glace}{ソース・ドゥミグラス}\(\frac{3}{4}\)
+Lを加える。5〜6分かけて表面に浮いてくる不純物を丁寧に取り除き\footnote{dépouiller
+  デプイエ。現代ではエキュメと呼ぶ現場が多い。}、布で漉す。
+
+\hypertarget{nota-sauce-lyonnaise}{%
+\subparagraph{【原注】}\label{nota-sauce-lyonnaise}}
+
+このソースを合わせる料理によっては、ソースを布で漉さずに玉ねぎを残してもいい。
+
+\end{recette}
+
+\begin{main}
+
+\hypertarget{ballottines-et-jambonneaux}{%
+\subsection{バロティーヌとジャンボノー}\label{ballottines-et-jambonneaux}}
+
+\begin{frsecbenv}
+
+Balllottines et Jambonneaux
+
+\end{frsecbenv}
+
+この種の調理には、胸肉を何か別の料理に用いた鶏などの家禽の腿肉が用いられる。
+
+腿は骨を取り除き\footnote{désosser （デゾセ）。}、バロティーヌ\footnote{ballottine
+  （バロティーヌ）円筒形の包み、の意。つまり形状を意味した名称の仕立て。しばしば\protect\hyperlink{galantine-type}{ガランティーヌ}と混同されるが、ガランティーヌは形状について特に定義がなく、ゼラチン質で固めたもの、が原義。}あるいはジャンボノー\footnote{jambonneau
+  \textless{} jambon （ジョンボン）に縮小辞 eau
+  が付いたもの。つまり小さいハム、の意。本来ハムとは骨付きあるいは骨を取り除いた豚腿肉で作られるが、ここでイメージされているジャンボノーの形とは、骨付きハムのそれ。}の形になるように詰め物をする。腿の皮はあらかじめこの用途に用いることを見越して長くとっておき、バロティーヌの形かジャンボノーの形になるように縫って閉じる。
+
+バロティーヌもジャンボノーも成形した後に\protect\hyperlink{les-braises-de-viandes-blanches}{ブレゼ}する。家禽に合うガルニチュールを適宜添えるとよい。
+
+\hypertarget{ux539fux6ce8}{%
+\paragraph{【原注】}\label{ux539fux6ce8}}
+
+冷製として仕立てる場合には、表面にジュレを塗るか、\protect\hyperlink{sauce-chaud-froid-blanche-ordinaire}{ホワイト系}か\protect\hyperlink{sauce-chaud-froid-brune}{ブラウン系のソース・ショフロワ}を覆いかけてやり、ガルニチュールは適宜添えること。
+
+\end{main}
+
+\begin{recette}
+
+\hypertarget{farce-gratin-c}{%
+\subsubsection{ファルス・グラタン C}\label{farce-gratin-c}}
+
+\begin{frsubenv}
+
+Frace Gratin C
+
+\end{frsubenv}
+
+\index{farce@farce!gratin c@--- Gratin C}
+\index{ふあるす@ファルス!くらたんc@---・グラタン C}
+
+（詰め物をしたクルトン、カナペ、小型ジビエ、仔鴨用）
+
+\begin{itemize}
+\item
+  ファルス1 kg分の材料\ldots{}\ldots{}生のフレッシュな豚背脂\footnote{塩漬けなどの加工をしていないということ。なお、lard
+    (gras) （ラール グラ）は「豚背脂」を意味し、lard maigre
+    （ラールメーグル）またはlard de
+    poitrine（ラールドポワトリーヌ）は塩漬け豚ばら肉およびそれを冷燻したものを意味する。後者はしばしば日本語で「ベーコン」と誤訳されるが、日本語でいう「ベーコン」は温燻、熱燻されたものであり、風味などが大きく異なるので注意。近年は「生ベーコン」という商品名のものもあるらしく、紛らわしいので注意が必要だろう。いずれにしても、豚背脂は薄いシート状または長い棒状、拍子木状にして、素材の油脂分と風味を補う目的で使われることが多く、豚ばら肉の塩漬けおよびその冷燻品は拍子木状に切って（lardon
+    ラルドン）各種料理に使われる。既に拍子木状にカットされたものがごく一般的に市販されており、それぞれ
+    lardon（ラルドン）、lardon
+    fumé（ラルドンフュメ）と呼ばれ非常にポピュラーな食材。}を器具を用いておろしたもの\footnote{râper
+    (ラペ) \textless{} râpe （ラープ）という器具を用いておろすこと。
+    Mandeline
+    （マンドリーヌ）と呼ばれる野菜スライサーにこの機能が付属しているものは非常に多い。}300
+  g、鶏レバー600 g、エシャロット4〜5個の薄切り \footnote{émincé
+    \textless{} émincer （エマンセ）薄切りにする、スライスする。}、マッシュルームの切りくず\footnote{マッシュルームは通常、料理として提供する際にはtourner
+    （トゥルネ）と呼ばれる、螺旋状の切れ込みを入れて装飾したものが使われる。この際に少なくない量の切りくずが発生する（具体的には軸込みで15〜20％の廃棄率だが、このファルス・グラタンにおいては、口あたりを損ねる可能性があるので軸、石突きは使わないと考えるべき）のでそれを利用する。なおtournerの原義は「回す」であり、包丁を持った側の手は動かさずに材料を回すようにして切れ目を入れたり皮を剥いたりすることを意味する料理用語。}25
+  g、ローリエの葉 \(\frac{1}{2}\)枚、タイム1枝、塩18 g、こしょう3
+  g、ミックススパイス3 g。
+\item
+  作業手順\ldots{}\ldots{}ソテー鍋に豚背脂を熱して溶かす。レバーと香辛料、調味料を加え、強火で\textbf{色付かないように}炒める。
+\end{itemize}
+
+いま、\textbf{色付かないように}\footnote{原文 raidir ou saisir
+  （レディール　ウ　セジール）。前者は油脂を熱したフライパン等で、材料が色付かないように表面を焼き固めること。後者「セジール」は焼く、炒める、茹でるなど方法は問わないが、熱によって表面だけを固める（タンパク質の熱変性）ことを指す。}と書いたように、焼き色を付けないようにすることがポイント。レバーはレアな焼き加減で血が滴るくらいにすると、バラ色のきれいなファルスに仕上がる\footnote{現代の衛生学的知見からすると、充分に加熱調理していないレバーには食中毒あるいは肝炎などのリスクがあるので注意。}。
+
+材料がだいたい冷めたら鉢に入れてすり潰す。裏漉しして、陶製の容器に移してヘラで練って滑らかにする。バターを塗った紙で蓋をして冷蔵する。
+
+\hypertarget{pain-de-foie-de-veau}{%
+\subsubsection[仔牛レバーのパン]{\texorpdfstring{仔牛レバーのパン\footnote{この場合の
+  pain
+  （パン）とは「パンのような塊、固体」の意であり、さまざまな料理や製菓において用いられる語。}}{仔牛レバーのパン}}\label{pain-de-foie-de-veau}}
+
+\begin{frsubenv}
+
+Pain de Foie de veau
+
+\end{frsubenv}
+
+仔牛のレバー1 kgはさいの目に切り、生の\footnote{原文 frais
+  （フレ）は新鮮な、冷たい、などの意もあるが、ここでは塩蔵や燻製などに加工していない文字通りの「生」という意味。}豚背脂400
+g、食パンの白身 300
+gを生クリームに浸して余分な水分を絞ってから加えてよくすり潰す。玉ねぎ1個はみじん切りにしてバターで炒め、全卵4個、塩25
+g、こしょう1つまみ、ナツメグ少々を加える。
+
+裏漉ししてソテー鍋に入れ、鍋を氷の上に置き、卵白3個分、生クリーム3 dL
+を加えながらよく練る。これをシャルロット型\footnote{開口部がやや広くなっている円筒形で高さのあまりない型。周囲に波状の模様の付いたものや、中央に開口部となる筒の付いたものなど、いろいろなタイプがある。}に流し込む。これを湯煎にかけて火を通す\footnote{具体的に指示されていないが、湯をはった天板に型をのせて、低めのオーブンで湯煎焼きするのが現実的だろう。}。提供直前に型から出す。
+
+別添で、何らかのブラウン系のソースを添える。
+
+\hypertarget{pain-de-foie-de-veau-leger}{%
+\subsubsection{仔牛レバーの軽い仕上りのパン}\label{pain-de-foie-de-veau-leger}}
+
+\begin{frsubenv}
+
+Pain de Foie de veau léger
+
+\end{frsubenv}
+
+パンの白身125gを生クリームに浸して余計な水分を絞り、ブロンド色の仔牛レバー500
+gに加え、全体をすり潰して裏漉しする。
+
+これを陶製の器に入れ、塩、こしょう、ナツメグおよび全卵4個と卵黄4個、沸かした牛乳
+\(\frac{1}{2}\)
+Lを加える。牛乳はあらかじめ、ごく薄くスライスした玉ねぎ2個をバターで炒めてから加え、20分間風味を煮出し\footnote{原文
+  infuser
+  （アンフュゼ）煎じる、煮出す、の意。香草などの香りを抽出する際によく用いられる用語だが、玉ねぎは香味野菜なのでそれに準じた扱いになっていると解釈される。}ておくこと。
+
+このアパレイユを、バターを塗ったシャルロット型に流し入れ、湯煎にかけて火を通す。火が通ったら、数分休ませてから型から取り出す。
+
+バターをたっぷり加えた\protect\hyperlink{glace-de-viande}{グラスドヴィアンド}を大さじ数杯分、表面に塗り、別添で同じグラスドヴィアンドをソース入れで供する。
+
+\hypertarget{carbonade-a-la-flammande}{%
+\subsubsection[カルボナード・フランドル風]{\texorpdfstring{カルボナード\footnote{carbonade
+  は carbonnade
+  とも綴る（後者の方が一般的）こんにちではこのフランドル風のカルボナードが圧倒的に有名だが、もとは「炭火焼き」の意味だった。\protect\hyperlink{carbonade-de-porc}{豚肉のカルボナード}参照。}・フランドル風}{カルボナード・フランドル風}}\label{carbonade-a-la-flammande}}
+
+\begin{frsubenv}
+
+Carbonade à la flamande
+
+\end{frsubenv}
+
+牛赤身肉（ランプや肩肉）1.2
+kgを短かめの薄切りにする。塩こしょうしてから、澄ませたグレスドマルミット\footnote{白いコンソメ・サンプルなどを作る際に取り除いた浮き脂を漉して静置し、不純物を取り除いて澄ませたもの。基本的に獣脂からなり、初版〜第三版までは、ルーなどにも使う指示がなされていた。獣脂のため、19世紀までは、四旬節などの「肉断ち」の料理に用いるべきではないとされていた。}を熱して強火で色付くまで炒める。
+
+同時に、玉ねぎ5個のスライスもバターで色よく炒めておく。
+
+片手鍋に、肉の薄切りと玉ねぎを交互の層になるよう重ねていく。ブーケガルニを中央に配すること。
+
+薄切り肉を炒めた鍋にビール1瓶（出来たらランビック\footnote{Lambic
+  ベルギービールの一種で、醸造用に培養した酵母は用いずに自然発酵させて作られる。醸造所に棲みついている多様な酵母により、ドライでわずかに酸味のある独特のフレーバーが実現されているという。}の古酒がいい）を注いで鍋底に付着した肉汁を溶かしだし\footnote{déglacer
+  （デグラセ）。鍋の「焦げ」をこそげ取ることではなく、鍋に粘り付いた肉汁を溶かし出すのが目的なので注意。}、同量の\protect\hyperlink{fonds-brun}{茶色いフォン}を加える。\href{roux-brun}{茶色いルー}100
+gを加えてとろみを付ける。最後にカソナード\footnote{砂糖きびを原料とした粗糖。通常は茶褐色のものが多く「赤糖」とも呼ばれる。独特の風味があり、料理、製菓でよく用いられる。}または粉糖50
+gを加えて溶かし、肉と玉ねぎの入った鍋に注ぎ入れる。
+
+蓋をして弱火のオーブンに入れ、2時間半から3時間煮込む。
+
+\hypertarget{ux539fux6ce8-1}{%
+\subparagraph{【原注】}\label{ux539fux6ce8-1}}
+
+カルボナードは通常「そのまま」つまり玉ねぎも入った状態で供されるが、お客様の好みによっては、煮汁を布で漉して玉ねぎを取り除いてからご提供してもいいだろう。
+
+\hypertarget{carbonades-de-porc}{%
+\subsubsection{豚肉のカルボナード}\label{carbonades-de-porc}}
+
+\begin{frsubenv}
+
+Carbonades de porc
+
+\end{frsubenv}
+
+豚のカルボナードは頸肉からごく薄くスライスしてとる。これを骨付き背肉と同様にソテーして付け合わせを添えるのが一般的だ。
+
+「フランドル風」（\protect\hyperlink{carbonade-a-la-flamande}{牛肉のカルボナード}参照）に調理してもいい。この肉にはいちばん合う調理法だ。
+
+\hypertarget{ux51b7ux88fdux6599ux7406ux3068ux3057ux3066ux307eux305fux306fux30acux30ebux30cbux30c1ux30e5ux30fcux30ebux7b49ux306bux3059ux308bux96c4ux9d8fux306eux30edux30cbux30e7ux30f3ux30d5ux30a1ux30ebux30b7-rognons-de-coq-farci-pour-entrees-froides-garnitures-etc}{%
+\subsubsection{冷製料理として、またはガルニチュール等にする雄鶏のロニョン・ファルシ
+\{rognons-de-coq-farci-pour-entrees-froides-garnitures-etc\}}\label{ux51b7ux88fdux6599ux7406ux3068ux3057ux3066ux307eux305fux306fux30acux30ebux30cbux30c1ux30e5ux30fcux30ebux7b49ux306bux3059ux308bux96c4ux9d8fux306eux30edux30cbux30e7ux30f3ux30d5ux30a1ux30ebux30b7-rognons-de-coq-farci-pour-entrees-froides-garnitures-etc}}
+
+\begin{frsubenv}
+
+Rognons de coq farcis poiur Entrée froides, Garniture, etc.
+
+\end{frsubenv}
+
+大きめのいい雄鶏のロニョン\footnote{rognon
+  （ロニョン）は牛、仔牛などの場合は腎臓を意味するが、鶏の場合は精巣のこと。}を選び、やや低めの温度で茹でる。縦二つにカットして、底面になる部分が安定するように少し切り落す。
+
+これに、フォワグラまたはハム、鶏胸肉あるいはフォワグラのピュレを円錐状に盛り上げるように塗る。ピュレには同量のバターを混ぜ込んでおくこと。また、高く盛り上げるようにすること。
+
+こうして用意したロニョンに\protect\hyperlink{sauce-chaud-froid-blanche-ordinaire}{白いソース・ショフロワ}またはローズ色のソース・ショフロワ\footnote{\protect\hyperlink{sauce-chaud-froid-aurore}{ソース・ショフロワ・オーロール}のこと。}を塗る。どんなソースを使うかは合わせる料理や献立などの状況によって決めること。これをあまり高さのない深皿に並べ、溶かしてやや固まり始めた状態の{[}ジュレ\}(\#gelee-de-volaille)を覆いかける。
+
+この料理は、ひとつひとつを小菓子用の型に入れてジュレで完全に覆い固め、冷製鶏料理の周囲に添えてもいい。
+
+\end{recette}
+
+\end{document}
