@@ -410,145 +410,6 @@ $endif$
 \renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
 \renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
 
-%リスト環境
-\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
-
-\makeatletter
-  \parsep   = 0pt
-  \labelsep = .5\zw
-  \def\@listi{%
-     \leftmargin = 0pt \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt%\baselineskip
-     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
-     \partopsep  = 0pt \itemsep       = 0pt
-     \itemindent = -.5\zw \listparindent = 0\zw}
-  \let\@listI\@listi
-  \@listi
-  \def\@listii{%
-     \leftmargin = 1.8\zw \rightmargin = 0pt
-     \labelwidth\leftmargin \advance\labelwidth-\labelsep
-     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
-     \itemindent = 0pt \listparindent = 1\zw}
-  \let\@listiii\@listii
-  \let\@listiv\@listii
-  \let\@listv\@listii
-  \let\@listvi\@listii
-\makeatother
-
-%%%%インデックス準備
-%\usepackage{makeidx}
-\usepackage{index}
-%\usepackage[useindex]{splitidx}
-\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-\makeindex
- 
- \makeatletter
-\renewenvironment{theindex}{% 索引を3段組で出力する環境
-    \if@twocolumn
-      \onecolumn\@restonecolfalse
-    \else
-      \clearpage\@restonecoltrue
-    \fi
-    \columnseprule.4pt \columnsep 2\zw
-    \ifx\multicols\@undefined
-      \twocolumn[\@makeschapterhead{\indexname}%
-      \addcontentsline{toc}{chapter}{\indexname}]%
-    \else
-      \ifdim\textwidth=\fullwidth
-        \setlength{\evensidemargin}{\oddsidemargin}
-        \setlength{\textwidth}{\fullwidth}
-        \setlength{\linewidth}{\fullwidth}
-        \begin{multicols}{3}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \else
-        \begin{multicols}{2}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \fi
-    \fi
-    \@mkboth{\indexname}{}%
-    \plainifnotempty % \thispagestyle{plain}
-    \parindent\z@
-    \parskip\z@ \@plus .3\jsc@mpt\relax
-    \let\item\@idxitem
-    \raggedright
-    \footnotesize\narrowbaselines
-  }{
-    \ifx\multicols\@undefined
-      \if@restonecol\onecolumn\fi
-    \else
-      \end{multicols}
-    \fi
-    \clearpage
-  }
- \makeatother
-
-
-%%%% 本文中の参照ページ番号表示 %%%%%%%
-
-\makeatletter
-
-%\AtBeginDocument{%
-%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
-%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
-\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
-\def\Hy@EveryPageAnchor{%
-    \begingroup
-    \hypersetup{pdfview=Fit}%
-    \orig@Hy@EveryPageAnchor
-    \endgroup
-  }
-  \usepackage{etoolbox}
-\if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{recette}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-  \AtBeginEnvironment{main}{%
-\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
-
-
-%%%% pandoc が三点リーダーを勝手に変える対策
-\renewcommand{\ldots}{\noindent…}
-
-%%% 脚注番号のページ毎のリセットと脚注位置の調整
-%\renewcommand{\footnotesize}{\small}
-
-\makeatletter
-
-\usepackage[bottom,perpage,stable]{footmisc}%
-%\setlength{\skip\footins}{4mm plus 4mm}
-%\usepackage{footnpag}
-\renewcommand\@makefntext[1]{%
-  \advance\leftskip 0\zw
-  \parindent 1\zw
-  \noindent
-  \llap{\@thefnmark\hskip0.5\zw}#1}
-
-
-\let\footnotes@ve=\footnote
-\def\footnote{\inhibitglue\footnotes@ve}
-\let\footnotemarks@ve=\footnotemark
-%\def\footnotemark{\inhibitglue\footnotemarks@ve}
-\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
-
-%%%%%%%%%レシピと本文%%%%%%%%%%%%
-\usepackage{multicol}
-\setlength{\columnsep}{3\zw}
-
-%%% 本文
-\newenvironment{main}{}{}
-%%% レシピ
-% \setlength{\columnwidth}{24\zw}
-%本文ヨリ小%\small
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
-%本文やや小%\medsmall
-%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
-%本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
 
 %文字サイズ、見出しなどの再定義
 \makeatletter
@@ -727,6 +588,147 @@ $endif$
     ##1}}}%
 \makeatother
 
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{main}{}{}
+%%% レシピ
+% \setlength{\columnwidth}{24\zw}
+%本文ヨリ小%\small
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{small}\begin{spaceing}{0.8}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{small}}
+%本文やや小%\medsmall
+%\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{medsmall}\begin{spacing}{0.75}\begin{multicols}{2}}{\end{multicols}\end{spacing}\end{medsmall}}
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+  \usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+\makeatother
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+
+
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+% %\def\thefootnote{\ifnum\c@footnote>\z@\leavevmode\lower.5ex\hbox{(}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+\usepackage{index}
+%\usepackage[useindex]{splitidx}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+\makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
 \makeatletter
 %%%%%%%% Lua GC
 \patchcmd\@outputpage{\stepcounter{page}}{%
@@ -743,7 +745,7 @@ $endif$
 }{}{}
 \makeatother
 
-\include{sauces-index-def}
+
 
 %% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
 %%
@@ -770,7 +772,9 @@ $endif$
 \usepackage{xfrac}
 \let\frac\sfrac
 
-\input{/Users/manabu/Bitbucket/escoffier-translation-jp/tex/sauces-index-def}
+%\usepackage{sauceindexdef}
+
+
 
 
 
