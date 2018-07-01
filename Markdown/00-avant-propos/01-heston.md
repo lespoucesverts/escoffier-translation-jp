@@ -111,6 +111,6 @@ pandoc-latex-environment:
     [ソース・アメリケーヌ](#sauce-americaine)、[ガルニチュール・ア
     メリケーヌ](#garniture-americaine)および各訳注参照。
 
-[^h2]: [「第二版序文」とりわけp.vii]{#la-simplicite}参照。
+[^h2]: 「第二版序文」とりわけp.vii参照。
 
 </div>

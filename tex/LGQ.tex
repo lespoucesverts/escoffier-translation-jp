@@ -243,53 +243,6 @@
   \let\@listvi\@listii
 \makeatother
 
-%%%%インデックス準備
-%\usepackage{makeidx}
-%\usepackage{index}
-%\usepackage[useindex]{splitidx}
-% \newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-% \makeindex
- 
- \makeatletter
-\renewenvironment{theindex}{% 索引を3段組で出力する環境
-    \if@twocolumn
-      \onecolumn\@restonecolfalse
-    \else
-      \clearpage\@restonecoltrue
-    \fi
-    \columnseprule.4pt \columnsep 2\zw
-    \ifx\multicols\@undefined
-      \twocolumn[\@makeschapterhead{\indexname}%
-      \addcontentsline{toc}{chapter}{\indexname}]%
-    \else
-      \ifdim\textwidth=\fullwidth
-        \setlength{\evensidemargin}{\oddsidemargin}
-        \setlength{\textwidth}{\fullwidth}
-        \setlength{\linewidth}{\fullwidth}
-        \begin{multicols}{3}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \else
-        \begin{multicols}{2}[\chapter*{\indexname}%
-        \addcontentsline{toc}{chapter}{\indexname}]%
-      \fi
-    \fi
-    \@mkboth{\indexname}{}%
-    \plainifnotempty % \thispagestyle{plain}
-    \parindent\z@
-    \parskip\z@ \@plus .3\jsc@mpt\relax
-    \let\item\@idxitem
-    \raggedright
-    \footnotesize\narrowbaselines
-  }{
-    \ifx\multicols\@undefined
-      \if@restonecol\onecolumn\fi
-    \else
-      \end{multicols}
-    \fi
-    \clearpage
-  }
- \makeatother
-
 
 %%%% 本文中の参照ページ番号表示 %%%%%%%
 
@@ -376,7 +329,7 @@
 
 %%%%%%%%% hyperref %%%%%%%%%%%%%
 \usepackage{refcount}
-\usepackage[unicode=true,pageanchor]{hyperref}
+\usepackage[unicode=true,hyperindex=true,pageanchor]{hyperref}
 \hypersetup{hyperindex=true,%
              breaklinks=true,%
              bookmarks=true,%
@@ -406,7 +359,7 @@
 \makeatother
 
 \title{\Large{オーギュスト・エスコフィエ}\\\LARGE{『料理の手引き』全注解}}
-\author{\large{五 島　学（責任編集・訳・注釈）\\河井 健司（訳・注釈）\\ほか}}
+\author{\Large{五 島　学（責任編集・訳・注釈）}\\\large{河井 健司（訳・注釈）\\春野 裕征（訳）\\山 本　学（訳）\\高 橋　昇（校正）}}
 
 %%索引関連
 \usepackage{sauceindexdef}
@@ -415,9 +368,53 @@
 \newindex{src}{aidx}{aind}{ソース名から料理を探す}
 %\newindex{default}{bidx}{bind}{総合索引}
 \makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
 
 \begin{document}
 
+
+\maketitle
 
 %%後援者一覧
 %\newpage
@@ -492,7 +489,7 @@
 
 %%% chapitre xiii legumes
 %\input{../chapitres/13-legumes/13-00}
-\input{chapitres/13-legumes/13-01-pp726-727}
+\input{chapitres/13-legumes/13-01-pp726-727}%
 \input{chapitres/13-legumes/13-02-pp728-730}
 %\input{../chapitres/13-legumes/13-01-pp730-732}
 %\input{../chapitres/13-legumes/13-01-pp726-727}
