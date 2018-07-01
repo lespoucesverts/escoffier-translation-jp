@@ -1,0 +1,525 @@
+% !TEX program = LuaLaTeX
+
+\documentclass[openany,10pt,a4paper]{ltjsbook}
+\usepackage{amsmath}
+  \let\equation\gather
+  \let\endequation\endgather
+\usepackage{amssymb}
+\usepackage[no-math]{fontspec}
+\usepackage{geometry}
+\usepackage{luaotfload}
+\usepackage{graphicx}
+
+\usepackage{setspace}
+
+
+%% 欧文フォント設定 Libertine/Biolinum
+\setmainfont[Ligatures=Historic,Scale=1.0]{Linux Libertine O}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{unicode-math}
+\setmathfont[Scale=1.2]{libertinusmath-regular.otf}
+%%%和文フォント、ルビ
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\ltjdefcharrange{8}{"2000-"2013, "2015-"2025, "2027-"203A, "203C-"206F}
+%\ltjsetparameter{jacharrange={-2, +8}}
+\usepackage{luatexja-ruby}
+
+\newopentypefeature{PKana}{On}{pkna} % "PKana" and "On" can be arbitrary string
+%%%%明朝にIPAexMincho、ゴチ(太字)にMoboGoBを使う設定。和文カナプロプーショナル使用可能だが読みづらくなる。
+\setmainjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+%    CharacterWidth=Proportional,%Mogo, IPAExMinchoには不可
+     %Kerning=On,%
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MogaHMin }
+     ]{ IPAExMincho }
+     % ]{ IPAmjMincho }
+\setsansjfont[%
+     %YokoFeatures={JFM=prop,PKana=On},%
+     %CharacterWidth=AlternateProportional,%
+     % CharacterWidth=Proportional,%Mobo, IPAExGOthicには不可
+     %Kerning=On,
+     BoldFont={ MoboGoB },%
+     ItalicFont={ MoboGoB },%
+     BoldItalicFont={ MoboGoExB }%
+     % ]{ MoboGo}
+     ]{ IPAExGothic }
+     % %  %%%% 和文仮名プロプーショナルここまで
+
+\renewcommand{\bfdefault}{bx}%和文ボールドを有効にする
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}%和文ボールドを有効にする
+
+
+%文字サイズ、見出しなどの再定義
+
+\newcommand{\medlarge}{\fontsize{11}{13}\selectfont}
+\newcommand{\medsmall}{\fontsize{9.23}{9.5}\selectfont}
+%\newcommand{\twelveq}{\jsc@setfontsize\twelveq{9.230769}{9.75}\selectfont}
+%\newcommand{\thirteenq}{\jsc@setfontsize\fourteenq{10}{11}\selectfont}
+%\newcommand{\fourteenq}{\jsc@setfontsize\fourteenq{10.7692}{13}\selectfont}
+%\newcommand{\fifteenq}{\jsc@setfontsize\fifteenq{11.53846}{14}\selectfont}
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openleft\cleardoublepage\else
+  \if@openright\cleardoublepage\else\clearpage\fi\fi
+  \plainifnotempty % 元: \thispagestyle{plain}
+  \global\@topnum\z@
+  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \secdef
+    {\@omit@numberfalse\@chapter}%
+    {\@omit@numbertrue\@schapter}}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline
+        % {\if@english\thechapter\else\@chapapp\thechapter\@chappos\fi}%
+        {\@chapapp\thechapter\@chappos}%
+        #1}%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\jsc@mpt}}%
+  \addtocontents{lot}{\protect\addvspace{10\jsc@mpt}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+\def\@makechapterhead#1{%
+  \vspace*{0\Cvs}% 欧文は50pt
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\headfont \@chapapp\thechapter\@chappos%変更
+        \par\nobreak
+        \vskip \Cvs % 欧文は20pt
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \headfont #1\par\nobreak
+    \vskip 1\Cvs}} % 欧文は40pt%変更
+
+\renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+    {\normalfont\Large\headfont\bfseries\centering}}%変更
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    % {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {.5\Cvs}
+  %  {\normalfont\large\headfont\bfseries\centering}} %変更
+    {\normalfont\large\headfont\centering}} %変更
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  % {0\Cvs \@plus.8\Cdp \@minus.6\Cdp}%変更
+    {1sp \@plus.5\Cdp \@minus.5\Cdp}%変更
+    {\if@slide .5\Cvs \@plus.3\Cdp \else \z@ \fi}%
+    % {\normalfont\medlarge\headfont\leftskip -1\zw}}
+    {\normalfont\medlarge\headfont\leftskip -1\zw}}
+
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
+    {0.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    % {\if@slide .5\Cvs \@plus.3\Cdp \else -1\zw\fi}% 改行せず 1\zw のアキ
+    {1sp}%後アキ
+    {\normalfont\normalsize\headfont}}
+\renewcommand{\subparagraph}{\@startsection{subparagraph}{5}{\z@}%
+    {\z@}{\if@slide .5\Cvs \@plus.3\Cdp \else -.5\zw\fi}%
+    {\normalfont\normalsize\headfont\hskip-.5\zw\noindent}}  
+
+\newenvironment{frchapenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \LARGE\scshape\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecenv}%
+{\begin{center}\vskip-2ex\normalfont\headfont%
+    \normalsize\scshape\large\setstretch{0.8}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsecbenv}
+{\begin{center}\vskip-2\zw\normalfont\headfont%
+    \medlarge\scshape\setstretch{0.8}\hspace{1em}}%
+  {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
+
+\newenvironment{frsubenv}%
+{\begin{spacing}{0.2}\setlength{\leftskip}{-1\zw}\bfseries}%
+  {\end{spacing}\normalfont\normalsize\setlength{%
+    \leftskip}{0pt}\par\vspace{1.1\zw}}
+
+\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{\hskip-1\zw}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+
+\renewcommand{\prepartname}{\if@english Part~\else {}\fi}
+\renewcommand{\postpartname}{\if@english\else {}\fi}
+\renewcommand{\prechaptername}{\if@english Chapter~\else {}\fi}
+\renewcommand{\postchaptername}{\if@english\else {}\fi}
+\renewcommand{\presectionname}{}%  第
+\renewcommand{\postsectionname}{}% 節
+
+\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@evenhead{%
+    \if@mparswitch \hss \fi
+    \underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+%      \textbf{\thepage}\hfil\leftmark}}%
+       \normalfont\thepage\hfill\scshape\small\leftmark\normalfont}}%
+    \if@mparswitch\else \hss \fi}%
+  \def\@oddhead{\underline{\hbox to \fullwidth{\ltjsetparameter{autoxspacing={true}}
+        {\if@twoside\scshape\small\rightmark\else\scshape\small\leftmark\fi}\hfil\thepage\normalfont}}\hss}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \if@omit@number\else
+          \@chapapp\thechapter\@chappos\hskip1\zw
+        \fi
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+%    \ifnum \c@secnumdepth >\z@ \thesection \hskip1\zw\fi
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip-1\zw\fi
+    ##1}}}%
+\makeatother
+
+\makeatletter
+%%%%%%%% Lua GC
+\patchcmd\@outputpage{\stepcounter{page}}{%
+  \directlua{%
+	if jit then
+      local k = collectgarbage("count")
+      if k>900000 then 
+        collectgarbage("collect")
+        texio.write_nl("term and log", "GC: ", math.floor(k), math.floor(collectgarbage("count")))
+      end
+	end
+  }%
+  \stepcounter{page}%
+}{}{}
+\makeatother
+
+%リスト環境
+\def\tightlist{\itemsep1pt\parskip0pt\parsep0pt}%pandoc対策
+
+\makeatletter
+  \parsep   = 0pt
+  \labelsep = .5\zw
+  \def\@listi{%
+     \leftmargin = 0pt \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt%\baselineskip
+     %\topsep -0.1\baselineskip \@plus 0\baselineskip \@minus 0.1 \baselineskip
+     \partopsep  = 0pt \itemsep       = 0pt
+     \itemindent = -.5\zw \listparindent = 0\zw}
+  \let\@listI\@listi
+  \@listi
+  \def\@listii{%
+     \leftmargin = 1.8\zw \rightmargin = 0pt
+     \labelwidth\leftmargin \advance\labelwidth-\labelsep
+     \topsep     = 0pt \partopsep     = 0pt \itemsep   = 0pt
+     \itemindent = 0pt \listparindent = 1\zw}
+  \let\@listiii\@listii
+  \let\@listiv\@listii
+  \let\@listv\@listii
+  \let\@listvi\@listii
+\makeatother
+
+%%%%インデックス準備
+%\usepackage{makeidx}
+%\usepackage{index}
+%\usepackage[useindex]{splitidx}
+% \newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+% \makeindex
+ 
+ \makeatletter
+\renewenvironment{theindex}{% 索引を3段組で出力する環境
+    \if@twocolumn
+      \onecolumn\@restonecolfalse
+    \else
+      \clearpage\@restonecoltrue
+    \fi
+    \columnseprule.4pt \columnsep 2\zw
+    \ifx\multicols\@undefined
+      \twocolumn[\@makeschapterhead{\indexname}%
+      \addcontentsline{toc}{chapter}{\indexname}]%
+    \else
+      \ifdim\textwidth=\fullwidth
+        \setlength{\evensidemargin}{\oddsidemargin}
+        \setlength{\textwidth}{\fullwidth}
+        \setlength{\linewidth}{\fullwidth}
+        \begin{multicols}{3}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \else
+        \begin{multicols}{2}[\chapter*{\indexname}%
+        \addcontentsline{toc}{chapter}{\indexname}]%
+      \fi
+    \fi
+    \@mkboth{\indexname}{}%
+    \plainifnotempty % \thispagestyle{plain}
+    \parindent\z@
+    \parskip\z@ \@plus .3\jsc@mpt\relax
+    \let\item\@idxitem
+    \raggedright
+    \footnotesize\narrowbaselines
+  }{
+    \ifx\multicols\@undefined
+      \if@restonecol\onecolumn\fi
+    \else
+      \end{multicols}
+    \fi
+    \clearpage
+  }
+ \makeatother
+
+
+%%%% 本文中の参照ページ番号表示 %%%%%%%
+
+\makeatletter
+
+%\AtBeginDocument{%
+%  \DeclareRobustCommand\ref{\@ifstar\@refstar\@refstar}%
+%  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
+\let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
+\def\Hy@EveryPageAnchor{%
+    \begingroup
+    \hypersetup{pdfview=Fit}%
+    \orig@Hy@EveryPageAnchor
+    \endgroup
+  }
+\makeatother
+
+%%%% pandoc が三点リーダーを勝手に変える対策
+\renewcommand{\ldots}{\noindent…}
+
+%%% 脚注番号のページ毎のリセットと脚注位置の調整
+%\renewcommand{\footnotesize}{\small}
+
+\makeatletter
+\usepackage[bottom,perpage,stable]{footmisc}%
+%\setlength{\skip\footins}{4mm plus 4mm}
+%\usepackage{footnpag}
+\renewcommand\@makefntext[1]{%
+  \advance\leftskip 0\zw
+  \parindent 1\zw
+  \noindent
+  \llap{\@thefnmark\hskip0.5\zw}#1}
+\let\footnotes@ve=\footnote
+\def\footnote{\inhibitglue\footnotes@ve}
+\let\footnotemarks@ve=\footnotemark
+%\def\footnotemark{\inhibitglue\footnotemarks@ve}
+\renewcommand{\footnotemark}{\footnotemarks@ve}%変更
+\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+\makeatother
+
+%%%%%%%%%レシピと本文%%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{3\zw}
+
+%%% 本文
+\newenvironment{main}{}{}
+%%% レシピ
+%本文ナミ(無指定)
+\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+
+
+
+
+%% レイアウト調整(A4Paper,14Q,twoside,ltjsbook.cls) 
+%%
+\setlength{\hoffset}{0\zw}
+\setlength{\oddsidemargin}{0\zw}
+\setlength{\evensidemargin}{-1\zw}
+% \setlength{\oddsidemargin}{1\zw}%製本時に右ページのみをオフセット
+%\setlength{\evensidemargin}{0pt}%
+\setlength{\fullwidth}{47\zw}
+\setlength{\textwidth}{47\zw}%%ltjsclassesのみ有効
+%\setlength{\fullwidth}{159mm}
+%\setlength{\textwidth}{159mm}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\footskip}{0pt}
+\setlength{\voffset}{-17mm}
+\setlength{\textheight}{260mm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\atoaki}{\vspace{1.25mm}}
+
+%%分数の表記
+\usepackage{xfrac}
+\let\frac\sfrac
+
+
+
+
+
+
+
+%%%%%%%%% hyperref %%%%%%%%%%%%%
+\usepackage{refcount}
+\usepackage[unicode=true,pageanchor]{hyperref}
+\hypersetup{hyperindex=true,%
+             breaklinks=true,%
+             bookmarks=true,%
+             pdfauthor={五 島　学（責任編集・訳・注釈）,河井 健司（訳・注釈）,春野 裕征（訳）,山 本　学（訳）,高 橋　昇（校正）},%
+             pdftitle={エスコフィエ『料理の手引き』全注解},%
+            % colorlinks=false%true,%
+             colorlinks=true,%
+             citecolor=blue,%
+             urlcolor=cyan,%
+             linkcolor=magenta,%
+             bookmarksdepth=subsubsection,%
+             pdfborder={0 0 0},%
+%             hyperfootnotes=false,%
+             plainpages=false,
+             }
+             \urlstyle{same}
+\makeatletter
+\usepackage{etoolbox}
+\if@mainmatter{\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{recette}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+  \AtBeginEnvironment{main}{%
+\let\myhyperlink\hyperlink%
+\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+\makeatother
+
+\title{\Large{オーギュスト・エスコフィエ}\\\LARGE{『料理の手引き』全注解}}
+\author{\large{五 島　学（責任編集・訳・注釈）\\河井 健司（訳・注釈）\\ほか}}
+
+%%索引関連
+\usepackage{sauceindexdef}
+\usepackage{index}
+%\usepackage[useindex]{spliidx}
+\newindex{src}{aidx}{aind}{ソース名から料理を探す}
+%\newindex{default}{bidx}{bind}{総合索引}
+\makeindex
+
+\begin{document}
+
+
+%%後援者一覧
+%\newpage
+\include{chapitres/00-avant-propos/00-benefactors}
+%\newpage
+
+%空白ページ
+\newpage
+\thispagestyle{empty}
+　%←全角スペース
+\newpage
+\newpage
+\thispagestyle{empty}
+　%←全角スペース
+\newpage
+
+
+%%% 序文開始
+%\layout%レイアウト数値確認用
+%%%%hston blumenthal
+\include{chapitres/00-avant-propos/01-heston}
+
+\frontmatter
+
+\include{chapitres/00-avant-propos/02-avant-propos}
+
+%%% 本文開始
+\mainmatter
+
+%%% chapitre i. saucesa
+%\include{chapitres/01-sauces/01-00}
+%%%%I. Sauces 
+\include{chapitres/01-sauces/01-01-pp1-12}
+\include{chapitres/01-sauces/01-02-pp13-17}
+\include{chapitres/01-sauces/01-03-pp18-27}
+\include{chapitres/01-sauces/01-04-pp28-41}
+\include{chapitres/01-sauces/01-05-pp42-46}
+\include{chapitres/01-sauces/01-06-pp47-52}
+\include{chapitres/01-sauces/01-07-pp53-57}
+\include{chapitres/01-sauces/01-08-pp58-62}
+\include{chapitres/01-sauces/01-09-pp63-67}
+
+%%% chapitre ii. garnitures
+%\include{chapitre/02-garnitures/02-00}
+%% II. garnitures
+\include{chapitres/02-garnitures/02-01-pp68-77}
+\include{chapitres/02-garnitures/02-02-pp78-82}
+\input{chapitres/02-garnitures/02-03-pp83-88}%\newpage
+\include{chapitres/02-garnitures/02-04-pp89-103}
+
+
+%%% chapitre iii. potages
+%\input{03-potages/03-00} 
+
+
+%%% chapitre iv. hors-d'oeuvres
+%%%\input{04-hors-d-oeuvres/06-00}
+
+%%% chapitre v. oeufs
+%%%\input{05-oeufs/06-00}
+
+
+%%% chapitre vi. poissons
+%\input{06-poissons/06-00}
+
+%%% chapitre vii. relevés et entrées
+%\input{07-releves-et-entrees/07-00}
+
+
+
+
+
+%%% chapitre xiii legumes
+%\input{../chapitres/13-legumes/13-00}
+\input{chapitres/13-legumes/13-01-pp726-727}
+\input{chapitres/13-legumes/13-02-pp728-730}
+%\input{../chapitres/13-legumes/13-01-pp730-732}
+%\input{../chapitres/13-legumes/13-01-pp726-727}
+
+
+
+\appendix
+
+%%% 索引ページ出力
+
+\backmatter
+
+\renewcommand{\indexname}{ソース名から料理を探す}
+
+\printindex[src][ソース名から料理を探す]
+
+\renewcommand{\indexname}{総索引}
+\printindex
+
+
+
+
+
+\end{document}
+
+
+
+%% Local Variables:
+%% TeX-engine: luatex
+%% End:
