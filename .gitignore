@@ -20,3 +20,4 @@ package/**/*.ltjruby
 !*.ist
 !*.epub
 !*.html
+!*.css

@@ -1,0 +1,447 @@
+/*横書き用 written by Makoto Kogawara, 15th,September,2016*/
+
+html {
+    width: 100%;
+    writing-mode: horizontal-ltr;
+    -epub-writing-mode: horizontal-ltr;
+}
+
+
+/*＜パラグラフ関係＞*/
+
+/*先頭行一字下げのパラグラフ*/
+p {text-indent:1em;}
+
+/*字下げのパラグラフ*/
+.onedown {text-indent:1em;}
+.twodown{text-indent:2em;}
+.threedown{text-indent:3em;}
+.fourdown {text-indent:4em;}
+
+/*字あげ*/
+.zeroindent{text-indent:0em;}
+.oneup{text-indent:-1em}
+.twoup {text-indent:-2em;}
+.threeoup {text-indent:-3em;}
+
+/*行間の設定*/
+.linehalf {line-height :0.5em;}
+.line1em {line-height :1em;}
+.line1half {line-height :1.5em;}
+.line2em {line-height :2em;}
+.line2half {line-height :2.5em;}
+
+/*titleの設定*/
+.vtitle{margin:2em 15em 2em 15em;
+		padding:1em 1em 1em 1em;  }
+
+.vtitle2{margin:2em 1em 2em 1em; 
+	padding:1em 1em 1em 1em; }
+
+.htitle{margin:0em 0em 0em 0em;
+		padding:1em 1em 1em 1em; }
+
+/*文字の大きさ*/
+.twopointfive{font-size: 2.5em;}
+.notenumber{font-size:0.9em; } 
+
+.seventypercent{font-size: 0.7em;}
+.eightypercent{font-size: 0.8em;}
+.nintypercent{font-size:0.9em;}
+
+/*行間の指定*/
+.zeroheight{line-height:0em;}
+.twoheight{line-height:2em;}
+.threeheight{line-height:3em;}
+
+/*文字に色をつける*/
+.green{color: #00FF00; }
+.blue{color: #0000FF;  }
+.red{color: #ff0000;}
+.brown{color: #D7762A;}
+
+/*背景色*/
+.bg-pink{background-color: #E7C0C9; }
+.bg-red{background-color: #FF0000; }
+.bg-lightgreen{background-color: #AAEEDD}
+
+/*パラグラフのかたち*/
+/*引用文の指定*/
+blockquote{text-indent:1em; font-size:0.9em; }
+blockquote_eight {text-decoration:none;font-size:0.8em}
+blockquote_normal{text-decoration:none;font-size:1em}
+
+/*mottoの設定*/
+.motto{margin:15em 4em 3em 2em; }
+/*motto引用の出典表示設定*/
+.mottosecond{margin:17em 1em 2em 2em; }
+
+/*箇条書き用下げマージン*/
+.listregion{margin:4em 0em 1em 1em; }
+/*枠の設定*/
+.frame1 {margin:2em 1em 0em 1em;}
+
+/*注領域*/
+.hnotesfield{margin:1em 0em 1em 4em; 
+font-size:0.7em}
+
+.vnotesfield{margin:4em 0em 1em 1em; 
+font-size:0.7em}
+
+/*ボックス関係*/
+/*ボックスdouble2*/
+
+/*ボックスdotted*/
+.boxdotted {
+border:dotted 4px red;
+padding:3em 2em 3em 3em;
+}
+
+/*ボックスdashed*/
+.boxdashed {
+border:dashed 4px black;
+padding:3em 2em 3em 3em;
+}
+/*ボックスdouble*/
+.boxdouble {
+border:double 4px black;
+padding:3em;
+}
+
+/*シャドー、パラグラフを四角で囲む*/
+.boxshadow {
+padding:10px;
+box-shadow: 0 0 10px; 
+-moz-box-shadow: 0 0 10px; 
+-webkit-box-shadow: 0 0 10px;
+}
+
+.boxdouble2 {
+border:double 4px black;
+padding:0px;
+}
+
+/*ボックス*/
+.box {
+border:solid 1px black;
+padding:3em;
+}
+
+.boxWithoutBorder {
+border:none 1px black;
+padding:3em;
+}
+
+.boxsolidblue {
+margin:1.5em 1.5em 1.5em 1.5em;
+border:solid 3px blue;
+position:relative;
+}
+
+
+.boxsolidblue2 {
+margin:1.5em 1.5em 1.5em 1.5em;
+border:solid 3px blue;
+padding:4px 4px 0px 4px ;
+position:relative;
+}
+
+.boxsolidgreen {
+margin:1.5em 10.5em 1.5em 5.5em;
+border:solid 3px green;
+position:relative;
+}
+
+.boxsolidgreen4 {
+margin:1.5em 9.5em 1.5em 5.5em;
+border:solid 3px green;
+padding:10px 10px 10px 10px;
+position:relative;
+}
+
+.boxsolidred {
+margin:1.5em 9.5em 1.5em 5.5em;
+border:solid 3px red;
+padding:10px 10px 10px 10px;
+position:relative;
+}
+
+.boxsolidred2 {
+margin:1.5em 9.5em 1.5em 5.5em;
+border:solid 3px red;
+padding:10px 10px 10px 10px;
+position:relative;
+}
+
+.ddboxgray {
+background-color:#ff00ff;
+width:15em;
+height:3em;
+margin:17em 1em 2em 2em;
+border:solid 1px black;
+position:relative;
+z-index:2;
+}
+
+.ddboxg {
+background-color:lightgray;
+margin-top:5em;
+margin-right:1em;
+margin-bottom:3em;
+margin-left:2em;
+padding:2em;
+border:double 4px red;
+}
+
+.samplebox{
+width:200px; height:100px;
+ margin:5px; padding:10px; border:1px solid black;
+ background-color:lightgray;}
+
+/*配置*/
+/*画像を天（左）に寄せる*/
+.upper {float:left;}
+
+/*画像を中央に寄せる*/
+.center2 {float:center;}
+
+.upper-left {
+		width: 23em;
+		height: 24em;
+		margin:1.5em 1.5em 1.5em 1.5em;
+		padding:10px 10px 10px 10px;
+		border:solid 3px red;
+}
+
+
+/*画像を地（右）に寄せる*/
+.bottom {float:right;}
+
+.bottom-right {
+		 width: 23em;
+		 height: 20em;
+		margin:1.5em 1.5em 1.5em 1.5em;
+		border:solid 3px blue;
+}
+
+/*画像を地（左）に寄せる*/
+.center {float:center;
+		 width: 26em;
+		 height: 20em;
+		margin:1.5em 1.5em 1.5em 1.5em;
+		border:solid 3px blue;
+}
+
+
+/*テキストを右に寄せる*/
+.textright{text-align: right; }
+/*テキストを左に寄せる*/
+.textleft{text-align: left; }
+/*テキストを中央に寄せる*/
+.textcenter{text-align: center; }
+
+/*要素の重なり、第一のボックスと第二のボックス*/
+.firstbox {
+background-color:#ff00ff;
+width:25em;
+height:3em;
+margin-bottom:-10px;
+border:solid 1px black;
+position:relative;
+z-index:2;
+}
+
+.secondbox {
+background-color:#00ff00;
+width:25em;
+height:3em;
+margin-top:-10px;
+margin-left:10px;
+border:solid 1px black;
+position:relative;
+z-index:1;
+}
+
+/*パラグラフ修飾関係*/
+/*ドロップキャップ*/
+.dropcaps p:first-letter {
+font-size: 2em;
+line-height: 1;
+float: left;
+margin: 0 .2em 0 0;
+padding: .1em 0;
+}
+
+/*角丸、パラグラフを黒色で囲む*/
+.borderradius {
+border:solid 6px #000000;
+-moz-border-radius: 50px;
+-webkit-border-radius: 20px;
+border-radius: 20px;
+}
+
+/*角丸、パラグラフを灰色で囲む*/
+.borderradius1 {
+border:solid 6px #cccccc;
+-moz-border-radius: 50px;
+-webkit-border-radius: 20px;
+border-radius: 20px;
+}
+
+/*角丸、パラグラフを赤色で囲む*/
+.borderradius2 {
+border:solid 6px red;
+-moz-border-radius: 50px;
+-webkit-border-radius: 20px;
+border-radius: 20px;
+}
+
+.centerblock {
+margin-left:auto;
+margin-right:auto;
+-epub-writing-mode:vertical-rl;
+writing-mode:vertical-rl;
+height:100%;
+}
+
+/*シャドー、パラグラフを四角で囲む*/
+.boxshadow {
+padding:10px;
+box-shadow: 0 0 10px; 
+-moz-box-shadow: 0px 0px 10px; 
+-webkit-box-shadow: 0 0 50px;
+}
+
+
+
+
+/*縦中横*/
+span.tcy
+{
+    text-combine: horizontal;
+    -webkit-text-combine: horizontal;
+    -epub-text-combine: horizontal;
+}
+
+/*文字修飾関係*/
+/*影をつける*/
+.textshadow {
+text-shadow: 0 -2px 2px #FFFFFF, -2px 0 2px #FFFFFF, 2px 0 2px #000000; 
+}
+
+/*ゴマ点をつける*/
+.sesami_dot {text-emphasis-style:sesame;
+					-epub-text-emphasis-style:sesame;
+					-webkit-text-emphasis-style:sesame;
+					font:b;
+}
+
+/*白ゴマ点*/
+.white_sesami {text-emphasis-style:sesame open;
+					-epub-text-emphasis-style:sesame open;
+					-webkit-text-emphasis-style:sesame open;
+}
+
+/*ただの黒点*/
+.black-dot {text-emphasis-style: dot filled;
+					-epub-text-emphasis-style: dot filled;
+					-webkit-text-emphasis-style: dot filled;
+}
+
+/*白点*/
+.white-dot {text-emphasis-style: dot open;
+					-epub-text-emphasis-style: dot open;
+					-webkit-text-emphasis-style: dot open;
+}
+
+/*黒丸*/
+.black-circle {text-emphasis-style: circle filled;
+					-epub-text-emphasis-style: circle filled;
+					-webkit-text-emphasis-style: circle filled;
+}
+/*白丸*/
+.white-circle {text-emphasis-style: circle open;
+					-epub-text-emphasis-style: circle open;
+					-webkit-text-emphasis-style: circle open;
+}
+
+/*二重丸*/
+.double-open {text-emphasis-style: double-circle open;
+					-epub-text-emphasis-style: double-circle open;
+					-webkit-text-emphasis-style: double-circle open;
+}
+
+/*二重丸、中の丸は塗りつぶし、つまり、蛇の目*/
+.double-circle {text-emphasis-style: double-circle filled;
+					-epub-text-emphasis-style: double-circle filled;
+					-webkit-text-emphasis-style: double-circle filled;
+}
+
+/*白抜き三角形*/
+.triangle {text-emphasis-style:open triangle;
+					-epub-text-emphasis-style:open triangle;
+					-webkit-text-emphasis-style:open triangle;
+}
+
+/*黒色ぬり三角形*/
+.filledtriangle {text-emphasis-style:filled triangle;
+					-epub-text-emphasis-style:filled triangle;
+					-webkit-text-emphasis-style:filled triangle;
+}
+
+/*任意の一文字、たとえば☆*/
+.star {text-emphasis-style:"☆";
+					-epub-text-emphasis-style:"☆";
+					-webkit-text-emphasis-style:"☆";
+}
+
+/*任意の一文字、たとえば＠*/
+.atmark {text-emphasis-style:"@";
+					-epub-text-emphasis-style:"@";
+					-webkit-text-emphasis-style:"@";
+}
+
+/*その他*/
+/*テーブルの枠線*/
+table,th,td{border:1px solid black; }
+
+/*フォント関係*/
+
+@font-face {
+   font-family: "ftmaru400b_0";
+   src: url(../Fonts/ftmaru400b_0.otf);
+ }
+
+@font-face {
+   font-family: "hkgyokk_0";
+   src: url(../Fonts/hkgyokk_0.ttf);
+ }
+
+@font-face {
+   font-family: "aoyagireisyosimo_ttf";
+   src: url(../Fonts/aoyagireisyosimo_ttf.ttf);
+ }
+
+@font-face {
+   font-family: "SistersFL";
+   src: url(../Fonts/SistersFL.ttf);
+ }
+
+.ftmaru {
+   font-family: "ftmaru400b_0";
+ }
+.hkgyokk {
+   font-family: "hkgyokk_0";
+ }
+
+
+.Sister {
+   font-family: "SistersFL";
+ }
+.aoyagi {
+   font-family: "aoyagireisyosimo_ttf";
+ }
+/*
+body {font-family:"ftmaru400b_0";}
+*/
+
