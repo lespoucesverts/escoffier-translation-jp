@@ -30,8 +30,8 @@ pandoc-latex-environment:
 
 
 
-\fontsize{11.5pt}{14pt}\selectfont
-\setstretch{1.3}
+\large
+\setstretch{1.075}
 
 もう20年も前のことだ。本書の着想を我が尊敬する師、今は亡きユルバン・デュ
 ボワ[^1]先生に話したのは。先生は\ruby{是非}{ぜひ}とも実現させなさいと

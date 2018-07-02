@@ -1,6 +1,6 @@
 % !TEX program = LuaLaTeX
 
-\documentclass[openany,10pt,a4paper]{ltjsbook}
+\documentclass[openany,14Q,a4paper]{ltjsbook}
 \usepackage{amsmath}
   \let\equation\gather
   \let\endequation\endgather
@@ -150,7 +150,7 @@
     \normalsize\scshape\large\setstretch{0.8}}%
   {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
 
-\newenvironment{frsecbenv}
+\newenvironment{frsecbenv}%
 {\begin{center}\vskip-2\zw\normalfont\headfont%
     \medlarge\scshape\setstretch{0.8}\hspace{1em}}%
   {\end{center}\vspace{0.5\zw}\setstretch{1.0}}
@@ -280,7 +280,10 @@
 \let\footnotemarks@ve=\footnotemark
 %\def\footnotemark{\inhibitglue\footnotemarks@ve}
 \renewcommand{\footnotemark}{\footnotemarks@ve}%変更
-\renewcommand{\thefootnote}{\ifnum\c@footnote>\z@\leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+ % \renewcommand{\thefootnote}{\ifnum\c@footnote>\z@%
+ %   \leavevmode\hbox{}\@arabic\c@footnote\hbox{)}\fi}
+\renewcommand\thefootnote{\hskip.1em\arabic{footnote})}
+
 \makeatother
 
 %%%%%%%%%レシピと本文%%%%%%%%%%%%
@@ -291,7 +294,10 @@
 \newenvironment{main}{}{}
 %%% レシピ
 %本文ナミ(無指定)
-\newenvironment{recette}{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}\setlength\topskip{.8\baselineskip}}{\end{multicols}\end{spacing}}
+\newenvironment{recette}%
+{\setlength{\parindent}{0pt}\begin{spacing}{0.8}\begin{multicols}{2}%
+      \setlength\topskip{.8\baselineskip}}%
+    {\end{multicols}\end{spacing}}
 
 
 
@@ -358,14 +364,15 @@
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
 \makeatother
 
-\title{\Large{オーギュスト・エスコフィエ}\\\LARGE{『料理の手引き』全注解}}
-\author{\Large{五 島　学（責任編集・訳・注釈）}\\\large{河井 健司（訳・注釈）\\春野 裕征（訳）\\山 本　学（訳）\\高 橋　昇（校正）}}
+\title{\Huge{オーギュスト・エスコフィエ}\\\HUGE{『料理の手引き』全注解}}
+\author{\Large{五 島　学（責任編集・訳・注釈）}\and \Large{河井 健司（訳・注釈）} \and \large{春野 裕征（訳）\and 山 本　学（訳）\and 高 橋　昇（校正）}}}
+\date{}
 
 %%索引関連
 \usepackage{sauceindexdef}
 \usepackage{index}
 %\usepackage[useindex]{spliidx}
-\newindex{src}{aidx}{aind}{ソース名から料理を探す}
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
 %\newindex{default}{bidx}{bind}{総合索引}
 \makeindex
  
@@ -415,10 +422,9 @@
 
 
 \maketitle
-
 %%後援者一覧
 %\newpage
-\include{chapitres/00-avant-propos/00-benefactors}
+\input{chapitres/00-avant-propos/00-benefactors}
 %\newpage
 
 %空白ページ
