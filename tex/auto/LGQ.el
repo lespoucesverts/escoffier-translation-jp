@@ -32,6 +32,7 @@
     "chapitres/02-garnitures/02-04-pp89-103"
     "chapitres/13-legumes/13-01-pp726-727"
     "chapitres/13-legumes/13-02-pp728-730"
+    "chapitres/13-legumes/13-03-pp730-732"
     "ltjsbook"
     "ltjsbook10"
     "amsmath"
