@@ -11,7 +11,8 @@ pandoc-latex-environment:
     frchapenv: [frchapenv]
 ...
 
-\LARGE
+## よみがえる？ エスコフィエ料理の手引き
+
 
 **彼** --- 先生、木を押して時間を無駄にするようなことやってるって聞い
 て様子見に来たんですが……
