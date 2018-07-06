@@ -5,15 +5,16 @@
                      '(("ltjsbook" "14Q" "")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("fontenc" "T1") ("inputenc" "utf8") ("footmisc" "bottom" "perpage" "stable")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
+    "tex2docx"
     "ltjsbook"
     "ltjsbook10"
     "lmodern"
@@ -44,7 +45,6 @@
     '("frsecb" 1)
     '("frsec" 1)
     '("frchap" 1)
-    '("subtitle" 1)
     "medlarge"
     "medsmall"
     "twelveq"
@@ -61,6 +61,11 @@
     "footnote"
     "item"
     "frac")
+   (LaTeX-add-labels
+    "ressurection"
+    "notes-abondantes"
+    "lgc-aperto"
+    "novella-opera-aperta")
    (LaTeX-add-environments
     "frchapenv"
     "frsecbenv"
