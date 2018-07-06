@@ -10,6 +10,7 @@ pandoc-latex-environment:
     frchapenv: [frchapenv]
 ...
 
+
 \LARGE
 
 
@@ -67,7 +68,7 @@ pandoc-latex-environment:
 ようでも知らずにやるのとでは、見るひとが見れば一瞬でわかりますからね。
 
 
-## 中世から近代までの豊富すぎる注釈？ {#notes-abondantes}
+## 豊富すぎる注釈？ {#notes-abondantes}
 
 **彼** --- 耳に痛い話です。で、本当にこんなに大量の注、大丈夫なんです
 か？ ソース・ポワヴラードなんて16世紀まで遡ってるじゃないですか？ 私だっ
