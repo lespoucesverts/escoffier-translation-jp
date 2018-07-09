@@ -253,7 +253,7 @@
 %  \DeclareRobustCommand\pageref{\@ifstar\@pagerefstar\@pagerefstar}}
 \let\orig@Hy@EveryPageAnchor\Hy@EveryPageAnchor
 \def\Hy@EveryPageAnchor{%
-    \begingroup
+   \begingroup
     \hypersetup{pdfview=Fit}%
     \orig@Hy@EveryPageAnchor
     \endgroup
@@ -327,6 +327,15 @@
 \usepackage{xfrac}
 \let\frac\sfrac
 
+%%索引関連
+\usepackage{sauceindexdef}
+\usepackage{index}
+%\usepackage[useindex]{spliidx}
+
+\makeindex
+
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+% \renewindex{default}{idx}{ind}{総合索引}
 
 
 
@@ -336,8 +345,7 @@
 %%%%%%%%% hyperref %%%%%%%%%%%%%
 \usepackage{refcount}
 \usepackage[unicode=true,hyperindex=true,pageanchor]{hyperref}
-\hypersetup{hyperindex=true,%
-             breaklinks=true,%
+\hypersetup{breaklinks=true,%
              bookmarks=true,%
              pdfauthor={五 島　学（責任編集・訳・注釈）,河井 健司（訳・注釈）,春野 裕征（訳）,山 本　学（訳）,高 橋　昇（校正）},%
              pdftitle={エスコフィエ『料理の手引き』全注解},%
@@ -348,14 +356,14 @@
              linkcolor=magenta,%
              bookmarksdepth=subsubsection,%
              pdfborder={0 0 0},%
-%             hyperfootnotes=false,%
+             hyperfootnotes=false,%
              plainpages=false,
              }
              \urlstyle{same}
 \makeatletter
 \usepackage{etoolbox}
-\if@mainmatter{\let\myhyperlink\hyperlink%
-\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
+%\if@mainmatter{\let\myhyperlink\hyperlink%
+%\renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
   \AtBeginEnvironment{recette}{%
 \let\myhyperlink\hyperlink%
 \renewcommand{\hyperlink}[2]{\myhyperlink{#1}{#2} [p.\getpagerefnumber{#1}{}] }}
@@ -368,15 +376,6 @@
 \author{\LARGE{五 島　学（責任編集・訳・注釈）}\and \LARGE{河井 健司（訳・注釈）} \and \large{春野 裕征（訳）} \and \large{山 本　学（原文対照）} \and \large{高 橋　昇（校正）}}
 \date{}
 
-%%索引関連
-\usepackage{sauceindexdef}
-\usepackage{index}
-%\usepackage[useindex]{spliidx}
-
-\makeindex
-
-\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-% \renewindex{default}{idx}{ind}{総合索引}
 
 
  \makeatletter

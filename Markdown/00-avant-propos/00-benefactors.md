@@ -50,7 +50,7 @@ UNNO GENKI、[](20180605-22h12,1x,guriiva@aol.com)
 [**山本聖司(La Tourelle)**](http://www.tourelle.jp/)、[](20180622,10x,tourelle@tourelle.jp)
 樋口直哉、[](20180622-10h58,1x)
 OYAMA YOSHITAKA、[](20180622-22h50,x2) 
-
+高橋 昇(レストラン ドゥ・ラパン)、[](20180710-2h26, 1x deuxlapins@me.com)
 
 \vfill
 

@@ -49,11 +49,11 @@
     "footmisc"
     "multicol"
     "xfrac"
+    "sauceindexdef"
+    "index"
     "refcount"
     "hyperref"
-    "etoolbox"
-    "sauceindexdef"
-    "index")
+    "etoolbox")
    (TeX-add-symbols
     "medlarge"
     "medsmall"
