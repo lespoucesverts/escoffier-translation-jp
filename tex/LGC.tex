@@ -344,7 +344,7 @@
             % colorlinks=false%true,%
              colorlinks=true,%
              citecolor=blue,%
-             urlcolor=cyan,%
+             urlcolor=magenta,%
              linkcolor=magenta,%
              bookmarksdepth=subsubsection,%
              pdfborder={0 0 0},%
@@ -365,17 +365,20 @@
 \makeatother
 
 \title{\Huge{オーギュスト・エスコフィエ}\\\HUGE{『料理の手引き』全注解}}
-\author{\Large{五 島　学（責任編集・訳・注釈）}\and \Large{河井 健司（訳・注釈）} \and \large{春野 裕征（訳）\and 山 本　学（訳）\and 高 橋　昇（校正）}}
+\author{\LARGE{五 島　学（責任編集・訳・注釈）}\and \LARGE{河井 健司（訳・注釈）} \and \large{春野 裕征（訳）} \and \large{山 本　学（原文対照）} \and \large{高 橋　昇（校正）}}
 \date{}
 
 %%索引関連
 \usepackage{sauceindexdef}
 \usepackage{index}
 %\usepackage[useindex]{spliidx}
-\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
-%\newindex{default}{bidx}{bind}{総合索引}
+
 \makeindex
- 
+
+\newindex{src}{idx1}{ind1}{ソース名から料理を探す}
+% \renewindex{default}{idx}{ind}{総合索引}
+
+
  \makeatletter
 \renewenvironment{theindex}{% 索引を3段組で出力する環境
     \if@twocolumn
@@ -422,10 +425,10 @@
 
 
 \maketitle
+
 %%後援者一覧
-%\newpage
-\input{chapitres/00-avant-propos/00-benefactors}
-%\newpage
+\input{00-avant-propos/00-benefactors}
+
 
 %空白ページ
 \newpage
@@ -441,11 +444,11 @@
 %%% 序文開始
 %\layout%レイアウト数値確認用
 %%%%hston blumenthal
-\include{chapitres/00-avant-propos/01-heston}
+\include{00-avant-propos/01-heston}
 
 \frontmatter
 
-\include{chapitres/00-avant-propos/02-avant-propos}
+\include{00-avant-propos/02-avant-propos}
 
 %%% 本文開始
 \mainmatter
@@ -453,23 +456,23 @@
 %%% chapitre i. saucesa
 %\include{chapitres/01-sauces/01-00}
 %%%%I. Sauces 
-\include{chapitres/01-sauces/01-01-pp1-12}
-\include{chapitres/01-sauces/01-02-pp13-17}
-\include{chapitres/01-sauces/01-03-pp18-27}
-\include{chapitres/01-sauces/01-04-pp28-41}
-\include{chapitres/01-sauces/01-05-pp42-46}
-\include{chapitres/01-sauces/01-06-pp47-52}
-\include{chapitres/01-sauces/01-07-pp53-57}
-\include{chapitres/01-sauces/01-08-pp58-62}
-\include{chapitres/01-sauces/01-09-pp63-67}
+\include{01-sauces/01-01-pp1-12}
+\include{01-sauces/01-02-pp13-17}
+\include{01-sauces/01-03-pp18-27}
+\include{01-sauces/01-04-pp28-41}
+\include{01-sauces/01-05-pp42-46}
+\include{01-sauces/01-06-pp47-52}
+\include{01-sauces/01-07-pp53-57}
+\include{01-sauces/01-08-pp58-62}
+\include{01-sauces/01-09-pp63-67}
 
 %%% chapitre ii. garnitures
 %\include{chapitre/02-garnitures/02-00}
 %% II. garnitures
-\input{chapitres/02-garnitures/02-01-pp68-77}
-\input{chapitres/02-garnitures/02-02-pp78-82}
-\input{chapitres/02-garnitures/02-03-pp83-88}%\newpage
-\input{chapitres/02-garnitures/02-04-pp89-103}
+\input{02-garnitures/02-01-pp68-77}
+\input{02-garnitures/02-02-pp78-82}
+\input{02-garnitures/02-03-pp83-88}%\newpage
+\input{02-garnitures/02-04-pp89-103}
 
 
 %%% chapitre iii. potages
@@ -495,9 +498,9 @@
 
 %%% chapitre xiii legumes
 %\input{../chapitres/13-legumes/13-00}
-\include{chapitres/13-legumes/13-01-pp726-727}%
-\include{chapitres/13-legumes/13-02-pp728-730}
-\input{chapitres/13-legumes/13-03-pp730-732}
+\include{13-legumes/13-01-pp726-727}%
+\input{13-legumes/13-02-pp728-730}
+\input{13-legumes/13-03-pp730-732}
 %\input{../chapitres/13-legumes/13-01-pp726-727}
 
 
